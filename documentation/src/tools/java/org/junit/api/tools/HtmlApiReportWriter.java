@@ -49,8 +49,7 @@ class HtmlApiReportWriter extends AbstractApiReportWriter {
 		return "<span class='code'>" + element + "</span>";
 	}
 
-	@Override
-	protected String italic(String element) {
+	private String italic(String element) {
 		return "<em>" + element + "</em>";
 	}
 

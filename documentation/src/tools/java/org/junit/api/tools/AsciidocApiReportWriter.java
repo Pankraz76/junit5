@@ -48,8 +48,7 @@ class AsciidocApiReportWriter extends AbstractApiReportWriter {
 		return "`" + element + "`";
 	}
 
-	@Override
-	protected String italic(String element) {
+	private String italic(String element) {
 		return "_" + element + "_";
 	}
 

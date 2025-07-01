@@ -12,15 +12,9 @@ package org.junit.vintage.engine.samples.junit3;
 
 import junit.framework.TestCase;
 
-import org.junit.Assert;
-
 /**
  * @since 4.12
  */
 public abstract class AbstractJUnit3TestCase extends TestCase {
-
-	public void test() {
-		Assert.fail("this test should not be run");
-	}
 
 }

@@ -10,15 +10,10 @@
 
 package org.junit.vintage.engine.samples.junit4;
 
-import org.junit.Test;
-
 public abstract class AbstractJunit4TestCaseWithConstructorParameter {
 
 	public AbstractJunit4TestCaseWithConstructorParameter(int parameter) {
 
 	}
 
-	@Test
-	public void test() {
-	}
 }
