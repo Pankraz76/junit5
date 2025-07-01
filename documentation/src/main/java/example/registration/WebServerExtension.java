@@ -30,7 +30,7 @@ public class WebServerExtension implements BeforeAllCallback {
 
 	public static class Builder {
 
-		public Builder enableSecurity(boolean b) {
+		public Builder enableSecurity() {
 			return this;
 		}
 

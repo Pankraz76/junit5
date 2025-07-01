@@ -48,10 +48,6 @@ class AsciidocApiReportWriter extends AbstractApiReportWriter {
 		return "`" + element + "`";
 	}
 
-	private String italic(String element) {
-		return "_" + element + "_";
-	}
-
 	@Override
 	protected void printDeclarationTableHeader(PrintWriter out) {
 		out.println("[cols=\"99,1\"]");
@@ -62,8 +58,9 @@ class AsciidocApiReportWriter extends AbstractApiReportWriter {
 
 	@Override
 	protected void printDeclarationTableRow(Declaration declaration, PrintWriter out) {
+		String element = "(" + declaration.kind() + ")";
 		out.printf(ASCIIDOC_FORMAT, //
-			code(declaration.name().replace(".", ".&ZeroWidthSpace;")) + " " + italic("(" + declaration.kind() + ")"), //
+			code(declaration.name().replace(".", ".&ZeroWidthSpace;")) + " " + "_" + element + "_", //
 			code(declaration.since()) //
 		);
 	}

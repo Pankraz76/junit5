@@ -49,10 +49,6 @@ class MarkdownApiReportWriter extends AbstractApiReportWriter {
 		return "`" + element + "`";
 	}
 
-	private String italic(String element) {
-		return "_" + element + "_";
-	}
-
 	@Override
 	protected void printDeclarationTableHeader(PrintWriter out) {
 		out.printf(MARKDOWN_FORMAT, "Name", "Since");
@@ -65,8 +61,9 @@ class MarkdownApiReportWriter extends AbstractApiReportWriter {
 
 	@Override
 	protected void printDeclarationTableRow(Declaration declaration, PrintWriter out) {
+		String element = "(" + declaration.kind() + ")";
 		out.printf(MARKDOWN_FORMAT, //
-			code(declaration.name()) + " " + italic("(" + declaration.kind() + ")"), //
+			code(declaration.name()) + " " + "_" + element + "_", //
 			code(declaration.since()) //
 		);
 	}

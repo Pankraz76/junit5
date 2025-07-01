@@ -12,7 +12,7 @@ package example.registration;
 
 public class WebClient implements AutoCloseable {
 
-	public WebResponse get(String string) {
+	public WebResponse get() {
 		return new WebResponse();
 	}
 

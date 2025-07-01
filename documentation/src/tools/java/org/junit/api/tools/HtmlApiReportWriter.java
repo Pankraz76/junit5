@@ -49,10 +49,6 @@ class HtmlApiReportWriter extends AbstractApiReportWriter {
 		return "<span class='code'>" + element + "</span>";
 	}
 
-	private String italic(String element) {
-		return "<em>" + element + "</em>";
-	}
-
 	@Override
 	protected String paragraph(String element) {
 		return "<p>" + element + "</p>";
@@ -66,8 +62,9 @@ class HtmlApiReportWriter extends AbstractApiReportWriter {
 
 	@Override
 	protected void printDeclarationTableRow(Declaration declaration, PrintWriter out) {
+		String element = "(" + declaration.kind() + ")";
 		out.printf(HTML_ROW_FORMAT, //
-			code(declaration.name()) + " " + italic("(" + declaration.kind() + ")"), //
+			code(declaration.name()) + " " + "<em>" + element + "</em>", //
 			code(declaration.since()) //
 		);
 	}

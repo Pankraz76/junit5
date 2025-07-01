@@ -23,7 +23,7 @@ class WebServerDemo {
 	// tag::user_guide[]
 	@RegisterExtension
 	static WebServerExtension server = WebServerExtension.builder()
-		.enableSecurity(false)
+		.enableSecurity()
 		.build();
 	// end::user_guide[]
 	// @formatter:on
@@ -37,7 +37,7 @@ class WebServerDemo {
 		WebClient webClient = new WebClient();
 		String serverUrl = server.getServerUrl();
 		// Use WebClient to connect to web server using serverUrl and verify response
-		assertEquals(200, webClient.get(serverUrl + "/products").getResponseStatus());
+		assertEquals(200, webClient.get().getResponseStatus());
 	}
 
 }

@@ -31,7 +31,7 @@ class AutoCloseDemo {
 	@Test
 	void getProductList() {
 		// Use WebClient to connect to web server and verify response
-		assertEquals(200, webClient.get(serverUrl + "/products").getResponseStatus());
+		assertEquals(200, webClient.get().getResponseStatus());
 	}
 
 }

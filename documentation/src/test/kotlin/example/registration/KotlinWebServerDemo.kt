@@ -21,7 +21,7 @@ class KotlinWebServerDemo {
         val server =
             WebServerExtension
                 .builder()
-                .enableSecurity(false)
+                .enableSecurity()
                 .build()!!
     }
 
@@ -30,7 +30,7 @@ class KotlinWebServerDemo {
         // Use WebClient to connect to web server using serverUrl and verify response
         val webClient = WebClient()
         val serverUrl = server.serverUrl
-        assertEquals(200, webClient.get("$serverUrl/products").responseStatus)
+        assertEquals(200, webClient.get().responseStatus)
     }
 }
 // end::user_guide[]
