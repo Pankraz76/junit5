@@ -1,8 +1,10 @@
 package junitbuild.java
 
 import org.gradle.api.DefaultTask
+import org.gradle.api.artifacts.Configuration
 import org.gradle.api.artifacts.ModuleVersionIdentifier
 import org.gradle.api.file.RegularFileProperty
+import org.gradle.api.provider.Provider
 import org.gradle.api.provider.SetProperty
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.OutputFile
@@ -15,6 +17,13 @@ abstract class WriteArtifactsFile : DefaultTask() {
 
     @get:Input
     abstract val moduleVersions: SetProperty<ModuleVersionIdentifier>
+
+    @Override
+    fun from(configuration: Provider<Configuration>) {
+        moduleVersions.addAll(configuration.map {
+            it.resolvedConfiguration.resolvedArtifacts.map { it.moduleVersion.id }
+        })
+    }
 
     @TaskAction
     fun writeFile() {
