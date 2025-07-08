@@ -25,8 +25,6 @@ spotless {
 	}
 	format("projects") {
 		target("projects/**/*.gradle.kts", "projects/**/*.md")
-		trimTrailingWhitespace()
-		endWithNewline()
 	}
 }
 

@@ -26,7 +26,6 @@ sourceSets.named { it != templates.name }.configureEach {
 			templates.resources.srcDirs.single().resolve(sourceSetName)
 		}))
 		targetDir.convention(rootTargetDir.map { it.dir(sourceSetName) })
-		licenseHeaderFile.convention(license.headerFile)
 	}
 
 	java.srcDir(task.map { it.targetDir })
