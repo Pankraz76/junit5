@@ -13,7 +13,6 @@ dependencies {
 	templatesCompileOnly("junitbuild.base:code-generator-model")
 }
 
-val license: License by rootProject.extra
 val rootTargetDir = layout.buildDirectory.dir("generated/sources/jte")
 val generateCode by tasks.registering
 
