@@ -19,7 +19,8 @@ plugins {
 
 rewrite {
 	activeRecipe("org.junit.jupiter.AddLicenseHeader")
-	activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
+	activeRecipe("org.openrewrite.java.migrate.UpgradeToJava17")
+	activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21") // Java21ForTests
 	activeRecipe("org.openrewrite.java.testing.junit5.JUnit5BestPractices")
 	activeRecipe("org.openrewrite.maven.OrderPomElements")
 	activeRecipe("org.openrewrite.staticanalysis.CodeCleanup")
