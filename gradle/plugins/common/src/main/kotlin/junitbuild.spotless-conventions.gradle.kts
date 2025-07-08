@@ -30,7 +30,6 @@ spotless {
 
 		java {
 			targetExclude("**/module-info.java")
-			licenseHeaderFile(license.headerFile, "(package|import) ")
 			importOrderFile(importOrderConfigFile)
 			val fullVersion = requiredVersionFromLibs("eclipse")
 			val majorMinorVersion = "([0-9]+\\.[0-9]+).*".toRegex().matchEntire(fullVersion)!!.let { it.groups[1]!!.value }
@@ -44,7 +43,6 @@ spotless {
 			target(fileTree(layout.projectDirectory.dir("src/main/java")) {
 				include("module-info.java")
 			})
-			licenseHeaderFile(license.headerFile, "^$")
 			trimTrailingWhitespace()
 			endWithNewline()
 		}
@@ -54,7 +52,6 @@ spotless {
 		kotlin {
 			targetExclude("**/src/test/resources/**")
 			ktlint(requiredVersionFromLibs("ktlint"))
-			licenseHeaderFile(license.headerFile)
 			trimTrailingWhitespace()
 			endWithNewline()
 		}
@@ -72,7 +69,6 @@ spotless {
 
 	pluginManager.withPlugin("groovy") {
 		groovy {
-			licenseHeaderFile(license.headerFile)
 			trimTrailingWhitespace()
 			endWithNewline()
 		}

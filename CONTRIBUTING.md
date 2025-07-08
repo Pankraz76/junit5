@@ -72,9 +72,9 @@ Whenever an acronym is included as part of a field name or parameter name:
 - Otherwise, keep the first letter of the acronym uppercase and use lowercase for the
   rest of the acronym -- for example, `String defaultUrl;`.
 
-### Formatting
+### Automated Refactoring
 
-#### Code
+#### Formatting
 
 Code formatting is enforced using the [Spotless](https://github.com/diffplug/spotless)
 Gradle plugin. You can use `gradle spotlessApply` to format new code and add missing
@@ -88,6 +88,14 @@ Eclipse settings.
 
 It is forbidden to use _wildcard imports_ (e.g., `import static org.junit.jupiter.api.Assertions.*;`)
 in Java code.
+
+Here's a rewritten version of the text with similar formatting and structure but different wording:
+
+#### Recipes
+
+The build system incorporates [Moderne](https://moderne.io/) rewrite capabilities for automated code transformations. These modifications are environment-driven enlisted in the [junitbuild.java-library-conventions.gradle.kts](gradle/plugins/common/src/main/kotlin/junitbuild.java-library-conventions.gradle.kts)
+
+You can use `gradle rewriteRun` to apply these changes.
 
 #### Documentation
 

@@ -18,12 +18,21 @@ plugins {
 }
 
 rewrite {
-	activeRecipe("org.openrewrite.java.migrate.UpgradeToJava17")
+	activeRecipe("org.junit.jupiter.AddLicenseHeader")
+	activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
+	activeRecipe("org.openrewrite.java.testing.junit5.JUnit5BestPractices")
+	activeRecipe("org.openrewrite.maven.OrderPomElements")
+	activeRecipe("org.openrewrite.staticanalysis.CodeCleanup")
+	activeRecipe("org.openrewrite.staticanalysis.MissingOverrideAnnotation")
+	activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods")
+	failOnDryRunResults = true
 }
 
 dependencies {
 	rewrite(platform(dependencyFromLibs("openrewrite-recipe-bom")))
 	rewrite("org.openrewrite.recipe:rewrite-migrate-java")
+	rewrite("org.openrewrite.recipe:rewrite-static-analysis")
+	rewrite("org.openrewrite.recipe:rewrite-testing-frameworks")
 }
 
 val mavenizedProjects: List<Project> by rootProject.extra
@@ -280,6 +289,9 @@ tasks {
 	}
 	checkstyleTest {
 		config = resources.text.fromFile(checkstyle.configDirectory.file("checkstyleTest.xml"))
+	}
+	check {
+		dependsOn("rewriteDryRun")
 	}
 }
 
