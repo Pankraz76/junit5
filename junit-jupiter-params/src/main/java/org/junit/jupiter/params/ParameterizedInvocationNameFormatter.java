@@ -247,7 +247,7 @@ class ParameterizedInvocationNameFormatter {
 
 		@Override
 		public synchronized void append(ArgumentsContext context, StringBuffer result) {
-			Object[] readableArguments = makeReadable(context.consumedArguments);
+			Object[] readableArguments = requireNonNull(makeReadable(context.consumedArguments));
 			this.messageFormat.format(readableArguments, result, new FieldPosition(0));
 		}
 
