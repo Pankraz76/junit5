@@ -254,13 +254,13 @@ class ParameterizedInvocationNameFormatter {
 		@Nullable
 		private List<Object> makeReadable(@Nullable Object[] arguments, Format[] formats) {
 			return IntStream.range(0, min(arguments.length, formats.length)).mapToObj(
-				i -> makeReadable(arguments, i, formats[i])).toList();
+					i -> makeReadable(arguments, i, formats[i])).toList();
 		}
 
 		@Nullable
 		private Object makeReadable(@Nullable Object[] arguments, int index, @Nullable Format format) {
 			return format != null ? arguments == null ? "" : arguments[index]
-					: truncateIfExceedsMaxLength(StringUtils.nullSafeToString(arguments[index]));
+					: truncateIfExceedsMaxLength(replaceNonPrintableCharacters(StringUtils.nullSafeToString(arguments[index])));
 		}
 
 		private String truncateIfExceedsMaxLength(String argument) {
@@ -268,8 +268,15 @@ class ParameterizedInvocationNameFormatter {
 					? argument.substring(0, this.argumentMaxLength - 1) + ELLIPSIS
 					: argument;
 		}
-	}
 
+		private String replaceNonPrintableCharacters(String string) {
+			return string
+					.replace("\n", "\\n")
+					.replace("\r", "\\r")
+					.replace("\t", "\\t")
+					.replaceAll("[\\p{Cc}\\p{Cf}\\p{Co}\\p{Cn}]", "?");
+		}
+	}
 	private static class CachingByArgumentsLengthPartialFormatter implements PartialFormatter {
 
 		private final ConcurrentMap<Integer, PartialFormatter> cache = new ConcurrentHashMap<>(1);
