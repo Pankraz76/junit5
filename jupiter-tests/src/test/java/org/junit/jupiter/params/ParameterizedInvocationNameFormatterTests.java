@@ -323,6 +323,73 @@ class ParameterizedInvocationNameFormatterTests {
 
 	}
 
+
+	@Nested
+	class replacesNonPrintableCharacters {
+
+
+	@Test
+	void replacesNonPrintableCharactersInArguments() {
+		var formatter = formatter(ARGUMENTS_PLACEHOLDER, "enigma");
+
+		Arguments args = arguments(
+				"\t", "\r", "\r\n", "\n", "\u200B"
+		);
+
+		assertEquals("\\t, \\r, \\r\\n, \\n, ?", format(formatter, 1, args));
+	}
+
+	@Test
+	void replacesNonPrintableCharactersInQuotedArguments() {
+		var formatter = formatter("'{0}' '{1}' '{2}' '{3}' '{4}'", "enigma");
+
+		Arguments args = arguments(
+				"\t", "\r", "\r\n", "\n", "\u200B"
+		);
+
+		assertEquals("'\\t' '\\r' '\\r\\n' '\\n' '?'", format(formatter, 1, args));
+	}
+
+	@Test
+	void replacesNonPrintableCharactersInArgumentSetName() {
+		var formatter = formatter(ARGUMENT_SET_NAME_PLACEHOLDER, "IGNORED");
+
+		var formattedName = format(formatter, 1,
+				argumentSet("Test\tWith\nNewlines", "value"));
+
+		assertEquals("Test\\tWith\\nNewlines", formattedName);
+	}
+
+	@Test
+	void replacesNonPrintableCharactersInDisplayName() {
+		var formatter = formatter(DISPLAY_NAME_PLACEHOLDER, "Display\tName\nWith\nNewlines");
+
+		assertEquals("Display\\tName\\nWith\\nNewlines", format(formatter, 1, arguments()));
+	}
+
+	@Test
+	void handlesMixedPrintableAndNonPrintableCharacters() {
+		var formatter = formatter("{0} {1}", "enigma");
+
+		Arguments args = arguments(
+				"Normal\tText", "Another\nLine"
+		);
+
+		assertEquals("Normal\\tText Another\\nLine", format(formatter, 1, args));
+	}
+
+	@Test
+	void doesNotReplacePrintableUnicodeCharacters() {
+		var formatter = formatter(ARGUMENTS_PLACEHOLDER, "enigma");
+
+		Arguments args = arguments(
+				"正常", "こんにちは", "안녕하세요"
+		);
+
+		assertEquals("正常, こんにちは, 안녕하세요", format(formatter, 1, args));
+	}
+	}
+
 	// -------------------------------------------------------------------------
 
 	private static ParameterizedInvocationNameFormatter formatter(String pattern, String displayName) {
