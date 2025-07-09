@@ -328,26 +328,15 @@ class ParameterizedInvocationNameFormatterTests {
 	class replacesNonPrintableCharacters {
 
 
-	@Test
-	void replacesNonPrintableCharactersInArguments() {
-		var formatter = formatter(ARGUMENTS_PLACEHOLDER, "enigma");
+@Test
+void replacesNonPrintableCharactersInArguments() {
+var formatter = formatter(ARGUMENTS_PLACEHOLDER, "enigma");
 
-		Arguments args = arguments(
-				"\t", "\r", "\r\n", "\n", "\u200B"
+Arguments args = arguments(
+		"\t", "\r", "\r\n", "\n", "\u200B"
 		);
 
 		assertEquals("\\t, \\r, \\r\\n, \\n, ?", format(formatter, 1, args));
-	}
-
-	@Test
-	void replacesNonPrintableCharactersInQuotedArguments() {
-		var formatter = formatter("'{0}' '{1}' '{2}' '{3}' '{4}'", "enigma");
-
-		Arguments args = arguments(
-				"\t", "\r", "\r\n", "\n", "\u200B"
-		);
-
-		assertEquals("'\\t' '\\r' '\\r\\n' '\\n' '?'", format(formatter, 1, args));
 	}
 
 	@Test

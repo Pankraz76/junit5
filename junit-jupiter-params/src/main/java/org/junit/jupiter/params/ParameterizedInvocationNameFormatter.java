@@ -58,19 +58,19 @@ class ParameterizedInvocationNameFormatter {
 
 		String name = declarationContext.getDisplayNamePattern();
 		String pattern = name.equals(DEFAULT_DISPLAY_NAME)
-				? extensionContext.getConfigurationParameter(DISPLAY_NAME_PATTERN_KEY)
-				.orElse(DEFAULT_DISPLAY_NAME_PATTERN)
+				? extensionContext.getConfigurationParameter(DISPLAY_NAME_PATTERN_KEY).orElse(
+					DEFAULT_DISPLAY_NAME_PATTERN)
 				: name;
 		pattern = Preconditions.notBlank(pattern.strip(),
-				() -> "Configuration error: @%s on %s must be declared with a non-empty name.".formatted(
-						declarationContext.getAnnotationName(),
-						declarationContext.getResolverFacade().getIndexedParameterDeclarations().getSourceElementDescription()));
+			() -> "Configuration error: @%s on %s must be declared with a non-empty name.".formatted(
+				declarationContext.getAnnotationName(),
+				declarationContext.getResolverFacade().getIndexedParameterDeclarations().getSourceElementDescription()));
 
-		int argumentMaxLength = extensionContext.getConfigurationParameter(ARGUMENT_MAX_LENGTH_KEY, Integer::parseInt)
-				.orElse(512);
+		int argumentMaxLength = extensionContext.getConfigurationParameter(ARGUMENT_MAX_LENGTH_KEY,
+			Integer::parseInt).orElse(512);
 
 		return new ParameterizedInvocationNameFormatter(pattern, extensionContext.getDisplayName(), declarationContext,
-				argumentMaxLength);
+			argumentMaxLength);
 	}
 
 	private final PartialFormatter[] partialFormatters;
@@ -100,7 +100,7 @@ class ParameterizedInvocationNameFormatter {
 
 	private String formatSafely(int invocationIndex, EvaluatedArgumentSet arguments) {
 		ArgumentsContext context = new ArgumentsContext(invocationIndex, arguments.getConsumedNames(),
-				arguments.getName());
+			arguments.getName());
 		StringBuffer result = new StringBuffer();
 		for (PartialFormatter partialFormatter : this.partialFormatters) {
 			partialFormatter.append(context, result);
@@ -152,8 +152,7 @@ class ParameterizedInvocationNameFormatter {
 	}
 
 	private static PartialFormatter determineNonPlaceholderFormatter(String segment, int argumentMaxLength) {
-		return segment.contains("{")
-				? new MessageFormatPartialFormatter(segment, argumentMaxLength)
+		return segment.contains("{") ? new MessageFormatPartialFormatter(segment, argumentMaxLength)
 				: (context, result) -> result.append(replaceNonPrintableCharacters(segment));
 	}
 
@@ -161,23 +160,22 @@ class ParameterizedInvocationNameFormatter {
 			ParameterizedDeclarationContext<?> declarationContext, int argumentMaxLength) {
 
 		PartialFormatter argumentsWithNamesFormatter = new CachingByArgumentsLengthPartialFormatter(
-				length -> new MessageFormatPartialFormatter(argumentsWithNamesPattern(length, declarationContext),
-						argumentMaxLength));
+			length -> new MessageFormatPartialFormatter(argumentsWithNamesPattern(length, declarationContext),
+				argumentMaxLength));
 
 		PartialFormatter argumentSetNameFormatter = new ArgumentSetNameFormatter(
-				declarationContext.getAnnotationName());
+			declarationContext.getAnnotationName());
 
 		PartialFormatters formatters = new PartialFormatters();
 		formatters.put(INDEX_PLACEHOLDER, PartialFormatter.INDEX);
-		formatters.put(DISPLAY_NAME_PLACEHOLDER, (context, result) ->
-				result.append(replaceNonPrintableCharacters(displayName)));
+		formatters.put(DISPLAY_NAME_PLACEHOLDER,
+			(context, result) -> result.append(replaceNonPrintableCharacters(displayName)));
 		formatters.put(ARGUMENT_SET_NAME_PLACEHOLDER, argumentSetNameFormatter);
 		formatters.put(ARGUMENTS_WITH_NAMES_PLACEHOLDER, argumentsWithNamesFormatter);
 		formatters.put(ARGUMENTS_PLACEHOLDER, new CachingByArgumentsLengthPartialFormatter(
-				length -> new MessageFormatPartialFormatter(argumentsPattern(length), argumentMaxLength)));
+			length -> new MessageFormatPartialFormatter(argumentsPattern(length), argumentMaxLength)));
 		formatters.put(ARGUMENT_SET_NAME_OR_ARGUMENTS_WITH_NAMES_PLACEHOLDER, (context, result) -> {
-			PartialFormatter formatterToUse = context.argumentSetName.isPresent()
-					? argumentSetNameFormatter
+			PartialFormatter formatterToUse = context.argumentSetName.isPresent() ? argumentSetNameFormatter
 					: argumentsWithNamesFormatter;
 			formatterToUse.append(context, result);
 		});
@@ -186,31 +184,25 @@ class ParameterizedInvocationNameFormatter {
 
 	private static String argumentsWithNamesPattern(int length, ParameterizedDeclarationContext<?> declarationContext) {
 		ResolverFacade resolverFacade = declarationContext.getResolverFacade();
-		return IntStream.range(0, length)
-				.mapToObj(index -> resolverFacade.getParameterName(index).map(name -> name + "=").orElse("") + "{"
-						+ index + "}")
-				.collect(joining(", "));
+		return IntStream.range(0, length).mapToObj(
+			index -> resolverFacade.getParameterName(index).map(name -> name + "=").orElse("") + "{" + index
+					+ "}").collect(joining(", "));
 	}
 
 	private static String argumentsPattern(int length) {
-		return IntStream.range(0, length)
-				.mapToObj(index -> "{" + index + "}")
-				.collect(joining(", "));
+		return IntStream.range(0, length).mapToObj(index -> "{" + index + "}").collect(joining(", "));
 	}
 
 	private static String replaceNonPrintableCharacters(String string) {
-		return string
-				.replace("\n", "\\n")
-				.replace("\r", "\\r")
-				.replace("\t", "\\t")
-				.replaceAll("[\\p{Cc}\\p{Cf}\\p{Co}\\p{Cn}]", "?");
+		return string.replace("\n", "\\n").replace("\r", "\\r").replace("\t", "\\t").replaceAll(
+			"[\\p{Cc}\\p{Cf}\\p{Co}\\p{Cn}]", "?");
 	}
 
 	private record PlaceholderPosition(int index, String placeholder) {
 	}
 
 	private record ArgumentsContext(int invocationIndex, @Nullable Object[] consumedArguments,
-									Optional<String> argumentSetName) {
+			Optional<String> argumentSetName) {
 	}
 
 	@FunctionalInterface
@@ -228,8 +220,8 @@ class ParameterizedInvocationNameFormatter {
 				return;
 			}
 			throw new ExtensionConfigurationException(
-					"When the display name pattern for a @%s contains %s, the arguments must be supplied as an ArgumentSet."
-							.formatted(this.annotationName, ARGUMENT_SET_NAME_PLACEHOLDER));
+				"When the display name pattern for a @%s contains %s, the arguments must be supplied as an ArgumentSet.".formatted(
+					this.annotationName, ARGUMENT_SET_NAME_PLACEHOLDER));
 		}
 	}
 
@@ -259,7 +251,7 @@ class ParameterizedInvocationNameFormatter {
 		@Nullable
 		private List<Object> makeReadable(@Nullable Object[] arguments, Format[] formats) {
 			return IntStream.range(0, min(arguments.length, formats.length)).mapToObj(
-					i -> makeReadable(arguments, i, formats[i])).toList();
+				i -> makeReadable(arguments, i, formats[i])).toList();
 		}
 
 		@Nullable
