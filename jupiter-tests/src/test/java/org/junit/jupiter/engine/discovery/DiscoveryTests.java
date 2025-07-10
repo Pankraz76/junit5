@@ -412,7 +412,7 @@ class DiscoveryTests extends AbstractJupiterTestEngineTests {
 	// -------------------------------------------------------------------
 
 	@SuppressWarnings("unused")
-	abstract static class AbstractTestCase {
+	static abstract class AbstractTestCase {
 
 		@Test
 		void test() {
@@ -465,7 +465,7 @@ class DiscoveryTests extends AbstractJupiterTestEngineTests {
 
 	}
 
-	abstract static class AbstractSuperClass {
+	static abstract class AbstractSuperClass {
 		@Nested
 		class NestedInAbstractClass {
 			@Test

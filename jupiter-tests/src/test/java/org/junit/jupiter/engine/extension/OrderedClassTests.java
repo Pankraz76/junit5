@@ -245,7 +245,7 @@ class OrderedClassTests {
 		return testKit.selectors(selectors);
 	}
 
-	abstract static class BaseTestCase {
+	static abstract class BaseTestCase {
 
 		@BeforeEach
 		void trackInvocations(TestInfo testInfo) {

@@ -333,7 +333,7 @@ class DisplayNameGenerationTests extends AbstractJupiterTestEngineTests {
 	}
 
 	@DisplayNameGeneration(NoNameGenerator.class)
-	abstract static class AbstractTestCase {
+	static abstract class AbstractTestCase {
 		@Test
 		void test() {
 		}

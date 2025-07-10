@@ -111,7 +111,7 @@ class ParameterizedTestExtensionTests {
 	void defaultDisplayNameWithEmptyStringInConfigurationIsIllegal() {
 		AtomicInteger invocations = new AtomicInteger();
 		Function<String, Optional<String>> configurationSupplier = key -> {
-			if (ParameterizedInvocationNameFormatter.DISPLAY_NAME_PATTERN_KEY.equals(key)) {
+			if (key.equals(ParameterizedInvocationNameFormatter.DISPLAY_NAME_PATTERN_KEY)) {
 				invocations.incrementAndGet();
 				return Optional.of("");
 			}
