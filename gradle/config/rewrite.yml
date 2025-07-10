@@ -41,6 +41,8 @@ recipeList:
 #  - org.openrewrite.staticanalysis.DefaultComesLast
 #  - org.openrewrite.staticanalysis.EmptyBlock
   - org.openrewrite.staticanalysis.EqualsAvoidsNull
+  - org.junit.jupiter.AddLicenseHeader
+  - org.junit.jupiter.NoTabsNoStarImports
 #  - org.openrewrite.staticanalysis.ForLoopControlVariablePostfixOperators
 #  - org.openrewrite.staticanalysis.MissingOverrideAnnotation
 #  - org.openrewrite.staticanalysis.ModifierOrder
