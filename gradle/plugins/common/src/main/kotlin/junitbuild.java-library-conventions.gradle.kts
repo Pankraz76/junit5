@@ -12,18 +12,21 @@ plugins {
 	idea
 	id("junitbuild.base-conventions")
 	id("junitbuild.build-parameters")
-	id("junitbuild.checkstyle-conventions")
 	id("junitbuild.jacoco-java-conventions")
 	id("org.openrewrite.rewrite")
 }
 
 rewrite {
-	activeRecipe("org.openrewrite.java.migrate.UpgradeToJava17")
+	activeRecipe("org.junit.openrewrite.recipe.CodeCleanup")
+	configFile = file("config/rewrite.yml")
+	failOnDryRunResults = true
 }
 
 dependencies {
 	rewrite(platform(dependencyFromLibs("openrewrite-recipe-bom")))
+	rewrite("org.openrewrite.recipe:rewrite-static-analysis")
 	rewrite("org.openrewrite.recipe:rewrite-migrate-java")
+	rewrite("org.openrewrite.recipe:rewrite-testing-frameworks")
 }
 
 val mavenizedProjects: List<Project> by rootProject.extra
