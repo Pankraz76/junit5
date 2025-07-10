@@ -1,0 +1,16 @@
+type: specs.openrewrite.org/v1beta/recipe
+name: org.junit.jupiter.AddLicenseHeader
+displayName: Add license header
+recipeList:
+  - org.openrewrite.java.AddLicenseHeader:
+      licenseText: """
+      /*
+       * Copyright 2015-${CURRENT_YEAR} the original author or authors.
+       *
+       * All rights reserved. This program and the accompanying materials are
+       * made available under the terms of the Eclipse Public License v2.0 which
+       * accompanies this distribution and is available at
+       *
+       * https://www.eclipse.org/legal/epl-v20.html
+       */
+      """
