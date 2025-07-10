@@ -53,13 +53,11 @@ rewrite {
 	failOnDryRunResults = true
 }
 
-/**
- * rewrite("org.openrewrite.recipe:rewrite-testing-frameworks")
- * rewrite("org.openrewrite.recipe:rewrite-migrate-java")
- */
 dependencies {
 	rewrite(platform(dependencyFromLibs("openrewrite-recipe-bom")))
 	rewrite("org.openrewrite.recipe:rewrite-static-analysis")
+	rewrite("org.openrewrite.recipe:rewrite-migrate-java")
+	rewrite("org.openrewrite.recipe:rewrite-testing-frameworks")
 }
 
 val mavenizedProjects: List<Project> by rootProject.extra
