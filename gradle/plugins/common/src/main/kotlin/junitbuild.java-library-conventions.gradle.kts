@@ -17,39 +17,9 @@ plugins {
 	id("org.openrewrite.rewrite")
 }
 
-/**
- * activeRecipe("org.openrewrite.java.RemoveUnusedImports") // there are (non); fails to analyze
- * activeRecipe("org.openrewrite.java.format.AutoFormat") // could remove check, spot, and all other recipes if working
- * activeRecipe("org.openrewrite.java.format.BlankLines") // IndexOutOfBoundsException: Index 0 out of bounds for length 0
- * activeRecipe("org.openrewrite.java.format.NormalizeFormat")
- * activeRecipe("org.openrewrite.java.format.NormalizeLineBreaks")
- * activeRecipe("org.openrewrite.java.format.RemoveTrailingWhitespace")
- * activeRecipe("org.openrewrite.java.format.Spaces")
- * activeRecipe("org.openrewrite.java.format.TabsAndIndents")
- * activeRecipe("org.openrewrite.java.format.WrappingAndBraces")
- * activeRecipe("org.openrewrite.java.migrate.UpgradeToJava17")
- * activeRecipe("org.openrewrite.java.testing.assertj.Assertj")
- * activeRecipe("org.openrewrite.java.testing.cleanup.AssertTrueNullToAssertNull")
- * activeRecipe("org.openrewrite.java.testing.cleanup.TestsShouldNotBePublic")
- * activeRecipe("org.openrewrite.java.testing.junit5.JUnit5BestPractices") // exclude legacy
- * activeRecipe("org.openrewrite.staticanalysis.CodeCleanup")
- * activeRecipe("org.openrewrite.staticanalysis.CommonStaticAnalysis")
- * activeRecipe("org.openrewrite.staticanalysis.FinalizeLocalVariables")
- * activeRecipe("org.openrewrite.staticanalysis.RedundantFileCreation")
- * activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedLocalVariables")
- * activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedPrivateFields")
- * activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods") // there are non; fails to analyze (even tho it worked once)
- * activeRecipe("org.openrewrite.staticanalysis.StringLiteralEquality")
- * activeRecipe("org.openrewrite.text.EndOfLineAtEndOfFile")
- * activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
- */
 rewrite {
-	activeRecipe("org.openrewrite.staticanalysis.EqualsAvoidsNull")
-	activeRecipe("org.openrewrite.gradle.GradleBestPractices")
-	activeRecipe("org.openrewrite.staticanalysis.MissingOverrideAnnotation")
-	activeRecipe("org.openrewrite.staticanalysis.ModifierOrder")
+	activeRecipe("org.junit.openrewrite.recipe.CodeCleanup")
 	configFile = file("config/rewrite.yml")
-	activeRecipe("org.junit.openrewrite.recipe.CodeCleanup") // <-- refer a composite recipe from the config
 	failOnDryRunResults = true
 }
 
