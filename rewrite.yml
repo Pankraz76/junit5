@@ -1,6 +1,6 @@
 type: specs.openrewrite.org/v1beta/recipe
 name: org.junit.jupiter.AddLicenseHeader
-displayName: Add license header
+displayName: Add license header # --no-parallel
 recipeList:
   - org.openrewrite.java.AddLicenseHeader:
       licenseText: """
