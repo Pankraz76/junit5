@@ -37,7 +37,6 @@ displayName: Code cleanup
 description: Automatically cleanup code, e.g. remove unnecessary parentheses, simplify expressions.
 recipeList:
   - org.junit.openrewrite.recipe.AddLicenseHeader
-  - org.junit.openrewrite.recipe.CodeCleanup
   - org.junit.openrewrite.recipe.Java21ForTests
   - org.openrewrite.java.RemoveUnusedImports
   - org.openrewrite.java.format.AutoFormat
