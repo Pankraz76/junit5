@@ -12,7 +12,6 @@ plugins {
 	idea
 	id("junitbuild.base-conventions")
 	id("junitbuild.build-parameters")
-	id("junitbuild.checkstyle-conventions")
 	id("junitbuild.jacoco-java-conventions")
 	id("org.openrewrite.rewrite")
 }
