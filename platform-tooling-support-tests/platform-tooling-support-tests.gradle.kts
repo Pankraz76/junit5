@@ -1,6 +1,7 @@
 import com.gradle.develocity.agent.gradle.internal.test.TestDistributionConfigurationInternal
 import junitbuild.extensions.capitalized
 import junitbuild.extensions.dependencyProject
+import net.ltgt.gradle.errorprone.errorprone
 import org.gradle.api.tasks.PathSensitivity.RELATIVE
 import org.gradle.jvm.toolchain.JvmVendorSpec.GRAAL_VM
 import org.gradle.kotlin.dsl.support.listFilesOrdered
@@ -15,6 +16,20 @@ plugins {
 
 javaLibrary {
 	mainJavaVersion = JavaVersion.VERSION_21
+}
+
+spotless {
+	java {
+		target(files(project.java.sourceSets.map { it.allJava }), "projects/**/*.java")
+	}
+	kotlin {
+		target("projects/**/*.kt")
+	}
+	format("projects") {
+		target("projects/**/*.gradle.kts", "projects/**/*.md")
+		trimTrailingWhitespace()
+		endWithNewline()
+	}
 }
 
 val thirdPartyJars = configurations.dependencyScope("thirdPartyJars")
@@ -135,6 +150,16 @@ val archUnit by testing.suites.registering(JvmTestSuite::class) {
 			}
 		}
 	}
+}
+
+tasks.compileJava {
+	options.errorprone {
+		disableAllChecks = true
+	}
+}
+
+tasks.named<Checkstyle>("checkstyle${archUnit.name.capitalized()}").configure {
+	config = resources.text.fromFile(checkstyle.configDirectory.file("checkstyleTest.xml"))
 }
 
 tasks.check {

@@ -1,9 +1,5 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-import com.gradle.scan.agent.serialization.scan.serializer.kryo.it
-import groovy.xml.dom.DOMCategory.attributes
-import junitbuild.extensions.dependencyFromLibs
 import junitbuild.extensions.isSnapshot
-import org.gradle.internal.impldep.org.apache.http.client.methods.RequestBuilder.options
 import org.gradle.plugins.ide.eclipse.model.Classpath
 import org.gradle.plugins.ide.eclipse.model.Library
 import org.gradle.plugins.ide.eclipse.model.ProjectDependency
@@ -15,21 +11,8 @@ plugins {
 	idea
 	id("junitbuild.base-conventions")
 	id("junitbuild.build-parameters")
+	id("junitbuild.checkstyle-conventions")
 	id("junitbuild.jacoco-java-conventions")
-	id("org.openrewrite.rewrite")
-}
-
-rewrite {
-	activeRecipe("org.junit.openrewrite.recipe.CodeCleanup")
-	configFile = file("config/rewrite.yml")
-	failOnDryRunResults = true
-}
-
-dependencies {
-	rewrite(platform(dependencyFromLibs("openrewrite-recipe-bom")))
-	rewrite("org.openrewrite.recipe:rewrite-static-analysis")
-	rewrite("org.openrewrite.recipe:rewrite-migrate-java")
-	rewrite("org.openrewrite.recipe:rewrite-testing-frameworks")
 }
 
 val mavenizedProjects: List<Project> by rootProject.extra
@@ -281,12 +264,18 @@ afterEvaluate {
 }
 
 tasks {
-	check {
-		dependsOn(rewriteDryRun)
+	checkstyleMain {
+		config = resources.text.fromFile(checkstyle.configDirectory.file("checkstyleMain.xml"))
+	}
+	checkstyleTest {
+		config = resources.text.fromFile(checkstyle.configDirectory.file("checkstyleTest.xml"))
 	}
 }
 
 pluginManager.withPlugin("java-test-fixtures") {
+	tasks.named<Checkstyle>("checkstyleTestFixtures") {
+		config = resources.text.fromFile(checkstyle.configDirectory.file("checkstyleTest.xml"))
+	}
 	tasks.named<JavaCompile>("compileTestFixturesJava") {
 		options.release = extension.testJavaVersion.map { it.majorVersion.toInt() }
 	}

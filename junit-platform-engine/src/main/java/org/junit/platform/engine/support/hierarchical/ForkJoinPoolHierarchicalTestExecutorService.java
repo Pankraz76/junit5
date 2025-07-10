@@ -16,12 +16,12 @@ import static org.junit.platform.engine.support.hierarchical.ExclusiveResource.G
 import static org.junit.platform.engine.support.hierarchical.Node.ExecutionMode.CONCURRENT;
 import static org.junit.platform.engine.support.hierarchical.Node.ExecutionMode.SAME_THREAD;
 
+import java.io.Serial;
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.lang.reflect.Constructor;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.Callable;
@@ -161,9 +161,9 @@ public class ForkJoinPoolHierarchicalTestExecutorService implements Hierarchical
 			new ExclusiveTask(tasks.get(0)).execSync();
 			return;
 		}
-		Deque<ExclusiveTask> isolatedTasks = new LinkedList<>();
-		Deque<ExclusiveTask> sameThreadTasks = new LinkedList<>();
-		Deque<ExclusiveTask> concurrentTasksInReverseOrder = new LinkedList<>();
+		Deque<ExclusiveTask> isolatedTasks = new ArrayDeque<>();
+		Deque<ExclusiveTask> sameThreadTasks = new ArrayDeque<>();
+		Deque<ExclusiveTask> concurrentTasksInReverseOrder = new ArrayDeque<>();
 		forkConcurrentTasks(tasks, isolatedTasks, sameThreadTasks, concurrentTasksInReverseOrder);
 		executeSync(sameThreadTasks);
 		joinConcurrentTasksInReverseOrderToEnableWorkStealing(concurrentTasksInReverseOrder);
@@ -223,6 +223,9 @@ public class ForkJoinPoolHierarchicalTestExecutorService implements Hierarchical
 	// this class cannot not be serialized because TestTask is not Serializable
 	@SuppressWarnings({ "serial", "RedundantSuppression" })
 	class ExclusiveTask extends ForkJoinTask<Void> {
+
+		@Serial
+		private static final long serialVersionUID = 1;
 
 		private final TestTask testTask;
 
