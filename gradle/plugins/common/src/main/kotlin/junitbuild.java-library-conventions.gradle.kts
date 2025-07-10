@@ -3,7 +3,6 @@ import com.gradle.scan.agent.serialization.scan.serializer.kryo.it
 import groovy.xml.dom.DOMCategory.attributes
 import junitbuild.extensions.dependencyFromLibs
 import junitbuild.extensions.isSnapshot
-import org.gradle.internal.impldep.org.apache.http.client.methods.RequestBuilder.options
 import org.gradle.plugins.ide.eclipse.model.Classpath
 import org.gradle.plugins.ide.eclipse.model.Library
 import org.gradle.plugins.ide.eclipse.model.ProjectDependency
