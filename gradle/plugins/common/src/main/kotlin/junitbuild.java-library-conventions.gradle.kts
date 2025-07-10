@@ -94,7 +94,7 @@ if (project in mavenizedProjects) {
 	tasks.javadoc {
 		options {
 			memberLevel = JavadocMemberLevel.PROTECTED
-			HtmlStyle.header = project.name
+			header = project.name
 			encoding = "UTF-8"
 			locale = "en"
 			(this as StandardJavadocDocletOptions).apply {
