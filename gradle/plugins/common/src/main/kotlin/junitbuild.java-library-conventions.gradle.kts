@@ -1,6 +1,4 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-import com.gradle.scan.agent.serialization.scan.serializer.kryo.it
-import groovy.xml.dom.DOMCategory.attributes
 import junitbuild.extensions.dependencyFromLibs
 import junitbuild.extensions.isSnapshot
 import org.gradle.plugins.ide.eclipse.model.Classpath
