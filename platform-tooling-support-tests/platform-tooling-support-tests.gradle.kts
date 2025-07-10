@@ -151,10 +151,6 @@ val archUnit by testing.suites.registering(JvmTestSuite::class) {
 	}
 }
 
-tasks.named<Checkstyle>("checkstyle${archUnit.name.capitalized()}").configure {
-	config = resources.text.fromFile(checkstyle.configDirectory.file("checkstyleTest.xml"))
-}
-
 tasks.check {
 	dependsOn(archUnit)
 }

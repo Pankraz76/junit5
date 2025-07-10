@@ -1,3 +1,7 @@
+import gradle.kotlin.dsl.accessors._f4a597395bc0761dab1d8af5d5f4d2b0.shadowJar
+import gradle.kotlin.dsl.accessors._f4a597395bc0761dab1d8af5d5f4d2b0.shadowRuntimeElements
+import org.gradle.internal.impldep.org.junit.experimental.categories.Categories.CategoryFilter.exclude
+
 plugins {
 	id("junitbuild.java-library-conventions")
 	id("com.gradleup.shadow")
@@ -29,9 +33,6 @@ javaComponent.withVariantsFromConfiguration(configurations.shadowRuntimeElements
 
 tasks {
 	javadoc {
-		classpath += shadowedClasspath.get()
-	}
-	checkstyleMain {
 		classpath += shadowedClasspath.get()
 	}
 	shadowJar {
