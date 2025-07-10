@@ -56,7 +56,7 @@ class ManifestTests {
 			assertValue(attributes, "Bundle-SymbolicName", module);
 			assertValue(attributes, "Bundle-Version",
 				MavenVersion.parseMavenString(version).getOSGiVersion().toString());
-			if ("junit-platform-console".equals(module)) {
+			if (module.equals("junit-platform-console")) {
 				assertValue(attributes, "Main-Class", "org.junit.platform.console.ConsoleLauncher");
 			}
 			var domain = Domain.domain(manifest);
