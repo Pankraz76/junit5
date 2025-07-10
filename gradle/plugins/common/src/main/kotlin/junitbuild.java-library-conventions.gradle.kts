@@ -48,6 +48,8 @@ rewrite {
 	activeRecipe("org.openrewrite.gradle.GradleBestPractices")
 	activeRecipe("org.openrewrite.staticanalysis.MissingOverrideAnnotation")
 	activeRecipe("org.openrewrite.staticanalysis.ModifierOrder")
+	configFile = file("config/rewrite.yml")
+	activeRecipe("org.junit.openrewrite.recipe.CodeCleanup") // <-- refer a composite recipe from the config
 	failOnDryRunResults = true
 }
 
