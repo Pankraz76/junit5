@@ -1,5 +1,5 @@
 type: specs.openrewrite.org/v1beta/recipe
-name: org.junit.jupiter.AddLicenseHeader
+name: org.junit.openrewrite.recipe.AddLicenseHeader
 displayName: AddLicenseHeader
 recipeList:
   - org.openrewrite.java.AddLicenseHeader:
@@ -16,7 +16,7 @@ recipeList:
       """
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: org.junit.jupiter.Java21ForTests
+name: org.junit.openrewrite.recipe.Java21ForTests
 displayName: Java21ForTests
 preconditions:
   - org.openrewrite.java.search.IsLikelyTest
@@ -24,7 +24,7 @@ recipeList:
   - org.openrewrite.java.migrate.UpgradeToJava21
 ---
 type: specs.openrewrite.org/v1beta/style
-name: org.junit.jupiter.NoTabsNoStarImports
+name: org.junit.openrewrite.recipe.NoTabsNoStarImports
 styleConfigs:
   - org.openrewrite.java.style.TabsAndIndentsStyle:
       useTabCharacter: false
@@ -41,8 +41,8 @@ recipeList:
 #  - org.openrewrite.staticanalysis.DefaultComesLast
 #  - org.openrewrite.staticanalysis.EmptyBlock
   - org.openrewrite.staticanalysis.EqualsAvoidsNull
-  - org.junit.jupiter.AddLicenseHeader
-  - org.junit.jupiter.NoTabsNoStarImports
+  - org.junit.openrewrite.recipe.AddLicenseHeader
+  - org.junit.openrewrite.recipe.NoTabsNoStarImports
 #  - org.openrewrite.staticanalysis.ForLoopControlVariablePostfixOperators
 #  - org.openrewrite.staticanalysis.MissingOverrideAnnotation
 #  - org.openrewrite.staticanalysis.ModifierOrder
