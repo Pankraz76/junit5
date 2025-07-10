@@ -277,19 +277,7 @@ afterEvaluate {
 	}
 }
 
-tasks {
-	checkstyleMain {
-		config = resources.text.fromFile(checkstyle.configDirectory.file("checkstyleMain.xml"))
-	}
-	checkstyleTest {
-		config = resources.text.fromFile(checkstyle.configDirectory.file("checkstyleTest.xml"))
-	}
-}
-
 pluginManager.withPlugin("java-test-fixtures") {
-	tasks.named<Checkstyle>("checkstyleTestFixtures") {
-		config = resources.text.fromFile(checkstyle.configDirectory.file("checkstyleTest.xml"))
-	}
 	tasks.named<JavaCompile>("compileTestFixturesJava") {
 		options.release = extension.testJavaVersion.map { it.majorVersion.toInt() }
 	}
