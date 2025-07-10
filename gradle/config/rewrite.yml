@@ -11,6 +11,7 @@ recipeList:
   - org.openrewrite.staticanalysis.ForLoopControlVariablePostfixOperators
   - org.openrewrite.staticanalysis.MissingOverrideAnnotation
   - org.openrewrite.staticanalysis.ModifierOrder
+  - org.openrewrite.text.EndOfLineAtEndOfFile
 #      /**
 #      * activeRecipe("org.openrewrite.java.RemoveUnusedImports") // there are (non); fails to analyze
 #      * activeRecipe("org.openrewrite.java.format.AutoFormat") // could remove check, spot, and all other recipes if working
