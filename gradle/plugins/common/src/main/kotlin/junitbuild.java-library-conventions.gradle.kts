@@ -277,6 +277,12 @@ afterEvaluate {
 	}
 }
 
+tasks {
+	check {
+		dependsOn(rewriteDryRun)
+	}
+}
+
 pluginManager.withPlugin("java-test-fixtures") {
 	tasks.named<JavaCompile>("compileTestFixturesJava") {
 		options.release = extension.testJavaVersion.map { it.majorVersion.toInt() }
