@@ -72,23 +72,6 @@ Whenever an acronym is included as part of a field name or parameter name:
 - Otherwise, keep the first letter of the acronym uppercase and use lowercase for the
   rest of the acronym -- for example, `String defaultUrl;`.
 
-### Formatting
-
-#### Code
-
-Code formatting is enforced using the [Spotless](https://github.com/diffplug/spotless)
-Gradle plugin. You can use `gradle spotlessApply` to format new code and add missing
-license headers to source files. Formatter and import order settings for Eclipse are
-available in the repository under
-[junit-eclipse-formatter-settings.xml](gradle/config/eclipse/junit-eclipse-formatter-settings.xml)
-and [junit-eclipse.importorder](gradle/config/eclipse/junit-eclipse.importorder),
-respectively. For IntelliJ IDEA there's a
-[plugin](https://plugins.jetbrains.com/plugin/6546) you can use in conjunction with the
-Eclipse settings.
-
-It is forbidden to use _wildcard imports_ (e.g., `import static org.junit.jupiter.api.Assertions.*;`)
-in Java code.
-
 ### 🚀 Code Transformation & Automated Rewriting
 *(Advanced Refactoring, Modernization, and Bulk Code Changes)*
 
