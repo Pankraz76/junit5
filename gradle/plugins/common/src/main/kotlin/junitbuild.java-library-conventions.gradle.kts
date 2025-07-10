@@ -1,6 +1,10 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import com.gradle.scan.agent.serialization.scan.serializer.kryo.it
+import groovy.xml.dom.DOMCategory.attributes
+import jdk.javadoc.internal.doclets.formats.html.markup.HtmlStyle
 import junitbuild.extensions.dependencyFromLibs
 import junitbuild.extensions.isSnapshot
+import org.gradle.internal.impldep.org.apache.http.client.methods.RequestBuilder.options
 import org.gradle.plugins.ide.eclipse.model.Classpath
 import org.gradle.plugins.ide.eclipse.model.Library
 import org.gradle.plugins.ide.eclipse.model.ProjectDependency
@@ -20,6 +24,7 @@ rewrite {
 	activeRecipe("org.junit.openrewrite.recipe.CodeCleanup")
 	configFile = file("config/rewrite.yml")
 	failOnDryRunResults = true
+	org.gradle.parallel = false
 }
 
 dependencies {
@@ -90,7 +95,7 @@ if (project in mavenizedProjects) {
 	tasks.javadoc {
 		options {
 			memberLevel = JavadocMemberLevel.PROTECTED
-			header = project.name
+			HtmlStyle.header = project.name
 			encoding = "UTF-8"
 			locale = "en"
 			(this as StandardJavadocDocletOptions).apply {
