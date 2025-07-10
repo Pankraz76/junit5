@@ -3,9 +3,11 @@ name: org.junit.openrewrite.recipe.CodeCleanup
 displayName: Code cleanup
 description: Automatically cleanup code, e.g. remove unnecessary parentheses, simplify expressions.
 recipeList:
+  - org.openrewrite.java.RemoveUnusedImports
+  - org.openrewrite.staticanalysis.EqualsAvoidsNull
+  - org.openrewrite.staticanalysis.ModifierOrder
 #  - org.junit.openrewrite.recipe.AddLicenseHeader
 #  - org.junit.openrewrite.recipe.Java21ForTests
-  - org.openrewrite.java.RemoveUnusedImports
 #  - org.openrewrite.java.format.AutoFormat
 #  - org.openrewrite.java.format.BlankLines
 #  - org.openrewrite.java.format.NormalizeFormat
@@ -20,11 +22,9 @@ recipeList:
 #  - org.openrewrite.java.testing.cleanup.TestsShouldNotBePublic
 #  - org.openrewrite.java.testing.junit5.JUnit5BestPractices
 #  - org.openrewrite.staticanalysis.CodeCleanup
-  - org.openrewrite.staticanalysis.EqualsAvoidsNull
-  - org.openrewrite.staticanalysis.ModifierOrder
-#  - org.openrewrite.staticanalysis.MissingOverrideAnnotation
 #  - org.openrewrite.staticanalysis.CommonStaticAnalysis
 #  - org.openrewrite.staticanalysis.FinalizeLocalVariables
+#  - org.openrewrite.staticanalysis.MissingOverrideAnnotation
 #  - org.openrewrite.staticanalysis.RedundantFileCreation
 #  - org.openrewrite.staticanalysis.RemoveUnusedLocalVariables
 #  - org.openrewrite.staticanalysis.RemoveUnusedPrivateFields
