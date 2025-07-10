@@ -45,6 +45,7 @@ plugins {
  */
 rewrite {
 	activeRecipe("org.openrewrite.staticanalysis.EqualsAvoidsNull")
+	activeRecipe("org.openrewrite.gradle.GradleBestPractices")
 	activeRecipe("org.openrewrite.staticanalysis.MissingOverrideAnnotation")
 	activeRecipe("org.openrewrite.staticanalysis.ModifierOrder")
 	failOnDryRunResults = true
