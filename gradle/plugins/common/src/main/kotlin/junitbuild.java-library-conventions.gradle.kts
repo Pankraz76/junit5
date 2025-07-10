@@ -24,7 +24,7 @@ rewrite {
 	activeRecipe("org.junit.openrewrite.recipe.CodeCleanup")
 	configFile = file("config/rewrite.yml")
 	failOnDryRunResults = true
-	org.gradle.parallel = false
+//	org.gradle.parallel = false
 }
 
 dependencies {
