@@ -36,40 +36,29 @@ name: org.junit.openrewrite.recipe.CodeCleanup
 displayName: Code cleanup
 description: Automatically cleanup code, e.g. remove unnecessary parentheses, simplify expressions.
 recipeList:
-  - org.openrewrite.gradle.GradleBestPractices
-  - org.openrewrite.java.format.EmptyNewlineAtEndOfFile
-  - org.openrewrite.staticanalysis.DefaultComesLast
-  - org.openrewrite.staticanalysis.EmptyBlock
-  - org.openrewrite.staticanalysis.EqualsAvoidsNull
   - org.junit.openrewrite.recipe.AddLicenseHeader
-  - org.junit.openrewrite.recipe.NoTabsNoStarImports
-  - org.openrewrite.staticanalysis.ForLoopControlVariablePostfixOperators
-  - org.openrewrite.staticanalysis.MissingOverrideAnnotation
-  - org.openrewrite.staticanalysis.ModifierOrder
+  - org.junit.openrewrite.recipe.Java21ForTests
+  - org.junit.openrewrite.recipe.CodeCleanup
+  - org.openrewrite.java.RemoveUnusedImports
+  - org.openrewrite.java.format.AutoFormat
+  - org.openrewrite.java.format.BlankLines
+  - org.openrewrite.java.format.NormalizeFormat
+  - org.openrewrite.java.format.NormalizeLineBreaks
+  - org.openrewrite.java.format.RemoveTrailingWhitespace
+  - org.openrewrite.java.format.Spaces
+  - org.openrewrite.java.format.TabsAndIndents
+  - org.openrewrite.java.format.WrappingAndBraces
+  - org.openrewrite.java.migrate.UpgradeToJava17
+  - org.openrewrite.java.testing.assertj.Assertj
+  - org.openrewrite.java.testing.cleanup.AssertTrueNullToAssertNull
+  - org.openrewrite.java.testing.cleanup.TestsShouldNotBePublic
+  - org.openrewrite.java.testing.junit5.JUnit5BestPractices
+  - org.openrewrite.staticanalysis.CodeCleanup
+  - org.openrewrite.staticanalysis.CommonStaticAnalysis
+  - org.openrewrite.staticanalysis.FinalizeLocalVariables
+  - org.openrewrite.staticanalysis.RedundantFileCreation
+  - org.openrewrite.staticanalysis.RemoveUnusedLocalVariables
+  - org.openrewrite.staticanalysis.RemoveUnusedPrivateFields
+  - org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods
+  - org.openrewrite.staticanalysis.StringLiteralEquality
   - org.openrewrite.text.EndOfLineAtEndOfFile
-#      /**
-#      * activeRecipe("org.openrewrite.java.RemoveUnusedImports") // there are (non); fails to analyze
-#      * activeRecipe("org.openrewrite.java.format.AutoFormat") // could remove check, spot, and all other recipes if working
-#      * activeRecipe("org.openrewrite.java.format.BlankLines") // IndexOutOfBoundsException: Index 0 out of bounds for length 0
-#      * activeRecipe("org.openrewrite.java.format.NormalizeFormat")
-#      * activeRecipe("org.openrewrite.java.format.NormalizeLineBreaks")
-#      * activeRecipe("org.openrewrite.java.format.RemoveTrailingWhitespace")
-#      * activeRecipe("org.openrewrite.java.format.Spaces")
-#      * activeRecipe("org.openrewrite.java.format.TabsAndIndents")
-#      * activeRecipe("org.openrewrite.java.format.WrappingAndBraces")
-#      * activeRecipe("org.openrewrite.java.migrate.UpgradeToJava17")
-#      * activeRecipe("org.openrewrite.java.testing.assertj.Assertj")
-#      * activeRecipe("org.openrewrite.java.testing.cleanup.AssertTrueNullToAssertNull")
-#      * activeRecipe("org.openrewrite.java.testing.cleanup.TestsShouldNotBePublic")
-#      * activeRecipe("org.openrewrite.java.testing.junit5.JUnit5BestPractices") // exclude legacy
-#      * activeRecipe("org.openrewrite.staticanalysis.CodeCleanup")
-#      * activeRecipe("org.openrewrite.staticanalysis.CommonStaticAnalysis")
-#      * activeRecipe("org.openrewrite.staticanalysis.FinalizeLocalVariables")
-#      * activeRecipe("org.openrewrite.staticanalysis.RedundantFileCreation")
-#      * activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedLocalVariables")
-#      * activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedPrivateFields")
-#      * activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods") // there are non; fails to analyze (even tho it worked once)
-#      * activeRecipe("org.openrewrite.staticanalysis.StringLiteralEquality")
-#      * activeRecipe("org.openrewrite.text.EndOfLineAtEndOfFile")
-#      * activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
-#    */
