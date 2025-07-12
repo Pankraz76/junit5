@@ -13,11 +13,13 @@ spotless {
 		targetExclude("gradle/plugins/**/build/**")
 		leadingSpacesToTabs()
 		trimTrailingWhitespace()
+		endWithNewline()
 	}
 
 	format("documentation") {
 		target("*.adoc", "*.md", "src/**/*.adoc", "src/**/*.md")
 		trimTrailingWhitespace()
+		endWithNewline()
 	}
 
 	pluginManager.withPlugin("java") {
@@ -34,6 +36,8 @@ spotless {
 			val majorMinorVersion = "([0-9]+\\.[0-9]+).*".toRegex().matchEntire(fullVersion)!!.let { it.groups[1]!!.value }
 			eclipse(majorMinorVersion).configFile(javaFormatterConfigFile)
 			trimTrailingWhitespace()
+			endWithNewline()
+			removeUnusedImports()
 		}
 
 		format("moduleDescriptor") {
@@ -42,6 +46,7 @@ spotless {
 			})
 			licenseHeaderFile(license.headerFile, "^$")
 			trimTrailingWhitespace()
+			endWithNewline()
 		}
 	}
 
@@ -51,6 +56,7 @@ spotless {
 			ktlint(requiredVersionFromLibs("ktlint"))
 			licenseHeaderFile(license.headerFile)
 			trimTrailingWhitespace()
+			endWithNewline()
 		}
 		configurations.named { it.startsWith("spotless") }.configureEach {
 			// Workaround for CVE-2024-12798 and CVE-2024-12801
@@ -68,6 +74,7 @@ spotless {
 		groovy {
 			licenseHeaderFile(license.headerFile)
 			trimTrailingWhitespace()
+			endWithNewline()
 		}
 	}
 }
