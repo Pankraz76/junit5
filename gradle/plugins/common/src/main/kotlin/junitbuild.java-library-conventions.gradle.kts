@@ -307,6 +307,9 @@ tasks {
 	check {
 		dependsOn(rewriteDryRun)
 	}
+	check {
+		dependsOn(rewriteDryRun)
+	}
 }
 
 pluginManager.withPlugin("java-test-fixtures") {
