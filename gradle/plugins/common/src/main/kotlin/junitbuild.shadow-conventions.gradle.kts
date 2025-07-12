@@ -31,9 +31,6 @@ tasks {
 	javadoc {
 		classpath += shadowedClasspath.get()
 	}
-	checkstyleMain {
-		classpath += shadowedClasspath.get()
-	}
 	shadowJar {
 		configurations = listOf(shadowedClasspath.get())
 		exclude("META-INF/maven/**")

@@ -18,20 +18,6 @@ javaLibrary {
 	mainJavaVersion = JavaVersion.VERSION_21
 }
 
-spotless {
-	java {
-		target(files(project.java.sourceSets.map { it.allJava }), "projects/**/*.java")
-	}
-	kotlin {
-		target("projects/**/*.kt")
-	}
-	format("projects") {
-		target("projects/**/*.gradle.kts", "projects/**/*.md")
-		trimTrailingWhitespace()
-		endWithNewline()
-	}
-}
-
 val thirdPartyJars = configurations.dependencyScope("thirdPartyJars")
 val thirdPartyJarsClasspath = configurations.resolvable("thirdPartyJarsClasspath") {
 	extendsFrom(thirdPartyJars.get())
@@ -156,10 +142,6 @@ tasks.compileJava {
 	options.errorprone {
 		disableAllChecks = true
 	}
-}
-
-tasks.named<Checkstyle>("checkstyle${archUnit.name.capitalized()}").configure {
-	config = resources.text.fromFile(checkstyle.configDirectory.file("checkstyleTest.xml"))
 }
 
 tasks.check {
