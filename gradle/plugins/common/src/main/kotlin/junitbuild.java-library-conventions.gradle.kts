@@ -19,35 +19,32 @@ plugins {
 
 rewrite {
 	activeRecipe("org.openrewrite.java.RemoveUnusedImports")
-	activeRecipe("org.openrewrite.java.testing.cleanup.AssertTrueNullToAssertNull")
 	activeRecipe("org.openrewrite.staticanalysis.EqualsAvoidsNull")
-	activeRecipe("org.openrewrite.staticanalysis.MissingOverrideAnnotation")
 	activeRecipe("org.openrewrite.staticanalysis.ModifierOrder")
-	activeRecipe("org.openrewrite.staticanalysis.RedundantFileCreation")
 	activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods")
 	activeRecipe("org.openrewrite.text.EndOfLineAtEndOfFile")
 	configFile = file("config/rewrite.yml")
+	exclusions.add("**RunnerWithCustomUniqueIdsAndDisplayNames.java")
+	exclusions.add("**SpockTestCaseWithUnrolledAndRegularFeatureMethods.groovy")
 	failOnDryRunResults = true
 //	activeRecipe("org.junit.openrewrite.recipe.AddLicenseHeader")
 //	activeRecipe("org.junit.openrewrite.recipe.Java21ForTests")
-//	activeRecipe("org.openrewrite.java.format.AutoFormat")
-//	activeRecipe("org.openrewrite.java.format.BlankLines")
-//	activeRecipe("org.openrewrite.java.format.NormalizeFormat")
-//	activeRecipe("org.openrewrite.java.format.NormalizeLineBreaks")
-//	activeRecipe("org.openrewrite.java.format.RemoveTrailingWhitespace")
-//	activeRecipe("org.openrewrite.java.format.Spaces")
-//	activeRecipe("org.openrewrite.java.format.TabsAndIndents")
 //	activeRecipe("org.openrewrite.java.format.WrappingAndBraces")
 //	activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
 //	activeRecipe("org.openrewrite.java.testing.assertj.Assertj")
+//	activeRecipe("org.openrewrite.java.testing.cleanup.AssertTrueNullToAssertNull")
 //	activeRecipe("org.openrewrite.java.testing.cleanup.TestsShouldNotBePublic")
 //	activeRecipe("org.openrewrite.java.testing.junit5.JUnit5BestPractices")
-//	activeRecipe("org.openrewrite.staticanalysis.CodeCleanup")
+//	activeRecipe("org.openrewrite.staticanalysis.CodeCleanup") // https://github.com/openrewrite/rewrite-static-analysis/issues/636
 //	activeRecipe("org.openrewrite.staticanalysis.CommonStaticAnalysis")
 //	activeRecipe("org.openrewrite.staticanalysis.FinalizeLocalVariables")
+//	activeRecipe("org.openrewrite.staticanalysis.MissingOverrideAnnotation")
+//	activeRecipe("org.openrewrite.staticanalysis.ModifierOrder")
+//	activeRecipe("org.openrewrite.staticanalysis.RedundantFileCreation")
 //	activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedLocalVariables")
 //	activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedPrivateFields")
 //	activeRecipe("org.openrewrite.staticanalysis.StringLiteralEquality")
+//	setCheckstyleConfigFile(file("config/checkstyleMain.xml")) // https://github.com/openrewrite/rewrite-static-analysis/issues/636
 }
 
 dependencies {
