@@ -23,9 +23,9 @@ rewrite {
 	activeRecipe("org.openrewrite.staticanalysis.ModifierOrder")
 	activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods")
 	activeRecipe("org.openrewrite.text.EndOfLineAtEndOfFile")
-	configFile = file("config/rewrite.yml")
-	exclusions.add("**RunnerWithCustomUniqueIdsAndDisplayNames.java")
-	exclusions.add("**SpockTestCaseWithUnrolledAndRegularFeatureMethods.groovy")
+//	configFile = file("config/rewrite.yml")
+//	exclusions.add("**RunnerWithCustomUniqueIdsAndDisplayNames.java")
+//	exclusions.add("**SpockTestCaseWithUnrolledAndRegularFeatureMethods.groovy")
 	failOnDryRunResults = true
 //	activeRecipe("org.junit.openrewrite.recipe.AddLicenseHeader")
 //	activeRecipe("org.junit.openrewrite.recipe.Java21ForTests")
