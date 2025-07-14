@@ -18,7 +18,6 @@ import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import java.util.Set;
 
 import org.apiguardian.api.API;
 
@@ -28,7 +27,7 @@ import org.apiguardian.api.API;
  *
  * @since 1.8
  * @see Suite
- * @see org.junit.platform.engine.discovery.DiscoverySelectors#selectModules(Set)
+ * @see org.junit.platform.engine.discovery.DiscoverySelectors#selectModules(java.util.Set)
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
