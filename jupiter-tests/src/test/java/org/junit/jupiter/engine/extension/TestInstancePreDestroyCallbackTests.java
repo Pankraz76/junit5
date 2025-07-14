@@ -175,7 +175,7 @@ class TestInstancePreDestroyCallbackTests extends AbstractJupiterTestEngineTests
 		}
 	}
 
-	abstract static class AbstractTestInstancePreDestroyCallback implements TestInstancePreDestroyCallback {
+	static abstract class AbstractTestInstancePreDestroyCallback implements TestInstancePreDestroyCallback {
 
 		private final String name;
 

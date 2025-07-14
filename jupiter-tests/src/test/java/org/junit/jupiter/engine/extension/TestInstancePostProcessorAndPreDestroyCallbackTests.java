@@ -244,7 +244,7 @@ class TestInstancePostProcessorAndPreDestroyCallbackTests extends AbstractJupite
 		}
 	}
 
-	private abstract static class AbstractTestInstanceCallbacks
+	private static abstract class AbstractTestInstanceCallbacks
 			implements TestInstancePostProcessor, TestInstancePreDestroyCallback {
 
 		private final String name;

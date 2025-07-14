@@ -529,7 +529,7 @@ class TestInstancePreConstructCallbackTests extends AbstractJupiterTestEngineTes
 		}
 	}
 
-	abstract static class AbstractTestInstancePreConstructCallback implements TestInstancePreConstructCallback {
+	static abstract class AbstractTestInstancePreConstructCallback implements TestInstancePreConstructCallback {
 		private final String name;
 
 		AbstractTestInstancePreConstructCallback(String name) {
@@ -540,7 +540,7 @@ class TestInstancePreConstructCallbackTests extends AbstractJupiterTestEngineTes
 		public void preConstructTestInstance(TestInstanceFactoryContext factoryContext, ExtensionContext context) {
 			assertThat(context.getTestInstance()).isNotPresent();
 			assertThat(context.getTestClass()).isPresent();
-			if ("legacy".equals(name)) {
+			if (name.equals("legacy")) {
 				assertThat(factoryContext.getTestClass()).isSameAs(context.getTestClass().get());
 			}
 			else if (context.getTestInstanceLifecycle().orElse(null) != TestInstance.Lifecycle.PER_CLASS) {

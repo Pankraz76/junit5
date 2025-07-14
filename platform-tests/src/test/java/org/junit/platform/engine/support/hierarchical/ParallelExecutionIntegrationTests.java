@@ -886,7 +886,7 @@ class ParallelExecutionIntegrationTests {
 	}
 
 	@ExtendWith(ThreadReporter.class)
-	abstract static class BarrierTestCase {
+	static abstract class BarrierTestCase {
 
 		@Test
 		void test1() throws Exception {

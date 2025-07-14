@@ -136,7 +136,7 @@ class TestClassInheritanceTests extends AbstractJupiterTestEngineTests {
 
 	// -------------------------------------------------------------------
 
-	private abstract static class AbstractTestCase {
+	private static abstract class AbstractTestCase {
 
 		static int countSuperBeforeInvoked = 0;
 		static int countSuperAfterInvoked = 0;

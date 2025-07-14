@@ -417,7 +417,7 @@ class NestedTestClassesTests extends AbstractJupiterTestEngineTests {
 
 	}
 
-	abstract static class AbstractSuperClass implements InterfaceWithNestedClass {
+	static abstract class AbstractSuperClass implements InterfaceWithNestedClass {
 
 		@Nested
 		class NestedInAbstractClass {
