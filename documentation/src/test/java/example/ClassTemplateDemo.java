@@ -52,9 +52,9 @@ class ClassTemplateDemo {
 	}
 
 	// end::user_guide[]
-	public
+	static
 	// tag::user_guide[]
-	static class MyClassTemplateInvocationContextProvider
+	public class MyClassTemplateInvocationContextProvider
 			// tag::custom_line_break[]
 			implements ClassTemplateInvocationContextProvider {
 
