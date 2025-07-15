@@ -31,7 +31,7 @@ import org.opentest4j.AssertionFailedError;
  *
  * @since 5.0
  */
-class AssertIterableEquals {
+final class AssertIterableEquals {
 
 	private AssertIterableEquals() {
 		/* no-op */

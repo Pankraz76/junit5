@@ -23,7 +23,7 @@ import org.jspecify.annotations.Nullable;
  *
  * @since 5.0
  */
-class AssertTrue {
+final class AssertTrue {
 
 	private AssertTrue() {
 		/* no-op */

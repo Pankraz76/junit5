@@ -40,7 +40,7 @@ public interface ExtensionContextSupplier {
 
 	ExtensionContext get(TestInstantiationAwareExtension extension);
 
-	class ScopeBasedExtensionContextSupplier implements ExtensionContextSupplier {
+	final class ScopeBasedExtensionContextSupplier implements ExtensionContextSupplier {
 
 		private final ExtensionContext currentExtensionContext;
 		private final ExtensionContext legacyExtensionContext;

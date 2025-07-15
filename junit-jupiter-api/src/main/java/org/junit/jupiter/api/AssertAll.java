@@ -28,7 +28,7 @@ import org.opentest4j.MultipleFailuresError;
  *
  * @since 5.0
  */
-class AssertAll {
+final class AssertAll {
 
 	private AssertAll() {
 		/* no-op */

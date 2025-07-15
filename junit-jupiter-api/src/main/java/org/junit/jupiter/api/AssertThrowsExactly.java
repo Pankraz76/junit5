@@ -25,7 +25,7 @@ import org.junit.platform.commons.util.UnrecoverableExceptions;
  *
  * @since 5.8
  */
-class AssertThrowsExactly {
+final class AssertThrowsExactly {
 
 	private AssertThrowsExactly() {
 		/* no-op */

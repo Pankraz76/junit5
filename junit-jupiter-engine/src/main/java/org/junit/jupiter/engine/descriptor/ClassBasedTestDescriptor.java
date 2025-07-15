@@ -383,8 +383,8 @@ public abstract class ClassBasedTestDescriptor extends JupiterTestDescriptor
 
 		if (!getTestClass().isInstance(instance)) {
 			String testClassName = getTestClass().getName();
-			Class<?> instanceClass = (instance == null ? null : instance.getClass());
-			String instanceClassName = (instanceClass == null ? "null" : instanceClass.getName());
+			Class<?> instanceClass = instance == null ? null : instance.getClass();
+			String instanceClassName = instanceClass == null ? "null" : instanceClass.getName();
 
 			// If the test instance was loaded via a different ClassLoader, append
 			// the identity hash codes to the type names to help users disambiguate
@@ -573,7 +573,7 @@ public abstract class ClassBasedTestDescriptor extends JupiterTestDescriptor
 				() -> ClassSource.from(testClass), //
 				discoveryIssues::add);
 			this.lifecycle = getTestInstanceLifecycle(testClass, configuration);
-			this.defaultChildExecutionMode = (this.lifecycle == Lifecycle.PER_CLASS ? ExecutionMode.SAME_THREAD : null);
+			this.defaultChildExecutionMode = this.lifecycle == Lifecycle.PER_CLASS ? ExecutionMode.SAME_THREAD : null;
 			this.exclusiveResourceCollector = ExclusiveResourceCollector.from(testClass);
 		}
 	}

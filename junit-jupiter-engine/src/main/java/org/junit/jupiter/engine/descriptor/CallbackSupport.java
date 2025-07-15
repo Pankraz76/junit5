@@ -21,7 +21,7 @@ import org.junit.platform.engine.support.hierarchical.ThrowableCollector;
 /**
  * @since 5.13
  */
-class CallbackSupport {
+final class CallbackSupport {
 
 	static <T extends Extension> void invokeBeforeCallbacks(Class<T> type, JupiterEngineExecutionContext context,
 			CallbackInvoker<T> callbackInvoker) {

@@ -14,7 +14,7 @@ import static java.util.Objects.requireNonNull;
 
 import org.jspecify.annotations.Nullable;
 
-public class StringUtils {
+public final class StringUtils {
 
 	public static boolean isPalindrome(@Nullable String candidate) {
 		int length = requireNonNull(candidate).length();

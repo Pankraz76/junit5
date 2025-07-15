@@ -248,7 +248,7 @@ class TempDirectory implements BeforeAllCallback, BeforeEachCallback, ParameterR
 					CloseablePath.class)) //
 							.get();
 
-		return (elementType == Path.class) ? path : path.toFile();
+		return elementType == Path.class ? path : path.toFile();
 	}
 
 	static CloseablePath createTempDir(TempDirFactory factory, CleanupMode cleanupMode, Class<?> elementType,
@@ -272,7 +272,7 @@ class TempDirectory implements BeforeAllCallback, BeforeEachCallback, ParameterR
 	}
 
 	@SuppressWarnings("deprecation")
-	static class CloseablePath implements Store.CloseableResource, AutoCloseable {
+	static final class CloseablePath implements Store.CloseableResource, AutoCloseable {
 
 		private static final Logger LOGGER = LoggerFactory.getLogger(CloseablePath.class);
 

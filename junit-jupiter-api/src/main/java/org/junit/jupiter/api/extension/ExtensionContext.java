@@ -579,7 +579,7 @@ public interface ExtensionContext {
 		@API(status = STABLE, since = "5.5")
 		default <V> V getOrDefault(Object key, Class<V> requiredType, V defaultValue) {
 			V value = get(key, requiredType);
-			return (value != null ? value : defaultValue);
+			return value != null ? value : defaultValue;
 		}
 
 		/**

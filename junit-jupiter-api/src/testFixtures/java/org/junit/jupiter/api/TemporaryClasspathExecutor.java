@@ -20,7 +20,7 @@ import java.net.URLClassLoader;
  *
  * @since 5.13
  */
-public class TemporaryClasspathExecutor {
+public final class TemporaryClasspathExecutor {
 
 	private TemporaryClasspathExecutor() {
 	}

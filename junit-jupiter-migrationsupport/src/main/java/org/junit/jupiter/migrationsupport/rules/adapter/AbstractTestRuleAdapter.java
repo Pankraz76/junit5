@@ -32,7 +32,7 @@ public abstract class AbstractTestRuleAdapter implements GenericBeforeAndAfterAd
 
 	private final TestRule target;
 
-	public AbstractTestRuleAdapter(TestRuleAnnotatedMember annotatedMember, Class<? extends TestRule> adapteeClass) {
+	protected AbstractTestRuleAdapter(TestRuleAnnotatedMember annotatedMember, Class<? extends TestRule> adapteeClass) {
 		this.target = annotatedMember.getTestRule();
 		Preconditions.condition(adapteeClass.isAssignableFrom(this.target.getClass()),
 			() -> adapteeClass + " is not assignable from " + this.target.getClass());

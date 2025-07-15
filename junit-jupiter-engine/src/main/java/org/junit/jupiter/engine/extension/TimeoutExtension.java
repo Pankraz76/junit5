@@ -106,7 +106,7 @@ class TimeoutExtension implements BeforeAllCallback, BeforeEachCallback, Invocat
 	public <T extends @Nullable Object> T interceptTestFactoryMethod(Invocation<T> invocation,
 			ReflectiveInvocationContext<Method> invocationContext, ExtensionContext extensionContext) throws Throwable {
 
-		return this.<T> interceptTestableMethod(invocation, invocationContext, extensionContext,
+		return this. interceptTestableMethod(invocation, invocationContext, extensionContext,
 			TimeoutConfiguration::getDefaultTestFactoryMethodTimeout);
 	}
 

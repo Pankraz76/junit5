@@ -39,7 +39,7 @@ import org.junit.platform.commons.JUnitException;
  * @since 6.0
  */
 @API(status = INTERNAL, since = "6.0")
-public class PreemptiveTimeoutUtils {
+public final class PreemptiveTimeoutUtils {
 
 	/**
 	 * <em>Assert</em> that execution of the supplied {@code supplier}

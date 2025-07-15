@@ -362,8 +362,8 @@ public interface DisplayNameGenerator {
 		@Override
 		public String generateDisplayNameForClass(Class<?> testClass) {
 			String sentenceFragment = getSentenceFragment(testClass);
-			return (sentenceFragment != null ? sentenceFragment
-					: getGeneratorFor(testClass, emptyList()).generateDisplayNameForClass(testClass));
+			return sentenceFragment != null ? sentenceFragment
+					: getGeneratorFor(testClass, emptyList()).generateDisplayNameForClass(testClass);
 		}
 
 		@Override
@@ -379,9 +379,9 @@ public interface DisplayNameGenerator {
 					+ getFragmentSeparator(testClass, enclosingInstanceTypes);
 
 			String sentenceFragment = getSentenceFragment(testMethod);
-			displayName += (sentenceFragment != null ? sentenceFragment
+			displayName += sentenceFragment != null ? sentenceFragment
 					: getGeneratorFor(testClass, enclosingInstanceTypes).generateDisplayNameForMethod(
-						enclosingInstanceTypes, testClass, testMethod));
+						enclosingInstanceTypes, testClass, testMethod);
 			return displayName;
 		}
 
@@ -419,10 +419,10 @@ public interface DisplayNameGenerator {
 					.filter(IndicativeSentences.class::equals)//
 					.isPresent();
 
-			String prefix = (buildPrefix
+			String prefix = buildPrefix
 					? getSentenceBeginning(enclosingClass, remainingEnclosingInstanceTypes)
 							+ getFragmentSeparator(testClass, enclosingInstanceTypes)
-					: "");
+					: "";
 
 			return prefix + (sentenceFragment != null ? sentenceFragment
 					: getGeneratorFor(testClass, enclosingInstanceTypes).generateDisplayNameForNestedClass(

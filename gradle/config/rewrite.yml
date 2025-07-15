@@ -10,4 +10,5 @@ recipeList:
   - org.openrewrite.staticanalysis.CommonStaticAnalysis
 #  - org.openrewrite.staticanalysis.MissingOverrideAnnotation
 #  - org.openrewrite.staticanalysis.StringLiteralEquality
+#  - org.openrewrite.staticanalysis.WrappingAndBraces
   - org.openrewrite.text.EndOfLineAtEndOfFile

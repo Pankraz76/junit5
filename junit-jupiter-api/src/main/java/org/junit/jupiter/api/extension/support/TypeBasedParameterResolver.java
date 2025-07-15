@@ -34,7 +34,7 @@ public abstract class TypeBasedParameterResolver<T extends @Nullable Object> imp
 
 	private final Type supportedParameterType;
 
-	public TypeBasedParameterResolver() {
+	protected TypeBasedParameterResolver() {
 		this.supportedParameterType = enclosedTypeOfParameterResolver();
 	}
 

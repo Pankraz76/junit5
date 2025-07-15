@@ -432,7 +432,7 @@ class ParameterizedTestDemo {
 	// end::implicit_fallback_conversion_example[]
 	public
 	// tag::implicit_fallback_conversion_example_Book[]
-	static class Book {
+	static final class Book {
 
 		private final String title;
 
@@ -488,7 +488,7 @@ class ParameterizedTestDemo {
 
 		@Override
 		protected Integer convert(String source) {
-			return (source != null ? source.length() : 0);
+			return source != null ? source.length() : 0;
 		}
 
 	}

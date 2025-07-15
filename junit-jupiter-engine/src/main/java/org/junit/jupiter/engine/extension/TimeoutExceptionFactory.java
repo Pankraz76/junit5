@@ -18,7 +18,7 @@ import org.junit.platform.commons.util.Preconditions;
 /**
  * @since 5.9
  */
-class TimeoutExceptionFactory {
+final class TimeoutExceptionFactory {
 
 	private TimeoutExceptionFactory() {
 	}

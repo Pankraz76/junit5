@@ -23,7 +23,7 @@ import org.junit.jupiter.api.extension.TestInstances;
 import org.junit.platform.commons.util.Preconditions;
 
 @API(status = INTERNAL, since = "5.4")
-public class DefaultTestInstances implements TestInstances {
+public final class DefaultTestInstances implements TestInstances {
 
 	public static DefaultTestInstances of(Object instance) {
 		return new DefaultTestInstances(Collections.singletonList(instance));

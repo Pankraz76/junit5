@@ -25,7 +25,7 @@ import org.opentest4j.AssertionFailedError;
  *
  * @since 5.0
  */
-class AssertionUtils {
+final class AssertionUtils {
 
 	private AssertionUtils() {
 		/* no-op */
@@ -52,13 +52,13 @@ class AssertionUtils {
 	}
 
 	static @Nullable String nullSafeGet(@Nullable Supplier<@Nullable String> messageSupplier) {
-		return (messageSupplier != null ? messageSupplier.get() : null);
+		return messageSupplier != null ? messageSupplier.get() : null;
 	}
 
 	static String getCanonicalName(Class<?> clazz) {
 		try {
 			String canonicalName = clazz.getCanonicalName();
-			return (canonicalName != null ? canonicalName : clazz.getName());
+			return canonicalName != null ? canonicalName : clazz.getName();
 		}
 		catch (Throwable t) {
 			UnrecoverableExceptions.rethrowIfUnrecoverable(t);
@@ -106,7 +106,7 @@ class AssertionUtils {
 
 	static boolean objectsAreEqual(@Nullable Object obj1, @Nullable Object obj2) {
 		if (obj1 == null) {
-			return (obj2 == null);
+			return obj2 == null;
 		}
 		return obj1.equals(obj2);
 	}

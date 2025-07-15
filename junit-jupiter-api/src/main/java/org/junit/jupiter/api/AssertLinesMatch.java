@@ -30,7 +30,7 @@ import org.jspecify.annotations.Nullable;
  *
  * @since 5.0
  */
-class AssertLinesMatch {
+final class AssertLinesMatch {
 
 	private AssertLinesMatch() {
 		/* no-op */

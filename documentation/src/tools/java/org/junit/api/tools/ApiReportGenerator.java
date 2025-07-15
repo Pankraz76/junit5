@@ -46,7 +46,7 @@ import org.junit.platform.commons.logging.LoggerFactory;
 /**
  * @since 1.0
  */
-class ApiReportGenerator {
+final class ApiReportGenerator {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ApiReportGenerator.class);
 	private static final String EOL = System.lineSeparator();

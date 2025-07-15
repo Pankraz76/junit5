@@ -48,7 +48,7 @@ import org.junit.platform.commons.util.Preconditions;
  * @see Executable
  */
 @API(status = MAINTAINED, since = "5.3")
-public class DynamicTest extends DynamicNode {
+public final class DynamicTest extends DynamicNode {
 
 	/**
 	 * Factory for creating a new {@code DynamicTest} for the supplied display

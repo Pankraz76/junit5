@@ -53,7 +53,7 @@ class RepetitionExtension implements ParameterResolver, TestWatcher, ExecutionCo
 
 	@Override
 	public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
-		return (parameterContext.getParameter().getType() == RepetitionInfo.class);
+		return parameterContext.getParameter().getType() == RepetitionInfo.class;
 	}
 
 	@Override

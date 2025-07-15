@@ -29,7 +29,7 @@ class TestReporterParameterResolver implements ParameterResolver {
 
 	@Override
 	public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
-		return (parameterContext.getParameter().getType() == TestReporter.class);
+		return parameterContext.getParameter().getType() == TestReporter.class;
 	}
 
 	@Override

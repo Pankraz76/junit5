@@ -28,7 +28,7 @@ import org.opentest4j.AssertionFailedError;
  *
  * @since 5.0
  */
-class AssertArrayEquals {
+final class AssertArrayEquals {
 
 	private AssertArrayEquals() {
 		/* no-op */
@@ -523,7 +523,7 @@ class AssertArrayEquals {
 	}
 
 	private static Deque<Integer> nullSafeIndexes(@Nullable Deque<Integer> indexes, int newIndex) {
-		Deque<Integer> result = (indexes != null ? indexes : new ArrayDeque<>());
+		Deque<Integer> result = indexes != null ? indexes : new ArrayDeque<>();
 		result.addLast(newIndex);
 		return result;
 	}
