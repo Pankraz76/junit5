@@ -30,7 +30,7 @@ import org.junit.platform.commons.util.ClassLoaderUtils;
  *
  * @since 1.10
  */
-public class TestClassLoader extends URLClassLoader {
+public final class TestClassLoader extends URLClassLoader {
 
 	private static final StackWalker stackWalker = StackWalker.getInstance(Option.RETAIN_CLASS_REFERENCE);
 

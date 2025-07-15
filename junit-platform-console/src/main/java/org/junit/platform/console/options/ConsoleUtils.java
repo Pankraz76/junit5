@@ -30,7 +30,7 @@ import org.apiguardian.api.API;
  * @since 1.9
  */
 @API(status = INTERNAL, since = "1.9")
-public class ConsoleUtils {
+public final class ConsoleUtils {
 
 	/**
 	 * {@return the charset of the console}

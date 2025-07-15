@@ -27,7 +27,7 @@ import org.junit.platform.engine.TestExecutionResult;
  * @see Execution#getTerminationInfo()
  */
 @API(status = MAINTAINED, since = "1.7")
-public class TerminationInfo {
+public final class TerminationInfo {
 
 	// --- Factories -----------------------------------------------------------
 
@@ -66,8 +66,8 @@ public class TerminationInfo {
 
 	private TerminationInfo(boolean skipped, @Nullable String skipReason,
 			@Nullable TestExecutionResult testExecutionResult) {
-		boolean executed = (testExecutionResult != null);
-		Preconditions.condition((skipped ^ executed),
+		boolean executed = testExecutionResult != null;
+		Preconditions.condition(skipped ^ executed,
 			"TerminationInfo must represent either a skipped execution or a TestExecutionResult but not both");
 
 		this.skipped = skipped;
@@ -103,7 +103,7 @@ public class TerminationInfo {
 	 * completed execution
 	 */
 	public boolean executed() {
-		return (this.testExecutionResult != null);
+		return this.testExecutionResult != null;
 	}
 
 	/**

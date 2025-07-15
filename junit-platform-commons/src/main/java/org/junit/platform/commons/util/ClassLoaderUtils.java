@@ -46,7 +46,7 @@ public final class ClassLoaderUtils {
 	public static ClassLoader getClassLoader(Class<?> clazz) {
 		Preconditions.notNull(clazz, "Class must not be null");
 		ClassLoader classLoader = clazz.getClassLoader();
-		return (classLoader != null) ? classLoader : getDefaultClassLoader();
+		return classLoader != null ? classLoader : getDefaultClassLoader();
 	}
 
 	public static ClassLoader getDefaultClassLoader() {

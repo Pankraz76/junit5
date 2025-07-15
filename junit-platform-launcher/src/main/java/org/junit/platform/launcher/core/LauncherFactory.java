@@ -64,7 +64,7 @@ import org.junit.platform.launcher.jfr.JfrUtils;
  * @see LauncherConfig
  */
 @API(status = STABLE, since = "1.0")
-public class LauncherFactory {
+public final class LauncherFactory {
 
 	private LauncherFactory() {
 		/* no-op */

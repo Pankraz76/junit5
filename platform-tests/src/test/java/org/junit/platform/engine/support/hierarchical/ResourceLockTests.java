@@ -108,12 +108,12 @@ class ResourceLockTests {
 
 	private static void assertCompatible(ResourceLock first, ResourceLock second) {
 		assertTrue(first.isCompatible(second),
-			"Expected locks to be compatible:\n(1) %s\n(2) %s".formatted(first, second));
+			"Expected locks to be compatible:%n(1) %s%n(2) %s".formatted(first, second));
 	}
 
 	private static void assertIncompatible(ResourceLock first, ResourceLock second, String reason) {
 		assertFalse(first.isCompatible(second),
-			"Expected locks to be incompatible due to %s:\n(1) %s\n(2) %s".formatted(reason, first, second));
+			"Expected locks to be incompatible due to %s:%n(1) %s%n(2) %s".formatted(reason, first, second));
 	}
 
 	private static ResourceLock nopLock() {

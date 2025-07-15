@@ -52,7 +52,7 @@ import org.junit.platform.testkit.engine.EngineExecutionResults;
  */
 class LifecycleMethodExecutionExceptionHandlerTests extends AbstractJupiterTestEngineTests {
 
-	private static List<String> handlerCalls = new ArrayList<>();
+	private static final List<String> handlerCalls = new ArrayList<>();
 	private static boolean throwExceptionBeforeAll;
 	private static boolean throwExceptionBeforeEach;
 	private static boolean throwExceptionAfterEach;

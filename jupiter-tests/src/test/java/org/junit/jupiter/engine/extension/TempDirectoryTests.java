@@ -152,13 +152,15 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 		assertThat(testATempDirs).containsEntry("staticField2", classTempDirs.get("staticField2"));
 		assertThat(testBTempDirs).containsEntry("staticField2", classTempDirs.get("staticField2"));
 
-		switch (lifecycle) {
-			case PER_CLASS -> assertThat(testATempDirs) //
+		if (lifecycle == TestInstance.Lifecycle.PER_CLASS) {
+			assertThat(testATempDirs) //
 					.containsEntry("instanceFieldSetViaConstructorInjection",
-						testBTempDirs.get("instanceFieldSetViaConstructorInjection"));
-			case PER_METHOD -> assertThat(testATempDirs) //
+							testBTempDirs.get("instanceFieldSetViaConstructorInjection"));
+		}
+		else if (lifecycle == TestInstance.Lifecycle.PER_METHOD) {
+			assertThat(testATempDirs) //
 					.doesNotContainEntry("instanceFieldSetViaConstructorInjection",
-						testBTempDirs.get("instanceFieldSetViaConstructorInjection"));
+							testBTempDirs.get("instanceFieldSetViaConstructorInjection"));
 		}
 		assertThat(testATempDirs).doesNotContainEntry("instanceField1", testBTempDirs.get("instanceField1"));
 		assertThat(testATempDirs).doesNotContainEntry("instanceField2", testBTempDirs.get("instanceField2"));
@@ -1313,7 +1315,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 			assertThat(tempDir.getFileName()).asString().startsWith("prefix");
 		}
 
-		private static class Factory implements TempDirFactory {
+		private static final class Factory implements TempDirFactory {
 
 			@Nullable
 			private static Path parent;

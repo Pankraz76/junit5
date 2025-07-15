@@ -448,7 +448,7 @@ public interface SelectorResolver {
 	 * @see SelectorResolver
 	 */
 	@API(status = STABLE, since = "1.10")
-	class Resolution {
+	final class Resolution {
 
 		private static final Resolution UNRESOLVED = new Resolution(emptySet(), emptySet());
 
@@ -568,7 +568,7 @@ public interface SelectorResolver {
 	 * @see Resolution#matches(Set)
 	 */
 	@API(status = STABLE, since = "1.10")
-	class Match {
+	final class Match {
 
 		private final TestDescriptor testDescriptor;
 		private final Supplier<Set<? extends DiscoverySelector>> childSelectorsSupplier;

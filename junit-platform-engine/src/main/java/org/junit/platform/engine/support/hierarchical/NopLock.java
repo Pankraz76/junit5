@@ -21,7 +21,7 @@ import org.junit.platform.commons.util.ToStringBuilder;
  *
  * @since 1.3
  */
-class NopLock implements ResourceLock {
+final class NopLock implements ResourceLock {
 
 	static final ResourceLock INSTANCE = new NopLock();
 

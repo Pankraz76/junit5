@@ -39,7 +39,7 @@ import org.junit.platform.engine.TestEngine;
  * @see LauncherDiscoveryRequest
  */
 @API(status = STABLE, since = "1.0")
-public class EngineFilter implements Filter<TestEngine> {
+public final class EngineFilter implements Filter<TestEngine> {
 
 	/**
 	 * Create a new <em>include</em> {@code EngineFilter} based on the

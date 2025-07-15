@@ -1533,14 +1533,14 @@ class ParameterizedTestIntegrationTests extends AbstractJupiterTestEngineTests {
 		@ParameterizedTest
 		@NullSource
 		void testWithNullSourceForString(String argument) {
-			fail(String.valueOf(argument));
+			fail(argument);
 		}
 
 		@ParameterizedTest
 		@NullSource
 		void testWithNullSourceForStringAndTestInfo(String argument, TestInfo testInfo) {
 			assertThat(testInfo).isNotNull();
-			fail(String.valueOf(argument));
+			fail(argument);
 		}
 
 		@ParameterizedTest
@@ -1977,7 +1977,7 @@ class ParameterizedTestIntegrationTests extends AbstractJupiterTestEngineTests {
 		// neither a test method nor a factory method.
 		// intentionally non-void and also not convertible to a Stream.
 		private boolean test(String value, int expectedLength) {
-			return (value.length() == expectedLength);
+			return value.length() == expectedLength;
 		}
 
 		// legitimate factory method.
@@ -2646,7 +2646,7 @@ class ParameterizedTestIntegrationTests extends AbstractJupiterTestEngineTests {
 
 	static class AutoCloseableArgument implements AutoCloseable {
 
-		static int closeCounter = 0;
+		static int closeCounter;
 
 		@Override
 		public void close() {
@@ -2654,7 +2654,7 @@ class ParameterizedTestIntegrationTests extends AbstractJupiterTestEngineTests {
 		}
 	}
 
-	static class Book {
+	static final class Book {
 
 		private final String title;
 

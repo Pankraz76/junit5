@@ -20,7 +20,7 @@ import org.junit.platform.commons.util.ReflectionUtils;
 /**
  * @since 5.12
  */
-class ParameterizedTestSpiInstantiator {
+final class ParameterizedTestSpiInstantiator {
 
 	static <T> T instantiate(Class<T> spiInterface, Class<? extends T> implementationClass,
 			ExtensionContext extensionContext) {

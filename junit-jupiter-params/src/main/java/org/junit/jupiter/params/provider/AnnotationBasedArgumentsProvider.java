@@ -42,7 +42,7 @@ import org.junit.platform.commons.util.Preconditions;
 public abstract class AnnotationBasedArgumentsProvider<A extends Annotation>
 		implements ArgumentsProvider, AnnotationConsumer<A> {
 
-	public AnnotationBasedArgumentsProvider() {
+	protected AnnotationBasedArgumentsProvider() {
 	}
 
 	private final List<A> annotations = new ArrayList<>();

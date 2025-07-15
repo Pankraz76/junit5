@@ -15,7 +15,7 @@ import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class FileUtils {
+public final class FileUtils {
 
 	public static Path findPath(Path rootDir, String syntaxAndPattern) {
 		var matcher = rootDir.getFileSystem().getPathMatcher(syntaxAndPattern);

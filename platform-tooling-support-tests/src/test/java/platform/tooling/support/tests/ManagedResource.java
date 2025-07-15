@@ -100,7 +100,7 @@ public @interface ManagedResource {
 	}
 
 	@SuppressWarnings("try")
-	class Resource<T> implements AutoCloseable {
+	final class Resource<T> implements AutoCloseable {
 
 		private final T value;
 

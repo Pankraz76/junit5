@@ -131,7 +131,7 @@ public class ThrowableCollector {
 	 * has not collected any {@code Throwables}).
 	 */
 	public boolean isEmpty() {
-		return (this.throwable == null);
+		return this.throwable == null;
 	}
 
 	/**
@@ -139,7 +139,7 @@ public class ThrowableCollector {
 	 * has collected at least one {@code Throwable}).
 	 */
 	public boolean isNotEmpty() {
-		return (this.throwable != null);
+		return this.throwable != null;
 	}
 
 	/**

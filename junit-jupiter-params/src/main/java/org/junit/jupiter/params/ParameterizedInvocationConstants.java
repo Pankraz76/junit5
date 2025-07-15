@@ -22,7 +22,7 @@ import org.apiguardian.api.API;
  * @since 5.13
  */
 @API(status = MAINTAINED, since = "5.13")
-public class ParameterizedInvocationConstants {
+public final class ParameterizedInvocationConstants {
 
 	/**
 	 * Placeholder for the {@linkplain org.junit.jupiter.api.TestInfo#getDisplayName

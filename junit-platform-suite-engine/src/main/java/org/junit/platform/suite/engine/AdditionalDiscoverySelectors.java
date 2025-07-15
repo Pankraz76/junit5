@@ -31,7 +31,7 @@ import org.junit.platform.engine.discovery.UriSelector;
 /**
  * @since 1.8
  */
-class AdditionalDiscoverySelectors {
+final class AdditionalDiscoverySelectors {
 
 	static List<UriSelector> selectUris(String... uris) {
 		Preconditions.notNull(uris, "URI list must not be null");

@@ -31,7 +31,7 @@ import org.junit.platform.engine.DiscoverySelectorIdentifier;
  *
  * @since 1.11
  */
-class DiscoverySelectorIdentifierParsers {
+final class DiscoverySelectorIdentifierParsers {
 
 	static Stream<? extends DiscoverySelector> parseAll(String... identifiers) {
 		Preconditions.notNull(identifiers, "identifiers must not be null");

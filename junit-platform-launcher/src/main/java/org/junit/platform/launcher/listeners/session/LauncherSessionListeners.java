@@ -25,7 +25,7 @@ import org.junit.platform.launcher.LauncherSessionListener;
  * @since 1.8
  */
 @API(status = INTERNAL, since = "1.8")
-public class LauncherSessionListeners {
+public final class LauncherSessionListeners {
 
 	private LauncherSessionListeners() {
 	}

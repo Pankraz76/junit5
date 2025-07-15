@@ -29,7 +29,7 @@ import org.junit.jupiter.params.support.FieldContext;
 @API(status = EXPERIMENTAL, since = "6.0")
 public abstract class SimpleArgumentsAggregator implements ArgumentsAggregator {
 
-	public SimpleArgumentsAggregator() {
+	protected SimpleArgumentsAggregator() {
 	}
 
 	@Override

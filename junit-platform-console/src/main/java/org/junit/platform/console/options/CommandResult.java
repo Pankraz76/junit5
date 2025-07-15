@@ -21,7 +21,7 @@ import org.jspecify.annotations.Nullable;
  * @since 1.10
  */
 @API(status = INTERNAL, since = "1.10")
-public class CommandResult<T> {
+public final class CommandResult<T> {
 
 	/**
 	 * Exit code indicating successful execution.

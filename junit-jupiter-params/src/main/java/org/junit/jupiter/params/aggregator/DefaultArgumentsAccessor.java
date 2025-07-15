@@ -34,7 +34,7 @@ import org.junit.platform.commons.util.Preconditions;
  * @see org.junit.jupiter.params.ParameterizedTest
  */
 @API(status = INTERNAL, since = "5.2")
-public class DefaultArgumentsAccessor implements ArgumentsAccessor {
+public final class DefaultArgumentsAccessor implements ArgumentsAccessor {
 
 	private final int invocationIndex;
 	private final @Nullable Object[] arguments;
@@ -139,7 +139,7 @@ public class DefaultArgumentsAccessor implements ArgumentsAccessor {
 
 	@Override
 	public List<@Nullable Object> toList() {
-		return Collections.<@Nullable Object> unmodifiableList(Arrays.asList(this.arguments));
+		return Collections. unmodifiableList(Arrays.asList(this.arguments));
 	}
 
 	@Override

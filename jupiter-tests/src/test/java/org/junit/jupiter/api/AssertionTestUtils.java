@@ -18,7 +18,7 @@ import org.jspecify.annotations.Nullable;
 import org.opentest4j.AssertionFailedError;
 import org.opentest4j.ValueWrapper;
 
-class AssertionTestUtils {
+final class AssertionTestUtils {
 
 	private AssertionTestUtils() {
 		/* no-op */

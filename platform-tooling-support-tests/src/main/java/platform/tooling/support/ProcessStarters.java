@@ -17,7 +17,7 @@ import org.junit.jupiter.api.condition.OS;
 import org.junit.platform.tests.process.ProcessStarter;
 import org.opentest4j.TestAbortedException;
 
-public class ProcessStarters {
+public final class ProcessStarters {
 
 	public static ProcessStarter java() {
 		return javaCommand(currentJdkHome(), "java");

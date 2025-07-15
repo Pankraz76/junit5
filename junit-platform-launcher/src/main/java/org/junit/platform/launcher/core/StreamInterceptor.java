@@ -24,7 +24,7 @@ import org.jspecify.annotations.Nullable;
 /**
  * @since 1.3
  */
-class StreamInterceptor extends PrintStream {
+final class StreamInterceptor extends PrintStream {
 
 	private final Deque<RewindableByteArrayOutputStream> mostRecentOutputs = new ConcurrentLinkedDeque<>();
 

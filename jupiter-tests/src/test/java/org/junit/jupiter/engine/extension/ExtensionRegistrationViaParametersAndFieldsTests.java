@@ -227,7 +227,7 @@ class ExtensionRegistrationViaParametersAndFieldsTests extends AbstractJupiterTe
 					else {
 						int indexOfDollarSign = message.indexOf("$");
 						int indexOfAtSign = message.indexOf("@");
-						int endIndex = (indexOfDollarSign > 1 ? indexOfDollarSign : indexOfAtSign);
+						int endIndex = indexOfDollarSign > 1 ? indexOfDollarSign : indexOfAtSign;
 						return message.substring(beginIndex, endIndex);
 					}
 				}) //

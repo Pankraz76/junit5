@@ -23,7 +23,7 @@ import org.junit.platform.commons.util.Preconditions;
  * @since 1.1
  */
 @API(status = MAINTAINED, since = "1.13.3")
-public class ClassFilter {
+public final class ClassFilter {
 
 	/**
 	 * Create a {@link ClassFilter} instance that accepts all names but filters classes.

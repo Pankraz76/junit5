@@ -20,7 +20,7 @@ import org.junit.jupiter.api.Test;
  */
 public class SuperClassWithPackagePrivateLifecycleMethodInDifferentPackageTestCase {
 
-	protected boolean beforeEachInvoked = false;
+	protected boolean beforeEachInvoked;
 
 	@BeforeEach
 	void beforeEach() {

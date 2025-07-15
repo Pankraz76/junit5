@@ -121,9 +121,9 @@ class StandardTestClassTests extends AbstractJupiterTestEngineTests {
 	@SuppressWarnings("JUnitMalformedDeclaration")
 	static class MyStandardTestCase {
 
-		static int countBefore1 = 0;
-		static int countBefore2 = 0;
-		static int countAfter = 0;
+		static int countBefore1;
+		static int countBefore2;
+		static int countAfter;
 
 		@BeforeEach
 		void before1() {
@@ -219,7 +219,7 @@ class StandardTestClassTests extends AbstractJupiterTestEngineTests {
 	@SuppressWarnings("JUnitMalformedDeclaration")
 	static class TestCaseWithFailingBefore {
 
-		static int countBefore = 0;
+		static int countBefore;
 
 		@BeforeEach
 		void before() {
@@ -240,7 +240,7 @@ class StandardTestClassTests extends AbstractJupiterTestEngineTests {
 	@SuppressWarnings("JUnitMalformedDeclaration")
 	static class TestCaseWithFailingAfter {
 
-		static boolean testExecuted = false;
+		static boolean testExecuted;
 
 		@AfterEach
 		void after() {

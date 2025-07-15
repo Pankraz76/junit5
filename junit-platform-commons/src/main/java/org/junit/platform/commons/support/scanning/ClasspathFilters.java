@@ -16,7 +16,7 @@ import java.util.function.Predicate;
 /**
  * @since 1.11
  */
-class ClasspathFilters {
+final class ClasspathFilters {
 
 	static final String CLASS_FILE_SUFFIX = ".class";
 	private static final String PACKAGE_INFO_FILE_NAME = "package-info" + CLASS_FILE_SUFFIX;

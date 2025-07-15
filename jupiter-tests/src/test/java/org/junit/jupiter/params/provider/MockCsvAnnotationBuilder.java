@@ -34,9 +34,9 @@ abstract class MockCsvAnnotationBuilder<A extends Annotation, B extends MockCsvA
 
 	// -------------------------------------------------------------------------
 
-	private boolean useHeadersInDisplayName = false;
-	private char quoteCharacter = '\0';
-	protected char delimiter = '\0';
+	private boolean useHeadersInDisplayName;
+	private char quoteCharacter;
+	protected char delimiter;
 	protected String delimiterString = "";
 	protected String emptyValue = "";
 	protected String[] nullValues = new String[0];
@@ -92,7 +92,7 @@ abstract class MockCsvAnnotationBuilder<A extends Annotation, B extends MockCsvA
 
 	// -------------------------------------------------------------------------
 
-	static class MockCsvSourceBuilder extends MockCsvAnnotationBuilder<CsvSource, MockCsvSourceBuilder> {
+	static final class MockCsvSourceBuilder extends MockCsvAnnotationBuilder<CsvSource, MockCsvSourceBuilder> {
 
 		private String[] lines = new String[0];
 		private String textBlock = "";
@@ -139,12 +139,12 @@ abstract class MockCsvAnnotationBuilder<A extends Annotation, B extends MockCsvA
 
 	}
 
-	static class MockCsvFileSourceBuilder extends MockCsvAnnotationBuilder<CsvFileSource, MockCsvFileSourceBuilder> {
+	static final class MockCsvFileSourceBuilder extends MockCsvAnnotationBuilder<CsvFileSource, MockCsvFileSourceBuilder> {
 
 		private String[] resources = {};
 		private String[] files = {};
 		private String encoding = "UTF-8";
-		private int numLinesToSkip = 0;
+		private int numLinesToSkip;
 
 		private MockCsvFileSourceBuilder() {
 			super.quoteCharacter = '"';

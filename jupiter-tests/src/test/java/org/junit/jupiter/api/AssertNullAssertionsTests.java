@@ -80,7 +80,7 @@ class AssertNullAssertionsTests {
 		catch (AssertionFailedError ex) {
 			// Should look something like:
 			// expected: <null> but was: java.lang.String@264b3504<null>
-			String prefix = (messageSupplier != null ? messageSupplier.get() + " ==> " : "");
+			String prefix = messageSupplier != null ? messageSupplier.get() + " ==> " : "";
 			assertMessageMatches(ex, prefix + "expected: <null> but was: java\\.lang\\.String@.+<null>");
 			assertExpectedAndActualValues(ex, null, actual);
 		}
@@ -112,7 +112,7 @@ class AssertNullAssertionsTests {
 		catch (AssertionFailedError ex) {
 			// Should look something like:
 			// expected: <null> but was: org.junit.jupiter.api.AssertNullAssertionsTests$NullToString@4e7912d8<null>
-			String prefix = (messageSupplier != null ? messageSupplier.get() + " ==> " : "");
+			String prefix = messageSupplier != null ? messageSupplier.get() + " ==> " : "";
 			assertMessageMatches(ex, prefix
 					+ "expected: <null> but was: org\\.junit\\.jupiter\\.api\\.AssertNullAssertionsTests\\$NullToString@.+<null>");
 			assertExpectedAndActualValues(ex, null, actual);

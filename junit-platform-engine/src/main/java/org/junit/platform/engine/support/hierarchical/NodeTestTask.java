@@ -160,7 +160,7 @@ class NodeTestTask<C extends EngineExecutionContext> implements TestTask {
 
 		var throwableCollector = requiredThrowableCollector();
 
-		throwableCollector.execute(() -> {
+		throwableCollector.execute(() ->
 			node.around(requiredContext(), ctx -> {
 				context = ctx;
 				throwableCollector.execute(() -> {
@@ -184,8 +184,7 @@ class NodeTestTask<C extends EngineExecutionContext> implements TestTask {
 				});
 
 				throwableCollector.execute(() -> node.after(requiredContext()));
-			});
-		});
+			}));
 	}
 
 	private void cleanUp() {

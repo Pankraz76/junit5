@@ -491,7 +491,7 @@ public final class EngineTestKit {
 			return executionRecorder.getExecutionResults();
 		}
 
-		private static class DisabledOutputDirectoryProvider implements OutputDirectoryProvider {
+		private static final class DisabledOutputDirectoryProvider implements OutputDirectoryProvider {
 
 			public static final OutputDirectoryProvider INSTANCE = new DisabledOutputDirectoryProvider();
 

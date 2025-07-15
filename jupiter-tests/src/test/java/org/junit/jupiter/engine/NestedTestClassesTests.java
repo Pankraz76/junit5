@@ -334,13 +334,13 @@ class NestedTestClassesTests extends AbstractJupiterTestEngineTests {
 	@SuppressWarnings("JUnitMalformedDeclaration")
 	static class TestCaseWithDoubleNesting {
 
-		static int beforeTopCount = 0;
-		static int beforeNestedCount = 0;
-		static int beforeDoublyNestedCount = 0;
+		static int beforeTopCount;
+		static int beforeNestedCount;
+		static int beforeDoublyNestedCount;
 
-		static int afterTopCount = 0;
-		static int afterNestedCount = 0;
-		static int afterDoublyNestedCount = 0;
+		static int afterTopCount;
+		static int afterNestedCount;
+		static int afterDoublyNestedCount;
 
 		@BeforeEach
 		void beforeTop() {

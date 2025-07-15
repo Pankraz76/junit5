@@ -17,7 +17,7 @@ import org.junit.platform.engine.TestTag;
 /**
  * @since 1.1
  */
-class TagExpressions {
+final class TagExpressions {
 
 	static TagExpression tag(String tag) {
 		TestTag testTag = TestTag.create(tag);

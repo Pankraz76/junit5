@@ -32,7 +32,7 @@ import org.junit.platform.commons.util.ToStringBuilder;
  * @since 1.0
  */
 @API(status = STABLE, since = "1.0")
-public class TestExecutionResult {
+public final class TestExecutionResult {
 
 	/**
 	 * Status of executing a single test or container.

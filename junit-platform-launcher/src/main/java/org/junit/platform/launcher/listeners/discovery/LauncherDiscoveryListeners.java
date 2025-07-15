@@ -31,7 +31,7 @@ import org.junit.platform.launcher.LauncherDiscoveryListener;
  * @since 1.6
  */
 @API(status = STABLE, since = "1.10")
-public class LauncherDiscoveryListeners {
+public final class LauncherDiscoveryListeners {
 
 	private LauncherDiscoveryListeners() {
 	}

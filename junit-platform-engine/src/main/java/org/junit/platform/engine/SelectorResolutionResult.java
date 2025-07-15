@@ -28,7 +28,7 @@ import org.junit.platform.commons.util.ToStringBuilder;
  * @since 1.6
  */
 @API(status = STABLE, since = "1.10")
-public class SelectorResolutionResult {
+public final class SelectorResolutionResult {
 
 	/**
 	 * Status of resolving a {@link DiscoverySelector}.

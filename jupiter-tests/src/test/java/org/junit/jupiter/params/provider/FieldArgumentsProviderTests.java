@@ -521,7 +521,7 @@ class FieldArgumentsProviderTests {
 		// --- Invalid ---------------------------------------------------------
 
 		@Nullable
-		static List<String> nullList = null;
+		static List<String> nullList;
 
 		static Object object = -1;
 

@@ -108,7 +108,7 @@ public final class CollectionUtils {
 		if (type == null || type == void.class) {
 			return false;
 		}
-		return (Stream.class.isAssignableFrom(type)//
+		return Stream.class.isAssignableFrom(type)//
 				|| DoubleStream.class.isAssignableFrom(type)//
 				|| IntStream.class.isAssignableFrom(type)//
 				|| LongStream.class.isAssignableFrom(type)//
@@ -116,7 +116,7 @@ public final class CollectionUtils {
 				|| Iterator.class.isAssignableFrom(type)//
 				|| Object[].class.isAssignableFrom(type)//
 				|| (type.isArray() && type.getComponentType().isPrimitive())//
-				|| findIteratorMethod(type).isPresent());
+				|| findIteratorMethod(type).isPresent();
 	}
 
 	/**

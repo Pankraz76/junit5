@@ -240,9 +240,8 @@ class InvocationInterceptorTests extends AbstractJupiterTestEngineTests {
 		@TestFactory
 		DynamicTest testFactory(TestReporter reporter) {
 			publish(reporter, InvocationType.TEST_FACTORY_METHOD);
-			return dynamicTest("dynamicTest", () -> {
-				publish(reporter, InvocationType.DYNAMIC_TEST);
-			});
+			return dynamicTest("dynamicTest", () ->
+				publish(reporter, InvocationType.DYNAMIC_TEST));
 		}
 
 		@AfterEach

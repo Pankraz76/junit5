@@ -24,11 +24,11 @@ import org.junit.rules.TestRule;
 @ExtendWith(ExternalResourceSupport.class)
 class ExternalResourceSupportForDifferentDeclaredReturnTypesRulesTests {
 
-	private static boolean beforeOfRule1WasExecuted = false;
-	private static boolean beforeOfRule2WasExecuted = false;
+	private static boolean beforeOfRule1WasExecuted;
+	private static boolean beforeOfRule2WasExecuted;
 
-	private static boolean afterOfRule1WasExecuted = false;
-	private static boolean afterOfRule2WasExecuted = false;
+	private static boolean afterOfRule1WasExecuted;
+	private static boolean afterOfRule2WasExecuted;
 
 	@Rule
 	public MyExternalResource1 getResource1() {

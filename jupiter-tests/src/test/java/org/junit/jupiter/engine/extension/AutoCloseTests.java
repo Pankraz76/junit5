@@ -494,7 +494,7 @@ class AutoCloseTests extends AbstractJupiterTestEngineTests {
 	@SuppressWarnings("JUnitMalformedDeclaration")
 	static class InstancePerClassTestCase {
 
-		static boolean closed = false;
+		static boolean closed;
 
 		@AutoClose
 		final AutoCloseable field = () -> closed = true;
@@ -702,7 +702,7 @@ class AutoCloseTests extends AbstractJupiterTestEngineTests {
 
 		private final String prefix;
 		private final boolean fail;
-		private String invokedMethod = null;
+		private String invokedMethod;
 
 		AutoCloseSpy(String prefix) {
 			Class<?> callerClass = StackWalker.getInstance(RETAIN_CLASS_REFERENCE).getCallerClass();

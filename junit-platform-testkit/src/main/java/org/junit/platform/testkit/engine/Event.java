@@ -34,7 +34,7 @@ import org.junit.platform.engine.reporting.ReportEntry;
  * @see EventType
  */
 @API(status = MAINTAINED, since = "1.7")
-public class Event {
+public final class Event {
 
 	// --- Factories -----------------------------------------------------------
 

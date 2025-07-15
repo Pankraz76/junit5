@@ -23,7 +23,7 @@ import java.util.concurrent.Executors;
 
 import org.jspecify.annotations.Nullable;
 
-public class ConcurrencyTestingUtils {
+public final class ConcurrencyTestingUtils {
 
 	public static void executeConcurrently(int threads, Runnable action) throws Exception {
 		ConcurrencyTestingUtils.<@Nullable Object> executeConcurrently(threads, () -> {

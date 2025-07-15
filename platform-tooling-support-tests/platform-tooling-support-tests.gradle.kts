@@ -291,7 +291,9 @@ class JavaHomeDir(project: Project, @Input val version: Int, testDistributionEna
 		}
 		val metadata = javaLauncher.map { it.metadata }
 		val javaHome = metadata.map { it.installationPath.asFile.absolutePath }.orNull
-		return javaHome?.let { listOf("-Djava.home.$version${if (graalvm) ".nativeImage" else ""}=$it") } ?: emptyList()
+		return javaHome?.let { listOf("-Djava.home.$version${if (graalvm) { ".nativeImage"
+		} else { ""
+		}}=$it") } ?: emptyList()
 	}
 }
 

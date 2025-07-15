@@ -26,7 +26,7 @@ import org.opentest4j.MultipleFailuresError;
  *
  * @since 1.4
  */
-class Assertions {
+final class Assertions {
 
 	@FunctionalInterface
 	interface Executable {
@@ -77,7 +77,7 @@ class Assertions {
 	}
 
 	private static String buildPrefix(String message) {
-		return (StringUtils.isNotBlank(message) ? message + " ==> " : "");
+		return StringUtils.isNotBlank(message) ? message + " ==> " : "";
 	}
 
 	private static String formatValues(long expected, long actual) {

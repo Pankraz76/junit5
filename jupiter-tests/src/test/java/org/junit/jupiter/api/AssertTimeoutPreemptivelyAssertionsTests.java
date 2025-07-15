@@ -124,32 +124,29 @@ class AssertTimeoutPreemptivelyAssertionsTests {
 
 	@Test
 	void assertTimeoutPreemptivelyForSupplierThatThrowsAnException() {
-		RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+		RuntimeException exception = assertThrows(RuntimeException.class, () ->
 			assertTimeoutPreemptively(ofMillis(500),
-				() -> ExceptionUtils.throwAsUncheckedException(new RuntimeException("not this time")));
-		});
+				() -> ExceptionUtils.throwAsUncheckedException(new RuntimeException("not this time"))));
 		assertMessageEquals(exception, "not this time");
 	}
 
 	@Test
 	void assertTimeoutPreemptivelyForSupplierThatThrowsAnAssertionFailedError() {
-		AssertionFailedError exception = assertThrows(AssertionFailedError.class, () -> {
+		AssertionFailedError exception = assertThrows(AssertionFailedError.class, () ->
 			assertTimeoutPreemptively(ofMillis(500), () -> {
 				fail("enigma");
 				return "Tempus Fugit";
-			});
-		});
+			}));
 		assertMessageEquals(exception, "enigma");
 	}
 
 	@Test
 	void assertTimeoutPreemptivelyForSupplierThatCompletesAfterTheTimeout() {
-		AssertionFailedError error = assertThrows(AssertionFailedError.class, () -> {
+		AssertionFailedError error = assertThrows(AssertionFailedError.class, () ->
 			assertTimeoutPreemptively(PREEMPTIVE_TIMEOUT, () -> {
 				waitForInterrupt();
 				return "Tempus Fugit";
-			});
-		});
+			}));
 
 		assertMessageEquals(error, "execution timed out after " + PREEMPTIVE_TIMEOUT.toMillis() + " ms");
 		assertMessageStartsWith(error.getCause(), "Execution timed out in ");
@@ -158,12 +155,11 @@ class AssertTimeoutPreemptivelyAssertionsTests {
 
 	@Test
 	void assertTimeoutPreemptivelyWithMessageForSupplierThatCompletesAfterTheTimeout() {
-		AssertionFailedError error = assertThrows(AssertionFailedError.class, () -> {
+		AssertionFailedError error = assertThrows(AssertionFailedError.class, () ->
 			assertTimeoutPreemptively(PREEMPTIVE_TIMEOUT, () -> {
 				waitForInterrupt();
 				return "Tempus Fugit";
-			}, "Tempus Fugit");
-		});
+			}, "Tempus Fugit"));
 
 		assertMessageEquals(error,
 			"Tempus Fugit ==> execution timed out after " + PREEMPTIVE_TIMEOUT.toMillis() + " ms");
@@ -173,12 +169,11 @@ class AssertTimeoutPreemptivelyAssertionsTests {
 
 	@Test
 	void assertTimeoutPreemptivelyWithMessageSupplierForSupplierThatCompletesAfterTheTimeout() {
-		AssertionFailedError error = assertThrows(AssertionFailedError.class, () -> {
+		AssertionFailedError error = assertThrows(AssertionFailedError.class, () ->
 			assertTimeoutPreemptively(PREEMPTIVE_TIMEOUT, () -> {
 				waitForInterrupt();
 				return "Tempus Fugit";
-			}, () -> "Tempus" + " " + "Fugit");
-		});
+			}, () -> "Tempus" + " " + "Fugit"));
 
 		assertMessageEquals(error,
 			"Tempus Fugit ==> execution timed out after " + PREEMPTIVE_TIMEOUT.toMillis() + " ms");

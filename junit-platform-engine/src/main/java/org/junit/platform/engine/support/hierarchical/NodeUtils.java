@@ -23,7 +23,7 @@ final class NodeUtils {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	static <C extends EngineExecutionContext> Node<C> asNode(TestDescriptor testDescriptor) {
-		return (testDescriptor instanceof Node node ? node : noOpNode);
+		return testDescriptor instanceof Node node ? node : noOpNode;
 	}
 
 	@SuppressWarnings("rawtypes")

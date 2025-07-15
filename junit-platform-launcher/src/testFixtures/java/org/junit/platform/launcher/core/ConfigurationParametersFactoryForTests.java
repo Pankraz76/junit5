@@ -14,7 +14,7 @@ import java.util.Map;
 
 import org.junit.platform.engine.ConfigurationParameters;
 
-public class ConfigurationParametersFactoryForTests {
+public final class ConfigurationParametersFactoryForTests {
 
 	private ConfigurationParametersFactoryForTests() {
 	}

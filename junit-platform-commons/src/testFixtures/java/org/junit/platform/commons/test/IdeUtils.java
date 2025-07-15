@@ -13,7 +13,7 @@ package org.junit.platform.commons.test;
 /**
  * Collection of test utilities for IDEs.
  */
-public class IdeUtils {
+public final class IdeUtils {
 
 	/**
 	 * Determine if the current code is running in the Eclipse IDE.

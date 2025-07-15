@@ -27,7 +27,7 @@ import org.junit.platform.commons.util.ClassLoaderUtils;
 /**
  * @since 1.12
  */
-class ClasspathAlignmentChecker {
+final class ClasspathAlignmentChecker {
 
 	// VisibleForTesting
 	static final List<String> WELL_KNOWN_PACKAGES = List.of( //

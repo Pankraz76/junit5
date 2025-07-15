@@ -81,7 +81,9 @@ class StreamInterceptorTests {
 		streamInterceptor = StreamInterceptor.register(targetStream, newStream -> this.targetStream = newStream,
 			100).orElseThrow(RuntimeException::new);
 
-		String outermost, inner, innermost;
+		String outermost;
+		String inner;
+		String innermost;
 
 		streamInterceptor.capture();
 		streamInterceptor.print("before outermost - ");
@@ -112,9 +114,8 @@ class StreamInterceptorTests {
 			100).orElseThrow(RuntimeException::new);
 
 		streamInterceptor.capture();
-		var thread = new Thread(() -> {
-			targetStream.println("from non-test thread");
-		});
+		var thread = new Thread(() ->
+			targetStream.println("from non-test thread"));
 		thread.start();
 		thread.join();
 

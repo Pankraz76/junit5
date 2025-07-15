@@ -35,7 +35,7 @@ import org.jspecify.annotations.Nullable;
  * @since 1.7
  */
 @API(status = INTERNAL, since = "1.7")
-public class ClassNamePatternFilterUtils {
+public final class ClassNamePatternFilterUtils {
 
 	private ClassNamePatternFilterUtils() {
 		/* no-op */

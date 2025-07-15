@@ -203,7 +203,7 @@ public interface Node<C extends EngineExecutionContext> {
 	 *
 	 * @see Node#shouldBeSkipped(EngineExecutionContext)
 	 */
-	class SkipResult {
+	final class SkipResult {
 
 		private static final SkipResult alwaysExecuteSkipResult = new SkipResult(false, null);
 

@@ -44,7 +44,7 @@ import org.junit.platform.engine.ConfigurationParameters;
 /**
  * @since 1.0
  */
-class LauncherConfigurationParameters implements ConfigurationParameters {
+final class LauncherConfigurationParameters implements ConfigurationParameters {
 
 	private static final Logger logger = LoggerFactory.getLogger(LauncherConfigurationParameters.class);
 

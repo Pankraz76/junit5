@@ -169,7 +169,7 @@ public class RunnerTestDescriptor extends VintageTestDescriptor {
 	}
 
 	private Runner getRunnerToReport() {
-		return (runner instanceof RunnerDecorator decorator) ? decorator.getDecoratedRunner() : runner;
+		return runner instanceof RunnerDecorator decorator ? decorator.getDecoratedRunner() : runner;
 	}
 
 	public boolean isIgnored() {

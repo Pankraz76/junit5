@@ -31,7 +31,7 @@ import org.junit.platform.commons.util.Preconditions;
 /**
  * @since 6.0
  */
-class CsvReaderFactory {
+final class CsvReaderFactory {
 
 	private static final String DEFAULT_DELIMITER = ",";
 	private static final char EMPTY_CHAR = '\0';
@@ -165,7 +165,7 @@ class CsvReaderFactory {
 			if (!quoted && field.isBlank()) {
 				return NULL_MARKER;
 			}
-			String modifiedField = (!quoted && ignoreLeadingAndTrailingWhitespaces) ? field.trim() : field;
+			String modifiedField = !quoted && ignoreLeadingAndTrailingWhitespaces ? field.trim() : field;
 			if (nullValues.contains(modifiedField)) {
 				return NULL_MARKER;
 			}

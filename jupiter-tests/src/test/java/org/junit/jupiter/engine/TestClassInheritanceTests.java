@@ -138,8 +138,8 @@ class TestClassInheritanceTests extends AbstractJupiterTestEngineTests {
 
 	private abstract static class AbstractTestCase {
 
-		static int countSuperBeforeInvoked = 0;
-		static int countSuperAfterInvoked = 0;
+		static int countSuperBeforeInvoked;
+		static int countSuperAfterInvoked;
 
 		@BeforeEach
 		void superBefore() {
@@ -160,10 +160,10 @@ class TestClassInheritanceTests extends AbstractJupiterTestEngineTests {
 	@SuppressWarnings("JUnitMalformedDeclaration")
 	static class LocalTestCase extends AbstractTestCase {
 
-		boolean throwExceptionInAfterMethod = false;
+		boolean throwExceptionInAfterMethod;
 
-		static int countBeforeInvoked = 0;
-		static int countAfterInvoked = 0;
+		static int countBeforeInvoked;
+		static int countAfterInvoked;
 
 		@BeforeEach
 		void before() {

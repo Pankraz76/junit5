@@ -682,7 +682,7 @@ class AssertEqualsAssertionsTests {
 
 		@Test
 		void floats() {
-			float primitive = 42.0f;
+			float primitive = 42.0F;
 			Float wrapper = Float.valueOf("42.0");
 
 			assertEquals(primitive, wrapper);
@@ -702,7 +702,7 @@ class AssertEqualsAssertionsTests {
 
 		@Test
 		void doubles() {
-			double primitive = 42.0d;
+			double primitive = 42.0D;
 			Double wrapper = Double.valueOf("42.0");
 
 			assertEquals(primitive, wrapper);

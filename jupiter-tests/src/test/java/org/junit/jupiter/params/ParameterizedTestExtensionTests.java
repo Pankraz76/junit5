@@ -62,7 +62,7 @@ class ParameterizedTestExtensionTests {
 
 	private final ParameterizedTestExtension parameterizedTestExtension = new ParameterizedTestExtension();
 
-	static boolean streamWasClosed = false;
+	static boolean streamWasClosed;
 
 	@Test
 	void supportsReturnsFalseForMissingTestMethod() {

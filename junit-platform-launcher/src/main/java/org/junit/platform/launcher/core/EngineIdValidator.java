@@ -22,7 +22,7 @@ import org.junit.platform.engine.TestEngine;
 /**
  * @since 1.7
  */
-class EngineIdValidator {
+final class EngineIdValidator {
 
 	private EngineIdValidator() {
 	}

@@ -20,7 +20,7 @@ import org.junit.platform.commons.support.Resource;
  *
  * @since 1.12
  */
-class ResourceUtils {
+final class ResourceUtils {
 	public static final String DEFAULT_PACKAGE_NAME = "";
 	private static final char CLASSPATH_RESOURCE_PATH_SEPARATOR = '/';
 	private static final char PACKAGE_SEPARATOR_CHAR = '.';

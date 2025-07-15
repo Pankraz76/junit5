@@ -45,7 +45,7 @@ public class ExecutableInvokerIntegrationTests extends AbstractJupiterTestEngine
 	@ExtendWith(ExecuteTestsTwiceExtension.class)
 	static class ExecuteTestsTwiceTestCase {
 
-		static int testInvocations = 0;
+		static int testInvocations;
 
 		@SuppressWarnings("JUnitMalformedDeclaration")
 		@Test
@@ -62,7 +62,7 @@ public class ExecutableInvokerIntegrationTests extends AbstractJupiterTestEngine
 	@ExtendWith(ExecuteConstructorTwiceExtension.class)
 	static class ExecuteConstructorTwiceTestCase {
 
-		static int constructorInvocations = 0;
+		static int constructorInvocations;
 
 		ExecuteConstructorTwiceTestCase(TestInfo testInfo,
 				@ExtendWith(ExtensionContextParameterResolver.class) ExtensionContext extensionContext) {

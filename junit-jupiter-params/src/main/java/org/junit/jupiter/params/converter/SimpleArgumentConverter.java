@@ -30,7 +30,7 @@ import org.junit.jupiter.params.support.FieldContext;
 @API(status = STABLE, since = "5.7")
 public abstract class SimpleArgumentConverter implements ArgumentConverter {
 
-	public SimpleArgumentConverter() {
+	protected SimpleArgumentConverter() {
 	}
 
 	@Override

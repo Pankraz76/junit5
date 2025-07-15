@@ -108,7 +108,7 @@ class CsvArgumentsProvider extends AnnotationBasedArgumentsProvider<CsvSource> {
 	}
 
 	private static Named<@Nullable Object> asNamed(String name, @Nullable Object column) {
-		return Named.<@Nullable Object> of(name, column);
+		return Named. of(name, column);
 	}
 
 	/**

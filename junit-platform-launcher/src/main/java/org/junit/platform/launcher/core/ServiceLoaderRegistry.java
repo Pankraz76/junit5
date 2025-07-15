@@ -25,7 +25,7 @@ import org.junit.platform.commons.util.ServiceLoaderUtils;
 /**
  * @since 1.8
  */
-class ServiceLoaderRegistry {
+final class ServiceLoaderRegistry {
 
 	static <T> Iterable<T> load(Class<T> type) {
 		return load(type, __ -> true, instances -> logLoadedInstances(type, instances, null));

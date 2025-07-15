@@ -673,9 +673,8 @@ class DefaultLauncherTests {
 
 			@Override
 			public TestDescriptor discover(EngineDiscoveryRequest discoveryRequest, UniqueId uniqueId) {
-				discoveryRequest.getSelectorsByType(DiscoverySelector.class).forEach(selector -> {
-					discoveryRequest.getDiscoveryListener().selectorProcessed(uniqueId, selector, unresolved());
-				});
+				discoveryRequest.getSelectorsByType(DiscoverySelector.class).forEach(selector ->
+					discoveryRequest.getDiscoveryListener().selectorProcessed(uniqueId, selector, unresolved()));
 				return new EngineDescriptor(uniqueId, uniqueId.getLastSegment().getValue());
 			}
 		};
