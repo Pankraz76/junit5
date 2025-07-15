@@ -7,4 +7,5 @@ recipeList:
   - org.openrewrite.staticanalysis.EqualsAvoidsNull
   - org.openrewrite.staticanalysis.ModifierOrder
   - org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods
+  - org.openrewrite.staticanalysis.CommonStaticAnalysis
   - org.openrewrite.text.EndOfLineAtEndOfFile
