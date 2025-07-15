@@ -36,7 +36,7 @@ import kotlin.reflect.KFunction;
 import kotlin.reflect.KParameter;
 import kotlin.reflect.jvm.ReflectJvmMapping;
 
-final class KotlinSuspendingFunctionUtils {
+class KotlinSuspendingFunctionUtils {
 
 	static Class<?> getReturnType(Method method) {
 		var returnType = getJavaClass(getJvmErasure(getKotlinFunction(method).getReturnType()));

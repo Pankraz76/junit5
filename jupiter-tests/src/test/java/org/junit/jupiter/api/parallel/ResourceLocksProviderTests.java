@@ -111,11 +111,11 @@ class ResourceLocksProviderTests extends AbstractJupiterTestEngineTests {
 
 		static class Provider implements ResourceLocksProvider {
 
-			private static boolean isProvideForClassCalled;
-			private static boolean isProvideForTestMethodCalled;
+			private static boolean isProvideForClassCalled = false;
+			private static boolean isProvideForTestMethodCalled = false;
 
-			private static boolean isProvideForNestedClassCalled;
-			private static boolean isProvideForNestedTestMethodCalled;
+			private static boolean isProvideForNestedClassCalled = false;
+			private static boolean isProvideForNestedTestMethodCalled = false;
 
 			@Nullable
 			private Class<?> testClass;
@@ -186,9 +186,9 @@ class ResourceLocksProviderTests extends AbstractJupiterTestEngineTests {
 
 		static class Provider implements ResourceLocksProvider {
 
-			private static boolean isProvideForNestedClassCalled;
+			private static boolean isProvideForNestedClassCalled = false;
 
-			private static boolean isProvideForMethodCalled;
+			private static boolean isProvideForMethodCalled = false;
 
 			@Override
 			public Set<Lock> provideForClass(Class<?> testClass) {
@@ -240,7 +240,7 @@ class ResourceLocksProviderTests extends AbstractJupiterTestEngineTests {
 
 		static class Provider implements ResourceLocksProvider {
 
-			private static boolean isProvideForMethodCalled;
+			private static boolean isProvideForMethodCalled = false;
 
 			@Override
 			public Set<Lock> provideForClass(Class<?> testClass) {
@@ -290,7 +290,7 @@ class ResourceLocksProviderTests extends AbstractJupiterTestEngineTests {
 
 		static class Provider implements ResourceLocksProvider {
 
-			private static boolean isProvideForMethodCalled;
+			private static boolean isProvideForMethodCalled = false;
 
 			@Override
 			public Set<Lock> provideForClass(Class<?> testClass) {

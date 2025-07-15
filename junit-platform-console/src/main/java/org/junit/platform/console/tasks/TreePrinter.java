@@ -98,7 +98,7 @@ class TreePrinter {
 		// `continuous == false`, but still need to include a vertical
 		// bar for printing stack traces, messages and reports.
 		// See https://github.com/junit-team/junit-framework/issues/1531
-		if (!node.children.isEmpty()) {
+		if (node.children.size() > 0) {
 			return theme.blank() + theme.vertical();
 		}
 		return (continuous ? theme.vertical() : theme.blank()) + theme.blank();

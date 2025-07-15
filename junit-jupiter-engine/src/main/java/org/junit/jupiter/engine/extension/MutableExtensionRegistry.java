@@ -46,7 +46,7 @@ import org.junit.platform.commons.util.ServiceLoaderUtils;
  * @since 5.5
  */
 @API(status = INTERNAL, since = "5.5")
-public final class MutableExtensionRegistry implements ExtensionRegistry, ExtensionRegistrar {
+public class MutableExtensionRegistry implements ExtensionRegistry, ExtensionRegistrar {
 
 	private static final Logger logger = LoggerFactory.getLogger(MutableExtensionRegistry.class);
 
@@ -270,7 +270,7 @@ public final class MutableExtensionRegistry implements ExtensionRegistry, Extens
 			return "";
 		}
 		if (source instanceof Member member) {
-			Object type = member instanceof Method ? "method" : "field";
+			Object type = (member instanceof Method ? "method" : "field");
 			source = "%s %s.%s".formatted(type, member.getDeclaringClass().getName(), member.getName());
 		}
 		return " from source [" + source + "]";

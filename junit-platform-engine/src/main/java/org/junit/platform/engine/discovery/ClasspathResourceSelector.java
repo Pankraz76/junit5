@@ -63,7 +63,7 @@ public final class ClasspathResourceSelector implements DiscoverySelector {
 
 	ClasspathResourceSelector(String classpathResourceName, @Nullable FilePosition position) {
 		boolean startsWithSlash = classpathResourceName.startsWith("/");
-		this.classpathResourceName = startsWithSlash ? classpathResourceName.substring(1) : classpathResourceName;
+		this.classpathResourceName = (startsWithSlash ? classpathResourceName.substring(1) : classpathResourceName);
 		this.position = position;
 	}
 

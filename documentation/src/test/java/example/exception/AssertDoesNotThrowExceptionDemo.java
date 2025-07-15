@@ -19,7 +19,9 @@ class AssertDoesNotThrowExceptionDemo {
 	// tag::user_guide[]
 	@Test
 	void testExceptionIsNotThrown() {
-		assertDoesNotThrow(this::shouldNotThrowException);
+		assertDoesNotThrow(() -> {
+			shouldNotThrowException();
+		});
 	}
 
 	void shouldNotThrowException() {

@@ -106,7 +106,7 @@ class ResourceAutoClosingTests {
 	}
 
 	static class AutoCloseableResource implements AutoCloseable {
-		private boolean closed;
+		private boolean closed = false;
 
 		@Override
 		public void close() {
@@ -116,7 +116,7 @@ class ResourceAutoClosingTests {
 
 	@SuppressWarnings("deprecation")
 	static class CloseableResource implements ExtensionContext.Store.CloseableResource {
-		private boolean closed;
+		private boolean closed = false;
 
 		@Override
 		public void close() {

@@ -91,7 +91,7 @@ class JupiterEngineExecutionContextTests {
 		ExtensionContext failingExtensionContext = mock(ExtensionContext.class,
 			withSettings().extraInterfaces(AutoCloseable.class));
 		Exception expectedCause = new Exception("test message");
-		doThrow(expectedCause).when((AutoCloseable) failingExtensionContext).close();
+		doThrow(expectedCause).when(((AutoCloseable) failingExtensionContext)).close();
 
 		JupiterEngineExecutionContext newContext = originalContext.extend() //
 				.withExtensionContext(failingExtensionContext) //

@@ -88,10 +88,10 @@ class TagIntegrationTests {
 	@SuppressWarnings("JUnitMalformedDeclaration")
 	static class TaggedTestCase {
 
-		static boolean tag1WasExecuted;
-		static boolean tag2WasExecuted;
-		static boolean unTaggedWasExecuted;
-		static boolean doubleTaggedWasExecuted;
+		static boolean tag1WasExecuted = false;
+		static boolean tag2WasExecuted = false;
+		static boolean unTaggedWasExecuted = false;
+		static boolean doubleTaggedWasExecuted = false;
 
 		@Test
 		@Tag("tag1")

@@ -216,7 +216,7 @@ class FallbackStringToObjectConverterTests {
 
 	}
 
-	static final class Magazine {
+	static class Magazine {
 
 		private Magazine(String title) {
 		}

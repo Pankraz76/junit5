@@ -171,7 +171,7 @@ class TypedArgumentConverterTests {
 
 		@Override
 		protected Integer convert(@Nullable String source) throws ArgumentConversionException {
-			return source != null ? source.length() : 0;
+			return (source != null ? source.length() : 0);
 		}
 	}
 

@@ -270,9 +270,9 @@ public class TestClassPredicatesTests {
 			assertThat(predicates.isAnnotatedWithNestedAndValid).rejects(candidate);
 
 			var issue = DiscoveryIssue.builder(Severity.WARNING,
-				"Top-level class '%s' must not be annotated with @Nested. ".formatted(candidate.getName())
+				("Top-level class '%s' must not be annotated with @Nested. ".formatted(candidate.getName())
 						+ "It will be executed anyway for backward compatibility. "
-						+ "You should remove the @Nested annotation to resolve this warning.") //
+						+ "You should remove the @Nested annotation to resolve this warning.")) //
 					.source(ClassSource.from(candidate)) //
 					.build();
 			assertThat(discoveryIssues.stream().distinct()).containsExactly(issue);

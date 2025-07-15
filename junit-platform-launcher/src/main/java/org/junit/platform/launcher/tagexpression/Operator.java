@@ -25,7 +25,7 @@ import org.jspecify.annotations.Nullable;
 /**
  * @since 1.1
  */
-final class Operator {
+class Operator {
 
 	enum Associativity {
 		Left, Right

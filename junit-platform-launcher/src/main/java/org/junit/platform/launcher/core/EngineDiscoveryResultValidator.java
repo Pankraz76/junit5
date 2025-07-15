@@ -68,7 +68,7 @@ class EngineDiscoveryResultValidator {
 					List<UniqueId> path2 = findPath(visited, parent.getUniqueId());
 					path2.add(uid);
 
-					return Optional.of("%s exists in at least two paths:%n(1) %s%n(2) %s".formatted(uid,
+					return Optional.of("%s exists in at least two paths:\n(1) %s\n(2) %s".formatted(uid,
 						formatted(path1), formatted(path2)));
 				}
 				else {

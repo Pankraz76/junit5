@@ -22,7 +22,7 @@ import org.apiguardian.api.API;
  * @see ResourceLocksProvider.Lock
  */
 @API(status = STABLE, since = "5.10")
-public final class Resources {
+public class Resources {
 
 	/**
 	 * Represents Java's system properties: {@value}

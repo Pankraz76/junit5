@@ -47,7 +47,7 @@ import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;
 /**
  * @since 1.0
  */
-final class DiscoveryRequestCreator {
+class DiscoveryRequestCreator {
 
 	static LauncherDiscoveryRequestBuilder toDiscoveryRequestBuilder(TestDiscoveryOptions options) {
 		LauncherDiscoveryRequestBuilder requestBuilder = request();

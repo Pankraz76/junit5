@@ -23,11 +23,11 @@ import org.junit.rules.ExternalResource;
 @ExtendWith(ExternalResourceSupport.class)
 public class ExternalResourceSupportForMultipleFieldRulesTests {
 
-	private static boolean beforeOfRule1WasExecuted;
-	private static boolean beforeOfRule2WasExecuted;
+	private static boolean beforeOfRule1WasExecuted = false;
+	private static boolean beforeOfRule2WasExecuted = false;
 
-	private static boolean afterOfRule1WasExecuted;
-	private static boolean afterOfRule2WasExecuted;
+	private static boolean afterOfRule1WasExecuted = false;
+	private static boolean afterOfRule2WasExecuted = false;
 
 	@Rule
 	public ExternalResource resource1 = new ExternalResource() {

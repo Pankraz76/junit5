@@ -158,7 +158,7 @@ class MethodSelectorResolver implements SelectorResolver {
 		};
 	}
 
-	private static final class MethodType {
+	private static class MethodType {
 
 		static List<MethodType> allPossibilities(DiscoveryIssueReporter issueReporter) {
 			return Arrays.asList( //

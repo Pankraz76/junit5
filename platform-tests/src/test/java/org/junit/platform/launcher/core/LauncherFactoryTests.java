@@ -545,7 +545,7 @@ class LauncherFactoryTests {
 	}
 
 	private static class CloseTrackingResource implements AutoCloseable {
-		private static boolean closed;
+		private static boolean closed = false;
 
 		@Override
 		public void close() {

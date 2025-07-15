@@ -24,7 +24,7 @@ import org.jspecify.annotations.Nullable;
 import org.junit.platform.commons.support.ReflectionSupport;
 
 @API(status = INTERNAL, since = "6.0")
-public final class MethodReflectionUtils {
+public class MethodReflectionUtils {
 
 	public static Class<?> getReturnType(Method method) {
 		return isKotlinSuspendingFunction(method) //

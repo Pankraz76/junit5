@@ -22,7 +22,7 @@ import org.junit.platform.commons.support.scanning.DefaultClasspathScanner;
 /**
  * @since 1.12
  */
-final class ClasspathScannerLoader {
+class ClasspathScannerLoader {
 
 	static ClasspathScanner getInstance() {
 		ServiceLoader<ClasspathScanner> serviceLoader = ServiceLoader.load(ClasspathScanner.class,

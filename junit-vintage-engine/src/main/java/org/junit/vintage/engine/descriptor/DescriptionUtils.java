@@ -15,7 +15,7 @@ import org.jspecify.annotations.Nullable;
 import org.junit.runner.Description;
 
 @API(status = API.Status.INTERNAL, since = "5.8")
-public final class DescriptionUtils {
+public class DescriptionUtils {
 
 	private DescriptionUtils() {
 	}

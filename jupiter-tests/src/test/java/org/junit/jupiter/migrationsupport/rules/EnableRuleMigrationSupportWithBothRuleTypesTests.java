@@ -27,13 +27,13 @@ import org.junit.rules.Verifier;
 @EnableRuleMigrationSupport
 public class EnableRuleMigrationSupportWithBothRuleTypesTests {
 
-	private static boolean afterOfRule1WasExecuted;
+	private static boolean afterOfRule1WasExecuted = false;
 
-	private static boolean beforeOfRule2WasExecuted;
-	private static boolean afterOfRule2WasExecuted;
+	private static boolean beforeOfRule2WasExecuted = false;
+	private static boolean afterOfRule2WasExecuted = false;
 
-	private static int numberOfRule1InstancesCreated;
-	private static int numberOfRule2InstancesCreated;
+	private static int numberOfRule1InstancesCreated = 0;
+	private static int numberOfRule2InstancesCreated = 0;
 
 	@Rule
 	public Verifier verifier1 = new Verifier() {

@@ -148,7 +148,7 @@ final class ExtensionUtils {
 
 		Preconditions.condition(value instanceof Extension,
 			() -> "Failed to register extension via @RegisterExtension field [%s]: field value's type [%s] must implement an [%s] API.".formatted(
-				field, value != null ? value.getClass().getName() : null, Extension.class.getName()));
+				field, (value != null ? value.getClass().getName() : null), Extension.class.getName()));
 
 		declarativeExtensionTypes.forEach(extensionType -> {
 			Class<?> valueType = value.getClass();

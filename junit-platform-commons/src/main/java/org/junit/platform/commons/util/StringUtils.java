@@ -70,7 +70,7 @@ public final class StringUtils {
 	 * @see #isNotBlank(String)
 	 */
 	public static boolean isBlank(@Nullable String str) {
-		return str == null || str.isBlank();
+		return (str == null || str.isBlank());
 	}
 
 	/**

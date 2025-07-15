@@ -23,7 +23,7 @@ import java.util.stream.Stream;
 /**
  * @since 1.3
  */
-public final class Helper {
+public class Helper {
 
 	private static final Path ROOT = Path.of("..");
 	private static final Path GRADLE_PROPERTIES = ROOT.resolve("gradle.properties");

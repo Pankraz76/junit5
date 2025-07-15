@@ -33,7 +33,7 @@ import org.junit.platform.launcher.listeners.TestExecutionSummary;
 /**
  * @since 1.8
  */
-final class SuiteLauncher {
+class SuiteLauncher {
 
 	private final EngineExecutionOrchestrator executionOrchestrator = new EngineExecutionOrchestrator();
 	private final EngineDiscoveryOrchestrator discoveryOrchestrator;

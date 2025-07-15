@@ -30,7 +30,7 @@ import org.junit.platform.commons.util.Preconditions;
  *
  * @since 5.13
  */
-final class EvaluatedArgumentSet {
+class EvaluatedArgumentSet {
 
 	static EvaluatedArgumentSet allOf(Arguments arguments) {
 		@Nullable

@@ -57,7 +57,7 @@ public final class NamespacedHierarchicalStore<N> implements AutoCloseable {
 
 	private final @Nullable CloseAction<N> closeAction;
 
-	private volatile boolean closed;
+	private volatile boolean closed = false;
 
 	/**
 	 * Create a new store with the supplied parent.
@@ -380,7 +380,7 @@ public final class NamespacedHierarchicalStore<N> implements AutoCloseable {
 	 *
 	 * @see StoredValue
 	 */
-	private static final class MemoizingSupplier implements Supplier<@Nullable Object> {
+	private static class MemoizingSupplier implements Supplier<@Nullable Object> {
 
 		private static final Object NO_VALUE_SET = new Object();
 

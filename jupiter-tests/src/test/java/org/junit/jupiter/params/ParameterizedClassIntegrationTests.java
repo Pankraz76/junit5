@@ -1327,7 +1327,7 @@ public class ParameterizedClassIntegrationTests extends AbstractJupiterTestEngin
 
 	static class AutoCloseableArgument implements AutoCloseable {
 
-		static int closeCounter;
+		static int closeCounter = 0;
 
 		@Override
 		public void close() {

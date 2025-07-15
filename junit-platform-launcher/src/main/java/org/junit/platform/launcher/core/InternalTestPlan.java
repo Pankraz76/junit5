@@ -23,7 +23,7 @@ import org.junit.platform.launcher.TestPlan;
 /**
  * @since 1.4
  */
-final class InternalTestPlan extends TestPlan {
+class InternalTestPlan extends TestPlan {
 
 	private final AtomicBoolean executionStarted = new AtomicBoolean(false);
 	private final LauncherDiscoveryResult discoveryResult;

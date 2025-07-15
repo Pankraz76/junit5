@@ -29,7 +29,7 @@ import org.apiguardian.api.API;
 import org.junit.platform.commons.util.StringUtils;
 
 @API(status = INTERNAL, since = "1.9")
-public final class OutputDir {
+public class OutputDir {
 
 	private static final Pattern OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER_PATTERN = Pattern.compile(
 		Pattern.quote(OUTPUT_DIR_UNIQUE_NUMBER_PLACEHOLDER));

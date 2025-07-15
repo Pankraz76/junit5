@@ -57,10 +57,10 @@ class LauncherBasedEnableRuleMigrationSupportTests {
 	@EnableRuleMigrationSupport
 	static class EnableRuleMigrationSupportWithBothRuleTypesTestCase {
 
-		static boolean afterOfRule1WasExecuted;
+		static boolean afterOfRule1WasExecuted = false;
 
-		static boolean beforeOfRule2WasExecuted;
-		static boolean afterOfRule2WasExecuted;
+		static boolean beforeOfRule2WasExecuted = false;
+		static boolean afterOfRule2WasExecuted = false;
 
 		@Rule
 		public Verifier verifier1 = new Verifier() {
@@ -99,7 +99,7 @@ class LauncherBasedEnableRuleMigrationSupportTests {
 	@ExtendWith(VerifierSupport.class)
 	static class VerifierSupportForErrorCollectorTestCase {
 
-		static boolean survivedBothErrors;
+		static boolean survivedBothErrors = false;
 
 		@Rule
 		public ErrorCollector collector = new ErrorCollector();

@@ -66,7 +66,7 @@ import org.junit.platform.commons.support.ModifierSupport;
 import org.junit.platform.commons.util.Preconditions;
 import org.junit.platform.commons.util.StringUtils;
 
-final class ResolverFacade {
+class ResolverFacade {
 
 	static ResolverFacade create(Class<?> clazz, List<Field> fields) {
 		Preconditions.notEmpty(fields, "Fields must not be empty");

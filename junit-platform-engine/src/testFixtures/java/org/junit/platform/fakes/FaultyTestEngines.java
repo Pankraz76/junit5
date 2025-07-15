@@ -19,7 +19,7 @@ import org.junit.platform.engine.TestExecutionResult;
 import org.junit.platform.engine.UniqueId;
 import org.junit.platform.engine.support.descriptor.EngineDescriptor;
 
-public final class FaultyTestEngines {
+public class FaultyTestEngines {
 
 	public static TestEngineStub createEngineThatCannotResolveAnything(String engineId) {
 		return new TestEngineStub(engineId) {

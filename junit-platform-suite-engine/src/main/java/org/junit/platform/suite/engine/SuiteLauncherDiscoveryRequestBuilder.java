@@ -81,7 +81,7 @@ final class SuiteLauncherDiscoveryRequestBuilder {
 	private final LauncherDiscoveryRequestBuilder delegate = LauncherDiscoveryRequestBuilder.request();
 	private final Set<String> selectedClassNames = new LinkedHashSet<>();
 	private boolean includeClassNamePatternsUsed;
-	private boolean filterStandardClassNamePatterns;
+	private boolean filterStandardClassNamePatterns = false;
 
 	private @Nullable ConfigurationParameters parentConfigurationParameters;
 

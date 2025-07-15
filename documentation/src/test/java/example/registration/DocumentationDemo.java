@@ -40,11 +40,10 @@ class DocumentationDemo {
 		// use this.docs ...
 	}
 }
-
 //end::user_guide[]
 
 @NullMarked
-final class DocumentationExtension implements AfterEachCallback {
+class DocumentationExtension implements AfterEachCallback {
 
 	@SuppressWarnings("unused")
 	private final @Nullable Path path;

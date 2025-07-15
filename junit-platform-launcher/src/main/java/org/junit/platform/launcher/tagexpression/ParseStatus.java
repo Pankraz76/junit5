@@ -17,7 +17,7 @@ import org.jspecify.annotations.Nullable;
 /**
  * @since 1.1
  */
-final class ParseStatus {
+class ParseStatus {
 
 	static ParseStatus success() {
 		return error(null);

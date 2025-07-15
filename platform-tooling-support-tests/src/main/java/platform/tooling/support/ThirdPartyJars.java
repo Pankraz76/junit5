@@ -19,7 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.stream.Stream;
 
-public final class ThirdPartyJars {
+public class ThirdPartyJars {
 
 	private ThirdPartyJars() {
 	}

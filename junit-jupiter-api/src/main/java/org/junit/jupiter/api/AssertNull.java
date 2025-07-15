@@ -22,7 +22,7 @@ import org.jspecify.annotations.Nullable;
  *
  * @since 5.0
  */
-final class AssertNull {
+class AssertNull {
 
 	private AssertNull() {
 		/* no-op */

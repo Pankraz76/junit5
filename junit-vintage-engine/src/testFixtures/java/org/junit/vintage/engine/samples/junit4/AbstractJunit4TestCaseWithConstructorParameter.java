@@ -14,7 +14,7 @@ import org.junit.Test;
 
 public abstract class AbstractJunit4TestCaseWithConstructorParameter {
 
-	protected AbstractJunit4TestCaseWithConstructorParameter(int parameter) {
+	public AbstractJunit4TestCaseWithConstructorParameter(int parameter) {
 
 	}
 

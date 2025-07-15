@@ -36,7 +36,7 @@ class TestInfoParameterResolver implements ParameterResolver {
 
 	@Override
 	public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
-		return parameterContext.getParameter().getType() == TestInfo.class;
+		return (parameterContext.getParameter().getType() == TestInfo.class);
 	}
 
 	@Override

@@ -95,7 +95,7 @@ class DefaultLauncherSession implements LauncherSession {
 		return store;
 	}
 
-	private static final class ClosedLauncher implements Launcher {
+	private static class ClosedLauncher implements Launcher {
 
 		static final ClosedLauncher INSTANCE = new ClosedLauncher();
 

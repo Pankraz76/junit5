@@ -25,7 +25,7 @@ import org.junit.platform.engine.support.descriptor.MethodSource;
  * @see MethodSource
  * @see MethodSelector
  */
-final class MethodSourceSupport {
+class MethodSourceSupport {
 
 	static final String METHOD_SCHEME = "method";
 

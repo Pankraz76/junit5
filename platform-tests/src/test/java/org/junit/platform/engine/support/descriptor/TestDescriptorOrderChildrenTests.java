@@ -45,7 +45,7 @@ public interface TestDescriptorOrderChildrenTests {
 		var testDescriptor = createTestDescriptorWithChildren();
 		var childrenInOriginalOrder = new ArrayList<>(testDescriptor.getChildren());
 		testDescriptor.orderChildren(children -> {
-			children.sort(comparing(childrenInOriginalOrder::indexOf).reversed());
+			children.sort(comparing((TestDescriptor o) -> childrenInOriginalOrder.indexOf(o)).reversed());
 			return children;
 		});
 		List<TestDescriptor> children = new ArrayList<>(testDescriptor.getChildren());

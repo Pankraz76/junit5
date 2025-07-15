@@ -122,11 +122,13 @@ class ParameterResolutionUtilsTests {
 	@Test
 	void resolveMultipleArguments() {
 		testMethodWith("multipleParameters", String.class, Integer.class, Double.class);
-		register(ConfigurableParameterResolver.supportsAndResolvesTo(parameterContext -> switch (parameterContext.getIndex()) {
+		register(ConfigurableParameterResolver.supportsAndResolvesTo(parameterContext -> {
+			return switch (parameterContext.getIndex()) {
 				case 0 -> "0";
 				case 1 -> 1;
 				default -> 2.0;
-			}));
+			};
+		}));
 
 		@Nullable
 		Object[] arguments = resolveMethodParameters();
@@ -364,7 +366,7 @@ class ParameterResolutionUtilsTests {
 		}
 	}
 
-	static final class ConfigurableParameterResolver implements ParameterResolver {
+	static class ConfigurableParameterResolver implements ParameterResolver {
 
 		static ParameterResolver onAnyCallThrow(RuntimeException runtimeException) {
 			return new ConfigurableParameterResolver(parameterContext -> {

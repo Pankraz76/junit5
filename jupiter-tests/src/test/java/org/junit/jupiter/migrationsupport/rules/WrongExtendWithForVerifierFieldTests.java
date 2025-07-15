@@ -22,7 +22,7 @@ import org.junit.rules.Verifier;
 @ExtendWith(ExternalResourceSupport.class)
 public class WrongExtendWithForVerifierFieldTests {
 
-	private static boolean afterOfRule1WasExecuted;
+	private static boolean afterOfRule1WasExecuted = false;
 
 	@Rule
 	public Verifier verifier1 = new Verifier() {

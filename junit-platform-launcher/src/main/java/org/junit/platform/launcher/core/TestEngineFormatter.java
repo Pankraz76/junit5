@@ -21,7 +21,7 @@ import org.junit.platform.commons.util.ClassLoaderUtils;
 import org.junit.platform.commons.util.CollectionUtils;
 import org.junit.platform.engine.TestEngine;
 
-final class TestEngineFormatter {
+class TestEngineFormatter {
 
 	private TestEngineFormatter() {
 	}

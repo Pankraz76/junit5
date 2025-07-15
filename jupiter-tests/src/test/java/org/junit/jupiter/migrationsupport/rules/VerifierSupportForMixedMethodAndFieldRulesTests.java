@@ -22,8 +22,8 @@ import org.junit.rules.Verifier;
 @ExtendWith(VerifierSupport.class)
 public class VerifierSupportForMixedMethodAndFieldRulesTests {
 
-	private static boolean afterOfRule1WasExecuted;
-	private static boolean afterOfRule2WasExecuted;
+	private static boolean afterOfRule1WasExecuted = false;
+	private static boolean afterOfRule2WasExecuted = false;
 
 	@Rule
 	public Verifier verifier1 = new Verifier() {

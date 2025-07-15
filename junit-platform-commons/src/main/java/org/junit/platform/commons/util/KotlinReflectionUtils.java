@@ -32,7 +32,7 @@ import org.junit.platform.commons.function.Try;
  * @since 5.13.3
  */
 @API(status = INTERNAL, since = "5.13.3")
-public final class KotlinReflectionUtils {
+public class KotlinReflectionUtils {
 
 	private static final String DEFAULT_IMPLS_CLASS_NAME = "DefaultImpls";
 

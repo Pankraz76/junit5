@@ -89,7 +89,7 @@ class DefaultLauncher implements Launcher {
 	public void execute(LauncherExecutionRequest launcherExecutionRequest) {
 		var testPlan = launcherExecutionRequest.getTestPlan().map(it -> {
 			Preconditions.condition(it instanceof InternalTestPlan, "TestPlan was not returned by this Launcher");
-			return (InternalTestPlan) it;
+			return ((InternalTestPlan) it);
 		}).orElseGet(() -> {
 			Preconditions.condition(launcherExecutionRequest.getDiscoveryRequest().isPresent(),
 				"Either a TestPlan or LauncherDiscoveryRequest must be present in the LauncherExecutionRequest");

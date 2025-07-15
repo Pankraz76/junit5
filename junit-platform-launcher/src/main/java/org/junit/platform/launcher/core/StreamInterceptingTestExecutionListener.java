@@ -32,7 +32,7 @@ import org.junit.platform.launcher.core.CompositeTestExecutionListener.EagerTest
 /**
  * @since 1.3
  */
-final class StreamInterceptingTestExecutionListener implements EagerTestExecutionListener {
+class StreamInterceptingTestExecutionListener implements EagerTestExecutionListener {
 
 	private final Optional<StreamInterceptor> stdoutInterceptor;
 	private final Optional<StreamInterceptor> stderrInterceptor;

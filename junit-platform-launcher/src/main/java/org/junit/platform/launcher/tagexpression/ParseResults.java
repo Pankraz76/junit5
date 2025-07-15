@@ -15,7 +15,7 @@ import java.util.Optional;
 /**
  * @since 1.1
  */
-final class ParseResults {
+class ParseResults {
 
 	private ParseResults() {
 		/* no-op */

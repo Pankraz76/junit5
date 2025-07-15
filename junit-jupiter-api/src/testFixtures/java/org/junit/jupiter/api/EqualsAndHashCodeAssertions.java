@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  *
  * @since 5.3
  */
-public final class EqualsAndHashCodeAssertions {
+public class EqualsAndHashCodeAssertions {
 
 	private EqualsAndHashCodeAssertions() {
 	}

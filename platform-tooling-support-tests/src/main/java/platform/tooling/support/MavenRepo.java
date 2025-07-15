@@ -18,7 +18,7 @@ import java.nio.file.Path;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-public final class MavenRepo {
+public class MavenRepo {
 
 	private MavenRepo() {
 	}

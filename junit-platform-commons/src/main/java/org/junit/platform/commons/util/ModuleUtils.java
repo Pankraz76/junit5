@@ -53,7 +53,7 @@ import org.junit.platform.commons.support.scanning.ClassFilter;
  * @since 1.1
  */
 @API(status = INTERNAL, since = "1.1")
-public final class ModuleUtils {
+public class ModuleUtils {
 
 	private static final Logger logger = LoggerFactory.getLogger(ModuleUtils.class);
 

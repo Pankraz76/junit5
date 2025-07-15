@@ -66,11 +66,11 @@ abstract class AbstractJreRangeCondition<A extends Annotation> extends BooleanEx
 			maxJre = DEFAULT_MAXIMUM_JRE;
 		}
 
-		int min = minVersionSet ? minVersion : minJre.version();
-		int max = maxVersionSet ? maxVersion : maxJre.version();
+		int min = (minVersionSet ? minVersion : minJre.version());
+		int max = (maxVersionSet ? maxVersion : maxJre.version());
 
 		// Finally, we need to validate the effective minimum and maximum values.
-		Preconditions.condition(min != DEFAULT_MINIMUM_JRE.version() || max != DEFAULT_MAXIMUM_JRE.version(),
+		Preconditions.condition((min != DEFAULT_MINIMUM_JRE.version() || max != DEFAULT_MAXIMUM_JRE.version()),
 			() -> "You must declare a non-default value for the minimum or maximum value in @" + annotationName);
 		Preconditions.condition(min <= max,
 			() -> "@%s's minimum value [%d] must be less than or equal to its maximum value [%d]".formatted(

@@ -33,7 +33,7 @@ import org.junit.platform.engine.UniqueId;
  *
  * @since 5.0
  */
-public final class JupiterUniqueIdBuilder {
+public class JupiterUniqueIdBuilder {
 
 	public static UniqueId uniqueIdForClass(Class<?> clazz) {
 		if (isInnerClass(clazz)) {

@@ -250,7 +250,7 @@ public final class TestIdentifier implements Serializable {
 
 	@Override
 	public boolean equals(Object obj) {
-		return obj instanceof TestIdentifier that && Objects.equals(this.uniqueId, that.uniqueId);
+		return (obj instanceof TestIdentifier that && Objects.equals(this.uniqueId, that.uniqueId));
 	}
 
 	@Override

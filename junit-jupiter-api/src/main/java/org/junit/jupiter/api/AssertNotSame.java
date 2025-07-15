@@ -22,7 +22,7 @@ import org.jspecify.annotations.Nullable;
  *
  * @since 5.0
  */
-final class AssertNotSame {
+class AssertNotSame {
 
 	private AssertNotSame() {
 		/* no-op */

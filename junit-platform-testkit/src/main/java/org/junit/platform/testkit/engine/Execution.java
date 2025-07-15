@@ -28,7 +28,7 @@ import org.junit.platform.engine.TestExecutionResult;
  * @since 1.4
  */
 @API(status = MAINTAINED, since = "1.7")
-public final class Execution {
+public class Execution {
 
 	// --- Factories -----------------------------------------------------------
 

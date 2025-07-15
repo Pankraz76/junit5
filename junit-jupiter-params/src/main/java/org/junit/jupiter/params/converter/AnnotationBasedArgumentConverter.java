@@ -38,7 +38,7 @@ public abstract class AnnotationBasedArgumentConverter<A extends Annotation>
 
 	private @Nullable A annotation;
 
-	protected AnnotationBasedArgumentConverter() {
+	public AnnotationBasedArgumentConverter() {
 	}
 
 	@Override

@@ -30,7 +30,7 @@ import org.junit.platform.engine.TestEngine;
 @API(status = MAINTAINED, since = "1.0")
 public abstract class HierarchicalTestEngine<C extends EngineExecutionContext> implements TestEngine {
 
-	protected HierarchicalTestEngine() {
+	public HierarchicalTestEngine() {
 	}
 
 	/**

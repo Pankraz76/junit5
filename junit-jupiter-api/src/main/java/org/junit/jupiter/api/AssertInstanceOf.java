@@ -23,7 +23,7 @@ import org.jspecify.annotations.Nullable;
  *
  * @since 5.8
  */
-final class AssertInstanceOf {
+class AssertInstanceOf {
 
 	private AssertInstanceOf() {
 		/* no-op */

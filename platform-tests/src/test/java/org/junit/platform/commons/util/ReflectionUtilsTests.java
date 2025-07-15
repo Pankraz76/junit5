@@ -142,7 +142,7 @@ class ReflectionUtilsTests {
 			assertThrows(PreconditionViolationException.class, () -> ReflectionUtils.newInstance(C.class, "one", null));
 			assertThrows(PreconditionViolationException.class, () -> ReflectionUtils.newInstance(C.class, null, "two"));
 			assertThrows(PreconditionViolationException.class, () -> ReflectionUtils.newInstance(C.class, null, null));
-			assertThrows(PreconditionViolationException.class, () -> ReflectionUtils.newInstance(C.class, (Object[]) null));
+			assertThrows(PreconditionViolationException.class, () -> ReflectionUtils.newInstance(C.class, ((Object[]) null)));
 
 			var exception = assertThrows(RuntimeException.class, () -> ReflectionUtils.newInstance(Exploder.class));
 			assertThat(exception).hasMessage("boom");

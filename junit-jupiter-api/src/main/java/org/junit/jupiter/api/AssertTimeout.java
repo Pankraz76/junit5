@@ -26,7 +26,7 @@ import org.junit.jupiter.api.function.ThrowingSupplier;
  *
  * @since 5.0
  */
-final class AssertTimeout {
+class AssertTimeout {
 
 	private AssertTimeout() {
 		/* no-op */

@@ -35,7 +35,7 @@ import org.junit.platform.engine.support.descriptor.AbstractTestDescriptor;
  */
 class TestTemplateTestDescriptorTests {
 
-	private final JupiterConfiguration jupiterConfiguration = mock();
+	private JupiterConfiguration jupiterConfiguration = mock();
 
 	@BeforeEach
 	void prepareJupiterConfiguration() {

@@ -120,7 +120,7 @@ class RepeatedTestTests extends AbstractJupiterTestEngineTests {
 	@Nested
 	class LifecycleMethodTests {
 
-		private static int fortyTwo;
+		private static int fortyTwo = 0;
 
 		@AfterAll
 		static void afterAll() {
@@ -135,13 +135,15 @@ class RepeatedTestTests extends AbstractJupiterTestEngineTests {
 		@BeforeEach
 		@AfterEach
 		void beforeAndAfterEach(TestInfo testInfo, RepetitionInfo repetitionInfo) {
-			if ("repeatedOnce".equals(testInfo.getTestMethod().get().getName())) {
-				assertThat(repetitionInfo.getCurrentRepetition()).isEqualTo(1);
-				assertThat(repetitionInfo.getTotalRepetitions()).isEqualTo(1);
-			}
-			else if ("repeatedFortyTwoTimes".equals(testInfo.getTestMethod().get().getName())) {
-				assertThat(repetitionInfo.getCurrentRepetition()).isBetween(1, 42);
-				assertThat(repetitionInfo.getTotalRepetitions()).isEqualTo(42);
+			switch (testInfo.getTestMethod().get().getName()) {
+				case "repeatedOnce" -> {
+					assertThat(repetitionInfo.getCurrentRepetition()).isEqualTo(1);
+					assertThat(repetitionInfo.getTotalRepetitions()).isEqualTo(1);
+				}
+				case "repeatedFortyTwoTimes" -> {
+					assertThat(repetitionInfo.getCurrentRepetition()).isBetween(1, 42);
+					assertThat(repetitionInfo.getTotalRepetitions()).isEqualTo(42);
+				}
 			}
 		}
 

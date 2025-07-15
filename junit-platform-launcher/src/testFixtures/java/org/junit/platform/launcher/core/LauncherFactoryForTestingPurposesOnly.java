@@ -16,7 +16,7 @@ import org.junit.platform.launcher.Launcher;
 /**
  * @since 1.0
  */
-public final class LauncherFactoryForTestingPurposesOnly {
+public class LauncherFactoryForTestingPurposesOnly {
 
 	public static Launcher createLauncher(TestEngine... engines) {
 		return LauncherFactory.create(createLauncherConfigBuilderWithDisabledServiceLoading() //

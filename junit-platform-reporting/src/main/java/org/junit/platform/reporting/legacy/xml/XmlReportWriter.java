@@ -309,7 +309,8 @@ class XmlReportWriter {
 
 		private void buildReportEntryDescription(LocalDateTime timestamp, Map<String, String> keyValuePairs,
 				int entryNumber, StringBuilder result) {
-			result.append(format("Report Entry #{0} (timestamp: {1})\n", entryNumber, ISO_LOCAL_DATE_TIME.format(timestamp)));
+			result.append(
+				format("Report Entry #{0} (timestamp: {1})\n", entryNumber, ISO_LOCAL_DATE_TIME.format(timestamp)));
 			keyValuePairs.forEach((key, value) -> result.append(format("\t- {0}: {1}\n", key, value)));
 		}
 
@@ -401,7 +402,7 @@ class XmlReportWriter {
 				|| (codePoint >= 0x10000 && codePoint <= 0x10FFFF);
 	}
 
-	static final class AggregatedTestResult {
+	static class AggregatedTestResult {
 
 		private static final AggregatedTestResult SKIPPED_RESULT = new AggregatedTestResult(SKIPPED, emptyList());
 

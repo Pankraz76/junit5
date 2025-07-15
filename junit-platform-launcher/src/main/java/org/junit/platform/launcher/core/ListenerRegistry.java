@@ -25,7 +25,7 @@ import org.junit.platform.launcher.TestExecutionListener;
 import org.junit.platform.launcher.listeners.discovery.LauncherDiscoveryListeners;
 import org.junit.platform.launcher.listeners.session.LauncherSessionListeners;
 
-final class ListenerRegistry<T> {
+class ListenerRegistry<T> {
 
 	private final Function<List<T>, T> compositeListenerFactory;
 

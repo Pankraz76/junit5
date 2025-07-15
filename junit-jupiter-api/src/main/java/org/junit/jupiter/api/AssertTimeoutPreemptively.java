@@ -28,7 +28,7 @@ import org.opentest4j.AssertionFailedError;
  *
  * @since 5.9.1
  */
-final class AssertTimeoutPreemptively {
+class AssertTimeoutPreemptively {
 
 	static void assertTimeoutPreemptively(Duration timeout, Executable executable) {
 		assertTimeoutPreemptively(timeout, executable, (String) null);

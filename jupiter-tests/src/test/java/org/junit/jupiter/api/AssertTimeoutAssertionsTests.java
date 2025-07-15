@@ -101,46 +101,51 @@ class AssertTimeoutAssertionsTests {
 
 	@Test
 	void assertTimeoutForSupplierThatThrowsAnException() {
-		RuntimeException exception = assertThrows(RuntimeException.class, () ->
+		RuntimeException exception = assertThrows(RuntimeException.class, () -> {
 			assertTimeout(ofMillis(500),
-				() -> ExceptionUtils.throwAsUncheckedException(new RuntimeException("not this time"))));
+				() -> ExceptionUtils.throwAsUncheckedException(new RuntimeException("not this time")));
+		});
 		assertMessageEquals(exception, "not this time");
 	}
 
 	@Test
 	void assertTimeoutForSupplierThatThrowsAnAssertionFailedError() {
-		AssertionFailedError exception = assertThrows(AssertionFailedError.class, () ->
-			assertTimeout(ofMillis(500), () -> fail("enigma")));
+		AssertionFailedError exception = assertThrows(AssertionFailedError.class, () -> {
+			assertTimeout(ofMillis(500), () -> fail("enigma"));
+		});
 		assertMessageEquals(exception, "enigma");
 	}
 
 	@Test
 	void assertTimeoutForSupplierThatCompletesAfterTheTimeout() {
-		AssertionFailedError error = assertThrows(AssertionFailedError.class, () ->
+		AssertionFailedError error = assertThrows(AssertionFailedError.class, () -> {
 			assertTimeout(ofMillis(10), () -> {
 				nap();
 				return "Tempus Fugit";
-			}));
+			});
+		});
 		assertMessageStartsWith(error, "execution exceeded timeout of 10 ms by");
 	}
 
 	@Test
 	void assertTimeoutWithMessageForSupplierThatCompletesAfterTheTimeout() {
-		AssertionFailedError error = assertThrows(AssertionFailedError.class, () ->
+		AssertionFailedError error = assertThrows(AssertionFailedError.class, () -> {
 			assertTimeout(ofMillis(10), () -> {
 				nap();
 				return "Tempus Fugit";
-			}, "Tempus Fugit"));
+			}, "Tempus Fugit");
+		});
 		assertMessageStartsWith(error, "Tempus Fugit ==> execution exceeded timeout of 10 ms by");
 	}
 
 	@Test
 	void assertTimeoutWithMessageSupplierForSupplierThatCompletesAfterTheTimeout() {
-		AssertionFailedError error = assertThrows(AssertionFailedError.class, () ->
+		AssertionFailedError error = assertThrows(AssertionFailedError.class, () -> {
 			assertTimeout(ofMillis(10), () -> {
 				nap();
 				return "Tempus Fugit";
-			}, () -> "Tempus" + " " + "Fugit"));
+			}, () -> "Tempus" + " " + "Fugit");
+		});
 		assertMessageStartsWith(error, "Tempus Fugit ==> execution exceeded timeout of 10 ms by");
 	}
 

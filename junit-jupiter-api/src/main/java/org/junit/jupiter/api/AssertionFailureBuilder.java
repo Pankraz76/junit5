@@ -30,7 +30,7 @@ import org.opentest4j.AssertionFailedError;
  * @see AssertionFailedError
  */
 @API(status = STABLE, since = "5.9")
-public final class AssertionFailureBuilder {
+public class AssertionFailureBuilder {
 
 	private @Nullable Object message;
 
@@ -171,7 +171,7 @@ public final class AssertionFailureBuilder {
 	}
 
 	private static String buildPrefix(@Nullable String message) {
-		return StringUtils.isNotBlank(message) ? message + " ==> " : "";
+		return (StringUtils.isNotBlank(message) ? message + " ==> " : "");
 	}
 
 	private static String formatValues(@Nullable Object expected, @Nullable Object actual) {
@@ -191,7 +191,7 @@ public final class AssertionFailureBuilder {
 		}
 		String classAndHash = getClassName(value) + toHash(value);
 		// if it's a class, there's no need to repeat the class name contained in the valueString.
-		return value instanceof Class ? "<" + classAndHash + ">" : classAndHash + "<" + valueString + ">";
+		return (value instanceof Class ? "<" + classAndHash + ">" : classAndHash + "<" + valueString + ">");
 	}
 
 	private static String toString(@Nullable Object obj) {
@@ -202,12 +202,12 @@ public final class AssertionFailureBuilder {
 	}
 
 	private static String toHash(@Nullable Object obj) {
-		return obj == null ? "" : "@" + Integer.toHexString(System.identityHashCode(obj));
+		return (obj == null ? "" : "@" + Integer.toHexString(System.identityHashCode(obj)));
 	}
 
 	private static String getClassName(@Nullable Object obj) {
-		return obj == null ? "null"
-				: obj instanceof Class<?> clazz ? getCanonicalName(clazz) : obj.getClass().getName();
+		return (obj == null ? "null"
+				: obj instanceof Class<?> clazz ? getCanonicalName(clazz) : obj.getClass().getName());
 	}
 
 }

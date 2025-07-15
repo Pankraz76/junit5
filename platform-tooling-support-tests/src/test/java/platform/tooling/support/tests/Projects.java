@@ -15,7 +15,7 @@ import java.nio.file.Path;
 
 import org.apache.commons.io.file.PathUtils;
 
-public final class Projects {
+public class Projects {
 
 	public static final String GRAALVM_STARTER = "graalvm-starter";
 	public static final String GRADLE_KOTLIN_EXTENSIONS = "gradle-kotlin-extensions";

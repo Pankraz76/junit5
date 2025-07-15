@@ -216,7 +216,7 @@ public class NamespacedHierarchicalStoreTests {
 		@Test
 		void getOrComputeIfAbsentWithTypeSafetyAndInvalidRequiredTypeThrowsException() {
 			String key = "pi";
-			Float value = 3.14F;
+			Float value = 3.14f;
 
 			// Store a Float...
 			store.put(namespace, key, value);

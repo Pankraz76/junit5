@@ -49,7 +49,7 @@ import org.junit.platform.commons.util.ReflectionUtils;
  * @see org.junit.platform.commons.support.conversion.ConversionSupport
  */
 @API(status = INTERNAL, since = "5.0")
-public final class DefaultArgumentConverter implements ArgumentConverter {
+public class DefaultArgumentConverter implements ArgumentConverter {
 
 	public static final DefaultArgumentConverter INSTANCE = new DefaultArgumentConverter();
 

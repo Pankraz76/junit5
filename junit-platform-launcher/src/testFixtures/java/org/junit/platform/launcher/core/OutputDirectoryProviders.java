@@ -15,7 +15,7 @@ import java.nio.file.Path;
 import org.junit.platform.commons.JUnitException;
 import org.junit.platform.engine.reporting.OutputDirectoryProvider;
 
-public final class OutputDirectoryProviders {
+public class OutputDirectoryProviders {
 
 	public static OutputDirectoryProvider dummyOutputDirectoryProvider() {
 		return new HierarchicalOutputDirectoryProvider(() -> {

@@ -213,7 +213,7 @@ class ConsoleDetailsTests {
 					Files.createDirectories(temp);
 					var path = Files.writeString(temp.resolve(outName), result.out);
 					throw new TestAbortedException(
-						"resource `%s` not found%nwrote console stdout to: %s/%s".formatted(dirName, outName, path));
+						"resource `%s` not found\nwrote console stdout to: %s/%s".formatted(dirName, outName, path));
 				}
 				fail("could not load resource named `" + dirName + "/" + outName + "`");
 			}

@@ -25,7 +25,7 @@ import org.junit.platform.commons.util.UnrecoverableExceptions;
  *
  * @since 5.0
  */
-final class AssertThrows {
+class AssertThrows {
 
 	private AssertThrows() {
 		/* no-op */

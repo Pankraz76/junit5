@@ -36,7 +36,7 @@ import org.junit.platform.commons.util.Preconditions;
  * @see DynamicTest
  */
 @API(status = MAINTAINED, since = "5.3")
-public final class DynamicContainer extends DynamicNode {
+public class DynamicContainer extends DynamicNode {
 
 	/**
 	 * Factory for creating a new {@code DynamicContainer} for the supplied display

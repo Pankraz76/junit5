@@ -23,7 +23,7 @@ import org.junit.platform.engine.support.hierarchical.ThrowableCollector;
  * @see ThrowableCollector
  */
 @API(status = INTERNAL, since = "5.4")
-public final class JupiterThrowableCollectorFactory {
+public class JupiterThrowableCollectorFactory {
 
 	/**
 	 * Create a new {@link ThrowableCollector} that treats instances of the

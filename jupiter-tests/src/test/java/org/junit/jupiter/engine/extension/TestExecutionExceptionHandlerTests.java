@@ -166,7 +166,7 @@ class TestExecutionExceptionHandlerTests extends AbstractJupiterTestEngineTests 
 
 	static class RethrowException implements TestExecutionExceptionHandler {
 
-		static boolean handleExceptionCalled;
+		static boolean handleExceptionCalled = false;
 
 		@Override
 		public void handleTestExecutionException(ExtensionContext context, Throwable throwable) throws Throwable {
@@ -180,7 +180,7 @@ class TestExecutionExceptionHandlerTests extends AbstractJupiterTestEngineTests 
 
 	static class SwallowException implements TestExecutionExceptionHandler {
 
-		static boolean handleExceptionCalled;
+		static boolean handleExceptionCalled = false;
 
 		@Override
 		public void handleTestExecutionException(ExtensionContext context, Throwable throwable) {
@@ -193,7 +193,7 @@ class TestExecutionExceptionHandlerTests extends AbstractJupiterTestEngineTests 
 
 	static class ConvertException implements TestExecutionExceptionHandler {
 
-		static boolean handleExceptionCalled;
+		static boolean handleExceptionCalled = false;
 
 		@Override
 		public void handleTestExecutionException(ExtensionContext context, Throwable throwable) throws Throwable {
@@ -207,7 +207,7 @@ class TestExecutionExceptionHandlerTests extends AbstractJupiterTestEngineTests 
 
 	static class ShouldNotBeCalled implements TestExecutionExceptionHandler {
 
-		static boolean handleExceptionCalled;
+		static boolean handleExceptionCalled = false;
 
 		@Override
 		public void handleTestExecutionException(ExtensionContext context, Throwable throwable) {

@@ -58,7 +58,7 @@ public class ToStringBuilder {
 	}
 
 	private String toString(@Nullable Object obj) {
-		return obj instanceof CharSequence ? ("'" + obj + "'") : StringUtils.nullSafeToString(obj);
+		return (obj instanceof CharSequence) ? ("'" + obj + "'") : StringUtils.nullSafeToString(obj);
 	}
 
 	@Override

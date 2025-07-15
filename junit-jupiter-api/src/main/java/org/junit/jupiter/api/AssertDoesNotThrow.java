@@ -29,7 +29,7 @@ import org.opentest4j.AssertionFailedError;
  *
  * @since 5.2
  */
-final class AssertDoesNotThrow {
+class AssertDoesNotThrow {
 
 	private AssertDoesNotThrow() {
 		/* no-op */

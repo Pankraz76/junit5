@@ -28,7 +28,7 @@ import org.junit.platform.console.tasks.CustomClassLoaderCloseStrategy;
  * @since 1.0
  */
 @API(status = MAINTAINED, since = "1.0")
-public final class ConsoleLauncher {
+public class ConsoleLauncher {
 
 	public static void main(String... args) {
 		CommandFacade facade = newCommandFacade(CustomClassLoaderCloseStrategy.KEEP_OPEN);

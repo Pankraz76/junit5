@@ -90,8 +90,8 @@ public class InterceptingExecutableInvoker {
 			ReflectiveInterceptorCall<Method, T> interceptorCall) {
 
 		@SuppressWarnings({ "unchecked", "rawtypes" })
-		Optional<Object> optionalTarget = target instanceof Optional optional ? optional
-				: Optional.ofNullable(target);
+		Optional<Object> optionalTarget = (target instanceof Optional optional ? optional
+				: Optional.ofNullable(target));
 		@Nullable
 		Object[] arguments = resolveParameters(method, optionalTarget, extensionContext, extensionRegistry);
 		MethodInvocation<T> invocation = new MethodInvocation<>(method, optionalTarget, arguments);

@@ -35,7 +35,7 @@ import org.junit.platform.engine.support.discovery.EngineDiscoveryRequestResolve
  * @since 5.0
  */
 @API(status = INTERNAL, since = "5.0")
-public final class DiscoverySelectorResolver {
+public class DiscoverySelectorResolver {
 
 	private static final EngineDiscoveryRequestResolver<JupiterEngineDescriptor> resolver = EngineDiscoveryRequestResolver.<JupiterEngineDescriptor> builder() //
 			.addClassContainerSelectorResolverWithContext(

@@ -43,7 +43,7 @@ import org.junit.platform.commons.util.UnrecoverableExceptions;
  * @since 5.9
  */
 @API(status = INTERNAL, since = "5.9")
-public final class ParameterResolutionUtils {
+public class ParameterResolutionUtils {
 
 	private static final Logger logger = LoggerFactory.getLogger(ParameterResolutionUtils.class);
 
@@ -157,7 +157,7 @@ public final class ParameterResolutionUtils {
 
 			logger.trace(
 				() -> "ParameterResolver [%s] resolved a value of type [%s] for parameter [%s] in %s [%s].".formatted(
-					resolver.getClass().getName(), value != null ? value.getClass().getName() : null,
+					resolver.getClass().getName(), (value != null ? value.getClass().getName() : null),
 					parameterContext.getParameter(), asLabel(executable), executable.toGenericString()));
 
 			return value;
@@ -198,7 +198,7 @@ public final class ParameterResolutionUtils {
 				message = """
 						ParameterResolver [%s] resolved a value of type [%s] for parameter [%s] \
 						in %s [%s], but a value assignment compatible with [%s] is required.""".formatted(
-					resolver.getClass().getName(), value != null ? value.getClass().getName() : null, parameter,
+					resolver.getClass().getName(), (value != null ? value.getClass().getName() : null), parameter,
 					asLabel(executable), executable.toGenericString(), type.getName());
 			}
 

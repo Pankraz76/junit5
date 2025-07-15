@@ -33,7 +33,7 @@ import org.junit.platform.engine.support.descriptor.MethodSource;
 /**
  * @since 1.13
  */
-final class DiscoveryIssueNotifier {
+class DiscoveryIssueNotifier {
 
 	static final DiscoveryIssueNotifier NO_ISSUES = new DiscoveryIssueNotifier(List.of(), List.of(), List.of());
 	private static final Logger logger = LoggerFactory.getLogger(DiscoveryIssueNotifier.class);
@@ -121,7 +121,8 @@ final class DiscoveryIssueNotifier {
 		message.append(" during test discovery:");
 		for (int i = 0; i < issues.size(); i++) {
 			DiscoveryIssue issue = issues.get(i);
-			message.append("\n\n(").append(i + 1).append(") [").append(issue.severity()).append("] ").append(issue.message());
+			message.append("\n\n(").append(i + 1).append(") [").append(issue.severity()).append("] ").append(
+				issue.message());
 			issue.source().ifPresent(source -> {
 				message.append("\n    Source: ").append(source);
 				if (source instanceof MethodSource methodSource) {

@@ -241,7 +241,7 @@ public final class AnnotationUtils {
 			if (annotation.isPresent()) {
 				return annotation;
 			}
-			candidate = isInnerClass(candidate) ? candidate.getEnclosingClass() : null;
+			candidate = (isInnerClass(candidate) ? candidate.getEnclosingClass() : null);
 		}
 		return Optional.empty();
 	}
@@ -503,7 +503,7 @@ public final class AnnotationUtils {
 	}
 
 	private static boolean isInJavaLangAnnotationPackage(Class<? extends Annotation> annotationType) {
-		return annotationType != null && annotationType.getName().startsWith("java.lang.annotation");
+		return (annotationType != null && annotationType.getName().startsWith("java.lang.annotation"));
 	}
 
 }

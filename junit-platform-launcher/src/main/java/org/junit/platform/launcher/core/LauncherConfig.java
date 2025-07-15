@@ -176,7 +176,7 @@ public interface LauncherConfig {
 	/**
 	 * <em>Builder</em> API for {@link LauncherConfig}.
 	 */
-	final class Builder {
+	class Builder {
 
 		private boolean engineAutoRegistrationEnabled = true;
 		private boolean launcherSessionListenerAutoRegistrationEnabled = true;

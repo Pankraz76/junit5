@@ -101,12 +101,8 @@ val docsDir = layout.buildDirectory.dir("ghpages-docs")
 val replaceCurrentDocs = buildParameters.documentation.replaceCurrentDocs
 val uploadPdfs = !snapshot
 val userGuidePdfFileName = "junit-user-guide-${version}.pdf"
-val ota4jDocVersion = libs.versions.opentest4j.map { if (it.isSnapshot()) { "snapshot"
-} else { it
-} }.get()
-val apiGuardianDocVersion = libs.versions.apiguardian.map { if (it.isSnapshot()) { "snapshot"
-} else { it
-} }.get()
+val ota4jDocVersion = libs.versions.opentest4j.map { if (it.isSnapshot()) "snapshot" else it }.get()
+val apiGuardianDocVersion = libs.versions.apiguardian.map { if (it.isSnapshot()) "snapshot" else it }.get()
 
 gitPublish {
 	repoUri = "https://github.com/junit-team/docs.junit.org.git"
