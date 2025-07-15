@@ -14,3 +14,6 @@ recipeList:
   - org.openrewrite.staticanalysis.StringLiteralEquality
   - org.openrewrite.staticanalysis.WrappingAndBraces
   - org.openrewrite.text.EndOfLineAtEndOfFile
+  - org.openrewrite.java.recipes.JavaRecipeBestPractices
+  - org.openrewrite.java.recipes.RecipeNullabilityBestPractices
+  - org.openrewrite.java.recipes.RecipeTestingBestPractices
