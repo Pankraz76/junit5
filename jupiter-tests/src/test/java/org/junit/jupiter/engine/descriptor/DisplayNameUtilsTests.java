@@ -18,7 +18,6 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.function.Supplier;
 
-import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
@@ -223,18 +222,17 @@ class DisplayNameUtilsTests {
 	static class NullDisplayNameGenerator implements DisplayNameGenerator {
 
 		@Override
-		public @Nullable String generateDisplayNameForClass(Class<?> testClass) {
+		public String generateDisplayNameForClass(Class<?> testClass) {
 			return null;
 		}
 
 		@Override
-		public @Nullable String generateDisplayNameForNestedClass(List<Class<?>> enclosingInstanceTypes,
-				Class<?> nestedClass) {
+		public String generateDisplayNameForNestedClass(List<Class<?>> enclosingInstanceTypes, Class<?> nestedClass) {
 			return null;
 		}
 
 		@Override
-		public @Nullable String generateDisplayNameForMethod(List<Class<?>> enclosingInstanceTypes, Class<?> testClass,
+		public String generateDisplayNameForMethod(List<Class<?>> enclosingInstanceTypes, Class<?> testClass,
 				Method testMethod) {
 			return null;
 		}
