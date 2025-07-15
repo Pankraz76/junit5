@@ -28,7 +28,6 @@ rewrite {
 
 dependencies {
 	rewrite(platform(dependencyFromLibs("openrewrite-recipe-bom")))
-	rewrite("org.openrewrite.recipe:rewrite-rewrite")
 	rewrite("org.openrewrite.recipe:rewrite-static-analysis")
 }
 

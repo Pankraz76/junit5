@@ -149,7 +149,7 @@ class AssertNullAssertionsTests {
 	private static class NullToString {
 
 		@Override
-		public @Nullable String toString() {
+		public String toString() {
 			return null;
 		}
 	}
