@@ -24,7 +24,7 @@ import java.util.stream.StreamSupport;
 
 import de.siegmar.fastcsv.reader.CsvReader;
 import de.siegmar.fastcsv.reader.CsvRecord;
-
+import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.support.ParameterDeclarations;
 import org.junit.platform.commons.JUnitException;
@@ -115,7 +115,7 @@ class CsvFileArgumentsProvider extends AnnotationBasedArgumentsProvider<CsvFileS
 		}
 
 		@Override
-		public Spliterator<T> trySplit() {
+		public @Nullable Spliterator<T> trySplit() {
 			return delegate.trySplit();
 		}
 

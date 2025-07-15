@@ -239,7 +239,7 @@ public class ForkJoinPoolHierarchicalTestExecutorService implements Hierarchical
 		 * @return {@code null} always
 		 */
 		@Override
-		public final Void getRawResult() {
+		public final @Nullable Void getRawResult() {
 			return null;
 		}
 
