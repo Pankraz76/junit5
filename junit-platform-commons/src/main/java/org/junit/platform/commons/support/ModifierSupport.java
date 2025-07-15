@@ -14,7 +14,6 @@ import static org.apiguardian.api.API.Status.EXPERIMENTAL;
 import static org.apiguardian.api.API.Status.MAINTAINED;
 
 import java.lang.reflect.Member;
-import java.lang.reflect.Modifier;
 
 import org.apiguardian.api.API;
 import org.junit.platform.commons.util.ReflectionUtils;
@@ -47,7 +46,7 @@ public final class ModifierSupport {
 	 *
 	 * @param clazz the class to check; never {@code null}
 	 * @return {@code true} if the class is {@code public}
-	 * @see Modifier#isPublic(int)
+	 * @see java.lang.reflect.Modifier#isPublic(int)
 	 */
 	public static boolean isPublic(Class<?> clazz) {
 		return ReflectionUtils.isPublic(clazz);
@@ -58,7 +57,7 @@ public final class ModifierSupport {
 	 *
 	 * @param member the member to check; never {@code null}
 	 * @return {@code true} if the member is {@code public}
-	 * @see Modifier#isPublic(int)
+	 * @see java.lang.reflect.Modifier#isPublic(int)
 	 */
 	public static boolean isPublic(Member member) {
 		return ReflectionUtils.isPublic(member);
@@ -69,7 +68,7 @@ public final class ModifierSupport {
 	 *
 	 * @param clazz the class to check; never {@code null}
 	 * @return {@code true} if the class is {@code private}
-	 * @see Modifier#isPrivate(int)
+	 * @see java.lang.reflect.Modifier#isPrivate(int)
 	 */
 	public static boolean isPrivate(Class<?> clazz) {
 		return ReflectionUtils.isPrivate(clazz);
@@ -80,7 +79,7 @@ public final class ModifierSupport {
 	 *
 	 * @param member the member to check; never {@code null}
 	 * @return {@code true} if the member is {@code private}
-	 * @see Modifier#isPrivate(int)
+	 * @see java.lang.reflect.Modifier#isPrivate(int)
 	 */
 	public static boolean isPrivate(Member member) {
 		return ReflectionUtils.isPrivate(member);
@@ -96,9 +95,9 @@ public final class ModifierSupport {
 	 *
 	 * @param clazz the class to check; never {@code null}
 	 * @return {@code true} if the class is not {@code private}
-	 * @see Modifier#isPublic(int)
-	 * @see Modifier#isProtected(int)
-	 * @see Modifier#isPrivate(int)
+	 * @see java.lang.reflect.Modifier#isPublic(int)
+	 * @see java.lang.reflect.Modifier#isProtected(int)
+	 * @see java.lang.reflect.Modifier#isPrivate(int)
 	 */
 	public static boolean isNotPrivate(Class<?> clazz) {
 		return ReflectionUtils.isNotPrivate(clazz);
@@ -114,9 +113,9 @@ public final class ModifierSupport {
 	 *
 	 * @param member the member to check; never {@code null}
 	 * @return {@code true} if the member is not {@code private}
-	 * @see Modifier#isPublic(int)
-	 * @see Modifier#isProtected(int)
-	 * @see Modifier#isPrivate(int)
+	 * @see java.lang.reflect.Modifier#isPublic(int)
+	 * @see java.lang.reflect.Modifier#isProtected(int)
+	 * @see java.lang.reflect.Modifier#isPrivate(int)
 	 */
 	public static boolean isNotPrivate(Member member) {
 		return ReflectionUtils.isNotPrivate(member);
@@ -127,7 +126,7 @@ public final class ModifierSupport {
 	 *
 	 * @param clazz the class to check; never {@code null}
 	 * @return {@code true} if the class is {@code abstract}
-	 * @see Modifier#isAbstract(int)
+	 * @see java.lang.reflect.Modifier#isAbstract(int)
 	 */
 	public static boolean isAbstract(Class<?> clazz) {
 		return ReflectionUtils.isAbstract(clazz);
@@ -138,7 +137,7 @@ public final class ModifierSupport {
 	 *
 	 * @param member the class to check; never {@code null}
 	 * @return {@code true} if the member is {@code abstract}
-	 * @see Modifier#isAbstract(int)
+	 * @see java.lang.reflect.Modifier#isAbstract(int)
 	 */
 	public static boolean isAbstract(Member member) {
 		return ReflectionUtils.isAbstract(member);
@@ -150,7 +149,7 @@ public final class ModifierSupport {
 	 * @param clazz the class to check; never {@code null}
 	 * @return {@code true} if the class is not {@code abstract}
 	 * @since 1.13
-	 * @see Modifier#isAbstract(int)
+	 * @see java.lang.reflect.Modifier#isAbstract(int)
 	 */
 	@API(status = EXPERIMENTAL, since = "6.0")
 	public static boolean isNotAbstract(Class<?> clazz) {
@@ -163,7 +162,7 @@ public final class ModifierSupport {
 	 * @param member the class to check; never {@code null}
 	 * @return {@code true} if the member is not {@code abstract}
 	 * @since 1.13
-	 * @see Modifier#isAbstract(int)
+	 * @see java.lang.reflect.Modifier#isAbstract(int)
 	 */
 	@API(status = EXPERIMENTAL, since = "6.0")
 	public static boolean isNotAbstract(Member member) {
@@ -175,7 +174,7 @@ public final class ModifierSupport {
 	 *
 	 * @param clazz the class to check; never {@code null}
 	 * @return {@code true} if the class is {@code static}
-	 * @see Modifier#isStatic(int)
+	 * @see java.lang.reflect.Modifier#isStatic(int)
 	 */
 	public static boolean isStatic(Class<?> clazz) {
 		return ReflectionUtils.isStatic(clazz);
@@ -186,7 +185,7 @@ public final class ModifierSupport {
 	 *
 	 * @param member the member to check; never {@code null}
 	 * @return {@code true} if the member is {@code static}
-	 * @see Modifier#isStatic(int)
+	 * @see java.lang.reflect.Modifier#isStatic(int)
 	 */
 	public static boolean isStatic(Member member) {
 		return ReflectionUtils.isStatic(member);
@@ -197,7 +196,7 @@ public final class ModifierSupport {
 	 *
 	 * @param clazz the class to check; never {@code null}
 	 * @return {@code true} if the class is not {@code static}
-	 * @see Modifier#isStatic(int)
+	 * @see java.lang.reflect.Modifier#isStatic(int)
 	 */
 	public static boolean isNotStatic(Class<?> clazz) {
 		return ReflectionUtils.isNotStatic(clazz);
@@ -208,7 +207,7 @@ public final class ModifierSupport {
 	 *
 	 * @param member the member to check; never {@code null}
 	 * @return {@code true} if the member is not {@code static}
-	 * @see Modifier#isStatic(int)
+	 * @see java.lang.reflect.Modifier#isStatic(int)
 	 */
 	public static boolean isNotStatic(Member member) {
 		return ReflectionUtils.isNotStatic(member);
@@ -220,7 +219,7 @@ public final class ModifierSupport {
 	 * @param clazz the class to check; never {@code null}
 	 * @return {@code true} if the class is {@code final}
 	 * @since 1.5
-	 * @see Modifier#isFinal(int)
+	 * @see java.lang.reflect.Modifier#isFinal(int)
 	 */
 	@API(status = MAINTAINED, since = "1.5")
 	public static boolean isFinal(Class<?> clazz) {
@@ -233,7 +232,7 @@ public final class ModifierSupport {
 	 * @param clazz the class to check; never {@code null}
 	 * @return {@code true} if the class is not {@code final}
 	 * @since 1.5
-	 * @see Modifier#isFinal(int)
+	 * @see java.lang.reflect.Modifier#isFinal(int)
 	 */
 	@API(status = MAINTAINED, since = "1.5")
 	public static boolean isNotFinal(Class<?> clazz) {
@@ -246,7 +245,7 @@ public final class ModifierSupport {
 	 * @param member the member to check; never {@code null}
 	 * @return {@code true} if the member is {@code final}
 	 * @since 1.5
-	 * @see Modifier#isFinal(int)
+	 * @see java.lang.reflect.Modifier#isFinal(int)
 	 */
 	@API(status = MAINTAINED, since = "1.5")
 	public static boolean isFinal(Member member) {
@@ -259,7 +258,7 @@ public final class ModifierSupport {
 	 * @param member the member to check; never {@code null}
 	 * @return {@code true} if the member is not {@code final}
 	 * @since 1.5
-	 * @see Modifier#isFinal(int)
+	 * @see java.lang.reflect.Modifier#isFinal(int)
 	 */
 	@API(status = MAINTAINED, since = "1.5")
 	public static boolean isNotFinal(Member member) {

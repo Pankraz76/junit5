@@ -22,15 +22,14 @@ rewrite {
 	activeRecipe("org.openrewrite.staticanalysis.EqualsAvoidsNull")
 	activeRecipe("org.openrewrite.staticanalysis.ModifierOrder")
 	activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods")
-	activeRecipe("org.openrewrite.text.EndOfLineAtEndOfFile")
-//	configFile = file("config/rewrite.yml")
-//	exclusions.add("**RunnerWithCustomUniqueIdsAndDisplayNames.java")
-//	exclusions.add("**SpockTestCaseWithUnrolledAndRegularFeatureMethods.groovy")
+	exclusions.add("**RunnerWithCustomUniqueIdsAndDisplayNames.java")
+	exclusions.add("**SpockTestCaseWithUnrolledAndRegularFeatureMethods.groovy")
 	failOnDryRunResults = true
 //	activeRecipe("org.junit.openrewrite.recipe.AddLicenseHeader")
 //	activeRecipe("org.junit.openrewrite.recipe.Java21ForTests")
 //	activeRecipe("org.openrewrite.java.format.WrappingAndBraces")
-//	activeRecipe("org.openrewrite.java.migrate.UpgradeToJava21")
+//	activeRecipe("org.openrewrite.java.migrate.UpgradeToJava17")
+//	activeRecipe("org.openrewrite.java.migrate.UpgradeToJava25")
 //	activeRecipe("org.openrewrite.java.testing.assertj.Assertj")
 //	activeRecipe("org.openrewrite.java.testing.cleanup.AssertTrueNullToAssertNull")
 //	activeRecipe("org.openrewrite.java.testing.cleanup.TestsShouldNotBePublic")
@@ -44,6 +43,7 @@ rewrite {
 //	activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedLocalVariables")
 //	activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedPrivateFields")
 //	activeRecipe("org.openrewrite.staticanalysis.StringLiteralEquality")
+//	activeRecipe("org.openrewrite.text.EndOfLineAtEndOfFile")
 //	setCheckstyleConfigFile(file("config/checkstyleMain.xml")) // https://github.com/openrewrite/rewrite-static-analysis/issues/636
 }
 

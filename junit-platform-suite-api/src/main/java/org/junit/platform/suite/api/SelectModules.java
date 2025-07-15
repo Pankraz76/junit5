@@ -27,7 +27,7 @@ import org.apiguardian.api.API;
  *
  * @since 1.8
  * @see Suite
- * @see org.junit.platform.engine.discovery.DiscoverySelectors#selectModules(Set)
+ * @see org.junit.platform.engine.discovery.DiscoverySelectors#selectModules(java.util.Set)
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
