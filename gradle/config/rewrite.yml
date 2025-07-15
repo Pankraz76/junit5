@@ -1,0 +1,10 @@
+type: specs.openrewrite.org/v1beta/recipe
+name: org.junit.openrewrite.recipe.CodeCleanup
+displayName: Code cleanup
+description: Automatically cleanup code, e.g. remove unnecessary parentheses, simplify expressions.
+recipeList:
+  - org.openrewrite.java.RemoveUnusedImports
+  - org.openrewrite.staticanalysis.EqualsAvoidsNull
+  - org.openrewrite.staticanalysis.ModifierOrder
+  - org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods
+  - org.openrewrite.text.EndOfLineAtEndOfFile
