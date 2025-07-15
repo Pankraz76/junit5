@@ -14,6 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.stream.IntStream;
 
+import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.extension.InvocationInterceptor.Invocation;
 
 /**
@@ -22,7 +23,7 @@ import org.junit.jupiter.api.extension.InvocationInterceptor.Invocation;
 class EventuallyInterruptibleInvocation implements Invocation<Void> {
 
 	@Override
-	public Void proceed() {
+	public @Nullable Void proceed() {
 		while (!Thread.currentThread().isInterrupted()) {
 			assertThat(IntStream.range(1, 1_000_000).sum()).isGreaterThan(0);
 		}

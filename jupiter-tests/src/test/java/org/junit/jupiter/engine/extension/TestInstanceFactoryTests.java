@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -777,7 +778,8 @@ class TestInstanceFactoryTests extends AbstractJupiterTestEngineTests {
 
 		@SuppressWarnings({ "DataFlowIssue", "NullAway" })
 		@Override
-		public Object createTestInstance(TestInstanceFactoryContext factoryContext, ExtensionContext extensionContext) {
+		public @Nullable Object createTestInstance(TestInstanceFactoryContext factoryContext,
+				ExtensionContext extensionContext) {
 			return null;
 		}
 	}

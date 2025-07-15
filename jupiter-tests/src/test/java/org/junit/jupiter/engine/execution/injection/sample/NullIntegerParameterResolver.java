@@ -10,6 +10,7 @@
 
 package org.junit.jupiter.engine.execution.injection.sample;
 
+import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.api.extension.ParameterResolver;
@@ -29,7 +30,7 @@ public class NullIntegerParameterResolver implements ParameterResolver {
 	}
 
 	@Override
-	public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
+	public @Nullable Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
 		return null;
 	}
 

@@ -359,7 +359,8 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 
 			@SuppressWarnings({ "DataFlowIssue", "NullAway" })
 			@Override
-			public Path createTempDirectory(AnnotatedElementContext elementContext, ExtensionContext extensionContext) {
+			public @Nullable Path createTempDirectory(AnnotatedElementContext elementContext,
+					ExtensionContext extensionContext) {
 				return null;
 			}
 		}
@@ -1479,7 +1480,8 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 		private static class Factory implements TempDirFactory {
 
 			@Override
-			public Path createTempDirectory(AnnotatedElementContext elementContext, ExtensionContext extensionContext) {
+			public @Nullable Path createTempDirectory(AnnotatedElementContext elementContext,
+					ExtensionContext extensionContext) {
 				return null;
 			}
 		}

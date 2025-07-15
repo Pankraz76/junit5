@@ -116,7 +116,7 @@ public class Assertions {
 	 * generic return type {@code V}.
 	 */
 	@SuppressWarnings({ "NullAway", "TypeParameterUnusedInFormals" })
-	public static <V> V fail() {
+	public static <V> @Nullable V fail() {
 		AssertionUtils.fail();
 		return null; // appeasing the compiler: this line will never be executed.
 	}
@@ -136,7 +136,7 @@ public class Assertions {
 	 * }</pre>
 	 */
 	@SuppressWarnings({ "NullAway", "TypeParameterUnusedInFormals" })
-	public static <V> V fail(@Nullable String message) {
+	public static <V> @Nullable V fail(@Nullable String message) {
 		AssertionUtils.fail(message);
 		return null; // appeasing the compiler: this line will never be executed.
 	}
@@ -149,7 +149,7 @@ public class Assertions {
 	 * generic return type {@code V}.
 	 */
 	@SuppressWarnings({ "NullAway", "TypeParameterUnusedInFormals" })
-	public static <V> V fail(@Nullable String message, @Nullable Throwable cause) {
+	public static <V> @Nullable V fail(@Nullable String message, @Nullable Throwable cause) {
 		AssertionUtils.fail(message, cause);
 		return null; // appeasing the compiler: this line will never be executed.
 	}
@@ -161,7 +161,7 @@ public class Assertions {
 	 * generic return type {@code V}.
 	 */
 	@SuppressWarnings({ "NullAway", "TypeParameterUnusedInFormals" })
-	public static <V> V fail(@Nullable Throwable cause) {
+	public static <V> @Nullable V fail(@Nullable Throwable cause) {
 		AssertionUtils.fail(cause);
 		return null; // appeasing the compiler: this line will never be executed.
 	}
@@ -174,7 +174,7 @@ public class Assertions {
 	 * generic return type {@code V}.
 	 */
 	@SuppressWarnings({ "NullAway", "TypeParameterUnusedInFormals" })
-	public static <V> V fail(Supplier<@Nullable String> messageSupplier) {
+	public static <V> @Nullable V fail(Supplier<@Nullable String> messageSupplier) {
 		AssertionUtils.fail(messageSupplier);
 		return null; // appeasing the compiler: this line will never be executed.
 	}
