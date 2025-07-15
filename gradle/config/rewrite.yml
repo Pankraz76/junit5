@@ -6,7 +6,6 @@ recipeList:
   - org.openrewrite.java.RemoveUnusedImports
   - org.openrewrite.java.recipes.JavaRecipeBestPractices
   - org.openrewrite.java.recipes.RecipeNullabilityBestPractices
-  - org.openrewrite.java.recipes.RecipeTestingBestPractices
   - org.openrewrite.staticanalysis.EqualsAvoidsNull
   - org.openrewrite.staticanalysis.JavaApiBestPractices
   - org.openrewrite.staticanalysis.MissingOverrideAnnotation
