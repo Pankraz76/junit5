@@ -18,39 +18,17 @@ plugins {
 }
 
 rewrite {
-	activeRecipe("org.openrewrite.java.RemoveUnusedImports")
-	activeRecipe("org.openrewrite.staticanalysis.EqualsAvoidsNull")
-	activeRecipe("org.openrewrite.staticanalysis.ModifierOrder")
-	activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods")
-	exclusions.add("**RunnerWithCustomUniqueIdsAndDisplayNames.java")
+	activeRecipe("org.junit.openrewrite.recipe.CodeCleanup")
+	configFile = file("../gradle/config/rewrite.yml")
+	exclusions.add("**RunnerWithCustomUniqueIdsAndDisplayNames.groovy")
 	exclusions.add("**SpockTestCaseWithUnrolledAndRegularFeatureMethods.groovy")
 	failOnDryRunResults = true
-//	activeRecipe("org.junit.openrewrite.recipe.AddLicenseHeader")
-//	activeRecipe("org.junit.openrewrite.recipe.Java21ForTests")
-//	activeRecipe("org.openrewrite.java.format.WrappingAndBraces")
-//	activeRecipe("org.openrewrite.java.migrate.UpgradeToJava17")
-//	activeRecipe("org.openrewrite.java.migrate.UpgradeToJava25")
-//	activeRecipe("org.openrewrite.java.testing.assertj.Assertj")
-//	activeRecipe("org.openrewrite.java.testing.cleanup.AssertTrueNullToAssertNull")
-//	activeRecipe("org.openrewrite.java.testing.cleanup.TestsShouldNotBePublic")
-//	activeRecipe("org.openrewrite.java.testing.junit5.JUnit5BestPractices")
-//	activeRecipe("org.openrewrite.staticanalysis.CodeCleanup") // https://github.com/openrewrite/rewrite-static-analysis/issues/636
-//	activeRecipe("org.openrewrite.staticanalysis.CommonStaticAnalysis")
-//	activeRecipe("org.openrewrite.staticanalysis.FinalizeLocalVariables")
-//	activeRecipe("org.openrewrite.staticanalysis.MissingOverrideAnnotation")
-//	activeRecipe("org.openrewrite.staticanalysis.ModifierOrder")
-//	activeRecipe("org.openrewrite.staticanalysis.RedundantFileCreation")
-//	activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedLocalVariables")
-//	activeRecipe("org.openrewrite.staticanalysis.RemoveUnusedPrivateFields")
-//	activeRecipe("org.openrewrite.staticanalysis.StringLiteralEquality")
-//	activeRecipe("org.openrewrite.text.EndOfLineAtEndOfFile")
-//	setCheckstyleConfigFile(file("config/checkstyleMain.xml")) // https://github.com/openrewrite/rewrite-static-analysis/issues/636
+//	setCheckstyleConfigFile(file("../gradle/config/checkstyleMain.xml")) // https://github.com/openrewrite/rewrite-static-analysis/issues/636
 }
 
 dependencies {
 	rewrite(platform(dependencyFromLibs("openrewrite-recipe-bom")))
-	rewrite("org.openrewrite.recipe:rewrite-migrate-java")
-	rewrite("org.openrewrite.recipe:rewrite-testing-frameworks")
+	rewrite("org.openrewrite.recipe:rewrite-static-analysis")
 }
 
 val mavenizedProjects: List<Project> by rootProject.extra
