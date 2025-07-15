@@ -23,9 +23,8 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 class DocumentationDemo {
 
 	//end::user_guide[]
-	@Nullable
 	//tag::user_guide[]
-	static Path lookUpDocsDir() {
+		static @Nullable Path lookUpDocsDir() {
 		// return path to docs dir
 		// end::user_guide[]
 		return null;
