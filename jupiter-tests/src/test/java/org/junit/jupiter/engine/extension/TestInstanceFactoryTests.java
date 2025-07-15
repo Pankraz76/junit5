@@ -776,9 +776,10 @@ class TestInstanceFactoryTests extends AbstractJupiterTestEngineTests {
 	 */
 	private static class NullTestInstanceFactory implements TestInstanceFactory {
 
-		@SuppressWarnings({"DataFlowIssue", "NullAway"})
+		@SuppressWarnings({ "DataFlowIssue", "NullAway" })
 		@Override
-		public @Nullable Object createTestInstance(TestInstanceFactoryContext factoryContext, ExtensionContext extensionContext) {
+		public @Nullable Object createTestInstance(TestInstanceFactoryContext factoryContext,
+				ExtensionContext extensionContext) {
 			return null;
 		}
 	}

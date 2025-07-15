@@ -115,7 +115,7 @@ public class Assertions {
 	 * <p>See Javadoc for {@link #fail(String)} for an explanation of this method's
 	 * generic return type {@code V}.
 	 */
-	@SuppressWarnings({"NullAway", "TypeParameterUnusedInFormals"})
+	@SuppressWarnings({ "NullAway", "TypeParameterUnusedInFormals" })
 	public static <V> @Nullable V fail() {
 		AssertionUtils.fail();
 		return null; // appeasing the compiler: this line will never be executed.
@@ -135,7 +135,7 @@ public class Assertions {
 	 * Stream.of().map(entry -> fail("should not be called"));
 	 * }</pre>
 	 */
-	@SuppressWarnings({"NullAway", "TypeParameterUnusedInFormals"})
+	@SuppressWarnings({ "NullAway", "TypeParameterUnusedInFormals" })
 	public static <V> @Nullable V fail(@Nullable String message) {
 		AssertionUtils.fail(message);
 		return null; // appeasing the compiler: this line will never be executed.
@@ -148,7 +148,7 @@ public class Assertions {
 	 * <p>See Javadoc for {@link #fail(String)} for an explanation of this method's
 	 * generic return type {@code V}.
 	 */
-	@SuppressWarnings({"NullAway", "TypeParameterUnusedInFormals"})
+	@SuppressWarnings({ "NullAway", "TypeParameterUnusedInFormals" })
 	public static <V> @Nullable V fail(@Nullable String message, @Nullable Throwable cause) {
 		AssertionUtils.fail(message, cause);
 		return null; // appeasing the compiler: this line will never be executed.
@@ -160,7 +160,7 @@ public class Assertions {
 	 * <p>See Javadoc for {@link #fail(String)} for an explanation of this method's
 	 * generic return type {@code V}.
 	 */
-	@SuppressWarnings({"NullAway", "TypeParameterUnusedInFormals"})
+	@SuppressWarnings({ "NullAway", "TypeParameterUnusedInFormals" })
 	public static <V> @Nullable V fail(@Nullable Throwable cause) {
 		AssertionUtils.fail(cause);
 		return null; // appeasing the compiler: this line will never be executed.
@@ -173,7 +173,7 @@ public class Assertions {
 	 * <p>See Javadoc for {@link #fail(String)} for an explanation of this method's
 	 * generic return type {@code V}.
 	 */
-	@SuppressWarnings({"NullAway", "TypeParameterUnusedInFormals"})
+	@SuppressWarnings({ "NullAway", "TypeParameterUnusedInFormals" })
 	public static <V> @Nullable V fail(Supplier<@Nullable String> messageSupplier) {
 		AssertionUtils.fail(messageSupplier);
 		return null; // appeasing the compiler: this line will never be executed.

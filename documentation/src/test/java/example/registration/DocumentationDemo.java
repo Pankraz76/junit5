@@ -24,7 +24,7 @@ class DocumentationDemo {
 
 	//end::user_guide[]
 	//tag::user_guide[]
-		static @Nullable Path lookUpDocsDir() {
+	static @Nullable Path lookUpDocsDir() {
 		// return path to docs dir
 		// end::user_guide[]
 		return null;
