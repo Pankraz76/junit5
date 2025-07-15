@@ -352,7 +352,7 @@ class ParameterizedInvocationNameFormatterTests {
 	private static class ToStringReturnsNull {
 
 		@Override
-		public @Nullable String toString() {
+		public String toString() {
 			return null;
 		}
 	}

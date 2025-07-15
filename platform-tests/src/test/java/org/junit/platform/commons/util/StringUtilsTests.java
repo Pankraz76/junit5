@@ -28,7 +28,6 @@ import static org.junit.platform.commons.util.StringUtils.replaceIsoControlChara
 import static org.junit.platform.commons.util.StringUtils.replaceWhitespaceCharacters;
 
 import org.jspecify.annotations.NullUnmarked;
-import org.jspecify.annotations.Nullable;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.PreconditionViolationException;
 
@@ -182,7 +181,7 @@ class StringUtilsTests {
 	private static class ToStringReturnsNull {
 
 		@Override
-		public @Nullable String toString() {
+		public String toString() {
 			return null;
 		}
 	}
