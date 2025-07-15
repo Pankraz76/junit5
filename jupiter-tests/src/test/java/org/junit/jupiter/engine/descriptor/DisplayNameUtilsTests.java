@@ -228,8 +228,7 @@ class DisplayNameUtilsTests {
 		}
 
 		@Override
-		public @Nullable String generateDisplayNameForNestedClass(List<Class<?>> enclosingInstanceTypes,
-				Class<?> nestedClass) {
+		public @Nullable String generateDisplayNameForNestedClass(List<Class<?>> enclosingInstanceTypes, Class<?> nestedClass) {
 			return null;
 		}
 
