@@ -59,7 +59,7 @@ tasks.withType<JavaCompile>().configureEach {
 							"RedundantStringConversion," +
 							"RedundantStringEscape" +
 							"StaticImport," +
-							"UnusedVariable,"
+							"UnusedVariable"
 //							"LexicographicalAnnotationAttributeListing," +
 //							"LexicographicalAnnotationListing," +
 				)
