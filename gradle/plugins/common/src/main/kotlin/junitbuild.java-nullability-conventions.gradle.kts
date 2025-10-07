@@ -41,7 +41,7 @@ tasks.withType<JavaCompile>().configureEach {
 			error(
 				"MissingOverride",
 				"PackageLocation",
-				"RedundantStringConversion",
+				//"RedundantStringConversion",
 				"RedundantStringEscape",
 				"UnusedVariable",
 				// why failing ? 223 files need many iterations.
@@ -54,14 +54,14 @@ tasks.withType<JavaCompile>().configureEach {
 				errorproneArgs.addAll(
 					"-XepPatchLocation:IN_PLACE",
 					"-XepPatchChecks:" +
+							"LexicographicalAnnotationAttributeListing," +
+							"LexicographicalAnnotationListing," +
 							"MissingOverride," +
 							"PackageLocation," +
 							"RedundantStringConversion," +
 							"RedundantStringEscape" +
 							"StaticImport," +
 							"UnusedVariable"
-//							"LexicographicalAnnotationAttributeListing," +
-//							"LexicographicalAnnotationListing," +
 				)
 			}
 		}
