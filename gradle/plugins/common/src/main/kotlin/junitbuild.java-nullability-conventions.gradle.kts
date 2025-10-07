@@ -52,6 +52,7 @@ tasks.withType<JavaCompile>().configureEach {
 				"PackageLocation",
 				"RedundantStringConversion",
 				"RedundantStringEscape",
+				"UnusedVariable",
 				//"LexicographicalAnnotationAttributeListing",
 				//"LexicographicalAnnotationListing",
 				//"StaticImport",
@@ -62,6 +63,7 @@ tasks.withType<JavaCompile>().configureEach {
 					"-XepPatchChecks:" +
 							"MissingOverride," +
 							"PackageLocation," +
+							"UnusedVariable," +
 							"RedundantStringConversion," +
 							"RedundantStringEscape"
 				)
