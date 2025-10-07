@@ -40,26 +40,7 @@ tasks.withType<JavaCompile>().configureEach {
 				//if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
 				errorproneArgs.addAll(
 					"-XepPatchLocation:IN_PLACE",
-					"-XepPatchChecks:" +
-							"ConstantNaming," +
-							"EmptyMethod," +
-							"EmptyMonoZip," +
-							"LexicographicalAnnotationAttributeListing," +
-							"LexicographicalAnnotationListing," +
-							"MissingOverride," +
-							"MissingTestCall," +
-							"NonEmptyMono," +
-							"OptionalMapUnusedValue," +
-							"OptionalOfRedundantMethod," +
-							"RedundantSetterCall," +
-							"RedundantStringConversion," +
-							"RedundantStringEscape," +
-							"StaticImport," +
-							"StringJoin," +
-							"UnnecessaryCheckNotNull," +
-							"UnnecessaryTypeArgument," +
-							"UnusedAnonymousClass," +
-							"UnusedCollectionModifiedInPlace,"
+					"-XepPatchChecks:StaticImport"
 				)
 			}
 //			disable(
@@ -73,28 +54,28 @@ tasks.withType<JavaCompile>().configureEach {
 //				"StringSplitter", // We don`t want to use Guava.
 //				"UnnecessaryLambda", // The findings of this check are subjective because a named constant can be more readable in many cases.
 //			)
-//			error(
-//				"ConstantNaming",
-//				"EmptyMethod",
-//				"EmptyMonoZip",
-//				"LexicographicalAnnotationAttributeListing",
-//				"LexicographicalAnnotationListing",
-//				"MissingOverride",
-//				"MissingTestCall",
-//				"NonEmptyMono",
-//				"OptionalMapUnusedValue",
-//				"OptionalOfRedundantMethod",
-//				"PackageLocation",
-//				"RedundantSetterCall",
-//				"RedundantStringConversion",
-//				"RedundantStringEscape",
-//				"StaticImport",
-//				"StringJoin",
-//				"UnnecessaryCheckNotNull",
-//				"UnnecessaryTypeArgument",
-//				"UnusedAnonymousClass",
-//				"UnusedCollectionModifiedInPlace",
-//			)
+			error(
+				"ConstantNaming",
+				"EmptyMethod",
+				"EmptyMonoZip",
+				"LexicographicalAnnotationAttributeListing",
+				"LexicographicalAnnotationListing",
+				"MissingOverride",
+				"MissingTestCall",
+				"NonEmptyMono",
+				"OptionalMapUnusedValue",
+				"OptionalOfRedundantMethod",
+				"PackageLocation",
+				"RedundantSetterCall",
+				"RedundantStringConversion",
+				"RedundantStringEscape",
+				"StaticImport",
+				"StringJoin",
+				"UnnecessaryCheckNotNull",
+				"UnnecessaryTypeArgument",
+				"UnusedAnonymousClass",
+				"UnusedCollectionModifiedInPlace",
+			)
 //			enable(
 //				"ConstantNaming",
 //				"EmptyMethod",
