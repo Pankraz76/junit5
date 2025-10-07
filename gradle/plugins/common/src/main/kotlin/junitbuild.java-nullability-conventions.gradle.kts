@@ -48,14 +48,22 @@ tasks.withType<JavaCompile>().configureEach {
 				"UnnecessaryLambda", // The findings of this check are subjective because a named constant can be more readable in many cases.
 			)
 			error(
-				"PackageLocation",
-				//"StaticImport",
 				"MissingOverride",
+				"PackageLocation",
+				"RedundantStringConversion",
+				"RedundantStringEscape",
+				//"LexicographicalAnnotationAttributeListing",
+				//"LexicographicalAnnotationListing",
+				//"StaticImport",
 			)
 			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
 				errorproneArgs.addAll(
 					"-XepPatchLocation:IN_PLACE",
-					"-XepPatchChecks:MissingOverride,PackageLocation"
+					"-XepPatchChecks:" +
+							"MissingOverride," +
+							"PackageLocation," +
+							"RedundantStringConversion," +
+							"RedundantStringEscape"
 				)
 			}
 		} else {
