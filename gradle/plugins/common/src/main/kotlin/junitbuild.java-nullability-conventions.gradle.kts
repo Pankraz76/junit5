@@ -92,11 +92,8 @@ tasks.withType<JavaCompile>().configureEach {
 				"StringSplitter", // We don`t want to use Guava.
 				"UnnecessaryLambda", // The findings of this check are subjective because a named constant can be more readable in many cases.
 			)
-			error("PackageLocation")
-
 			error(
 				"ConstantNaming",
-				"PackageLocation",
 				"EmptyMethod",
 				"EmptyMonoZip",
 				"LexicographicalAnnotationAttributeListing",
@@ -106,6 +103,7 @@ tasks.withType<JavaCompile>().configureEach {
 				"NonEmptyMono",
 				"OptionalMapUnusedValue",
 				"OptionalOfRedundantMethod",
+				"PackageLocation",
 				"RedundantSetterCall",
 				"RedundantStringConversion",
 				"RedundantStringEscape",
