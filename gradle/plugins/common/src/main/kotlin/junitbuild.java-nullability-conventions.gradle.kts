@@ -60,7 +60,7 @@ tasks.withType<JavaCompile>().configureEach {
 							"MissingOverride," +
 							"PackageLocation," +
 							"RedundantStringConversion," +
-							"RedundantStringEscape" +
+							"RedundantStringEscape," +
 							"StaticImport," +
 							"UnusedVariable"
 				)
