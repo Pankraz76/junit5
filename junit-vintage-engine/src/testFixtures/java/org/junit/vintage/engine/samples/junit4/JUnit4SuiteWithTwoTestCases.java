@@ -18,6 +18,6 @@ import org.junit.runners.Suite.SuiteClasses;
  * @since 4.12
  */
 @RunWith(Suite.class)
-@SuiteClasses({ PlainJUnit4TestCaseWithTwoTestMethods.class, PlainJUnit4TestCaseWithSingleTestWhichFails.class })
+@SuiteClasses({PlainJUnit4TestCaseWithSingleTestWhichFails.class, PlainJUnit4TestCaseWithTwoTestMethods.class})
 public class JUnit4SuiteWithTwoTestCases {
 }

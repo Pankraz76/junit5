@@ -29,8 +29,8 @@ public class PlainJUnit4TestCaseWithTwoTestMethods {
 		fail("this test should fail");
 	}
 
-	@Test
 	@Category(Categories.Successful.class)
+	@Test
 	public void successfulTest() {
 		assertEquals(3, 1 + 2);
 	}

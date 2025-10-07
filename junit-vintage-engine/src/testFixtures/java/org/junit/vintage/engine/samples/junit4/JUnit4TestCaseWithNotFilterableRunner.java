@@ -18,9 +18,9 @@ import org.junit.vintage.engine.samples.junit4.ConfigurableRunner.ChildCount;
 /**
  * @since 5.1
  */
-@RunWith(NotFilterableRunner.class)
-@ChildCount(2)
 @Category(Categories.Successful.class)
+@ChildCount(2)
+@RunWith(NotFilterableRunner.class)
 public class JUnit4TestCaseWithNotFilterableRunner {
 
 	@Test

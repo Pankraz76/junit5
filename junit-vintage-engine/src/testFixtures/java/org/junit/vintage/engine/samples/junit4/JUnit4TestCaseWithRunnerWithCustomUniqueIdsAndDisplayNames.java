@@ -21,8 +21,8 @@ import org.junit.runner.RunWith;
 @RunWith(RunnerWithCustomUniqueIdsAndDisplayNames.class)
 public class JUnit4TestCaseWithRunnerWithCustomUniqueIdsAndDisplayNames {
 
-	@Test
 	@Label("(TestMethod)")
+	@Test
 	public void test() {
 		Assert.fail();
 	}

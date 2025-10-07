@@ -27,8 +27,8 @@ import org.junit.vintage.engine.samples.junit4.Categories.SkippedWithReason;
 /**
  * @since 4.12
  */
-@FixMethodOrder(NAME_ASCENDING)
 @Category(Plain.class)
+@FixMethodOrder(NAME_ASCENDING)
 public class PlainJUnit4TestCaseWithFiveTestMethods {
 
 	@Test
@@ -36,22 +36,22 @@ public class PlainJUnit4TestCaseWithFiveTestMethods {
 		assumeFalse("this test should be aborted", true);
 	}
 
-	@Test
 	@Category(Failing.class)
+	@Test
 	public void failingTest() {
 		fail("this test should fail");
 	}
 
-	@Test
-	@Ignore
 	@Category(Skipped.class)
+	@Ignore
+	@Test
 	public void ignoredTest1_withoutReason() {
 		fail("this should never be called");
 	}
 
-	@Test
-	@Ignore("a custom reason")
 	@Category(SkippedWithReason.class)
+	@Ignore("a custom reason")
+	@Test
 	public void ignoredTest2_withReason() {
 		fail("this should never be called");
 	}

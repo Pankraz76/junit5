@@ -16,7 +16,7 @@ import org.junit.vintage.engine.samples.junit4.ConfigurableRunner.ChildCount;
 /**
  * Simulates a Spock 1.x test with only {@code @Unroll} feature methods.
  */
-@RunWith(DynamicRunner.class)
 @ChildCount(1)
+@RunWith(DynamicRunner.class)
 public class CompletelyDynamicTestCase {
 }

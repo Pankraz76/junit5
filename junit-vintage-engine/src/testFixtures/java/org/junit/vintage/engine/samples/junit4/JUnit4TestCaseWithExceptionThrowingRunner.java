@@ -16,7 +16,7 @@ import org.junit.vintage.engine.samples.junit4.ConfigurableRunner.ChildCount;
 /**
  * @since 4.12
  */
-@RunWith(ExceptionThrowingRunner.class)
 @ChildCount(0)
+@RunWith(ExceptionThrowingRunner.class)
 public class JUnit4TestCaseWithExceptionThrowingRunner {
 }
