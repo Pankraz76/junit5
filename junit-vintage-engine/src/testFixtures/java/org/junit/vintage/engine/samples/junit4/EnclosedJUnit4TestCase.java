@@ -27,8 +27,8 @@ public class EnclosedJUnit4TestCase {
 	@Category(Categories.Plain.class)
 	public static class NestedClass {
 
-		@Category(Categories.Failing.class)
 		@Test
+		@Category(Categories.Failing.class)
 		public void failingTest() {
 			fail("this test should fail");
 		}

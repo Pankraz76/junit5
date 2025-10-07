@@ -49,7 +49,7 @@ public final class CompositeTestSource implements TestSource {
 		return new CompositeTestSource(sources);
 	}
 
-	@SuppressWarnings({ "RedundantSuppression", "serial" }) // always used with serializable implementation (unmodifiableList())
+	@SuppressWarnings({ "serial", "RedundantSuppression" }) // always used with serializable implementation (unmodifiableList())
 	private final List<TestSource> sources;
 
 	private CompositeTestSource(Collection<? extends TestSource> sources) {

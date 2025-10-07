@@ -62,11 +62,11 @@ import org.junit.platform.commons.annotation.Testable;
  * @see BeforeClassTemplateInvocationCallback
  * @see AfterClassTemplateInvocationCallback
  */
-@API(status = EXPERIMENTAL, since = "6.0")
+@Target({ ElementType.ANNOTATION_TYPE, ElementType.TYPE })
+@Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.ANNOTATION_TYPE, ElementType.TYPE })
+@API(status = EXPERIMENTAL, since = "6.0")
 @Testable
 public @interface ClassTemplate {
 }

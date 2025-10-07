@@ -41,8 +41,8 @@ import org.jspecify.annotations.Nullable;
  * @see Executable
  * @see ThrowingConsumer
  */
-@API(status = STABLE, since = "5.0")
 @FunctionalInterface
+@API(status = STABLE, since = "5.0")
 public interface ThrowingSupplier<T extends @Nullable Object> {
 
 	/**

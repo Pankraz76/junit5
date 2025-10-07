@@ -40,12 +40,12 @@ import org.apiguardian.api.API;
  * @see NullSource
  * @see EmptySource
  */
-@API(status = STABLE, since = "5.7")
-@Documented
-@EmptySource
-@Inherited
-@NullSource
-@Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD, ElementType.TYPE })
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Inherited
+@API(status = STABLE, since = "5.7")
+@NullSource
+@EmptySource
 public @interface NullAndEmptySource {
 }

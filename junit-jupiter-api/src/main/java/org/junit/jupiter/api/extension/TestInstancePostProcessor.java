@@ -39,8 +39,8 @@ import org.junit.jupiter.api.TestInstance;
  * @see TestInstanceFactory
  * @see ParameterResolver
  */
-@API(status = STABLE, since = "5.0")
 @FunctionalInterface
+@API(status = STABLE, since = "5.0")
 public interface TestInstancePostProcessor extends TestInstantiationAwareExtension {
 
 	/**

@@ -42,9 +42,9 @@ class UnalignedClasspathTests {
 	@ManagedResource
 	MavenRepoProxy mavenRepoProxy;
 
-	@Execution(SAME_THREAD)
-	@MethodSource("javaVersions")
 	@ParameterizedTest(quoteTextArguments = false)
+	@MethodSource("javaVersions")
+	@Execution(SAME_THREAD)
 	void verifyErrorMessageForUnalignedClasspath(JRE jre, Path javaHome, @TempDir Path workspace,
 			@FilePrefix("maven") OutputFiles outputFiles) throws Exception {
 		var starter = ProcessStarters.maven(javaHome) //

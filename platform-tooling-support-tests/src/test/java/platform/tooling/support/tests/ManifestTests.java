@@ -36,8 +36,8 @@ import platform.tooling.support.MavenRepo;
 @Order(Integer.MAX_VALUE)
 class ManifestTests {
 
-	@MethodSource("platform.tooling.support.Helper#loadModuleDirectoryNames")
 	@ParameterizedTest(quoteTextArguments = false)
+	@MethodSource("platform.tooling.support.Helper#loadModuleDirectoryNames")
 	void manifestEntriesAdhereToConventions(String module) throws Exception {
 		var version = Helper.version();
 		var jarFile = MavenRepo.jar(module).toFile();

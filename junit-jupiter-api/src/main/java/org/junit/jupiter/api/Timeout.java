@@ -102,11 +102,11 @@ import org.apiguardian.api.API;
  *
  * @since 5.5
  */
-@API(status = STABLE, since = "5.7")
+@Target({ ElementType.TYPE, ElementType.METHOD })
+@Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.TYPE, ElementType.METHOD })
+@API(status = STABLE, since = "5.7")
 public @interface Timeout {
 
 	/**

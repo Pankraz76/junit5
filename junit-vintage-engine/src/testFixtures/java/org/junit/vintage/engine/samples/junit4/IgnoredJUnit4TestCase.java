@@ -20,8 +20,8 @@ import org.junit.Test;
 /**
  * @since 4.12
  */
-@FixMethodOrder(NAME_ASCENDING)
 @Ignore("complete class is ignored")
+@FixMethodOrder(NAME_ASCENDING)
 public class IgnoredJUnit4TestCase {
 
 	@Test

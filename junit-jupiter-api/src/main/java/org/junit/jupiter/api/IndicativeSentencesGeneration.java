@@ -42,12 +42,12 @@ import org.junit.jupiter.api.DisplayNameGenerator.IndicativeSentences;
  * @see DisplayNameGenerator.IndicativeSentences
  * @see DisplayNameGeneration
  */
-@API(status = STABLE, since = "5.10")
 @DisplayNameGeneration(IndicativeSentences.class)
+@Target({ ElementType.ANNOTATION_TYPE, ElementType.TYPE })
+@Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.ANNOTATION_TYPE, ElementType.TYPE })
+@API(status = STABLE, since = "5.10")
 public @interface IndicativeSentencesGeneration {
 
 	String DEFAULT_SEPARATOR = ", ";

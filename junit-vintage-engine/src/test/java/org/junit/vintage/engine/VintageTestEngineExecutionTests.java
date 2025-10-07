@@ -869,8 +869,8 @@ class VintageTestEngineExecutionTests {
 			event(engine(), finishedSuccessfully()));
 	}
 
-	@DisabledInEclipse
 	@Test
+	@DisabledInEclipse
 	void executesUnrolledSpockFeatureMethod() {
 		// Load Groovy class via reflection to avoid compilation errors in Eclipse IDE.
 		String testClassName = "org.junit.vintage.engine.samples.spock.SpockTestCaseWithUnrolledAndRegularFeatureMethods";
@@ -892,8 +892,8 @@ class VintageTestEngineExecutionTests {
 			event(engine(), finishedSuccessfully()));
 	}
 
-	@DisabledInEclipse
 	@Test
+	@DisabledInEclipse
 	void executesRegularSpockFeatureMethod() {
 		// Load Groovy class via reflection to avoid compilation errors in Eclipse IDE.
 		String testClassName = "org.junit.vintage.engine.samples.spock.SpockTestCaseWithUnrolledAndRegularFeatureMethods";

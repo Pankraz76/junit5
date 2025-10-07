@@ -32,11 +32,11 @@ import org.apiguardian.api.API;
  * @since 1.11
  * @see ConfigurationParametersResource
  */
-@API(status = MAINTAINED, since = "1.13.3")
-@Documented
-@Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
+@Inherited
+@Documented
+@API(status = MAINTAINED, since = "1.13.3")
 public @interface ConfigurationParametersResources {
 
 	/**

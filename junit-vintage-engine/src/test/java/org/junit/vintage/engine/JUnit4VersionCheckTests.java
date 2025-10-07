@@ -74,8 +74,8 @@ class JUnit4VersionCheckTests {
 		assertEquals("Failed to parse version of junit:junit: not a version", exception.getMessage());
 	}
 
-	@Tag("missing-junit4")
 	@Test
+	@Tag("missing-junit4")
 	void handlesMissingJUnit() {
 		var exception = assertThrows(JUnitException.class, JUnit4VersionCheck::checkSupported);
 

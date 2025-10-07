@@ -79,10 +79,10 @@ import org.junit.platform.commons.annotation.Testable;
  * @see DynamicTest
  * @see DynamicContainer
  */
-@API(status = MAINTAINED, since = "5.3")
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD })
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@API(status = MAINTAINED, since = "5.3")
 @Testable
 public @interface TestFactory {
 }

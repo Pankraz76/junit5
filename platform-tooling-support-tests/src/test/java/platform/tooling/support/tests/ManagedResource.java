@@ -29,13 +29,13 @@ import org.junit.platform.commons.support.HierarchyTraversalMode;
 import org.junit.platform.commons.support.ReflectionSupport;
 import org.junit.platform.commons.util.Preconditions;
 
-@ExtendWith(ManagedResource.Extension.class)
-@Retention(RUNTIME)
 @Target({ ElementType.PARAMETER, ElementType.FIELD })
+@Retention(RUNTIME)
+@ExtendWith(ManagedResource.Extension.class)
 public @interface ManagedResource {
 
-	@Retention(RUNTIME)
 	@Target(ElementType.TYPE)
+	@Retention(RUNTIME)
 	@interface Scoped {
 
 		Class<? extends Provider> value();

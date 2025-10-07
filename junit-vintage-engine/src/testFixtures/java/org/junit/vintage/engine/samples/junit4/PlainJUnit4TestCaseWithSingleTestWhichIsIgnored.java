@@ -19,8 +19,8 @@ import org.junit.Test;
  */
 public class PlainJUnit4TestCaseWithSingleTestWhichIsIgnored {
 
-	@Ignore("ignored test")
 	@Test
+	@Ignore("ignored test")
 	public void ignoredTest() {
 		Assert.fail("this should not be called");
 	}

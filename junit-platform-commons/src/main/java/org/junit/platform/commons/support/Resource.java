@@ -35,9 +35,9 @@ import org.junit.platform.commons.util.Preconditions;
  * @see ReflectionSupport#streamAllResourcesInModule(String, Predicate)
  * @deprecated Please use {@link org.junit.platform.commons.io.Resource} instead.
  */
+@SuppressWarnings("removal")
 @API(status = DEPRECATED, since = "1.14")
 @Deprecated(since = "1.14", forRemoval = true)
-@SuppressWarnings("removal")
 public interface Resource extends org.junit.platform.commons.io.Resource {
 
 	/**

@@ -40,8 +40,8 @@ class SameThreadTimeoutInvocation<T extends @Nullable Object> implements Invocat
 		this.preInterruptCallback = preInterruptCallback;
 	}
 
-	@Override
 	@SuppressWarnings("NullAway")
+	@Override
 	public T proceed() throws Throwable {
 		InterruptTask interruptTask = new InterruptTask(Thread.currentThread(), preInterruptCallback);
 		ScheduledFuture<?> future = executor.schedule(interruptTask, timeout.value(), timeout.unit());

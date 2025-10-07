@@ -31,10 +31,10 @@ import org.junit.platform.suite.api.Suite;
  *
  * @since 4.12
  */
-@ExcludeTags("missing-junit4")
+@Suite
+@SelectPackages("org.junit.vintage.engine")
 @IncludeClassNamePatterns(".*Tests?")
 @IncludeEngines("junit-jupiter")
-@SelectPackages("org.junit.vintage.engine")
-@Suite
+@ExcludeTags("missing-junit4")
 class VintageTestEngineTestSuite {
 }

@@ -122,7 +122,7 @@ class FlightRecordingExecutionListener implements TestExecutionListener {
 		}
 	}
 
-	@Category({ "Execution", "JUnit" })
+	@Category({ "JUnit", "Execution" })
 	@StackTrace(false)
 	abstract static class ExecutionEvent extends Event {
 	}
@@ -141,8 +141,8 @@ class FlightRecordingExecutionListener implements TestExecutionListener {
 
 	abstract static class TestEvent extends ExecutionEvent {
 
-		@Label("Unique Id")
 		@UniqueId
+		@Label("Unique Id")
 		@Nullable
 		String uniqueId;
 
@@ -195,8 +195,8 @@ class FlightRecordingExecutionListener implements TestExecutionListener {
 	@Name("org.junit.ReportEntry")
 	static class ReportEntryEvent extends ExecutionEvent {
 
-		@Label("Unique Id")
 		@UniqueId
+		@Label("Unique Id")
 		@Nullable
 		String uniqueId;
 
@@ -213,8 +213,8 @@ class FlightRecordingExecutionListener implements TestExecutionListener {
 	@Name("org.junit.FileEntry")
 	static class FileEntryEvent extends ExecutionEvent {
 
-		@Label("Unique Id")
 		@UniqueId
+		@Label("Unique Id")
 		@Nullable
 		String uniqueId;
 

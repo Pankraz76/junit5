@@ -34,8 +34,8 @@ import org.junit.vintage.engine.execution.VintageExecutor;
  * @deprecated Should only be used temporarily while migrating tests to JUnit
  * Jupiter or another testing framework with native JUnit Platform support
  */
-@API(status = DEPRECATED, since = "6.0")
 @Deprecated(since = "6.0")
+@API(status = DEPRECATED, since = "6.0")
 public final class VintageTestEngine implements TestEngine {
 
 	@Override

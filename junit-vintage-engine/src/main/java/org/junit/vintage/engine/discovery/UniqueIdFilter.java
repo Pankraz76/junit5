@@ -33,10 +33,10 @@ class UniqueIdFilter extends Filter {
 	private final RunnerTestDescriptor runnerTestDescriptor;
 	private final UniqueId uniqueId;
 
-	@SuppressWarnings({ "NotNullFieldNotInitialized", "NullAway.Init" })
+	@SuppressWarnings({ "NullAway.Init", "NotNullFieldNotInitialized" })
 	private Deque<Description> path;
 
-	@SuppressWarnings({ "NotNullFieldNotInitialized", "NullAway.Init" })
+	@SuppressWarnings({ "NullAway.Init", "NotNullFieldNotInitialized" })
 	private Set<Description> descendants;
 
 	UniqueIdFilter(RunnerTestDescriptor runnerTestDescriptor, UniqueId uniqueId) {

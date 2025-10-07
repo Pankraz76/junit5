@@ -38,10 +38,10 @@ import org.apiguardian.api.API;
  * @see ConfigurationParametersResource
  * @see Suite
  */
-@API(status = STABLE, since = "1.10")
-@Documented
-@Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
+@Inherited
+@Documented
+@API(status = STABLE, since = "1.10")
 public @interface DisableParentConfigurationParameters {
 }

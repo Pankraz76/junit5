@@ -34,10 +34,10 @@ import org.apiguardian.api.API;
  * @see ResourceLock
  */
 @API(status = STABLE, since = "5.10")
-@Inherited
-@ResourceLock(Resources.GLOBAL)
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
+@Inherited
+@ResourceLock(Resources.GLOBAL)
 public @interface Isolated {
 
 	/**

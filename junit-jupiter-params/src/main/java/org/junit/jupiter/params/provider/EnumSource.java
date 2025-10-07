@@ -53,14 +53,14 @@ import org.junit.platform.commons.util.Preconditions;
  * @see org.junit.jupiter.params.ParameterizedClass
  * @see org.junit.jupiter.params.ParameterizedTest
  */
-@API(status = STABLE, since = "5.7")
-@ArgumentsSource(EnumArgumentsProvider.class)
+@Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD, ElementType.TYPE })
+@Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
 @Repeatable(EnumSources.class)
-@Retention(RetentionPolicy.RUNTIME)
+@API(status = STABLE, since = "5.7")
+@ArgumentsSource(EnumArgumentsProvider.class)
 @SuppressWarnings("exports")
-@Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD, ElementType.TYPE })
 public @interface EnumSource {
 
 	/**

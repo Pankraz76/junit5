@@ -48,7 +48,7 @@ public final class AnnotationConsumerInitializer {
 		/* no-op */
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static <T> T initialize(AnnotatedElement annotatedElement, T annotationConsumerInstance) {
 		if (annotationConsumerInstance instanceof AnnotationConsumer consumer) {
 			Class<? extends Annotation> annotationType = findConsumedAnnotationType(annotationConsumerInstance);

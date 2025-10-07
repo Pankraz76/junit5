@@ -177,8 +177,8 @@ public final class AnnotationSupport {
 	 * {@link #findAnnotation(Class, Class, List)} (for
 	 * {@code SearchOption.INCLUDE_ENCLOSING_CLASSES}) instead
 	 */
-	@API(status = DEPRECATED, since = "1.12")
 	@Deprecated(since = "1.12")
+	@API(status = DEPRECATED, since = "1.12")
 	@SuppressWarnings("deprecation")
 	public static <A extends Annotation> Optional<A> findAnnotation(@Nullable Class<?> clazz, Class<A> annotationType,
 			SearchOption searchOption) {
@@ -519,8 +519,8 @@ public final class AnnotationSupport {
 	 * @see ReflectionSupport#findFields(Class, Predicate, HierarchyTraversalMode)
 	 * @see ReflectionSupport#tryToReadFieldValue(Field, Object)
 	 */
-	@API(status = MAINTAINED, since = "1.4")
 	@SuppressWarnings("unchecked")
+	@API(status = MAINTAINED, since = "1.4")
 	public static <T extends @Nullable Object> List<T> findAnnotatedFieldValues(Object instance,
 			Class<? extends Annotation> annotationType, Class<T> fieldType) {
 
@@ -561,8 +561,8 @@ public final class AnnotationSupport {
 	 * @see ReflectionSupport#findFields(Class, Predicate, HierarchyTraversalMode)
 	 * @see ReflectionSupport#tryToReadFieldValue(Field, Object)
 	 */
-	@API(status = MAINTAINED, since = "1.4")
 	@SuppressWarnings("unchecked")
+	@API(status = MAINTAINED, since = "1.4")
 	public static <T extends @Nullable Object> List<T> findAnnotatedFieldValues(Class<?> clazz,
 			Class<? extends Annotation> annotationType, Class<T> fieldType) {
 

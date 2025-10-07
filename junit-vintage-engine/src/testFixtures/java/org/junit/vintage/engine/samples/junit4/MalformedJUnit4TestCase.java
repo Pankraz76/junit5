@@ -19,8 +19,8 @@ import org.junit.Test;
  */
 public class MalformedJUnit4TestCase {
 
-	@SuppressWarnings("TestMethodWithIncorrectSignature")
-	@Test // intentionally not public
+	@Test
+	@SuppressWarnings("TestMethodWithIncorrectSignature") // intentionally not public
 	void nonPublicTest() {
 		fail("this should never be called");
 	}

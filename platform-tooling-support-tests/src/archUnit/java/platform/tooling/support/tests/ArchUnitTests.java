@@ -66,16 +66,16 @@ import org.junit.platform.commons.support.scanning.ClasspathScanner;
 import org.junit.platform.engine.OutputDirectoryCreator;
 import org.junit.platform.engine.TestDescriptor;
 
-@AnalyzeClasses(packages = { "org.junit.jupiter", "org.junit.platform", "org.junit.vintage" })
+@AnalyzeClasses(packages = { "org.junit.platform", "org.junit.jupiter", "org.junit.vintage" })
 class ArchUnitTests {
 
-	@ArchTest
 	@SuppressWarnings("unused")
+	@ArchTest
 	private final ArchRule allClassesAreInJUnitPackage = classes() //
 			.should().haveNameMatching("org\\.junit\\..+");
 
-	@ArchTest
 	@SuppressWarnings("unused")
+	@ArchTest
 	private final ArchRule allPublicTopLevelTypesHaveApiAnnotations = classes() //
 			.that(have(modifier(PUBLIC))) //
 			.and(TOP_LEVEL_CLASSES) //
@@ -86,8 +86,8 @@ class ArchUnitTests {
 			.and(notShadowed()) //
 			.should().beAnnotatedWith(API.class);
 
-	@ArchTest
-	@SuppressWarnings("unused") // Consistency of @Documented and @Inherited is checked by the compiler but not for @Retention and @Target
+	@SuppressWarnings("unused")
+	@ArchTest // Consistency of @Documented and @Inherited is checked by the compiler but not for @Retention and @Target
 	private final ArchRule repeatableAnnotationsShouldHaveMatchingContainerAnnotations = classes() //
 			.that(nameStartingWith("org.junit.")) //
 			.and().areAnnotations() //
@@ -98,21 +98,21 @@ class ArchUnitTests {
 	private final DescribedPredicate<? super JavaClass> jupiterAssertions = name(Assertions.class.getName()) //
 			.or(name(Assumptions.class.getName())).or(name("org.junit.jupiter.api.AssertionsKt"));
 
-	@ArchTest
-	@SuppressWarnings("unused") // https://github.com/junit-team/junit-framework/issues/4604
+	@SuppressWarnings("unused")
+	@ArchTest // https://github.com/junit-team/junit-framework/issues/4604
 	private final ArchRule jupiterAssertionsShouldBeSelfContained = classes().that(jupiterAssertions) //
 			.should(onlyBeAccessedByClassesThat(jupiterAssertions));
 
-	@ArchTest
 	@SuppressWarnings("unused")
+	@ArchTest
 	private final ArchRule deprecatedAnnotationOnMembersShouldBeDeclaredConsistently = members() //
 			.that(annotatedWith(Deprecated.class)) //
 			.or(haveApiAnnotationWithDeprecatedStatus()) //
 			.and(declaredIn(notShadowed())) //
 			.should(haveBothAnnotationsWithMatchingSinceAttributes());
 
-	@ArchTest
 	@SuppressWarnings("unused")
+	@ArchTest
 	private final ArchRule deprecatedAnnotationOnClassesShouldBeDeclaredConsistently = classes() //
 			.that(annotatedWith(Deprecated.class)) //
 			.or(haveApiAnnotationWithDeprecatedStatus()) //

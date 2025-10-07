@@ -33,8 +33,8 @@ import platform.tooling.support.ProcessStarters;
 @Order(Integer.MAX_VALUE)
 class JarDescribeModuleTests {
 
-	@MethodSource("platform.tooling.support.Helper#loadModuleDirectoryNames")
 	@ParameterizedTest(quoteTextArguments = false)
+	@MethodSource("platform.tooling.support.Helper#loadModuleDirectoryNames")
 	void describeModule(String module, @FilePrefix("jar") OutputFiles outputFiles) throws Exception {
 		var sourceDirectory = getSourceDirectory(Projects.JAR_DESCRIBE_MODULE);
 		var modulePath = MavenRepo.jar(module);
@@ -53,8 +53,8 @@ class JarDescribeModuleTests {
 		assertLinesMatch(expectedLines.lines().toList(), result.stdOut().strip().lines().toList());
 	}
 
-	@MethodSource("platform.tooling.support.Helper#loadModuleDirectoryNames")
 	@ParameterizedTest(quoteTextArguments = false)
+	@MethodSource("platform.tooling.support.Helper#loadModuleDirectoryNames")
 	void packageNamesStartWithNameOfTheModule(String module) {
 		var modulePath = MavenRepo.jar(module);
 		var moduleDescriptor = ModuleFinder.of(modulePath).findAll().iterator().next().descriptor();

@@ -28,7 +28,7 @@ import org.apiguardian.api.API;
  *
  * @since 5.0
  */
-@API(status = STABLE, since = "5.7")
 @FunctionalInterface
+@API(status = STABLE, since = "5.7")
 public interface AnnotationConsumer<A extends Annotation> extends Consumer<A> {
 }

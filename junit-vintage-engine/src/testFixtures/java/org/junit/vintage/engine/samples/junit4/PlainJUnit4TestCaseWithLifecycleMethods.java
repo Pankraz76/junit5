@@ -45,8 +45,8 @@ public class PlainJUnit4TestCaseWithLifecycleMethods {
 		fail();
 	}
 
-	@Ignore("skipped")
 	@Test
+	@Ignore("skipped")
 	public void skippedTest() {
 		EVENTS.add("this should never ever be executed because the test is skipped");
 	}

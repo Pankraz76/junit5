@@ -105,8 +105,8 @@ public class CachingJupiterConfiguration implements JupiterConfiguration {
 			__ -> delegate.getDefaultTestInstanceLifecycle());
 	}
 
-	@Override
 	@SuppressWarnings("unchecked")
+	@Override
 	public Predicate<ExecutionCondition> getExecutionConditionFilter() {
 		return (Predicate<ExecutionCondition>) cache.computeIfAbsent(DEACTIVATE_CONDITIONS_PATTERN_PROPERTY_NAME,
 			__ -> delegate.getExecutionConditionFilter());
@@ -118,15 +118,15 @@ public class CachingJupiterConfiguration implements JupiterConfiguration {
 			__ -> delegate.getDefaultDisplayNameGenerator());
 	}
 
-	@Override
 	@SuppressWarnings("unchecked")
+	@Override
 	public Optional<MethodOrderer> getDefaultTestMethodOrderer() {
 		return (Optional<MethodOrderer>) cache.computeIfAbsent(DEFAULT_TEST_METHOD_ORDER_PROPERTY_NAME,
 			__ -> delegate.getDefaultTestMethodOrderer());
 	}
 
-	@Override
 	@SuppressWarnings("unchecked")
+	@Override
 	public Optional<ClassOrderer> getDefaultTestClassOrderer() {
 		return (Optional<ClassOrderer>) cache.computeIfAbsent(DEFAULT_TEST_CLASS_ORDER_PROPERTY_NAME,
 			__ -> delegate.getDefaultTestClassOrderer());
@@ -138,8 +138,8 @@ public class CachingJupiterConfiguration implements JupiterConfiguration {
 			__ -> delegate.getDefaultTempDirCleanupMode());
 	}
 
-	@Override
 	@SuppressWarnings("unchecked")
+	@Override
 	public Supplier<TempDirFactory> getDefaultTempDirFactorySupplier() {
 		return (Supplier<TempDirFactory>) cache.computeIfAbsent(DEFAULT_FACTORY_PROPERTY_NAME,
 			__ -> delegate.getDefaultTempDirFactorySupplier());

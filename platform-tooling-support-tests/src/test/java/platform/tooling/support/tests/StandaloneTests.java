@@ -48,8 +48,8 @@ import platform.tooling.support.ThirdPartyJars;
 /**
  * @since 1.4
  */
-@Execution(CONCURRENT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@Execution(CONCURRENT)
 class StandaloneTests {
 
 	@TempDir
@@ -148,9 +148,9 @@ class StandaloneTests {
 			result.stdOut().lines());
 	}
 
-	@Execution(SAME_THREAD)
-	@Order(1)
 	@Test
+	@Order(1)
+	@Execution(SAME_THREAD)
 	void compile(@FilePrefix("javac") OutputFiles javacOutputFiles) throws Exception {
 		var result = ProcessStarters.javaCommand("javac") //
 				.workingDir(workspace) //
@@ -172,9 +172,9 @@ class StandaloneTests {
 		assertTrue(result.stdErr().isEmpty());
 	}
 
-	@Execution(SAME_THREAD)
-	@Order(2)
 	@Test
+	@Order(2)
+	@Execution(SAME_THREAD)
 	void discoverTree(@FilePrefix("console-launcher") OutputFiles outputFiles) throws Exception {
 		var result = discover(outputFiles, "--details-theme=ascii");
 
@@ -208,9 +208,9 @@ class StandaloneTests {
 		assertLinesMatch(expected.lines(), result.stdOut().lines());
 	}
 
-	@Execution(SAME_THREAD)
-	@Order(2)
 	@Test
+	@Order(2)
+	@Execution(SAME_THREAD)
 	void discoverFlat(@FilePrefix("console-launcher") OutputFiles outputFiles) throws Exception {
 		var result = discover(outputFiles, "--details=flat");
 
@@ -243,9 +243,9 @@ class StandaloneTests {
 		assertLinesMatch(expected.lines(), result.stdOut().lines());
 	}
 
-	@Execution(SAME_THREAD)
-	@Order(2)
 	@Test
+	@Order(2)
+	@Execution(SAME_THREAD)
 	void discoverVerbose(@FilePrefix("console-launcher") OutputFiles outputFiles) throws Exception {
 		var result = discover(outputFiles, "--details=verbose", "--details-theme=ascii");
 
@@ -328,18 +328,18 @@ class StandaloneTests {
 		assertLinesMatch(expected.lines(), result.stdOut().lines());
 	}
 
-	@Execution(SAME_THREAD)
-	@Order(2)
 	@Test
+	@Order(2)
+	@Execution(SAME_THREAD)
 	void discoverNone(@FilePrefix("console-launcher") OutputFiles outputFiles) throws Exception {
 		var result = discover(outputFiles, "--details=none");
 
 		assertThat(result.stdOut()).isEmpty();
 	}
 
-	@Execution(SAME_THREAD)
-	@Order(2)
 	@Test
+	@Order(2)
+	@Execution(SAME_THREAD)
 	void discoverSummary(@FilePrefix("console-launcher") OutputFiles outputFiles) throws Exception {
 		var result = discover(outputFiles, "--details=summary");
 
@@ -352,9 +352,9 @@ class StandaloneTests {
 		assertLinesMatch(expected.lines(), result.stdOut().lines());
 	}
 
-	@Execution(SAME_THREAD)
-	@Order(2)
 	@Test
+	@Order(2)
+	@Execution(SAME_THREAD)
 	void discoverTestFeed(@FilePrefix("console-launcher") OutputFiles outputFiles) throws Exception {
 		var result = discover(outputFiles, "--details=testfeed");
 		var expected = """
@@ -394,9 +394,9 @@ class StandaloneTests {
 		return result;
 	}
 
-	@Execution(SAME_THREAD)
-	@Order(3)
 	@Test
+	@Order(3)
+	@Execution(SAME_THREAD)
 	void execute(@FilePrefix("console-launcher") OutputFiles outputFiles) throws Exception {
 		var result = ProcessStarters.java() //
 				.workingDir(workspace) //
@@ -420,9 +420,9 @@ class StandaloneTests {
 		assertOutputOnCurrentJvm(result);
 	}
 
-	@Execution(SAME_THREAD)
-	@Order(4)
 	@Test
+	@Order(4)
+	@Execution(SAME_THREAD)
 	void executeOnJava17(@FilePrefix("console-launcher") OutputFiles outputFiles) throws Exception {
 		var javaHome = Helper.getJavaHome(17).orElseThrow(TestAbortedException::new);
 		var result = ProcessStarters.java(javaHome) //
@@ -454,9 +454,9 @@ class StandaloneTests {
 				+ " (group ID: org.junit.vintage, artifact ID: junit-vintage-engine, version: " + Helper.version()));
 	}
 
-	@Execution(SAME_THREAD)
-	@Order(5)
 	@Test
+	@Order(5)
+	@Execution(SAME_THREAD)
 	// https://github.com/junit-team/junit-framework/issues/2600
 	void executeOnJava17SelectPackage(@FilePrefix("console-launcher") OutputFiles outputFiles) throws Exception {
 		var javaHome = Helper.getJavaHome(17).orElseThrow(TestAbortedException::new);
@@ -495,9 +495,9 @@ class StandaloneTests {
 		return expectedErrLines;
 	}
 
-	@Execution(SAME_THREAD)
-	@Order(6)
 	@Test
+	@Order(6)
+	@Execution(SAME_THREAD)
 	void executeWithJarredTestClasses(@FilePrefix("jar") OutputFiles jarOutputFiles,
 			@FilePrefix("console-launcher") OutputFiles outputFiles) throws Exception {
 		var jar = workspace.resolve("tests.jar");

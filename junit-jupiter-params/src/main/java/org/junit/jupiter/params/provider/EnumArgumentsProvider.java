@@ -61,7 +61,7 @@ class EnumArgumentsProvider extends AnnotationBasedArgumentsProvider<EnumSource>
 		return EnumSet.range(from, to);
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private <E extends Enum<E>> Class<E> determineEnumClass(ParameterDeclarations parameters, EnumSource enumSource) {
 		Class enumClass = enumSource.value();
 		if (enumClass.equals(NullEnum.class)) {

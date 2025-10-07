@@ -84,9 +84,9 @@ import org.apiguardian.api.API;
  * @see TestFactory
  * @see TestTemplate
  */
-@API(status = STABLE, since = "5.0")
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD })
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@API(status = STABLE, since = "5.0")
 public @interface BeforeEach {
 }

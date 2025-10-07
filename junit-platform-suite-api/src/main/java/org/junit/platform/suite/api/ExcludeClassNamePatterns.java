@@ -34,11 +34,11 @@ import org.apiguardian.api.API;
  * @see Suite
  * @see org.junit.platform.engine.discovery.ClassNameFilter#excludeClassNamePatterns
  */
-@API(status = MAINTAINED, since = "1.0")
-@Documented
-@Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
+@Inherited
+@Documented
+@API(status = MAINTAINED, since = "1.0")
 public @interface ExcludeClassNamePatterns {
 
 	/**

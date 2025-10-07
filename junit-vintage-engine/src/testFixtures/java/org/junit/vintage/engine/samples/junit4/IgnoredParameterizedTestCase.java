@@ -33,8 +33,8 @@ public class IgnoredParameterizedTestCase {
 	@Parameter
 	public String value;
 
-	@Ignore
 	@Test
+	@Ignore
 	public void test() {
 		// never called
 	}

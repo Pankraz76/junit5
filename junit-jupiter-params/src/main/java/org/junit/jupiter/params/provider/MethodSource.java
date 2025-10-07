@@ -119,14 +119,14 @@ import org.apiguardian.api.API;
  * @see org.junit.jupiter.params.ParameterizedTest
  * @see org.junit.jupiter.api.TestInstance
  */
-@API(status = STABLE, since = "5.7")
-@ArgumentsSource(MethodArgumentsProvider.class)
+@Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD, ElementType.TYPE })
+@Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
 @Repeatable(MethodSources.class)
-@Retention(RetentionPolicy.RUNTIME)
+@API(status = STABLE, since = "5.7")
+@ArgumentsSource(MethodArgumentsProvider.class)
 @SuppressWarnings("exports")
-@Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD, ElementType.TYPE })
 public @interface MethodSource {
 
 	/**

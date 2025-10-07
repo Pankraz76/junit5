@@ -25,8 +25,8 @@ import org.junit.jupiter.engine.config.JupiterConfiguration;
  * @since 5.12
  * @see TestInstantiationAwareExtension
  */
-@API(status = INTERNAL, since = "5.12")
 @FunctionalInterface
+@API(status = INTERNAL, since = "5.12")
 public interface ExtensionContextSupplier {
 
 	static ExtensionContextSupplier create(ExtensionContext currentExtensionContext,

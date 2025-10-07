@@ -89,7 +89,7 @@ public class InterceptingExecutableInvoker {
 			ExtensionContext extensionContext, ExtensionRegistry extensionRegistry,
 			ReflectiveInterceptorCall<Method, T> interceptorCall) {
 
-		@SuppressWarnings({ "rawtypes", "unchecked" })
+		@SuppressWarnings({ "unchecked", "rawtypes" })
 		Optional<Object> optionalTarget = (target instanceof Optional optional ? optional
 				: Optional.ofNullable(target));
 		@Nullable
