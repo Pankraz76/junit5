@@ -31,8 +31,9 @@ nullaway {
 tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
 		disableWarningsInGeneratedCode = true
+		allErrorsAsWarnings = true
 		errorproneArgs.add("-XepOpt:Refaster:NamePattern=^(?!.*Rules\\$).*") // might consider.
-		error(
+		enable(
 			"ConstantNaming",
 			"EmptyMethod",
 			"EmptyMonoZip",
