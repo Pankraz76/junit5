@@ -122,7 +122,7 @@ class FlightRecordingExecutionListener implements TestExecutionListener {
 		}
 	}
 
-	@Category({"Execution", "JUnit"})
+	@Category({ "Execution", "JUnit" })
 	@StackTrace(false)
 	abstract static class ExecutionEvent extends Event {
 	}

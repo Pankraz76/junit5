@@ -193,7 +193,7 @@ public class ForkJoinPoolHierarchicalTestExecutorService implements Hierarchical
 	}
 
 	// this class cannot not be serialized because TestTask is not Serializable
-	@SuppressWarnings({"RedundantSuppression", "serial"})
+	@SuppressWarnings({ "RedundantSuppression", "serial" })
 	class ExclusiveTask extends ForkJoinTask<@Nullable Void> {
 
 		@Serial

@@ -96,7 +96,7 @@ class FlightRecordingDiscoveryListener implements LauncherDiscoveryListener {
 		}
 	}
 
-	@Category({"Discovery", "JUnit"})
+	@Category({ "Discovery", "JUnit" })
 	@StackTrace(false)
 	abstract static class DiscoveryEvent extends Event {
 	}

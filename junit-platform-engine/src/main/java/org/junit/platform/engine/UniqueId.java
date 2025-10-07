@@ -84,7 +84,7 @@ public final class UniqueId implements Cloneable, Serializable {
 
 	private final UniqueIdFormat uniqueIdFormat;
 
-	@SuppressWarnings({"RedundantSuppression", "serial"}) // always used with serializable implementation (List.copyOf())
+	@SuppressWarnings({ "RedundantSuppression", "serial" }) // always used with serializable implementation (List.copyOf())
 	private final List<Segment> segments;
 
 	// lazily computed
