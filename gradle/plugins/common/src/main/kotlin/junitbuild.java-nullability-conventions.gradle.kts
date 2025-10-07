@@ -41,7 +41,7 @@ tasks.withType<JavaCompile>().configureEach {
 				"BadImport", // This check is opinionated wrt. which method names it considers unsuitable for import which includes a few of our own methods in `ReflectionUtils` etc.
 				"DirectReturn", // https://github.com/junit-team/junit-framework/pull/5006#discussion_r2403984446
 				"DoNotCallSuggester",
-				"ImmutableEnumChecker",
+				//"ImmutableEnumChecker",
 				"InlineMeSuggester",
 				"MissingSummary", // Produces a lot of findings that we consider to be false positives, for example for package-private classes and methods.
 				"StringSplitter", // We don`t want to use Guava.
