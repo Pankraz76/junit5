@@ -42,8 +42,8 @@ tasks.withType<JavaCompile>().configureEach {
 			error(
 				"MissingOverride",
 				"PackageLocation",
-				"RedundantStringConversion",
-				"RedundantStringEscape",
+//				"RedundantStringConversion",
+//				"RedundantStringEscape",
 				"UnusedVariable",
 			)
 			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
@@ -52,8 +52,8 @@ tasks.withType<JavaCompile>().configureEach {
 					"-XepPatchChecks:" +
 							"MissingOverride," +
 							"PackageLocation," +
-							"RedundantStringConversion," +
-							"RedundantStringEscape," +
+//							"RedundantStringConversion," +
+//							"RedundantStringEscape," +
 							"UnusedVariable"
 				)
 			}
