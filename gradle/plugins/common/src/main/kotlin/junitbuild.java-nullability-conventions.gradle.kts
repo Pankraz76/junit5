@@ -34,8 +34,8 @@ tasks.withType<JavaCompile>().configureEach {
 		allErrorsAsWarnings = true
 		disableWarningsInGeneratedCode = true
 		errorproneArgs.add("-XepOpt:Refaster:NamePattern=^(?!.*Rules\\$).*") // might consider.
-		val shouldDisableErrorProne = java.toolchain.implementation.orNull == JvmImplementation.J9
-		if (name == "compileJava" && !shouldDisableErrorProne) {
+		val shouldEnableErrorProne = java.toolchain.implementation.orNull != JvmImplementation.J9
+		if (shouldEnableErrorProne && name == "compileJava") {
 			disable(
 				"AnnotateFormatMethod", // We don`t want to use ErrorProne`s annotations.
 				"BadImport", // This check is opinionated wrt. which method names it considers unsuitable for import which includes a few of our own methods in `ReflectionUtils` etc.
@@ -72,10 +72,10 @@ tasks.withType<JavaCompile>().configureEach {
 			disableAllChecks = true
 		}
 		nullaway {
-			if (shouldDisableErrorProne) {
-				disable()
-			} else {
+			if (shouldEnableErrorProne) {
 				enable()
+			} else {
+				disable()
 			}
 			isJSpecifyMode = true
 			customContractAnnotations.add("org.junit.platform.commons.annotation.Contract")
