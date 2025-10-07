@@ -10,13 +10,14 @@
 
 package org.junit.platform.launcher.core;
 
+import static java.util.Collections.unmodifiableList;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
-
 import org.junit.platform.commons.util.Preconditions;
 import org.junit.platform.engine.EngineExecutionListener;
 import org.junit.platform.launcher.LauncherDiscoveryListener;
@@ -89,7 +90,7 @@ class ListenerRegistry<T> {
 	}
 
 	List<T> getListeners() {
-		return Collections.unmodifiableList(this.listeners);
+		return unmodifiableList(this.listeners);
 	}
 
 }

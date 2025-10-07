@@ -10,6 +10,7 @@
 
 package org.junit.jupiter.api.extension;
 
+import static java.util.Collections.reverse;
 import static org.apiguardian.api.API.Status.STABLE;
 
 import java.util.ArrayList;
@@ -17,7 +18,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
-
 import org.apiguardian.api.API;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -114,7 +114,7 @@ public interface TestInstancePreDestroyCallback extends Extension {
 			current.get().getTestInstances().map(TestInstances::getAllInstances).ifPresent(
 				destroyedInstances::removeAll);
 		}
-		Collections.reverse(destroyedInstances);
+		reverse(destroyedInstances);
 		destroyedInstances.forEach(callback);
 	}
 

@@ -10,6 +10,7 @@
 
 package org.junit.platform.commons.util;
 
+import static java.util.Collections.reverse;
 import static org.apiguardian.api.API.Status.INTERNAL;
 
 import java.io.PrintWriter;
@@ -23,7 +24,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
-
 import org.apiguardian.api.API;
 import org.junit.platform.commons.annotation.Contract;
 
@@ -125,7 +125,7 @@ public final class ExceptionUtils {
 		List<StackTraceElement> stackTrace = Arrays.asList(throwable.getStackTrace());
 		List<StackTraceElement> prunedStackTrace = new ArrayList<>();
 
-		Collections.reverse(stackTrace);
+		reverse(stackTrace);
 
 		for (int i = 0; i < stackTrace.size(); i++) {
 			StackTraceElement element = stackTrace.get(i);
@@ -147,7 +147,7 @@ public final class ExceptionUtils {
 			}
 		}
 
-		Collections.reverse(prunedStackTrace);
+		reverse(prunedStackTrace);
 		throwable.setStackTrace(prunedStackTrace.toArray(new StackTraceElement[0]));
 	}
 

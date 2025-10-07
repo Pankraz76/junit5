@@ -10,13 +10,14 @@
 
 package org.junit.platform.launcher.core;
 
+import static java.util.regex.Pattern.CASE_INSENSITIVE;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.function.Supplier;
 import java.util.regex.Pattern;
-
 import org.jspecify.annotations.Nullable;
 import org.junit.platform.commons.util.Preconditions;
 import org.junit.platform.engine.OutputDirectoryCreator;
@@ -31,7 +32,7 @@ import org.junit.platform.engine.UniqueId.Segment;
  */
 class HierarchicalOutputDirectoryCreator implements OutputDirectoryCreator {
 
-	private static final Pattern FORBIDDEN_CHARS = Pattern.compile("[^a-z0-9.,_\\-() ]", Pattern.CASE_INSENSITIVE);
+	private static final Pattern FORBIDDEN_CHARS = Pattern.compile("[^a-z0-9.,_\\-() ]", CASE_INSENSITIVE);
 	private static final String REPLACEMENT = "_";
 
 	private final Supplier<Path> rootDirSupplier;

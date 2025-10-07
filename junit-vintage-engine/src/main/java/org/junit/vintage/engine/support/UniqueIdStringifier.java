@@ -10,6 +10,7 @@
 
 package org.junit.vintage.engine.support;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.apiguardian.api.API.Status.INTERNAL;
 
 import java.io.ByteArrayOutputStream;
@@ -22,7 +23,6 @@ import java.text.NumberFormat;
 import java.util.Base64;
 import java.util.Locale;
 import java.util.function.Function;
-
 import org.apiguardian.api.API;
 
 /**
@@ -31,7 +31,7 @@ import org.apiguardian.api.API;
 @API(status = INTERNAL, since = "4.12")
 public class UniqueIdStringifier implements Function<Serializable, String> {
 
-	static final Charset CHARSET = StandardCharsets.UTF_8;
+	static final Charset CHARSET = UTF_8;
 
 	@Override
 	public String apply(Serializable uniqueId) {

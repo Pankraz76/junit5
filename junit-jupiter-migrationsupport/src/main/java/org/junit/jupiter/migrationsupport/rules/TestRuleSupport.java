@@ -10,6 +10,7 @@
 
 package org.junit.jupiter.migrationsupport.rules;
 
+import static java.util.Collections.reverse;
 import static java.util.Collections.unmodifiableList;
 import static org.junit.platform.commons.support.AnnotationSupport.findPublicAnnotatedFields;
 import static org.junit.platform.commons.support.AnnotationSupport.isAnnotated;
@@ -24,7 +25,6 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.function.Predicate;
-
 import org.junit.Rule;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
@@ -74,7 +74,7 @@ class TestRuleSupport implements BeforeEachCallback, TestExecutionExceptionHandl
 		// Due to how rules are applied (see RunRules), the last rule gets called first.
 		// Rules from fields get called before those from methods.
 		// Thus, we first add methods and then fields and reverse the list in the end.
-		Collections.reverse(result);
+		reverse(result);
 		return unmodifiableList(result);
 	}
 
@@ -120,7 +120,7 @@ class TestRuleSupport implements BeforeEachCallback, TestExecutionExceptionHandl
 
 		List<TestRuleAnnotatedMember> ruleAnnotatedMembers = getRuleAnnotatedMembers(context);
 		if (reverseOrder) {
-			Collections.reverse(ruleAnnotatedMembers);
+			reverse(ruleAnnotatedMembers);
 		}
 
 		AtomicInteger counter = new AtomicInteger();

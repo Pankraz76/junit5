@@ -10,6 +10,8 @@
 
 package org.junit.platform.engine;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.util.regex.Pattern.DOTALL;
 import static java.util.stream.Collectors.joining;
 
 import java.io.Serial;
@@ -22,7 +24,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.junit.platform.commons.JUnitException;
 import org.junit.platform.commons.util.Preconditions;
 import org.junit.platform.engine.UniqueId.Segment;
@@ -49,7 +50,7 @@ class UniqueIdFormat implements Serializable {
 	}
 
 	private static String encode(char c) {
-		return URLEncoder.encode(String.valueOf(c), StandardCharsets.UTF_8);
+		return URLEncoder.encode(String.valueOf(c), UTF_8);
 	}
 
 	private final char openSegment;
@@ -66,7 +67,7 @@ class UniqueIdFormat implements Serializable {
 		this.segmentDelimiter = segmentDelimiter;
 		this.segmentPattern = Pattern.compile(
 			"%s(.+)%s(.+)%s".formatted(quote(openSegment), quote(typeValueSeparator), quote(closeSegment)),
-			Pattern.DOTALL);
+			DOTALL);
 
 		// Compute "forbidden" character encoding map.
 		// Note that the map is always empty at this point. Thus the use of
@@ -145,7 +146,7 @@ class UniqueIdFormat implements Serializable {
 	}
 
 	private static String decode(String s) {
-		return URLDecoder.decode(s, StandardCharsets.UTF_8);
+		return URLDecoder.decode(s, UTF_8);
 	}
 
 }

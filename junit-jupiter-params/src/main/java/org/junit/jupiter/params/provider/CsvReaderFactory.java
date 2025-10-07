@@ -12,12 +12,7 @@ package org.junit.jupiter.params.provider;
 
 import static de.siegmar.fastcsv.reader.CommentStrategy.NONE;
 import static de.siegmar.fastcsv.reader.CommentStrategy.SKIP;
-
-import java.io.InputStream;
-import java.lang.annotation.Annotation;
-import java.nio.charset.Charset;
-import java.util.Set;
-import java.util.UUID;
+import static java.util.UUID.randomUUID;
 
 import de.siegmar.fastcsv.reader.CsvCallbackHandler;
 import de.siegmar.fastcsv.reader.CsvReader;
@@ -25,7 +20,11 @@ import de.siegmar.fastcsv.reader.CsvRecord;
 import de.siegmar.fastcsv.reader.CsvRecordHandler;
 import de.siegmar.fastcsv.reader.FieldModifier;
 import de.siegmar.fastcsv.reader.NamedCsvRecordHandler;
-
+import java.io.InputStream;
+import java.lang.annotation.Annotation;
+import java.nio.charset.Charset;
+import java.util.Set;
+import java.util.UUID;
 import org.junit.platform.commons.util.Preconditions;
 
 /**
@@ -157,7 +156,7 @@ class CsvReaderFactory {
 		 * <p>The marker is generated with a unique ID to ensure it cannot conflict
 		 * with actual CSV content.
 		 */
-		static final String NULL_MARKER = "<null marker: %s>".formatted(UUID.randomUUID());
+		static final String NULL_MARKER = "<null marker: %s>".formatted(randomUUID());
 
 		@Override
 		public String modify(long unusedStartingLineNumber, int unusedFieldIdx, boolean quoted, String field) {

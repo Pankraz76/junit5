@@ -10,6 +10,8 @@
 
 package org.junit.platform.engine;
 
+import static java.util.Collections.emptySet;
+import static java.util.Collections.unmodifiableSet;
 import static org.apiguardian.api.API.Status.EXPERIMENTAL;
 import static org.apiguardian.api.API.Status.MAINTAINED;
 import static org.apiguardian.api.API.Status.STABLE;
@@ -21,7 +23,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.UnaryOperator;
-
 import org.apiguardian.api.API;
 import org.jspecify.annotations.Nullable;
 import org.junit.platform.commons.util.Preconditions;
@@ -123,7 +124,7 @@ public interface TestDescriptor {
 	@API(status = STABLE, since = "1.10")
 	default Set<? extends TestDescriptor> getAncestors() {
 		if (getParent().isEmpty()) {
-			return Collections.emptySet();
+			return emptySet();
 		}
 		TestDescriptor parent = getParent().get();
 		Set<TestDescriptor> ancestors = new LinkedHashSet<>();
@@ -132,7 +133,7 @@ public interface TestDescriptor {
 		if (parent.getParent().isPresent()) {
 			ancestors.addAll(parent.getAncestors());
 		}
-		return Collections.unmodifiableSet(ancestors);
+		return unmodifiableSet(ancestors);
 	}
 
 	/**
@@ -149,7 +150,7 @@ public interface TestDescriptor {
 		for (TestDescriptor child : getChildren()) {
 			descendants.addAll(child.getDescendants());
 		}
-		return Collections.unmodifiableSet(descendants);
+		return unmodifiableSet(descendants);
 	}
 
 	/**

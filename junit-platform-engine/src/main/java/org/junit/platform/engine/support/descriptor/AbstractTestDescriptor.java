@@ -11,6 +11,8 @@
 package org.junit.platform.engine.support.descriptor;
 
 import static java.util.Collections.emptySet;
+import static java.util.Collections.synchronizedSet;
+import static java.util.Collections.unmodifiableSet;
 import static org.apiguardian.api.API.Status.STABLE;
 
 import java.util.ArrayList;
@@ -20,7 +22,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.UnaryOperator;
-
 import org.apiguardian.api.API;
 import org.jspecify.annotations.Nullable;
 import org.junit.platform.commons.util.Preconditions;
@@ -66,7 +67,7 @@ public abstract class AbstractTestDescriptor implements TestDescriptor {
 	 * <p>If a subclass overrides any of the methods related to children, this
 	 * set should be used instead of a set local to the subclass.
 	 */
-	protected final Set<TestDescriptor> children = Collections.synchronizedSet(new LinkedHashSet<>(16));
+	protected final Set<TestDescriptor> children = synchronizedSet(new LinkedHashSet<>(16));
 
 	/**
 	 * Create a new {@code AbstractTestDescriptor} with the supplied
@@ -148,7 +149,7 @@ public abstract class AbstractTestDescriptor implements TestDescriptor {
 
 	@Override
 	public final Set<? extends TestDescriptor> getChildren() {
-		return Collections.unmodifiableSet(this.children);
+		return unmodifiableSet(this.children);
 	}
 
 	@Override
