@@ -62,14 +62,14 @@ tasks.withType<JavaCompile>().configureEach {
 				errorproneArgs.addAll(
 					"-XepPatchLocation:IN_PLACE",
 					"-XepPatchChecks:" +
-//							"LexicographicalAnnotationAttributeListing," +
-//							"LexicographicalAnnotationListing," +
 							"MissingOverride," +
 							"PackageLocation," +
 							"RedundantStringConversion," +
 							"RedundantStringEscape" +
 							"StaticImport," +
 							"UnusedVariable,"
+//							"LexicographicalAnnotationAttributeListing," +
+//							"LexicographicalAnnotationListing," +
 				)
 			}
 		}
