@@ -81,7 +81,6 @@ tasks.withType<JavaCompile>().configureEach {
 		val shouldDisableErrorProne = java.toolchain.implementation.orNull == JvmImplementation.J9
 		if (name == "compileJava" && !shouldDisableErrorProne) {
 			disable(
-				// error-prone (https://errorprone.info/bugpatterns)
 				"AnnotateFormatMethod", // We don`t want to use ErrorProne`s annotations.
 				"BadImport", // This check is opinionated wrt. which method names it considers unsuitable for import which includes a few of our own methods in `ReflectionUtils` etc.
 				"DirectReturn", // https://github.com/junit-team/junit-framework/pull/5006#discussion_r2403984446
