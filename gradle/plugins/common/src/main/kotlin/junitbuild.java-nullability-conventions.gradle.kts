@@ -30,9 +30,9 @@ nullaway {
 
 tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
-		disableWarningsInGeneratedCode = true
-		allErrorsAsWarnings = true
 		allDisabledChecksAsWarnings = true
+		allErrorsAsWarnings = true
+		disableWarningsInGeneratedCode = true
 		errorproneArgs.add("-XepOpt:Refaster:NamePattern=^(?!.*Rules\\$).*") // might consider.
 		val shouldDisableErrorProne = java.toolchain.implementation.orNull == JvmImplementation.J9
 		if (name == "compileJava" && !shouldDisableErrorProne) {
