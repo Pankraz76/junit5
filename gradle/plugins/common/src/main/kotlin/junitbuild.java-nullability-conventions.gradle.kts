@@ -49,12 +49,13 @@ tasks.withType<JavaCompile>().configureEach {
 			)
 			error(
 				"PackageLocation",
-				"StaticImport",
+				//"StaticImport",
+				"MissingOverride",
 			)
 			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
 				errorproneArgs.addAll(
 					"-XepPatchLocation:IN_PLACE",
-					"-XepPatchChecks:StaticImport,PackageLocation"
+					"-XepPatchChecks:MissingOverride,PackageLocation"
 				)
 			}
 		} else {
