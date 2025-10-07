@@ -90,7 +90,7 @@ class TestInfoParameterResolver implements ParameterResolver {
 			// @formatter:on
 		}
 
-		@SuppressWarnings({"NullableOptional", "OptionalAssignedToNull"})
+		@SuppressWarnings({ "NullableOptional", "OptionalAssignedToNull" })
 		private static @Nullable Object nullSafeGet(@Nullable Optional<?> optional) {
 			return optional != null ? optional.orElse(null) : null;
 		}

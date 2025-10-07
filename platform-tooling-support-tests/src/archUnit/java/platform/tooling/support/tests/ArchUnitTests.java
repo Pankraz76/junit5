@@ -66,7 +66,7 @@ import org.junit.platform.commons.support.scanning.ClasspathScanner;
 import org.junit.platform.engine.OutputDirectoryCreator;
 import org.junit.platform.engine.TestDescriptor;
 
-@AnalyzeClasses(packages = {"org.junit.jupiter", "org.junit.platform", "org.junit.vintage"})
+@AnalyzeClasses(packages = { "org.junit.jupiter", "org.junit.platform", "org.junit.vintage" })
 class ArchUnitTests {
 
 	@ArchTest

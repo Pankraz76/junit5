@@ -55,7 +55,7 @@ class MethodInvocation<T extends @Nullable Object> implements Invocation<T>, Ref
 	}
 
 	@Override
-	@SuppressWarnings({"NullAway", "unchecked"})
+	@SuppressWarnings({ "NullAway", "unchecked" })
 	public T proceed() {
 		var actualTarget = this.target.orElse(null);
 		return (T) MethodReflectionUtils.invoke(this.method, actualTarget, this.arguments);

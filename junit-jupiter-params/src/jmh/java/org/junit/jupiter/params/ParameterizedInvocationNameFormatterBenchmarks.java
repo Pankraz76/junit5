@@ -34,7 +34,7 @@ import org.openjdk.jmh.infra.Blackhole;
 @Warmup(iterations = 1, time = 2)
 public class ParameterizedInvocationNameFormatterBenchmarks {
 
-	@Param({"1", "10", "100", "1000", "2", "4"})
+	@Param({ "1", "10", "100", "1000", "2", "4" })
 	private int numberOfParameters;
 
 	List<? extends Arguments> argumentsList;
