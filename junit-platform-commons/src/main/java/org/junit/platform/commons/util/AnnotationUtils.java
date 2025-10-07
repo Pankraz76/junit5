@@ -76,8 +76,8 @@ public final class AnnotationUtils {
 	 * @see #findAnnotation(Optional, Class)
 	 * @see org.junit.platform.commons.support.AnnotationSupport#isAnnotated(Optional, Class)
 	 */
-	@SuppressWarnings("NullableOptional")
 	@Contract("null, _ -> false")
+	@SuppressWarnings("NullableOptional")
 	public static boolean isAnnotated(@Nullable Optional<? extends AnnotatedElement> element,
 			Class<? extends Annotation> annotationType) {
 
@@ -112,7 +112,7 @@ public final class AnnotationUtils {
 	/**
 	 * @see org.junit.platform.commons.support.AnnotationSupport#findAnnotation(Optional, Class)
 	 */
-	@SuppressWarnings({ "OptionalAssignedToNull", "NullableOptional" })
+	@SuppressWarnings({"NullableOptional", "OptionalAssignedToNull"})
 	public static <A extends Annotation> Optional<A> findAnnotation(
 			@Nullable Optional<? extends AnnotatedElement> element, Class<A> annotationType) {
 
@@ -253,7 +253,7 @@ public final class AnnotationUtils {
 	 * @since 1.5
 	 * @see org.junit.platform.commons.support.AnnotationSupport#findRepeatableAnnotations(Optional, Class)
 	 */
-	@SuppressWarnings({ "OptionalAssignedToNull", "NullableOptional" })
+	@SuppressWarnings({"NullableOptional", "OptionalAssignedToNull"})
 	public static <A extends Annotation> List<A> findRepeatableAnnotations(
 			@Nullable Optional<? extends AnnotatedElement> element, Class<A> annotationType) {
 
@@ -329,7 +329,7 @@ public final class AnnotationUtils {
 		findRepeatableAnnotations(element.getAnnotations(), annotationType, containerType, inherited, found, visited);
 	}
 
-	@SuppressWarnings({ "unchecked", "GetClassOnAnnotation" })
+	@SuppressWarnings({"GetClassOnAnnotation", "unchecked"})
 	private static <A extends Annotation> void findRepeatableAnnotations(Annotation[] candidates,
 			Class<A> annotationType, Class<? extends Annotation> containerType, boolean inherited, Set<A> found,
 			Set<Annotation> visited) {

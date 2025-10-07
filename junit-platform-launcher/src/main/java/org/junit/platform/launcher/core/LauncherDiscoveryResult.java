@@ -35,7 +35,7 @@ import org.junit.platform.engine.TestEngine;
  *
  * @since 1.7
  */
-@API(status = INTERNAL, since = "1.7", consumers = { "org.junit.platform.testkit", "org.junit.platform.suite.engine" })
+@API(status = INTERNAL, since = "1.7", consumers = {"org.junit.platform.suite.engine", "org.junit.platform.testkit"})
 public class LauncherDiscoveryResult {
 
 	private final Map<TestEngine, EngineResultInfo> testEngineResults;

@@ -79,7 +79,7 @@ public final class ExceptionUtils {
 	}
 
 	@Contract("_ -> fail")
-	@SuppressWarnings({ "unchecked", "TypeParameterUnusedInFormals" })
+	@SuppressWarnings({"TypeParameterUnusedInFormals", "unchecked"})
 	private static <T extends Throwable> T throwAs(Throwable t) throws T {
 		throw (T) t;
 	}

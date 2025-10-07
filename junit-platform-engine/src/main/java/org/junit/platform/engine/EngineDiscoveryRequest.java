@@ -94,9 +94,9 @@ public interface EngineDiscoveryRequest {
 	 * @since 1.12
 	 * @deprecated Please use {@link #getOutputDirectoryCreator()} instead
 	 */
-	@SuppressWarnings("removal")
-	@Deprecated(since = "1.14", forRemoval = true)
 	@API(status = DEPRECATED, since = "1.14")
+	@Deprecated(since = "1.14", forRemoval = true)
+	@SuppressWarnings("removal")
 	default org.junit.platform.engine.reporting.OutputDirectoryProvider getOutputDirectoryProvider() {
 		return org.junit.platform.engine.reporting.OutputDirectoryProvider.castOrAdapt(getOutputDirectoryCreator());
 	}

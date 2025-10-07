@@ -22,8 +22,8 @@ import org.apiguardian.api.API;
  * @see #INCLUDE_ENCLOSING_CLASSES
  * @deprecated because there is only a single non-deprecated search option left
  */
-@Deprecated(since = "1.12")
 @API(status = DEPRECATED, since = "1.12")
+@Deprecated(since = "1.12")
 public enum SearchOption {
 
 	/**
@@ -43,8 +43,8 @@ public enum SearchOption {
 	 * @deprecated because it is preferable to inspect the runtime enclosing
 	 * types of a class rather than where they are declared.
 	 */
-	@Deprecated(since = "1.12") //
-	@API(status = DEPRECATED, since = "1.12")
+	@API(status = DEPRECATED, since = "1.12") //
+	@Deprecated(since = "1.12")
 	INCLUDE_ENCLOSING_CLASSES
 
 }

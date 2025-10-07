@@ -36,8 +36,8 @@ import org.junit.platform.commons.util.Preconditions;
  * @since 1.0
  * @see DiscoveryFilter
  */
-@FunctionalInterface
 @API(status = STABLE, since = "1.0")
+@FunctionalInterface
 public interface Filter<T> {
 
 	/**

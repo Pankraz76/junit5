@@ -325,9 +325,9 @@ public final class LauncherDiscoveryRequestBuilder {
 	 * @deprecated Please use
 	 * {@link #outputDirectoryCreator(OutputDirectoryCreator)} instead
 	 */
-	@SuppressWarnings("removal")
 	@API(status = DEPRECATED, since = "1.14")
 	@Deprecated(since = "1.14", forRemoval = true)
+	@SuppressWarnings("removal")
 	public LauncherDiscoveryRequestBuilder outputDirectoryProvider(
 			org.junit.platform.engine.reporting.OutputDirectoryProvider outputDirectoryProvider) {
 		return outputDirectoryCreator(outputDirectoryProvider);
@@ -347,8 +347,8 @@ public final class LauncherDiscoveryRequestBuilder {
 	 * @see OutputDirectoryCreator
 	 * @see LauncherConstants#OUTPUT_DIR_PROPERTY_NAME
 	 */
-	@SuppressWarnings("removal")
 	@API(status = MAINTAINED, since = "1.14")
+	@SuppressWarnings("removal")
 	public LauncherDiscoveryRequestBuilder outputDirectoryCreator(OutputDirectoryCreator outputDirectoryCreator) {
 		this.outputDirectoryCreator = Preconditions.notNull(outputDirectoryCreator,
 			"outputDirectoryCreator must not be null");

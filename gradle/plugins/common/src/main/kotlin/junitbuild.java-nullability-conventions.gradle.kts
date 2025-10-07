@@ -14,14 +14,14 @@ dependencies {
 	errorprone(dependencyFromLibs("error-prone-core"))
 	errorprone(dependencyFromLibs("nullaway"))
 	errorprone(dependencyFromLibs("refaster-runner"))
-//	constraints {
-//		errorprone("com.google.guava:guava") {
-//			version {
-//				require("33.4.8-jre")
-//			}
-//			because("Older versions use deprecated methods in sun.misc.Unsafe")
-//		}
-//	}
+	constraints {
+		errorprone("com.google.guava:guava") {
+			version {
+				require("33.4.8-jre")
+			}
+			because("Older versions use deprecated methods in sun.misc.Unsafe")
+		}
+	}
 }
 
 nullaway {
@@ -31,7 +31,6 @@ nullaway {
 tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
 		allDisabledChecksAsWarnings = true
-		allErrorsAsWarnings = true
 		disableAllChecks = java.toolchain.implementation.orNull == JvmImplementation.J9 && name == "compileJava"
 		disableWarningsInGeneratedCode = true
 		errorproneArgs.add("-XepOpt:Refaster:NamePattern=^(?!.*Rules\\$).*") // currently failing Refaster; might consider whitelist.
@@ -53,10 +52,11 @@ tasks.withType<JavaCompile>().configureEach {
 				"RedundantStringConversion",
 				"RedundantStringEscape",
 				"UnusedVariable",
-				// why not working ?
-				//"LexicographicalAnnotationAttributeListing",
-				//"LexicographicalAnnotationListing",
-				//"StaticImport",
+				// why failing ?
+				// VerifierSupport.java:41: warning: [LexicographicalAnnotationListing] Sort annotations lexicographically where possible
+				// "LexicographicalAnnotationAttributeListing",
+				// "LexicographicalAnnotationListing",
+				// "StaticImport",
 			)
 			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
 				errorproneArgs.addAll(

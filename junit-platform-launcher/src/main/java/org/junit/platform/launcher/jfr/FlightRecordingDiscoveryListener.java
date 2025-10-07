@@ -96,7 +96,7 @@ class FlightRecordingDiscoveryListener implements LauncherDiscoveryListener {
 		}
 	}
 
-	@Category({ "JUnit", "Discovery" })
+	@Category({"Discovery", "JUnit"})
 	@StackTrace(false)
 	abstract static class DiscoveryEvent extends Event {
 	}
@@ -116,8 +116,8 @@ class FlightRecordingDiscoveryListener implements LauncherDiscoveryListener {
 	@Name("org.junit.EngineDiscovery")
 	static class EngineDiscoveryEvent extends DiscoveryEvent {
 
-		@UniqueId
 		@Label("Unique Id")
+		@UniqueId
 		@Nullable
 		String uniqueId;
 

@@ -20,8 +20,8 @@ import jdk.jfr.Name;
 import jdk.jfr.Relational;
 
 @MetadataDefinition
-@Relational
 @Name("org.junit.UniqueId")
+@Relational
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 @interface UniqueId {

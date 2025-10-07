@@ -25,9 +25,9 @@ import org.junit.platform.engine.OutputDirectoryCreator;
  * @see EngineDiscoveryRequest#getOutputDirectoryProvider()
  * @deprecated Please implement {@link OutputDirectoryCreator} instead
  */
-@SuppressWarnings("removal")
-@Deprecated(since = "1.14", forRemoval = true)
 @API(status = DEPRECATED, since = "1.14")
+@Deprecated(since = "1.14", forRemoval = true)
+@SuppressWarnings("removal")
 public interface OutputDirectoryProvider extends OutputDirectoryCreator {
 
 	/**
