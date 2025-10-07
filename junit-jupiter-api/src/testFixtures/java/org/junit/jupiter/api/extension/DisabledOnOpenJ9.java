@@ -17,8 +17,8 @@ import java.lang.annotation.Target;
 
 import org.junit.jupiter.api.condition.DisabledIfSystemProperty;
 
-@Target({ ElementType.METHOD, ElementType.TYPE })
-@Retention(RetentionPolicy.RUNTIME)
 @DisabledIfSystemProperty(named = "java.vm.vendor", matches = ".*OpenJ9.*")
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ ElementType.METHOD, ElementType.TYPE })
 public @interface DisabledOnOpenJ9 {
 }

@@ -41,9 +41,9 @@ import org.junit.platform.commons.logging.LoggerFactory;
  * @see LoggerFactory
  * @see LogRecordListener
  */
-@Target({ ElementType.TYPE, ElementType.PARAMETER })
-@Retention(RetentionPolicy.RUNTIME)
 @ExtendWith(TrackLogRecords.Extension.class)
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ ElementType.TYPE, ElementType.PARAMETER })
 public @interface TrackLogRecords {
 
 	class Extension implements BeforeEachCallback, AfterEachCallback, ParameterResolver {

@@ -20,9 +20,9 @@ import org.junit.jupiter.api.condition.DisabledIf;
 /**
  * @see org.junit.platform.commons.test.IdeUtils#runningInEclipse()
  */
+@DisabledIf("org.junit.platform.commons.test.IdeUtils#runningInEclipse()")
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.TYPE, ElementType.METHOD })
-@DisabledIf("org.junit.platform.commons.test.IdeUtils#runningInEclipse()")
 public @interface DisabledInEclipse {
 	String value() default "";
 }

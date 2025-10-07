@@ -28,13 +28,13 @@ import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
 
-@State(Scope.Benchmark)
 @Fork(1)
-@Warmup(iterations = 1, time = 2)
 @Measurement(iterations = 3, time = 2)
+@State(Scope.Benchmark)
+@Warmup(iterations = 1, time = 2)
 public class ParameterizedInvocationNameFormatterBenchmarks {
 
-	@Param({ "1", "2", "4", "10", "100", "1000" })
+	@Param({"1", "10", "100", "1000", "2", "4"})
 	private int numberOfParameters;
 
 	List<? extends Arguments> argumentsList;
@@ -62,8 +62,8 @@ public class ParameterizedInvocationNameFormatterBenchmarks {
 
 	@SuppressWarnings("JUnitMalformedDeclaration")
 	static class TestCase {
-		@SuppressWarnings("unused")
 		@ParameterizedTest
+		@SuppressWarnings("unused")
 		void parameterizedTest(int param) {
 		}
 	}
