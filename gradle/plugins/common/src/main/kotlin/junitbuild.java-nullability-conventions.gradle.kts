@@ -35,6 +35,7 @@ tasks.withType<JavaCompile>().configureEach {
 		disableWarningsInGeneratedCode = true
 		errorproneArgs.add("-XepOpt:Refaster:NamePattern=^(?!.*Rules\\$).*") // might consider.
 		val shouldEnableErrorProne = java.toolchain.implementation.orNull != JvmImplementation.J9
+		disableAllChecks = !shouldEnableErrorProne
 		if (shouldEnableErrorProne && name == "compileJava") {
 			disable(
 				"AnnotateFormatMethod", // We don`t want to use ErrorProne`s annotations.
@@ -68,8 +69,6 @@ tasks.withType<JavaCompile>().configureEach {
 							"RedundantStringEscape"
 				)
 			}
-		} else {
-			disableAllChecks = true
 		}
 		nullaway {
 			if (shouldEnableErrorProne) {
