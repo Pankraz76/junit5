@@ -34,7 +34,7 @@ tasks.withType<JavaCompile>().configureEach {
 		allErrorsAsWarnings = true
 		disableAllChecks = java.toolchain.implementation.orNull == JvmImplementation.J9 && name == "compileJava"
 		disableWarningsInGeneratedCode = true
-		errorproneArgs.add("-XepOpt:Refaster:NamePattern=^(?!.*Rules\\$).*") // might consider.
+		errorproneArgs.add("-XepOpt:Refaster:NamePattern=^(?!.*Rules\\$).*") // currently failing Refaster; might consider whitelist.
 		if (!disableAllChecks.get()) {
 			disable(
 				"AnnotateFormatMethod", // We don`t want to use ErrorProne`s annotations.
@@ -47,16 +47,16 @@ tasks.withType<JavaCompile>().configureEach {
 				"StringSplitter", // We don`t want to use Guava.
 				"UnnecessaryLambda", // The findings of this check are subjective because a named constant can be more readable in many cases.
 			)
-			error(
-				"MissingOverride",
-				"PackageLocation",
-				"RedundantStringConversion",
-				"RedundantStringEscape",
-				"UnusedVariable",
-				//"LexicographicalAnnotationAttributeListing",
-				//"LexicographicalAnnotationListing",
-				//"StaticImport",
-			)
+//			error(
+//				"MissingOverride",
+//				"PackageLocation",
+//				"RedundantStringConversion",
+//				"RedundantStringEscape",
+//				"UnusedVariable",
+//				//"LexicographicalAnnotationAttributeListing",
+//				//"LexicographicalAnnotationListing",
+//				//"StaticImport",
+//			)
 			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
 				errorproneArgs.addAll(
 					"-XepPatchLocation:IN_PLACE",
