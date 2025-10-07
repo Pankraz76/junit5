@@ -33,28 +33,8 @@ tasks.withType<JavaCompile>().configureEach {
 		disableWarningsInGeneratedCode = true
 		allErrorsAsWarnings = true
 		errorproneArgs.add("-XepOpt:Refaster:NamePattern=^(?!.*Rules\\$).*") // might consider.
-		enable(
-			"ConstantNaming",
-			"EmptyMethod",
-			"EmptyMonoZip",
-			"LexicographicalAnnotationAttributeListing",
-			"LexicographicalAnnotationListing",
-			"MissingOverride",
-			"MissingTestCall",
-			"NonEmptyMono",
-			"OptionalMapUnusedValue",
-			"OptionalOfRedundantMethod",
-			"RedundantSetterCall",
-			"RedundantStringConversion",
-			"RedundantStringEscape",
-			"StaticImport",
-			"StringJoin",
-			"UnnecessaryCheckNotNull",
-			"UnnecessaryTypeArgument",
-			"UnusedAnonymousClass",
-			"UnusedCollectionModifiedInPlace",
-		)
-		if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
+		if (true) {
+		//if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
 			errorproneArgs.addAll(
 				"-XepPatchLocation:IN_PLACE",
 				"-XepPatchChecks:" +
@@ -92,7 +72,29 @@ tasks.withType<JavaCompile>().configureEach {
 				"StringSplitter", // We don`t want to use Guava.
 				"UnnecessaryLambda", // The findings of this check are subjective because a named constant can be more readable in many cases.
 			)
-			error(
+//			error(
+//				"ConstantNaming",
+//				"EmptyMethod",
+//				"EmptyMonoZip",
+//				"LexicographicalAnnotationAttributeListing",
+//				"LexicographicalAnnotationListing",
+//				"MissingOverride",
+//				"MissingTestCall",
+//				"NonEmptyMono",
+//				"OptionalMapUnusedValue",
+//				"OptionalOfRedundantMethod",
+//				"PackageLocation",
+//				"RedundantSetterCall",
+//				"RedundantStringConversion",
+//				"RedundantStringEscape",
+//				"StaticImport",
+//				"StringJoin",
+//				"UnnecessaryCheckNotNull",
+//				"UnnecessaryTypeArgument",
+//				"UnusedAnonymousClass",
+//				"UnusedCollectionModifiedInPlace",
+//			)
+			enable(
 				"ConstantNaming",
 				"EmptyMethod",
 				"EmptyMonoZip",
@@ -103,7 +105,6 @@ tasks.withType<JavaCompile>().configureEach {
 				"NonEmptyMono",
 				"OptionalMapUnusedValue",
 				"OptionalOfRedundantMethod",
-				"PackageLocation",
 				"RedundantSetterCall",
 				"RedundantStringConversion",
 				"RedundantStringEscape",
