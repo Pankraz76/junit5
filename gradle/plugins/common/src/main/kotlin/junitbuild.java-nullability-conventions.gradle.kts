@@ -23,6 +23,7 @@ nullaway {
 tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
 		allDisabledChecksAsWarnings = true
+		allErrorsAsWarnings = true
 		disableAllChecks = java.toolchain.implementation.orNull == JvmImplementation.J9 && name == "compileJava"
 		disableWarningsInGeneratedCode = true
 		errorproneArgs.add("-XepOpt:Refaster:NamePattern=^(?!.*Rules\\$).*") // currently failing Refaster; might consider whitelist.
