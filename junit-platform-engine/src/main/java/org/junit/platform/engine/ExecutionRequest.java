@@ -49,8 +49,8 @@ public class ExecutionRequest {
 	/**
 	 * @deprecated without replacement because it's an internal API.
 	 */
-	@Deprecated(since = "1.11")
 	@API(status = DEPRECATED, since = "1.11")
+	@Deprecated(since = "1.11")
 	public ExecutionRequest(TestDescriptor rootTestDescriptor, EngineExecutionListener engineExecutionListener,
 			ConfigurationParameters configurationParameters) {
 		this(rootTestDescriptor, engineExecutionListener, configurationParameters, null, null,
@@ -83,8 +83,8 @@ public class ExecutionRequest {
 	 * @since 1.9
 	 * @deprecated without replacement
 	 */
-	@Deprecated(since = "1.11")
 	@API(status = DEPRECATED, since = "1.11")
+	@Deprecated(since = "1.11")
 	public static ExecutionRequest create(TestDescriptor rootTestDescriptor,
 			EngineExecutionListener engineExecutionListener, ConfigurationParameters configurationParameters) {
 		return new ExecutionRequest(rootTestDescriptor, engineExecutionListener, configurationParameters);
@@ -156,8 +156,8 @@ public class ExecutionRequest {
 	 * @since 1.12
 	 * @deprecated Please use {@link #getOutputDirectoryCreator()} instead
 	 */
-	@Deprecated(since = "1.14", forRemoval = true)
 	@API(status = DEPRECATED, since = "1.14")
+	@Deprecated(since = "1.14", forRemoval = true)
 	@SuppressWarnings("removal")
 	public org.junit.platform.engine.reporting.OutputDirectoryProvider getOutputDirectoryProvider() {
 		return org.junit.platform.engine.reporting.OutputDirectoryProvider.castOrAdapt(getOutputDirectoryCreator());

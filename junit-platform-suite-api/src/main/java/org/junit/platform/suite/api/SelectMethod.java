@@ -35,12 +35,12 @@ import org.apiguardian.api.API;
  * @see org.junit.platform.engine.discovery.DiscoverySelectors#selectMethod(Class, String, String)
  * @see org.junit.platform.engine.discovery.DiscoverySelectors#selectMethod(Class, String, Class...)
  */
+@API(status = MAINTAINED, since = "1.13.3")
+@Documented
+@Inherited
+@Repeatable(SelectMethods.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@Inherited
-@Documented
-@API(status = MAINTAINED, since = "1.13.3")
-@Repeatable(SelectMethods.class)
 public @interface SelectMethod {
 
 	/**

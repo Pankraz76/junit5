@@ -193,7 +193,7 @@ public class ForkJoinPoolHierarchicalTestExecutorService implements Hierarchical
 	}
 
 	// this class cannot not be serialized because TestTask is not Serializable
-	@SuppressWarnings({ "serial", "RedundantSuppression" })
+	@SuppressWarnings({"RedundantSuppression", "serial"})
 	class ExclusiveTask extends ForkJoinTask<@Nullable Void> {
 
 		@Serial
@@ -230,8 +230,8 @@ public class ForkJoinPoolHierarchicalTestExecutorService implements Hierarchical
 			}
 		}
 
-		@SuppressWarnings("try")
 		@Override
+		@SuppressWarnings("try")
 		public boolean exec() {
 			// Check if this task is compatible with the current resource lock, if there is any.
 			// If not, we put this task in the thread local as a deferred task

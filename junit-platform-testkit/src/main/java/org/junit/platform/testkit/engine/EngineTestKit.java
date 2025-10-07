@@ -458,9 +458,9 @@ public final class EngineTestKit {
 		 * @deprecated Please use
 		 * {@link #outputDirectoryCreator(OutputDirectoryCreator)} instead
 		 */
-		@SuppressWarnings("removal")
-		@Deprecated(since = "1.14", forRemoval = true)
 		@API(status = DEPRECATED, since = "1.14")
+		@Deprecated(since = "1.14", forRemoval = true)
+		@SuppressWarnings("removal")
 		public Builder outputDirectoryProvider(
 				org.junit.platform.engine.reporting.OutputDirectoryProvider outputDirectoryProvider) {
 			return outputDirectoryCreator(outputDirectoryProvider);

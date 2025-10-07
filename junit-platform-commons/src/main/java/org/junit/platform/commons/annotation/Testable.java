@@ -73,9 +73,9 @@ import org.apiguardian.api.API;
  *
  * @since 1.0
  */
-@Retention(RetentionPolicy.RUNTIME)
-@Inherited
-@Documented
 @API(status = STABLE, since = "1.0")
+@Documented
+@Inherited
+@Retention(RetentionPolicy.RUNTIME)
 public @interface Testable {
 }

@@ -26,9 +26,9 @@ import org.apiguardian.api.API;
  * @see <a href="https://github.com/JetBrains/java-annotations/blob/2a28eab73042023559d2ec4cd00d6779213b6425/src/jvmMain/java/org/jetbrains/annotations/Contract.java">org.jetbrains.annotations.Contract</a>
  * @see <a href="https://github.com/uber/NullAway/wiki/Configuration#custom-contract-annotations">NullAway custom contract annotations</a>
  */
+@API(status = INTERNAL, since = "6.0")
 @Documented
 @Target(ElementType.METHOD)
-@API(status = INTERNAL, since = "6.0")
 public @interface Contract {
 
 	/**

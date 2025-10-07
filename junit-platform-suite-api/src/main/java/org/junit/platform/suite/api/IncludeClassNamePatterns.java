@@ -35,11 +35,11 @@ import org.apiguardian.api.API;
  * @see org.junit.platform.engine.discovery.ClassNameFilter#STANDARD_INCLUDE_PATTERN
  * @see org.junit.platform.engine.discovery.ClassNameFilter#includeClassNamePatterns
  */
+@API(status = MAINTAINED, since = "1.0")
+@Documented
+@Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-@Inherited
-@Documented
-@API(status = MAINTAINED, since = "1.0")
 public @interface IncludeClassNamePatterns {
 
 	/**

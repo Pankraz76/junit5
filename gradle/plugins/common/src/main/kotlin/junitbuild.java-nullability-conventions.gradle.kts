@@ -23,7 +23,7 @@ nullaway {
 tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
 		allDisabledChecksAsWarnings = true
-		allErrorsAsWarnings = true
+		allErrorsAsWarnings = true // without this prone failed and does not apply fixes.
 		disableAllChecks = java.toolchain.implementation.orNull == JvmImplementation.J9 && name == "compileJava"
 		disableWarningsInGeneratedCode = true
 		errorproneArgs.add("-XepOpt:Refaster:NamePattern=^(?!.*Rules\\$).*") // currently failing Refaster; might consider whitelist.
@@ -42,7 +42,7 @@ tasks.withType<JavaCompile>().configureEach {
 			error(
 				"MissingOverride",
 				"PackageLocation",
-				//"RedundantStringConversion",
+				"RedundantStringConversion",
 				"RedundantStringEscape",
 				"UnusedVariable",
 				// why failing ? 223 files need many iterations.
