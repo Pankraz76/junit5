@@ -52,7 +52,7 @@ tasks.withType<JavaCompile>().configureEach {
 				"RedundantStringConversion",
 				"RedundantStringEscape",
 				"UnusedVariable",
-				// why failing ?
+				// why failing ? 223 files need many iterations.
 				// VerifierSupport.java:41: warning: [LexicographicalAnnotationListing] Sort annotations lexicographically where possible
 				// "LexicographicalAnnotationAttributeListing",
 				// "LexicographicalAnnotationListing",
