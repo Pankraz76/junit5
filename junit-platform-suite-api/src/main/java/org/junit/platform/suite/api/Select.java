@@ -31,12 +31,12 @@ import org.apiguardian.api.API;
  * @see Suite
  * @see org.junit.platform.engine.discovery.DiscoverySelectors#parse(String)
  */
-@API(status = MAINTAINED, since = "1.13.3")
-@Documented
-@Inherited
-@Repeatable(Selects.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
+@Inherited
+@Documented
+@API(status = MAINTAINED, since = "1.13.3")
+@Repeatable(Selects.class)
 public @interface Select {
 
 	/**

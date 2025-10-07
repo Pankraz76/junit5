@@ -43,8 +43,8 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
  * @see TestInstanceFactory
  * @see ParameterResolver
  */
-@API(status = STABLE, since = "5.11")
 @FunctionalInterface
+@API(status = STABLE, since = "5.11")
 public interface TestInstancePreConstructCallback extends TestInstantiationAwareExtension {
 
 	/**

@@ -69,11 +69,11 @@ import org.junit.platform.commons.annotation.Testable;
  * @see org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder
  * @see org.junit.platform.launcher.Launcher
  */
-@API(status = STABLE, since = "1.10")
-@Documented
-@Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
+@Inherited
+@Documented
+@API(status = STABLE, since = "1.10")
 @Testable
 public @interface Suite {
 

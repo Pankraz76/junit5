@@ -29,11 +29,11 @@ import org.apiguardian.api.API;
  * @see Suite
  * @see org.junit.platform.engine.discovery.DiscoverySelectors#selectDirectory(String)
  */
-@API(status = STABLE, since = "1.10")
-@Documented
-@Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
+@Inherited
+@Documented
+@API(status = STABLE, since = "1.10")
 public @interface SelectDirectories {
 
 	/**

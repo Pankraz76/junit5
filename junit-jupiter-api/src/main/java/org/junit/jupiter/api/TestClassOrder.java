@@ -64,11 +64,11 @@ import org.apiguardian.api.API;
  * @see ClassOrderer
  * @see TestMethodOrder
  */
-@API(status = STABLE, since = "5.10")
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
+@API(status = STABLE, since = "5.10")
 public @interface TestClassOrder {
 
 	/**

@@ -59,8 +59,8 @@ import org.junit.jupiter.api.ClassTemplate;
  * @see BeforeTestExecutionCallback
  * @see AfterTestExecutionCallback
  */
-@API(status = EXPERIMENTAL, since = "6.0")
 @FunctionalInterface
+@API(status = EXPERIMENTAL, since = "6.0")
 public interface AfterClassTemplateInvocationCallback extends Extension {
 
 	/**

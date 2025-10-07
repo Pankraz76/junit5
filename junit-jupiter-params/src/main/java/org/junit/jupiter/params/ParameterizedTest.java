@@ -129,13 +129,13 @@ import org.junit.jupiter.params.provider.ArgumentsSource;
  * @see org.junit.jupiter.params.converter.ArgumentConverter
  * @see org.junit.jupiter.params.converter.ConvertWith
  */
-@API(status = STABLE, since = "5.7")
-@Documented
-@ExtendWith(ParameterizedTestExtension.class)
-@Retention(RetentionPolicy.RUNTIME)
-@SuppressWarnings("exports")
 @Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD })
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@API(status = STABLE, since = "5.7")
 @TestTemplate
+@ExtendWith(ParameterizedTestExtension.class)
+@SuppressWarnings("exports")
 public @interface ParameterizedTest {
 
 	/**

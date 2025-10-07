@@ -32,11 +32,11 @@ import org.apiguardian.api.API;
  * @see Tag
  * @see java.lang.annotation.Repeatable
  */
-@API(status = STABLE, since = "5.0")
+@Target({ ElementType.TYPE, ElementType.METHOD })
+@Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.TYPE, ElementType.METHOD })
+@API(status = STABLE, since = "5.0")
 public @interface Tags {
 
 	/**

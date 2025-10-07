@@ -18,7 +18,7 @@ class StringToEnumConverter implements StringToObjectConverter {
 	}
 
 	@Override
-	@SuppressWarnings({"rawtypes", "unchecked"})
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Object convert(String source, Class targetType) throws Exception {
 		return Enum.valueOf(targetType, source);
 	}

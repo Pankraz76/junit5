@@ -32,11 +32,11 @@ import org.apiguardian.api.API;
  * @since 1.8
  * @see SelectFile
  */
-@API(status = STABLE, since = "1.10")
-@Documented
-@Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
+@Inherited
+@Documented
+@API(status = STABLE, since = "1.10")
 public @interface SelectFiles {
 
 	/**

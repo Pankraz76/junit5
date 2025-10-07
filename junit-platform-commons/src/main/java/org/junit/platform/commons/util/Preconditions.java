@@ -86,8 +86,8 @@ public final class Preconditions {
 	 * @since 1.9
 	 * @see #condition(boolean, String)
 	 */
-	@API(status = INTERNAL, since = "1.11")
 	@Contract("null, _ -> fail")
+	@API(status = INTERNAL, since = "1.11")
 	public static int[] notEmpty(int @Nullable [] array, String message) throws PreconditionViolationException {
 		condition(array != null && array.length > 0, message);
 		return array;

@@ -67,9 +67,9 @@ import org.apiguardian.api.API;
  * @see AfterSuite
  * @see Suite
  */
-@API(status = MAINTAINED, since = "1.13.3")
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@API(status = MAINTAINED, since = "1.13.3")
 public @interface BeforeSuite {
 }

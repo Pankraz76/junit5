@@ -40,11 +40,11 @@ import org.apiguardian.api.API;
  * @see DisplayNameGenerator
  * @see IndicativeSentencesGeneration
  */
-@API(status = STABLE, since = "5.7")
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
+@API(status = STABLE, since = "5.7")
 public @interface DisplayNameGeneration {
 
 	/**

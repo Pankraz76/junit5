@@ -62,8 +62,8 @@ class DelegatingLauncherDiscoveryRequest implements LauncherDiscoveryRequest {
 		return this.request.getConfigurationParameters();
 	}
 
-	@Override
 	@SuppressWarnings("removal")
+	@Override
 	public org.junit.platform.engine.reporting.OutputDirectoryProvider getOutputDirectoryProvider() {
 		return this.request.getOutputDirectoryProvider();
 	}

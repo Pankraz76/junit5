@@ -205,8 +205,8 @@ public final class NamespacedHierarchicalStore<N> implements AutoCloseable {
 	 * closed
 	 * @deprecated Please use {@link #computeIfAbsent(Object, Object, Function)} instead.
 	 */
-	@API(status = DEPRECATED, since = "6.0")
 	@Deprecated(since = "6.0")
+	@API(status = DEPRECATED, since = "6.0")
 	public <K, V extends @Nullable Object> @Nullable Object getOrComputeIfAbsent(N namespace, K key,
 			Function<? super K, ? extends V> defaultCreator) {
 		Preconditions.notNull(defaultCreator, "defaultCreator must not be null");
@@ -276,8 +276,8 @@ public final class NamespacedHierarchicalStore<N> implements AutoCloseable {
 	 * be cast to the required type, or if this store has already been closed
 	 * @deprecated Please use {@link #computeIfAbsent(Object, Object, Function, Class)} instead.
 	 */
-	@API(status = DEPRECATED, since = "6.0")
 	@Deprecated(since = "6.0")
+	@API(status = DEPRECATED, since = "6.0")
 	public <K, V extends @Nullable Object> @Nullable V getOrComputeIfAbsent(N namespace, K key,
 			Function<? super K, ? extends V> defaultCreator, Class<V> requiredType)
 			throws NamespacedHierarchicalStoreException {

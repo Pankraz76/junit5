@@ -32,8 +32,8 @@ import org.junit.jupiter.api.function.Executable;
  * @see DynamicTest#stream(Stream)
  * @see DynamicTest#stream(Iterator)
  */
-@API(status = MAINTAINED, since = "5.13.3")
 @FunctionalInterface
+@API(status = MAINTAINED, since = "5.13.3")
 public interface NamedExecutable extends Named<Executable>, Executable {
 	@Override
 	default String getName() {

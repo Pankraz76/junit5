@@ -34,12 +34,12 @@ abstract class BaseCommand<T> implements Callable<T> {
 	@Option(names = "--disable-banner", description = "Disable print out of the welcome message.")
 	private boolean disableBanner;
 
-	@Option(names = { "-h", "--help" }, usageHelp = true, description = "Display help information.")
 	@SuppressWarnings("unused")
+	@Option(names = { "-h", "--help" }, usageHelp = true, description = "Display help information.")
 	private boolean helpRequested;
 
-	@Option(names = "--version", versionHelp = true, description = "Display version information.")
 	@SuppressWarnings("unused")
+	@Option(names = "--version", versionHelp = true, description = "Display version information.")
 	private boolean versionRequested;
 
 	void execute(String... args) {

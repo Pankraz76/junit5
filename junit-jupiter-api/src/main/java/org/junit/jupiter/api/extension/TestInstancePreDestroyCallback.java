@@ -55,8 +55,8 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
  * @see TestInstanceFactory
  * @see ParameterResolver
  */
-@API(status = STABLE, since = "5.7")
 @FunctionalInterface
+@API(status = STABLE, since = "5.7")
 public interface TestInstancePreDestroyCallback extends Extension {
 
 	/**

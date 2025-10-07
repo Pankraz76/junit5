@@ -54,12 +54,12 @@ import org.apiguardian.api.API;
  * @see Tags
  * @see Test
  */
-@API(status = STABLE, since = "5.0")
+@Target({ ElementType.TYPE, ElementType.METHOD })
+@Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
 @Repeatable(Tags.class)
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.TYPE, ElementType.METHOD })
+@API(status = STABLE, since = "5.0")
 public @interface Tag {
 
 	/**

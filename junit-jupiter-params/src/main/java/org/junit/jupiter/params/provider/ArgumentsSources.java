@@ -36,11 +36,11 @@ import org.apiguardian.api.API;
  * @since 5.0
  * @see org.junit.jupiter.params.provider.ArgumentsSource
  */
-@API(status = STABLE, since = "5.7")
+@Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD, ElementType.TYPE })
+@Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD, ElementType.TYPE })
+@API(status = STABLE, since = "5.7")
 public @interface ArgumentsSources {
 
 	/**

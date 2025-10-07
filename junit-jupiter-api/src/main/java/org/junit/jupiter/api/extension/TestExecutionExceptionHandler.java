@@ -33,8 +33,8 @@ import org.apiguardian.api.API;
  * @since 5.0
  * @see LifecycleMethodExecutionExceptionHandler
  */
-@API(status = STABLE, since = "5.0")
 @FunctionalInterface
+@API(status = STABLE, since = "5.0")
 public interface TestExecutionExceptionHandler extends Extension {
 
 	/**

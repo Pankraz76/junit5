@@ -38,8 +38,8 @@ import org.junit.vintage.engine.descriptor.VintageEngineDescriptor;
 /**
  * @since 5.12
  */
-@API(status = INTERNAL, since = "5.12")
 @SuppressWarnings({ "deprecation", "RedundantSuppression" })
+@API(status = INTERNAL, since = "5.12")
 public class VintageExecutor {
 
 	private static final Logger logger = LoggerFactory.getLogger(VintageExecutor.class);

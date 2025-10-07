@@ -31,12 +31,12 @@ import org.apiguardian.api.API;
  * @see Suite
  * @see org.junit.platform.engine.discovery.DiscoverySelectors#selectFile(String, org.junit.platform.engine.discovery.FilePosition)
  */
-@API(status = STABLE, since = "1.10")
-@Documented
-@Inherited
-@Repeatable(SelectFiles.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
+@Inherited
+@Documented
+@API(status = STABLE, since = "1.10")
+@Repeatable(SelectFiles.class)
 public @interface SelectFile {
 
 	/**

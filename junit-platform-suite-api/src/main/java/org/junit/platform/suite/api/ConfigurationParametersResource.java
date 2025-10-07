@@ -34,12 +34,12 @@ import org.apiguardian.api.API;
  * @see Suite
  * @see org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder#configurationParametersResources(String...)
  */
-@API(status = MAINTAINED, since = "1.13.3")
-@Documented
-@Inherited
-@Repeatable(ConfigurationParametersResources.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
+@Inherited
+@Documented
+@API(status = MAINTAINED, since = "1.13.3")
+@Repeatable(ConfigurationParametersResources.class)
 public @interface ConfigurationParametersResource {
 
 	/**

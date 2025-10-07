@@ -49,9 +49,9 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
  * @see TestInstance
  * @see TestClassOrder
  */
-@API(status = STABLE, since = "5.0")
-@Documented
-@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@API(status = STABLE, since = "5.0")
 public @interface Nested {
 }

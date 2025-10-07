@@ -35,10 +35,10 @@ import org.apiguardian.api.API;
  * @since 1.1
  * @see Suite
  */
-@API(status = MAINTAINED, since = "1.1")
-@Documented
 @Retention(RUNTIME)
 @Target(TYPE)
+@Documented
+@API(status = MAINTAINED, since = "1.1")
 public @interface SuiteDisplayName {
 
 	/**
