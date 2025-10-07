@@ -65,6 +65,9 @@ tasks.withType<JavaCompile>().configureEach {
 							"PackageLocation," +
 							"UnusedVariable," +
 							"RedundantStringConversion," +
+							"StaticImport," +
+							"LexicographicalAnnotationListing," +
+							"LexicographicalAnnotationAttributeListing," +
 							"RedundantStringEscape"
 				)
 			}
