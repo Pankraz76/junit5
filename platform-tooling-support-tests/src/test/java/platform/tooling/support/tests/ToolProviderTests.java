@@ -100,8 +100,8 @@ class ToolProviderTests {
 		}
 	}
 
-	@Test
 	@DisabledOnOpenJ9
+	@Test
 	void findAndRunJUnitOnTheModulePath() {
 		var finder = ModuleFinder.of(lib);
 		var modules = finder.findAll().stream() //

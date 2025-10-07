@@ -31,9 +31,9 @@ import platform.tooling.support.ProcessStarters;
 /**
  * @since 1.9.1
  */
-@Order(Integer.MIN_VALUE)
 @DisabledOnOpenJ9
 @EnabledIfEnvironmentVariable(named = "GRAALVM_HOME", matches = ".+")
+@Order(Integer.MIN_VALUE)
 class GraalVmStarterTests {
 
 	@Test

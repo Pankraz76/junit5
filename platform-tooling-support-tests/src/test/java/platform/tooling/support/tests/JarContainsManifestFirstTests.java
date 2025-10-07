@@ -29,8 +29,8 @@ import platform.tooling.support.MavenRepo;
 @Order(Integer.MAX_VALUE)
 class JarContainsManifestFirstTests {
 
-	@ParameterizedTest(quoteTextArguments = false)
 	@MethodSource("platform.tooling.support.Helper#loadModuleDirectoryNames")
+	@ParameterizedTest(quoteTextArguments = false)
 	void manifestFirst(String module) throws Exception {
 		var modulePath = MavenRepo.jar(module);
 

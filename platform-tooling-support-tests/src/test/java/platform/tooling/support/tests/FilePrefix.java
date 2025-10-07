@@ -17,9 +17,9 @@ import java.lang.annotation.Target;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 
-@Target(ElementType.PARAMETER)
-@Retention(RetentionPolicy.RUNTIME)
 @ExtendWith(OutputAttachingExtension.class)
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.PARAMETER)
 @interface FilePrefix {
 	String value();
 }
