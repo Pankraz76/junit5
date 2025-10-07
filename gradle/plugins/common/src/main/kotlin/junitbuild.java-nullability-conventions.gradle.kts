@@ -58,9 +58,8 @@ tasks.withType<JavaCompile>().configureEach {
 				"PackageLocation",
 				"StaticImport",
 			)
-//			)
 		} else {
-//			disableAllChecks = true
+			disableAllChecks = true
 		}
 		nullaway {
 			if (shouldDisableErrorProne) {
