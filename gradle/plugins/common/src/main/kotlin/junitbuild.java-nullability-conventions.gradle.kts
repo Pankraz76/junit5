@@ -47,17 +47,17 @@ tasks.withType<JavaCompile>().configureEach {
 //				"RedundantStringEscape",
 				"UnusedVariable",
 			)
-			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
-				errorproneArgs.addAll(
-					"-XepPatchLocation:IN_PLACE",
-					"-XepPatchChecks:" +
-							"MissingOverride," +
-							"PackageLocation," +
-//							"RedundantStringConversion," +
-//							"RedundantStringEscape," +
-							"UnusedVariable"
-				)
-			}
+//			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
+//				errorproneArgs.addAll(
+//					"-XepPatchLocation:IN_PLACE",
+//					"-XepPatchChecks:" +
+//							"MissingOverride," +
+//							"PackageLocation," +
+////							"RedundantStringConversion," +
+////							"RedundantStringEscape," +
+//							"UnusedVariable"
+//				)
+//			}
 		}
 		nullaway {
 			if (disableAllChecks.get()) {
