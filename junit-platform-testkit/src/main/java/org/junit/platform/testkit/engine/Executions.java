@@ -11,7 +11,6 @@
 package org.junit.platform.testkit.engine;
 
 import static org.apiguardian.api.API.Status.MAINTAINED;
-import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -24,6 +23,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
+
 import org.apiguardian.api.API;
 import org.assertj.core.api.ListAssert;
 import org.junit.platform.commons.util.Preconditions;
@@ -184,7 +184,7 @@ public final class Executions {
 	 * @see org.assertj.core.api.ListAssert
 	 */
 	public ListAssert<Execution> assertThatExecutions() {
-		return assertThat(list());
+		return org.assertj.core.api.Assertions.assertThat(list());
 	}
 
 	// --- Diagnostics ---------------------------------------------------------

@@ -12,7 +12,6 @@ package org.junit.platform.launcher.listeners;
 
 import static java.lang.String.join;
 import static java.util.Collections.synchronizedList;
-import static java.util.Collections.unmodifiableList;
 
 import java.io.PrintWriter;
 import java.io.Serial;
@@ -23,6 +22,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
+
 import org.junit.platform.commons.util.Preconditions;
 import org.junit.platform.launcher.TestIdentifier;
 import org.junit.platform.launcher.TestPlan;
@@ -215,7 +215,7 @@ class MutableTestExecutionSummary implements TestExecutionSummary {
 
 	@Override
 	public List<Failure> getFailures() {
-		return unmodifiableList(failures);
+		return Collections.unmodifiableList(failures);
 	}
 
 	private String describeTest(TestIdentifier testIdentifier) {

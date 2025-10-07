@@ -11,7 +11,6 @@
 package org.junit.platform.launcher.core;
 
 import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.toSet;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,6 +30,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 import org.jspecify.annotations.Nullable;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
@@ -71,7 +71,7 @@ class LauncherConfigurationParameters implements ConfigurationParameters {
 	@Override
 	public Set<String> keySet() {
 		return providers.stream().map(ParameterProvider::keySet).flatMap(Collection::stream).collect(
-			toSet());
+			Collectors.toSet());
 	}
 
 	private @Nullable String getProperty(String key) {

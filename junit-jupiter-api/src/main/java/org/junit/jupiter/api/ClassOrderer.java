@@ -10,14 +10,13 @@
 
 package org.junit.jupiter.api;
 
-import static java.util.Collections.shuffle;
-import static java.util.Comparator.comparing;
 import static java.util.Comparator.comparingInt;
 import static org.apiguardian.api.API.Status.EXPERIMENTAL;
 import static org.apiguardian.api.API.Status.STABLE;
 
 import java.util.Collections;
 import java.util.Comparator;
+
 import org.apiguardian.api.API;
 import org.junit.platform.commons.JUnitException;
 import org.junit.platform.commons.logging.Logger;
@@ -149,7 +148,7 @@ public interface ClassOrderer {
 			context.getClassDescriptors().sort(comparator);
 		}
 
-		private static final Comparator<ClassDescriptor> comparator = comparing(
+		private static final Comparator<ClassDescriptor> comparator = Comparator.comparing(
 			descriptor -> descriptor.getTestClass().getName());
 	}
 
@@ -172,7 +171,7 @@ public interface ClassOrderer {
 			context.getClassDescriptors().sort(comparator);
 		}
 
-		private static final Comparator<ClassDescriptor> comparator = comparing(
+		private static final Comparator<ClassDescriptor> comparator = Comparator.comparing(
 			ClassDescriptor::getDisplayName);
 	}
 
@@ -266,7 +265,7 @@ public interface ClassOrderer {
 		 */
 		@Override
 		public void orderClasses(ClassOrdererContext context) {
-			shuffle(context.getClassDescriptors(),
+			Collections.shuffle(context.getClassDescriptors(),
 				new java.util.Random(RandomOrdererUtils.getSeed(context::getConfigurationParameter, logger)));
 		}
 	}

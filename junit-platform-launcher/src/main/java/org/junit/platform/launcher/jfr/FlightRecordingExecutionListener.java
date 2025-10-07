@@ -10,18 +10,19 @@
 
 package org.junit.platform.launcher.jfr;
 
-import static java.util.stream.Collectors.joining;
 import static org.apiguardian.api.API.Status.INTERNAL;
 
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
+
 import jdk.jfr.Category;
 import jdk.jfr.Event;
 import jdk.jfr.Label;
 import jdk.jfr.Name;
 import jdk.jfr.StackTrace;
+
 import org.apiguardian.api.API;
 import org.jspecify.annotations.Nullable;
 import org.junit.platform.engine.TestExecutionResult;
@@ -60,7 +61,7 @@ class FlightRecordingExecutionListener implements TestExecutionListener {
 		if (event != null && event.shouldCommit()) {
 			event.containsTests = plan.containsTests();
 			event.engineNames = plan.getRoots().stream().map(TestIdentifier::getDisplayName).collect(
-				joining(", "));
+				Collectors.joining(", "));
 			event.commit();
 		}
 	}

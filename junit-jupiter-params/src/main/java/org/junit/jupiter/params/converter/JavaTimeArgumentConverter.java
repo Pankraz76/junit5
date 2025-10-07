@@ -10,8 +10,6 @@
 
 package org.junit.jupiter.params.converter;
 
-import static java.util.Collections.unmodifiableMap;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -28,6 +26,7 @@ import java.time.temporal.TemporalQuery;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
 import org.jspecify.annotations.Nullable;
 
 /**
@@ -49,7 +48,7 @@ class JavaTimeArgumentConverter extends AnnotationBasedArgumentConverter<JavaTim
 		queries.put(Year.class, Year::from);
 		queries.put(YearMonth.class, YearMonth::from);
 		queries.put(ZonedDateTime.class, ZonedDateTime::from);
-		TEMPORAL_QUERIES = unmodifiableMap(queries);
+		TEMPORAL_QUERIES = Collections.unmodifiableMap(queries);
 	}
 
 	@Override

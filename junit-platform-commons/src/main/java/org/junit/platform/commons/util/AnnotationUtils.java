@@ -11,7 +11,6 @@
 package org.junit.platform.commons.util;
 
 import static java.util.Arrays.asList;
-import static java.util.Collections.emptyList;
 import static java.util.Objects.requireNonNull;
 import static org.apiguardian.api.API.Status.INTERNAL;
 import static org.junit.platform.commons.util.ReflectionUtils.isInnerClass;
@@ -35,6 +34,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
+
 import org.apiguardian.api.API;
 import org.jspecify.annotations.Nullable;
 import org.junit.platform.commons.JUnitException;
@@ -258,7 +258,7 @@ public final class AnnotationUtils {
 			@Nullable Optional<? extends AnnotatedElement> element, Class<A> annotationType) {
 
 		if (element == null || element.isEmpty()) {
-			return emptyList();
+			return Collections.emptyList();
 		}
 
 		return findRepeatableAnnotations(element.get(), annotationType);
@@ -288,7 +288,7 @@ public final class AnnotationUtils {
 
 		// Short circuit the search algorithm.
 		if (element == null) {
-			return emptyList();
+			return Collections.emptyList();
 		}
 
 		// We use a LinkedHashSet because the search algorithm may discover

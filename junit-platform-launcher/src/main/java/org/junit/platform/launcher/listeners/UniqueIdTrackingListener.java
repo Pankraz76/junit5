@@ -10,7 +10,6 @@
 
 package org.junit.platform.launcher.listeners;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.util.Objects.requireNonNull;
 import static org.apiguardian.api.API.Status.STABLE;
 
@@ -23,6 +22,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
+
 import org.apiguardian.api.API;
 import org.jspecify.annotations.Nullable;
 import org.junit.platform.commons.logging.Logger;
@@ -194,7 +194,7 @@ public class UniqueIdTrackingListener implements TestExecutionListener {
 			}
 
 			logger.debug(() -> "Writing unique IDs to output file " + outputFile.toAbsolutePath());
-			try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outputFile, UTF_8))) {
+			try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(outputFile, StandardCharsets.UTF_8))) {
 				this.uniqueIds.forEach(writer::println);
 				writer.flush();
 			}

@@ -10,7 +10,6 @@
 
 package org.junit.platform.commons.support;
 
-import static java.util.stream.Collectors.toCollection;
 import static org.apiguardian.api.API.Status.DEPRECATED;
 import static org.apiguardian.api.API.Status.MAINTAINED;
 
@@ -24,6 +23,7 @@ import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 import org.apiguardian.api.API;
 import org.jspecify.annotations.Nullable;
 import org.junit.platform.commons.JUnitException;
@@ -761,7 +761,7 @@ public final class ReflectionSupport {
 
 	@SuppressWarnings("removal")
 	static Set<Resource> toSupportResourcesSet(Set<org.junit.platform.commons.io.Resource> resources) {
-		return toSupportResourcesStream(resources.stream()).collect(toCollection(LinkedHashSet::new));
+		return toSupportResourcesStream(resources.stream()).collect(Collectors.toCollection(LinkedHashSet::new));
 	}
 
 	@SuppressWarnings("removal")

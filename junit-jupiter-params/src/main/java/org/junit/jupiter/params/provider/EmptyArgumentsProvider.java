@@ -10,13 +10,6 @@
 
 package org.junit.jupiter.params.provider;
 
-import static java.util.Collections.emptyList;
-import static java.util.Collections.emptyMap;
-import static java.util.Collections.emptyNavigableMap;
-import static java.util.Collections.emptyNavigableSet;
-import static java.util.Collections.emptySet;
-import static java.util.Collections.emptySortedMap;
-import static java.util.Collections.emptySortedSet;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 import static org.junit.platform.commons.util.ReflectionUtils.newInstance;
 
@@ -33,6 +26,7 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.stream.Stream;
+
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.support.ParameterDeclaration;
 import org.junit.jupiter.params.support.ParameterDeclarations;
@@ -60,28 +54,28 @@ class EmptyArgumentsProvider implements ArgumentsProvider {
 			return Stream.of(arguments(""));
 		}
 		if (Collection.class.equals(parameterType)) {
-			return Stream.of(arguments(emptySet()));
+			return Stream.of(arguments(Collections.emptySet()));
 		}
 		if (List.class.equals(parameterType)) {
-			return Stream.of(arguments(emptyList()));
+			return Stream.of(arguments(Collections.emptyList()));
 		}
 		if (Set.class.equals(parameterType)) {
-			return Stream.of(arguments(emptySet()));
+			return Stream.of(arguments(Collections.emptySet()));
 		}
 		if (SortedSet.class.equals(parameterType)) {
-			return Stream.of(arguments(emptySortedSet()));
+			return Stream.of(arguments(Collections.emptySortedSet()));
 		}
 		if (NavigableSet.class.equals(parameterType)) {
-			return Stream.of(arguments(emptyNavigableSet()));
+			return Stream.of(arguments(Collections.emptyNavigableSet()));
 		}
 		if (Map.class.equals(parameterType)) {
-			return Stream.of(arguments(emptyMap()));
+			return Stream.of(arguments(Collections.emptyMap()));
 		}
 		if (SortedMap.class.equals(parameterType)) {
-			return Stream.of(arguments(emptySortedMap()));
+			return Stream.of(arguments(Collections.emptySortedMap()));
 		}
 		if (NavigableMap.class.equals(parameterType)) {
-			return Stream.of(arguments(emptyNavigableMap()));
+			return Stream.of(arguments(Collections.emptyNavigableMap()));
 		}
 		if (Collection.class.isAssignableFrom(parameterType) || Map.class.isAssignableFrom(parameterType)) {
 			Optional<Constructor<?>> defaultConstructor = getDefaultConstructor(parameterType);

@@ -10,14 +10,14 @@
 
 package org.junit.platform.console.command;
 
-import static java.util.Comparator.comparing;
-
 import java.io.PrintWriter;
 import java.util.Comparator;
 import java.util.StringJoiner;
 import java.util.stream.StreamSupport;
+
 import org.junit.platform.engine.TestEngine;
 import org.junit.platform.launcher.core.ServiceLoaderTestEngineRegistry;
+
 import picocli.CommandLine.Command;
 
 @Command(//
@@ -36,7 +36,7 @@ class ListTestEnginesCommand extends BaseCommand<Void> {
 		ServiceLoaderTestEngineRegistry registry = new ServiceLoaderTestEngineRegistry();
 		Iterable<TestEngine> engines = registry.loadTestEngines();
 		StreamSupport.stream(engines.spliterator(), false) //
-				.sorted(comparing(TestEngine::getId)) //
+				.sorted(Comparator.comparing(TestEngine::getId)) //
 				.forEach(engine -> displayEngine(out, engine));
 		out.flush();
 	}

@@ -10,7 +10,6 @@
 
 package org.junit.platform.engine.reporting;
 
-import static java.util.Collections.unmodifiableMap;
 import static org.apiguardian.api.API.Status.STABLE;
 
 import java.time.LocalDateTime;
@@ -18,6 +17,7 @@ import java.time.ZoneId;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
 import org.apiguardian.api.API;
 import org.junit.platform.commons.util.Preconditions;
 import org.junit.platform.commons.util.ToStringBuilder;
@@ -79,7 +79,7 @@ public final class ReportEntry {
 	 * @return a copy of the map of key-value pairs; never {@code null}
 	 */
 	public Map<String, String> getKeyValuePairs() {
-		return unmodifiableMap(this.keyValuePairs);
+		return Collections.unmodifiableMap(this.keyValuePairs);
 	}
 
 	/**

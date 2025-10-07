@@ -10,7 +10,6 @@
 
 package org.junit.platform.commons.util;
 
-import static java.util.function.Function.identity;
 import static org.apiguardian.api.API.Status.INTERNAL;
 
 import java.util.Arrays;
@@ -20,6 +19,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.apiguardian.api.API;
 import org.jspecify.annotations.Nullable;
 
@@ -63,7 +63,7 @@ public class ClassNamePatternFilterUtils {
 	 * @param patterns a comma-separated list of patterns
 	 */
 	public static Predicate<String> excludeMatchingClassNames(@Nullable String patterns) {
-		return matchingClasses(patterns, identity(), FilterType.EXCLUDE);
+		return matchingClasses(patterns, Function.identity(), FilterType.EXCLUDE);
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class ClassNamePatternFilterUtils {
 	 * @param patterns a comma-separated list of patterns
 	 */
 	public static Predicate<String> includeMatchingClassNames(@Nullable String patterns) {
-		return matchingClasses(patterns, identity(), FilterType.INCLUDE);
+		return matchingClasses(patterns, Function.identity(), FilterType.INCLUDE);
 	}
 
 	private enum FilterType {

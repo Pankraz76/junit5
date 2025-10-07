@@ -13,7 +13,6 @@ package org.junit.platform.testkit.engine;
 import static java.util.Collections.sort;
 import static java.util.function.Predicate.isEqual;
 import static org.apiguardian.api.API.Status.MAINTAINED;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.platform.commons.util.FunctionUtils.where;
 import static org.junit.platform.testkit.engine.Event.byPayload;
 import static org.junit.platform.testkit.engine.Event.byType;
@@ -30,6 +29,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
+
 import org.apiguardian.api.API;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.api.Condition;
@@ -355,7 +355,7 @@ public final class Events {
 	 * @see org.assertj.core.api.ListAssert
 	 */
 	public ListAssert<Event> assertThatEvents() {
-		return assertThat(list());
+		return org.assertj.core.api.Assertions.assertThat(list());
 	}
 
 	// --- Diagnostics ---------------------------------------------------------
@@ -416,7 +416,7 @@ public final class Events {
 
 	@SafeVarargs
 	private static void assertEventsMatchExactly(List<Event> events, Condition<? super Event>... conditions) {
-		assertThat(events).hasSize(conditions.length);
+		Assertions.assertThat(events).hasSize(conditions.length);
 
 		SoftAssertions softly = new SoftAssertions();
 		for (int i = 0; i < conditions.length; i++) {
@@ -437,7 +437,7 @@ public final class Events {
 	@SafeVarargs
 	@SuppressWarnings("varargs")
 	private static void assertEventsMatchLooselyInOrder(List<Event> events, Condition<? super Event>... conditions) {
-		assertThat(conditions).hasSizeLessThanOrEqualTo(events.size());
+		Assertions.assertThat(conditions).hasSizeLessThanOrEqualTo(events.size());
 		SoftAssertions softly = new SoftAssertions();
 
 		// @formatter:off

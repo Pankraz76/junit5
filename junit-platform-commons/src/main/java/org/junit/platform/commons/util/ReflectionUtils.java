@@ -10,9 +10,7 @@
 
 package org.junit.platform.commons.util;
 
-import static java.util.Collections.emptyList;
 import static java.util.Collections.synchronizedMap;
-import static java.util.Collections.unmodifiableMap;
 import static java.util.stream.Collectors.toCollection;
 import static java.util.stream.Collectors.toSet;
 import static org.apiguardian.api.API.Status.INTERNAL;
@@ -55,6 +53,7 @@ import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
+
 import org.apiguardian.api.API;
 import org.jspecify.annotations.Nullable;
 import org.junit.platform.commons.JUnitException;
@@ -214,7 +213,7 @@ public final class ReflectionUtils {
 			classNamesToTypes.put(type.getCanonicalName(), type);
 		});
 
-		classNameToTypeMap = unmodifiableMap(classNamesToTypes);
+		classNameToTypeMap = Collections.unmodifiableMap(classNamesToTypes);
 
 		primitiveToWrapperMap = createPrimitivesToWrapperMap();
 	}
@@ -232,7 +231,7 @@ public final class ReflectionUtils {
 		primitivesToWrappers.put(float.class, Float.class);
 		primitivesToWrappers.put(double.class, Double.class);
 
-		return unmodifiableMap(primitivesToWrappers);
+		return Collections.unmodifiableMap(primitivesToWrappers);
 	}
 
 	public static boolean isPublic(Class<?> clazz) {
@@ -1807,7 +1806,7 @@ public final class ReflectionUtils {
 	private static List<Field> getSuperclassFields(Class<?> clazz, HierarchyTraversalMode traversalMode) {
 		Class<?> superclass = clazz.getSuperclass();
 		if (!isSearchable(superclass)) {
-			return emptyList();
+			return Collections.emptyList();
 		}
 		return findAllFieldsInHierarchy(superclass, traversalMode);
 	}
@@ -1815,7 +1814,7 @@ public final class ReflectionUtils {
 	private static List<Method> getSuperclassMethods(Class<?> clazz, HierarchyTraversalMode traversalMode) {
 		Class<?> superclass = clazz.getSuperclass();
 		if (!isSearchable(superclass)) {
-			return emptyList();
+			return Collections.emptyList();
 		}
 		return findAllMethodsInHierarchy(superclass, traversalMode);
 	}

@@ -11,7 +11,6 @@
 package org.junit.vintage.engine.execution;
 
 import static java.util.Collections.emptyList;
-import static java.util.Collections.reverse;
 import static java.util.Objects.requireNonNull;
 import static java.util.stream.Collectors.toCollection;
 import static java.util.stream.Collectors.toMap;
@@ -35,6 +34,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Stream;
+
 import org.junit.platform.engine.TestDescriptor;
 import org.junit.platform.engine.TestExecutionResult;
 import org.junit.runner.Description;
@@ -83,13 +83,13 @@ class TestRun {
 				.filter(entry -> entry.getValue().equals(EventType.SYNTHETIC)) //
 				.map(Entry::getKey) //
 				.collect(toCollection(ArrayList::new));
-		reverse(result);
+		Collections.reverse(result);
 		return result;
 	}
 
 	Collection<TestDescriptor> getInProgressTestDescriptors() {
 		List<TestDescriptor> result = new ArrayList<>(inProgressDescriptors.keySet());
-		reverse(result);
+		Collections.reverse(result);
 		return result;
 	}
 
