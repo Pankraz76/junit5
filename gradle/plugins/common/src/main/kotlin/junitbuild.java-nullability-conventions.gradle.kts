@@ -14,14 +14,6 @@ dependencies {
 	errorprone(dependencyFromLibs("error-prone-core"))
 	errorprone(dependencyFromLibs("nullaway"))
 	errorprone(dependencyFromLibs("refaster-runner"))
-	constraints {
-		errorprone("com.google.guava:guava") {
-			version {
-				require("33.4.8-jre")
-			}
-			because("Older versions use deprecated methods in sun.misc.Unsafe")
-		}
-	}
 }
 
 nullaway {
