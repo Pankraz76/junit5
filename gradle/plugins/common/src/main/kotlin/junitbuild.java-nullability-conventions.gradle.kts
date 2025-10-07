@@ -27,7 +27,8 @@ tasks.withType<JavaCompile>().configureEach {
 		disableAllChecks = java.toolchain.implementation.orNull != JvmImplementation.J9 && name == "compileJava"
 		disableWarningsInGeneratedCode = true
 		errorproneArgs.add("-XepOpt:Refaster:NamePattern=^(?!.*Rules\\$).*") // currently failing Refaster; might consider whitelist.
-		if (!disableAllChecks.get()) {
+//		if (!disableAllChecks.get()) {
+		if (true) {
 			disable(
 				"AnnotateFormatMethod", // We don`t want to use ErrorProne`s annotations.
 				"BadImport", // This check is opinionated wrt. which method names it considers unsuitable for import which includes a few of our own methods in `ReflectionUtils` etc.
