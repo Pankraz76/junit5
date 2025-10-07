@@ -53,6 +53,32 @@ tasks.withType<JavaCompile>().configureEach {
 			"UnusedAnonymousClass",
 			"UnusedCollectionModifiedInPlace",
 		)
+		if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
+			errorproneArgs.addAll(
+				"-XepPatchLocation:IN_PLACE",
+				"-XepPatchChecks:" +
+						"ConstantNaming," +
+						"EmptyMethod," +
+						"EmptyMonoZip," +
+						"LexicographicalAnnotationAttributeListing," +
+						"LexicographicalAnnotationListing," +
+						"MissingOverride," +
+						"MissingTestCall," +
+						"NonEmptyMono," +
+						"OptionalMapUnusedValue," +
+						"OptionalOfRedundantMethod," +
+						"RedundantSetterCall," +
+						"RedundantStringConversion," +
+						"RedundantStringEscape," +
+						"StaticImport," +
+						"StringJoin," +
+						"UnnecessaryCheckNotNull," +
+						"UnnecessaryTypeArgument," +
+						"UnusedAnonymousClass," +
+						"UnusedCollectionModifiedInPlace,"
+			)
+		}
+
 		if (getenv("IN_PLACE").toBoolean()) {
 			errorproneArgs.addAll(
 				"-XepPatchLocation:IN_PLACE", // why only certain picnic rules apply?
