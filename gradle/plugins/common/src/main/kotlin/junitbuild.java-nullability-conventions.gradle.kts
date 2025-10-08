@@ -23,8 +23,10 @@ nullaway {
 tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
 		// allDisabledChecksAsWarnings = true
-		// allErrorsAsWarnings = true // without prone breaks build, but does not apply fixes.
+		// PreInterruptThreadDumpPrinter.java:52: warning: [RedundantStringConversion] Avoid redundant string conversions when possible
+		 allErrorsAsWarnings = true // without prone breaks build, but does not apply fixes.
 		disableAllChecks = name == "compileJava" && java.toolchain.implementation.orNull != JvmImplementation.J9
+		disableAllChecks = false
 		disableWarningsInGeneratedCode = true
 		errorproneArgs.add("-XepOpt:Refaster:NamePattern=^(?!.*Rules\\$).*") // currently failing Refaster; might consider whitelist.
 		if (!disableAllChecks.get()) {
