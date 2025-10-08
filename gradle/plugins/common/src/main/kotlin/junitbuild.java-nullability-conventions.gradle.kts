@@ -22,7 +22,7 @@ nullaway {
 
 tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
-		allDisabledChecksAsWarnings = true
+		// allDisabledChecksAsWarnings = true
 		// allErrorsAsWarnings = true // without prone breaks build, but does not apply fixes.
 		disableAllChecks = java.toolchain.implementation.orNull != JvmImplementation.J9 && name == "compileJava"
 		disableWarningsInGeneratedCode = true
