@@ -24,7 +24,7 @@ tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
 		// allDisabledChecksAsWarnings = true
 		// allErrorsAsWarnings = true // without prone breaks build, but does not apply fixes.
-		disableAllChecks = java.toolchain.implementation.orNull != JvmImplementation.J9 && name == "compileJava"
+		disableAllChecks = name == "compileJava" && java.toolchain.implementation.orNull != JvmImplementation.J9
 		disableWarningsInGeneratedCode = true
 		errorproneArgs.add("-XepOpt:Refaster:NamePattern=^(?!.*Rules\\$).*") // currently failing Refaster; might consider whitelist.
 //		if (!disableAllChecks.get()) {
