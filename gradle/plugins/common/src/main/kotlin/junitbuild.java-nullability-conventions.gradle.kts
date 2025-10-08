@@ -41,6 +41,13 @@ tasks.withType<JavaCompile>().configureEach {
 				"StringSplitter", // We don`t want to use Guava.
 				//"UnnecessaryLambda", // The findings of this check are subjective because a named constant can be more readable in many cases.
 			)
+//			enable(
+//				"MissingOverride",
+//				"PackageLocation",
+//				"RedundantStringConversion",
+//				"RedundantStringEscape",
+//				"UnusedVariable",
+//			)
 			error(
 				"MissingOverride",
 				"PackageLocation",
