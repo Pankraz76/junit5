@@ -27,8 +27,8 @@ tasks.withType<JavaCompile>().configureEach {
 		disableAllChecks = name == "compileJava" && java.toolchain.implementation.orNull != JvmImplementation.J9
 		disableWarningsInGeneratedCode = true
 		errorproneArgs.add("-XepOpt:Refaster:NamePattern=^(?!.*Rules\\$).*") // currently failing Refaster; might consider whitelist.
-//		if (!disableAllChecks.get()) {
-		if (true) {
+		if (!disableAllChecks.get()) {
+//		if (true) {
 			disable(
 				"AnnotateFormatMethod", // We don`t want to use ErrorProne`s annotations.
 				"BadImport", // This check is opinionated wrt. which method names it considers unsuitable for import which includes a few of our own methods in `ReflectionUtils` etc.
@@ -40,15 +40,15 @@ tasks.withType<JavaCompile>().configureEach {
 				"StringSplitter", // We don`t want to use Guava.
 				//"UnnecessaryLambda", // The findings of this check are subjective because a named constant can be more readable in many cases.
 			)
-//			error(
-//				"MissingOverride",
-//				"PackageLocation",
-//				"RedundantStringConversion",
-//				"RedundantStringEscape",
-//				"UnusedVariable",
-//			)
-			if (true) {
-			//if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
+			error(
+				"MissingOverride",
+				"PackageLocation",
+				"RedundantStringConversion",
+				"RedundantStringEscape",
+				"UnusedVariable",
+			)
+//			if (true) {
+			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
 				errorproneArgs.addAll(
 					"-XepPatchLocation:IN_PLACE",
 					"-XepPatchChecks:" +
