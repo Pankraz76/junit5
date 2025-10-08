@@ -37,8 +37,8 @@ tasks.withType<JavaCompile>().configureEach {
 //				"DoNotCallSuggester",
 //				"ImmutableEnumChecker",
 //				"InlineMeSuggester",
-				"MissingSummary", // Produces a lot of findings that we consider to be false positives, for example for package-private classes and methods.
-				"StringSplitter", // We don`t want to use Guava.
+//				"MissingSummary", // Produces a lot of findings that we consider to be false positives, for example for package-private classes and methods.
+//				"StringSplitter", // We don`t want to use Guava.
 				//"UnnecessaryLambda", // The findings of this check are subjective because a named constant can be more readable in many cases.
 			)
 //			enable(
