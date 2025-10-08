@@ -23,9 +23,8 @@ nullaway {
 tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
 		// allDisabledChecksAsWarnings = true
-		// PreInterruptThreadDumpPrinter.java:52: warning: [RedundantStringConversion] Avoid redundant string conversions when possible
 		 allErrorsAsWarnings = true // without prone breaks build, but does not apply fixes.
-		disableAllChecks = name == "compileJava" && java.toolchain.implementation.orNull != JvmImplementation.J9
+//		disableAllChecks = !(name == "compileJava" && java.toolchain.implementation.orNull != JvmImplementation.J9)
 		disableAllChecks = false
 		disableWarningsInGeneratedCode = true
 		errorproneArgs.add("-XepOpt:Refaster:NamePattern=^(?!.*Rules\\$).*") // currently failing Refaster; might consider whitelist.
@@ -49,7 +48,6 @@ tasks.withType<JavaCompile>().configureEach {
 				"RedundantStringEscape",
 				"UnusedVariable",
 			)
-//			if (true) {
 			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
 				errorproneArgs.addAll(
 					"-XepPatchLocation:IN_PLACE",
