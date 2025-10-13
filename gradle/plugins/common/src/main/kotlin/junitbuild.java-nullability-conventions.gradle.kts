@@ -59,6 +59,7 @@ tasks.withType<JavaCompile>().configureEach {
 			errorproneArgs.addAll(
 				"-XepPatchLocation:IN_PLACE",
 				"-XepPatchChecks:LexicographicalAnnotationListing"
+				// "-XepPatchChecks:ConstantNaming" why not working?
 			)
 		} else {
 			disableAllChecks = true
