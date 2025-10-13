@@ -56,6 +56,10 @@ tasks.withType<JavaCompile>().configureEach {
 				"RedundantStringConversion",
 				"RedundantStringEscape",
 			)
+			errorproneArgs.addAll(
+				"-XepPatchLocation:IN_PLACE",
+				"-XepPatchChecks:RedundantStringConversion"
+			)
 		} else {
 			disableAllChecks = true
 		}
