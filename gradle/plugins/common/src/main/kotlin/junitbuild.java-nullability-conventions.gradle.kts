@@ -37,7 +37,7 @@ tasks.withType<JavaCompile>().configureEach {
 				"StringSplitter", // We don`t want to use Guava.
 				"UnnecessaryLambda", // The findings of this check are subjective because a named constant can be more readable in many cases.
 				// picnic (https://error-prone.picnic.tech)
-				"ConstantNaming",
+				// "ConstantNaming",
 				"DirectReturn", // We don`t want to use this: https://github.com/junit-team/junit-framework/pull/5006#discussion_r2403984446
 				"FormatStringConcatenation",
 				"IdentityConversion",
@@ -55,6 +55,7 @@ tasks.withType<JavaCompile>().configureEach {
 				"RedundantStringConversion",
 				"RedundantStringEscape",
 				//"LexicographicalAnnotationListing",
+				//"ConstantNaming",
 			)
 			errorproneArgs.addAll(
 				"-XepPatchLocation:IN_PLACE",
