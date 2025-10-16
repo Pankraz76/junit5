@@ -40,10 +40,10 @@ tasks.withType<JavaCompile>().configureEach {
 				"-XepPatchLocation:IN_PLACE",
 				"-XepPatchChecks:" +
 						"ConstantNaming," +
+						"RedundantStringConversion," +
 						"Unused," +
 						"UnusedMethod," +
-						"UnusedVariable," +
-						"RedundantStringConversion,"
+						"UnusedVariable,"
 			)
 		}
 	}
