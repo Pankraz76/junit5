@@ -1,6 +1,7 @@
 import junitbuild.extensions.dependencyFromLibs
 import net.ltgt.gradle.errorprone.errorprone
 import net.ltgt.gradle.nullaway.nullaway
+import java.lang.System.getenv
 
 plugins {
 	`java-library`
@@ -25,54 +26,20 @@ dependencies {
 
 tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
-		val shouldDisableErrorProne = java.toolchain.implementation.orNull == JvmImplementation.J9
-		if (name == "compileJava" && !shouldDisableErrorProne) {
-			disable(
-				"AnnotateFormatMethod", // We don`t want to use ErrorProne's annotations.
-				"BadImport", // This check is opinionated wrt. which method names it considers unsuitable for import which includes a few of our own methods in `ReflectionUtils` etc.
-				"DoNotCallSuggester", // We don`t want to use ErrorProne's annotations.
-				"ImmutableEnumChecker", // We don`t want to use ErrorProne's annotations.
-				"InlineMeSuggester", // We don`t want to use ErrorProne's annotations.
-				"MissingSummary", // Produces a lot of findings that we consider to be false positives, for example for package-private classes and methods.
-				"StringSplitter", // We don`t want to use Guava.
-				"UnnecessaryLambda", // The findings of this check are subjective because a named constant can be more readable in many cases.
-				// picnic (https://error-prone.picnic.tech)
-				"ConstantNaming",
-				"DirectReturn", // We don`t want to use this: https://github.com/junit-team/junit-framework/pull/5006#discussion_r2403984446
-				"FormatStringConcatenation",
-				"IdentityConversion",
-				"LexicographicalAnnotationAttributeListing", // We don`t want to use this: https://github.com/junit-team/junit-framework/pull/5043#pullrequestreview-3330615838
-				"LexicographicalAnnotationListing",
-				"MissingTestCall",
-				"NestedOptionals",
-				"NonStaticImport",
-				"OptionalOrElseGet",
-				"PrimitiveComparison",
-				"StaticImport",
-				"TimeZoneUsage",
+		disableAllChecks = true // consider removal to avoid error prone error´s, following convention over configuration.
+		allErrorsAsWarnings = true
+		error(
+			//"ConstantNaming",
+			"RedundantStringConversion",
+		)
+//		if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
+			errorproneArgs.addAll(
+				"-XepPatchLocation:IN_PLACE",
+				"-XepPatchChecks:" +
+						"ConstantNaming," +
+						"RedundantStringConversion,"
 			)
-			error(
-				"CanonicalAnnotationSyntax",
-				"IsInstanceLambdaUsage",
-				"PackageLocation",
-				"RedundantStringConversion",
-				"RedundantStringEscape",
-			)
-		} else {
-			disableAllChecks = true
-		}
-		nullaway {
-			if (shouldDisableErrorProne) {
-				disable()
-			} else {
-				enable()
-			}
-			onlyNullMarked = true
-			isJSpecifyMode = true
-			customContractAnnotations.add("org.junit.platform.commons.annotation.Contract")
-			checkContracts = true
-			suppressionNameAliases.add("DataFlowIssue")
-		}
+//		}
 	}
 }
 
