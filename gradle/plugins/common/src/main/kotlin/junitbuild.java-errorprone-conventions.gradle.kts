@@ -29,7 +29,7 @@ tasks.withType<JavaCompile>().configureEach {
 		disableAllChecks = true // consider removal to avoid error prone error´s, following convention over configuration.
 		allErrorsAsWarnings = true
 		error(
-			//"ConstantNaming",
+			"ConstantNaming",
 			"RedundantStringConversion",
 		)
 //		if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
