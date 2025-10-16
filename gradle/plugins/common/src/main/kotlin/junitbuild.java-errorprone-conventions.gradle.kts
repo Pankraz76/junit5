@@ -29,7 +29,7 @@ tasks.withType<JavaCompile>().configureEach {
 		disableAllChecks = true // consider removal to avoid error prone error´s, following convention over configuration.
 		allErrorsAsWarnings = true
 		error(
-			"ConstantNaming",
+			// "ConstantNaming", # https://github.com/PicnicSupermarket/error-prone-support/issues/1923
 			"Unused",
 			"UnusedMethod",
 			"UnusedVariable",
