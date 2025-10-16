@@ -26,7 +26,7 @@ dependencies {
 
 tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
-		disableAllChecks = true // consider removal to avoid error prone error´s, following convention over configuration.
+		disableAllChecks = true // remove once applied error-prone.
 		allErrorsAsWarnings = true
 		error(
 			// "ConstantNaming", # https://github.com/PicnicSupermarket/error-prone-support/issues/1923
