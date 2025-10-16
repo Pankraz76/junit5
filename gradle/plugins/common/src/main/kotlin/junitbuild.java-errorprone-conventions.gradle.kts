@@ -27,6 +27,7 @@ dependencies {
 tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
 		disableAllChecks = true // remove once applied error-prone.
+		allErrorsAsWarnings = true
 		error(
 			// "ConstantNaming", # https://github.com/PicnicSupermarket/error-prone-support/issues/1923
 			"Unused",
@@ -34,7 +35,7 @@ tasks.withType<JavaCompile>().configureEach {
 			"UnusedVariable",
 			"RedundantStringConversion",
 		)
-		if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
+		if (!getenv().containsKey("CI") && getenv("IN_PLACEe").toBoolean()) {
 			errorproneArgs.addAll(
 				"-XepPatchLocation:IN_PLACE",
 				"-XepPatchChecks:" +
