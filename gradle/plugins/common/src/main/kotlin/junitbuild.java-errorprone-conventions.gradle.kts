@@ -30,6 +30,10 @@ tasks.withType<JavaCompile>().configureEach {
 		allErrorsAsWarnings = true
 		error(
 			"ConstantNaming",
+
+			'Unused,' +
+			'UnusedMethod,' +
+			'UnusedVariable,'
 			"RedundantStringConversion",
 		)
 //		if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
@@ -37,6 +41,9 @@ tasks.withType<JavaCompile>().configureEach {
 				"-XepPatchLocation:IN_PLACE",
 				"-XepPatchChecks:" +
 						"ConstantNaming," +
+						'Unused,' +
+						'UnusedMethod,' +
+						'UnusedVariable,'
 						"RedundantStringConversion,"
 			)
 //		}
