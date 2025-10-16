@@ -35,7 +35,7 @@ tasks.withType<JavaCompile>().configureEach {
 			"UnusedVariable",
 			"RedundantStringConversion",
 		)
-//		if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
+		if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
 			errorproneArgs.addAll(
 				"-XepPatchLocation:IN_PLACE",
 				"-XepPatchChecks:" +
@@ -45,7 +45,7 @@ tasks.withType<JavaCompile>().configureEach {
 						"UnusedVariable," +
 						"RedundantStringConversion,"
 			)
-//		}
+		}
 	}
 }
 
