@@ -40,7 +40,7 @@ tasks.withType<JavaCompile>().configureEach {
 				// picnic (https://error-prone.picnic.tech)
 				"ConstantNaming",
 				"DirectReturn", // We don`t want to use this: https://github.com/junit-team/junit-framework/pull/5006#discussion_r2403984446
-				"FormatStringConcatenation",
+//				"FormatStringConcatenation",
 				"IdentityConversion",
 				"LexicographicalAnnotationAttributeListing", // We don`t want to use this: https://github.com/junit-team/junit-framework/pull/5043#pullrequestreview-3330615838
 				"LexicographicalAnnotationListing",
@@ -55,6 +55,7 @@ tasks.withType<JavaCompile>().configureEach {
 			error(
 				"CanonicalAnnotationSyntax",
 				"IsInstanceLambdaUsage",
+				"FormatStringConcatenation",
 				"PackageLocation",
 				"RedundantStringConversion",
 				"RedundantStringEscape",
