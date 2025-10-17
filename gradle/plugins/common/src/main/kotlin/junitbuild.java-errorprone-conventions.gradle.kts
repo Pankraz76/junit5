@@ -63,7 +63,7 @@ tasks.withType<JavaCompile>().configureEach {
 				"UnusedParameters",
 				"UnusedVariable"
 			)
-			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
+			if (!getenv().containsKey("CI") && getenv("IN_PLACEe").toBoolean()) {
 				errorproneArgs.addAll(
 					"-XepPatchLocation:IN_PLACE",
 					"-XepPatchChecks:" +
