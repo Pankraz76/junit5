@@ -51,10 +51,6 @@ tasks.withType<JavaCompile>().configureEach {
 				"PrimitiveComparison",
 				"StaticImport",
 				"TimeZoneUsage",
-				"Unused",
-				"UnusedMethod",
-				"UnusedParameters",
-				"UnusedVariable"
 			)
 			error(
 				"CanonicalAnnotationSyntax",
@@ -62,6 +58,10 @@ tasks.withType<JavaCompile>().configureEach {
 				"PackageLocation",
 				"RedundantStringConversion",
 				"RedundantStringEscape",
+				"Unused",
+				"UnusedMethod",
+				"UnusedParameters",
+				"UnusedVariable"
 			)
 			if (!getenv().containsKey("CI") && getenv("IN_PLACEe").toBoolean()) {
 				errorproneArgs.addAll(
