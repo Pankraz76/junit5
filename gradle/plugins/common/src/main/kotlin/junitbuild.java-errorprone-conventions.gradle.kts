@@ -50,6 +50,7 @@ tasks.withType<JavaCompile>().configureEach {
 				"OptionalOrElseGet",
 				"PrimitiveComparison",
 				"StaticImport",
+				"Unused",
 				"TimeZoneUsage",
 			)
 			error(
