@@ -50,8 +50,11 @@ tasks.withType<JavaCompile>().configureEach {
 				"OptionalOrElseGet",
 				"PrimitiveComparison",
 				"StaticImport",
-				"Unused",
 				"TimeZoneUsage",
+				"Unused",
+				"UnusedMethod",
+				"UnusedParameters",
+				"UnusedVariable"
 			)
 			error(
 				"CanonicalAnnotationSyntax",
