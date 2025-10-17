@@ -33,6 +33,7 @@ tasks.withType<JavaCompile>().configureEach {
 			"Unused",
 			"UnusedMethod",
 			"UnusedVariable",
+			"UnusedParameters",
 			"RedundantStringConversion",
 		)
 		if (!getenv().containsKey("CI") && getenv("IN_PLACEe").toBoolean()) {
@@ -42,6 +43,7 @@ tasks.withType<JavaCompile>().configureEach {
 						"RedundantStringConversion," +
 						"Unused," +
 						"UnusedMethod," +
+						"UnusedParameters," +
 						"UnusedVariable,"
 			)
 		}
