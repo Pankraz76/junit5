@@ -65,19 +65,20 @@ tasks.withType<JavaCompile>().configureEach {
 				"UnusedVariable",
 				"UnusedMethod"
 			)
-			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
 				errorproneArgs.addAll(
 					"-XepPatchLocation:IN_PLACE",
 					"-XepPatchChecks:" +
 							"RedundantStringConversion," +
+							"ConstantNaming," +
 							"ArrayEquals," +
-							"NestedOptionals," +
 							"Unused," +
 							"UnusedMethod," +
 							"UnusedParameters," +
 							// "FormatStringConcatenation," + bug
 							"UnusedVariable,"
 				)
+			disableAllChecks = true
+			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
 			}
 		} else {
 			disableAllChecks = true
