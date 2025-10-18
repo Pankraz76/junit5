@@ -45,7 +45,7 @@ tasks.withType<JavaCompile>().configureEach {
 				"LexicographicalAnnotationAttributeListing", // We don`t want to use this: https://github.com/junit-team/junit-framework/pull/5043#pullrequestreview-3330615838
 				"LexicographicalAnnotationListing",
 				"MissingTestCall",
-//				"NestedOptionals",
+				"NestedOptionals",
 				"NonStaticImport",
 				"OptionalOrElseGet",
 				"PrimitiveComparison",
@@ -54,18 +54,23 @@ tasks.withType<JavaCompile>().configureEach {
 			)
 			error(
 				"CanonicalAnnotationSyntax",
+				"ArrayEquals",
 				"IsInstanceLambdaUsage",
 				"FormatStringConcatenation",
 				"PackageLocation",
 				"RedundantStringConversion",
 				"RedundantStringEscape",
-				"Unused"
+				"Unused",
+				"UnusedParameters",
+				"UnusedVariable",
+				"UnusedMethod"
 			)
 			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
 				errorproneArgs.addAll(
 					"-XepPatchLocation:IN_PLACE",
 					"-XepPatchChecks:" +
 							"RedundantStringConversion," +
+							"ArrayEquals," +
 							"NestedOptionals," +
 							"Unused," +
 							"UnusedMethod," +
