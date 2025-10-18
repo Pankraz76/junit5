@@ -70,7 +70,7 @@ tasks.withType<JavaCompile>().configureEach {
 							"Unused," +
 							"UnusedMethod," +
 							"UnusedParameters," +
-							"FormatStringConcatenation," +
+							// "FormatStringConcatenation," + bug
 							"UnusedVariable,"
 				)
 			}
