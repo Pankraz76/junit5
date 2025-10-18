@@ -45,7 +45,7 @@ tasks.withType<JavaCompile>().configureEach {
 				"LexicographicalAnnotationAttributeListing", // We don`t want to use this: https://github.com/junit-team/junit-framework/pull/5043#pullrequestreview-3330615838
 				"LexicographicalAnnotationListing",
 				"MissingTestCall",
-				"NestedOptionals",
+//				"NestedOptionals",
 				"NonStaticImport",
 				"OptionalOrElseGet",
 				"PrimitiveComparison",
