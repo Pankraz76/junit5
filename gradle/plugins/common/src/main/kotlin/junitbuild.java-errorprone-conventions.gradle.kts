@@ -65,7 +65,13 @@ tasks.withType<JavaCompile>().configureEach {
 				errorproneArgs.addAll(
 					"-XepPatchLocation:IN_PLACE",
 					"-XepPatchChecks:" +
-							"RedundantStringConversion,"
+							"RedundantStringConversion," +
+							"NestedOptionals," +
+							"Unused," +
+							"UnusedMethod," +
+							"UnusedParameters," +
+							"FormatStringConcatenation," +
+							"UnusedVariable,"
 				)
 			}
 		} else {
