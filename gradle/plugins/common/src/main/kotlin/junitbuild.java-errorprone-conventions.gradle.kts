@@ -67,6 +67,8 @@ tasks.withType<JavaCompile>().configureEach {
 			)
 				errorproneArgs.addAll(
 					"-XepPatchLocation:IN_PLACE",
+					" -XepPatchLocation:IN_PLACE -XepOpt:Refaster:NamePattern=\"StreamRules\"",
+//					" -XepPatchLocation:IN_PLACE -XepOpt:Refaster:NamePattern=StreamRules",
 					"-XepPatchChecks:" +
 							"RedundantStringConversion," +
 							"ConstantNaming," +
