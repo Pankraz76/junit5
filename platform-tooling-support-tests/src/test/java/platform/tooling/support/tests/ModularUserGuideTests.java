@@ -10,6 +10,7 @@
 
 package platform.tooling.support.tests;
 
+import static java.util.function.Predicate.not;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertLinesMatch;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -24,7 +25,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Predicate;
 import java.util.spi.ToolProvider;
 
 import org.junit.jupiter.api.Test;
@@ -182,7 +182,8 @@ class ModularUserGuideTests {
 		try (var stream = Files.walk(root)) {
 			stream.map(root::relativize) //
 					.map(path -> path.toString().replace('\\', '/')) //
-					.sorted().filter(Predicate.not(String::isEmpty)) //
+					.filter(not(String::isEmpty)) //
+					.sorted() //
 					.forEach(out);
 		}
 		catch (Exception e) {
