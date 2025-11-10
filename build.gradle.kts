@@ -9,6 +9,8 @@ plugins {
 	id("junitbuild.temp-maven-repo")
 }
 
+apply(from = "gradle/rewrite.gradle")
+
 description = "JUnit"
 group = "org.junit"
 
