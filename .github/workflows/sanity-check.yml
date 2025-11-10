@@ -1,0 +1,52 @@
+name: "Sanity Check"
+
+on:
+  push:
+    branches:
+      - main
+      - 'releases/**'
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches:
+      - main
+      - 'releases/**'
+  schedule:
+    - cron: '0 19 * * 3'
+
+concurrency:
+  # Cancels in-progress runs only for pull requests
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions: {}
+
+env:
+  DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: actions
+            build-mode: none
+          - language: java-kotlin
+            build-mode: manual
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      with:
+        persist-credentials: false
+    - name: Sanity Check
+      if: matrix.build-mode == 'manual'
+      uses: ./.github/actions/run-gradle
+      with:
+        encryptionKey: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
+        arguments: |
+          rewriteDryRun \
+          -Dorg.gradle.jvmargs=-Xmx8G
