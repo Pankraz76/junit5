@@ -10,9 +10,6 @@ project.apply plugin: 'org.openrewrite.rewrite'
 
 rewrite {
   activeRecipe('org.opensearch.openrewrite.SanityCheck')
-  exclusion('**ActionListener.java')
-  exclusion('**SearchAfterIT.java')
-  exclusion('**StarTreeMapper.java')
   exclusion('**package-info.java')
   setExportDatatables(true)
   setFailOnDryRunResults(true)
