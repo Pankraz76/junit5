@@ -14,5 +14,5 @@ recipeList:
   - org.openrewrite.gradle.GradleBestPractices
   - org.openrewrite.java.format.NormalizeLineBreaks
   - org.openrewrite.java.format.RemoveTrailingWhitespace
-  # - org.openrewrite.java.migrate.UpgradeToJava17
+  - org.openrewrite.java.migrate.UpgradeToJava17
 ---
