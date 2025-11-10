@@ -7,6 +7,7 @@ plugins {
 	id("junitbuild.jacoco-aggregation-conventions")
 	id("junitbuild.maven-central-publishing")
 	id("junitbuild.temp-maven-repo")
+	id("org.openrewrite.rewrite") version("7.19.0") apply false
 }
 
 apply(from = "gradle/rewrite.gradle")
