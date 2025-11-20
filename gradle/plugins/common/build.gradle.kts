@@ -19,6 +19,7 @@ dependencies {
 	implementation(libs.plugins.nullaway.markerCoordinates)
 	implementation(libs.plugins.shadow.markerCoordinates)
 	implementation(libs.plugins.spotless.markerCoordinates)
+	implementation(libs.plugins.rewrite.markerCoordinates)
 }
 
 tasks.compileJava {
