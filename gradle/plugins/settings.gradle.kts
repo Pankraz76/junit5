@@ -21,8 +21,9 @@ rootProject.name = "plugins"
 
 include("backward-compatibility")
 include("build-parameters")
-include("common")
 include("code-generator")
+include("common")
 include("publishing")
+include("rewrite")
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
