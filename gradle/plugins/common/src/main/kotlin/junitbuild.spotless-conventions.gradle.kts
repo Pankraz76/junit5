@@ -1,4 +1,3 @@
-import com.diffplug.spotless.LineEnding
 import com.diffplug.spotless.LineEnding.UNIX
 import junitbuild.extensions.requiredVersionFromLibs
 
