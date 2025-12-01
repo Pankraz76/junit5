@@ -2,7 +2,6 @@ import junitbuild.extensions.dependencyFromLibs
 import net.ltgt.gradle.errorprone.errorprone
 import net.ltgt.gradle.nullaway.nullaway
 import org.gradle.jvm.toolchain.JvmImplementation.J9
-import java.lang.System.getenv
 
 plugins {
 	`java-library`
@@ -18,10 +17,9 @@ dependencies {
 
 tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
-		disableAllWarnings = true // considering this immense spam burden, remove this once to fix dedicated flaw. https://github.com/diffplug/spotless/pull/2766
-		disableWarningsInGeneratedCode = true
 		val enableErrorProne = java.toolchain.implementation.orNull != J9
 		if (name == "compileJava" && enableErrorProne) {
+			disableAllWarnings = true // considering this immense spam burden, remove this once to fix dedicated flaw. https://github.com/diffplug/spotless/pull/2766
 			disable(
 				"AnnotateFormatMethod", // We don`t want to use ErrorProne's annotations.
 				"BadImport", // This check is opinionated wrt. which method names it considers unsuitable for import which includes a few of our own methods in `ReflectionUtils` etc.
@@ -60,7 +58,7 @@ tasks.withType<JavaCompile>().configureEach {
 			)
 			excludedPaths.set(".*module-info.java") // incompatible with UnnecessarilyFullyQualified
 		} else {
-			disableAllChecks = true
+			disable()
 		}
 		nullaway {
 			if (enableErrorProne) {
