@@ -39,7 +39,7 @@ spotless {
 			trimTrailingWhitespace()
 			endWithNewline()
 			removeUnusedImports()
-			forbidWildcardImports()
+			// expandWildcardImports() // https://github.com/diffplug/spotless/pull/2744
 		}
 
 		format("moduleDescriptor") {
