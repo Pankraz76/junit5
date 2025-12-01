@@ -59,7 +59,7 @@ tasks.withType<JavaCompile>().configureEach {
 				"StringJoin",
 				"UnnecessarilyFullyQualified",
 			)
-			excludedPaths.set(".*module-info.java.*")
+//			excludedPaths.set(".*module-info.java.*")
 			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
 				errorproneArgs.addAll(
 					"-XepPatchLocation:IN_PLACE",

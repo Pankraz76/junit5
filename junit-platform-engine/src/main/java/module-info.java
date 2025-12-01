@@ -8,6 +8,8 @@
  * https://www.eclipse.org/legal/epl-v20.html
  */
 
+import org.junit.platform.engine.discovery.DiscoverySelectorIdentifierParser;
+
 /**
  * Public API for test engines.
  *
@@ -34,9 +36,9 @@ module org.junit.platform.engine {
 	exports org.junit.platform.engine.support.hierarchical;
 	exports org.junit.platform.engine.support.store;
 
-	uses org.junit.platform.engine.discovery.DiscoverySelectorIdentifierParser;
+	uses DiscoverySelectorIdentifierParser;
 
-	provides org.junit.platform.engine.discovery.DiscoverySelectorIdentifierParser with
+	provides DiscoverySelectorIdentifierParser with
 			org.junit.platform.engine.discovery.ClassSelector.IdentifierParser,
 			org.junit.platform.engine.discovery.ClasspathResourceSelector.IdentifierParser,
 			org.junit.platform.engine.discovery.ClasspathRootSelector.IdentifierParser,
