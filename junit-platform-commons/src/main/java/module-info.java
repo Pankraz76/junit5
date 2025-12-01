@@ -8,8 +8,6 @@
  * https://www.eclipse.org/legal/epl-v20.html
  */
 
-import org.junit.platform.commons.support.scanning.ClasspathScanner;
-
 /**
  * Common APIs and support utilities for the JUnit Platform.
  *
@@ -59,5 +57,5 @@ module org.junit.platform.commons {
 			org.junit.platform.suite.engine,
 			org.junit.platform.testkit,
 			org.junit.vintage.engine;
-	uses ClasspathScanner;
+	uses org.junit.platform.commons.support.scanning.ClasspathScanner;
 }
