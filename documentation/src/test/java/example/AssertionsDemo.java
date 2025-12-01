@@ -27,7 +27,8 @@ import java.util.concurrent.CountDownLatch;
 import example.domain.Person;
 import example.util.Calculator;
 
-import extensions.DisabledOnOpenJ9;import extensions.ExpectToFail;import org.junit.jupiter.api.Tag;
+import extensions.DisabledOnOpenJ9;
+
 import org.junit.jupiter.api.Test;
 
 class AssertionsDemo {

@@ -31,9 +31,8 @@ class AnnotationBasedArgumentsProviderTests {
 
 	private final AnnotationBasedArgumentsProvider<CsvSource> annotationBasedArgumentsProvider = new AnnotationBasedArgumentsProvider<>() {
 		@Override
-		protected Stream<? extends Arguments> provideArguments(
-				ParameterDeclarations parameters, ExtensionContext context,
-				CsvSource annotation) {
+		protected Stream<? extends Arguments> provideArguments(ParameterDeclarations parameters,
+				ExtensionContext context, CsvSource annotation) {
 			return Stream.of(Arguments.of(annotation));
 		}
 	};

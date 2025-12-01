@@ -329,8 +329,7 @@ public final class LauncherDiscoveryRequestBuilder {
 	@SuppressWarnings("removal")
 	@API(status = DEPRECATED, since = "1.14")
 	@Deprecated(since = "1.14", forRemoval = true)
-	public LauncherDiscoveryRequestBuilder outputDirectoryProvider(
-			OutputDirectoryProvider outputDirectoryProvider) {
+	public LauncherDiscoveryRequestBuilder outputDirectoryProvider(OutputDirectoryProvider outputDirectoryProvider) {
 		return outputDirectoryCreator(outputDirectoryProvider);
 	}
 

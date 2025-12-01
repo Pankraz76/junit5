@@ -19,7 +19,7 @@ tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
 		val enableErrorProne = java.toolchain.implementation.orNull != J9
 		if (name == "compileJava" && enableErrorProne) {
-			//disableAllWarnings = true // considering this immense spam burden, remove this once to fix dedicated flaw. https://github.com/diffplug/spotless/pull/2766
+			disableAllWarnings = true // considering this immense spam burden, remove this once to fix dedicated flaw. https://github.com/diffplug/spotless/pull/2766
 			disable(
 				"AnnotateFormatMethod", // We don`t want to use ErrorProne's annotations.
 				"BadImport", // This check is opinionated wrt. which method names it considers unsuitable for import which includes a few of our own methods in `ReflectionUtils` etc.

@@ -462,8 +462,7 @@ public final class EngineTestKit {
 		@SuppressWarnings("removal")
 		@Deprecated(since = "1.14", forRemoval = true)
 		@API(status = DEPRECATED, since = "1.14")
-		public Builder outputDirectoryProvider(
-				OutputDirectoryProvider outputDirectoryProvider) {
+		public Builder outputDirectoryProvider(OutputDirectoryProvider outputDirectoryProvider) {
 			return outputDirectoryCreator(outputDirectoryProvider);
 		}
 

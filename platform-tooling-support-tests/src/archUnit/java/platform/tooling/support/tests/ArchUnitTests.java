@@ -173,8 +173,7 @@ class ArchUnitTests {
 					org.junit.jupiter.params.ParameterInfo.class)
 
 				// https://github.com/junit-team/junit-framework/issues/4923
-				.ignoreDependency(OutputDirectoryProvider.class,
-					OutputDirectoryCreator.class) //
+				.ignoreDependency(OutputDirectoryProvider.class, OutputDirectoryCreator.class) //
 				.ignoreDependency(Class.forName("org.junit.platform.engine.reporting.OutputDirectoryProviderAdapter"),
 					OutputDirectoryCreator.class) //
 				.ignoreDependency(Class.forName("org.junit.platform.engine.reporting.OutputDirectoryProviderAdapter"),

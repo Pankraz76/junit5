@@ -234,11 +234,9 @@ public class EngineDiscoveryRequestResolver<T extends TestDescriptor> {
 		@API(status = DEPRECATED, since = "1.14")
 		@Deprecated(since = "1.14", forRemoval = true)
 		@SuppressWarnings("removal")
-		public Builder<T> addResourceContainerSelectorResolver(
-				Predicate<Resource> resourceFilter) {
+		public Builder<T> addResourceContainerSelectorResolver(Predicate<Resource> resourceFilter) {
 			Preconditions.notNull(resourceFilter, "resourceFilter must not be null");
-			return addResourceContainerSelectorResolver(
-				ResourceFilter.of(r -> resourceFilter.test(Resource.of(r))));
+			return addResourceContainerSelectorResolver(ResourceFilter.of(r -> resourceFilter.test(Resource.of(r))));
 		}
 
 		/**
