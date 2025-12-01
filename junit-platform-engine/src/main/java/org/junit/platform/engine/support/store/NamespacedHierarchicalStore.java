@@ -241,22 +241,19 @@ public final class NamespacedHierarchicalStore<N> implements AutoCloseable {
 	public <K, V> Object computeIfAbsent(N namespace, K key, Function<? super K, ? extends V> defaultCreator) {
 		Preconditions.notNull(defaultCreator, "defaultCreator must not be null");
 		CompositeKey<N> compositeKey = new CompositeKey<>(namespace, key);
-		StoredValue storedValue = getStoredValue(compositeKey);
-		var result = StoredValue.evaluateIfNotNull(storedValue);
+		var result = StoredValue.evaluateIfNotNull(getStoredValue(compositeKey));
 		if (result == null) {
-			StoredValue newStoredValue = this.storedValues.compute(compositeKey, (__, oldStoredValue) -> {
+			return requireNonNull(this.storedValues.compute(compositeKey, (__, oldStoredValue) -> {
 				if (StoredValue.evaluateIfNotNull(oldStoredValue) == null) {
 					rejectIfClosed();
-					var computedValue = Preconditions.notNull(defaultCreator.apply(key),
-						"defaultCreator must not return null");
 					return newStoredValue(() -> {
 						rejectIfClosed();
-						return computedValue;
+						return Preconditions.notNull(defaultCreator.apply(key),
+							"defaultCreator must not return null");
 					});
 				}
 				return oldStoredValue;
-			});
-			return requireNonNull(newStoredValue.evaluate());
+			}).evaluate());
 		}
 		return result;
 	}
