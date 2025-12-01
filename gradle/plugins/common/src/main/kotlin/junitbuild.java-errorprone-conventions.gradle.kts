@@ -59,7 +59,6 @@ tasks.withType<JavaCompile>().configureEach {
 			excludedPaths.set(".*module-info.java") // incompatible with UnnecessarilyFullyQualified
 		} else {
 			disableAllChecks = true
-			//disable()
 		}
 		nullaway {
 			if (enableErrorProne) {
