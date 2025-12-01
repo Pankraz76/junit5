@@ -16,6 +16,9 @@ dependencies {
 
 tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
+		allErrorsAsWarnings = true
+		disableAllWarnings = true // considering this immense spam burden, remove this once to fix dedicated flaw. https://github.com/diffplug/spotless/pull/2766
+		disableWarningsInGeneratedCode = true
 		val shouldDisableErrorProne = java.toolchain.implementation.orNull == JvmImplementation.J9
 		if (name == "compileJava" && !shouldDisableErrorProne) {
 			disable(
@@ -48,7 +51,27 @@ tasks.withType<JavaCompile>().configureEach {
 				"PackageLocation",
 				"RedundantStringConversion",
 				"RedundantStringEscape",
+				"UnnecessarilyFullyQualified",
+				"MissingOverride",
+				"SelfAssignment",
+				"StringCharset",
+				"StringJoin",
+				"UnnecessarilyFullyQualified",
+				"UnnecessaryLambda",
 			)
+			excludedPaths.set(".*/groovy-dsl-plugins/output/adapter-src/.*")
+			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
+				errorproneArgs.addAll(
+					"-XepPatchLocation:IN_PLACE",
+					"-XepPatchChecks:" +
+							"MissingOverride," +
+							"SelfAssignment," +
+							"StringCharset," +
+							"StringJoin," +
+							"UnnecessarilyFullyQualified," +
+							"UnnecessaryLambda"
+				)
+			}
 		} else {
 			disableAllChecks = true
 		}
