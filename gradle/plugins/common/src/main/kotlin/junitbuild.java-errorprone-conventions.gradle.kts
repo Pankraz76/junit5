@@ -1,6 +1,7 @@
 import junitbuild.extensions.dependencyFromLibs
 import net.ltgt.gradle.errorprone.errorprone
 import net.ltgt.gradle.nullaway.nullaway
+import org.gradle.jvm.toolchain.JvmImplementation.J9
 import java.lang.System.getenv
 
 plugins {
@@ -20,7 +21,7 @@ tasks.withType<JavaCompile>().configureEach {
 		allErrorsAsWarnings = true
 		disableAllWarnings = true // considering this immense spam burden, remove this once to fix dedicated flaw. https://github.com/diffplug/spotless/pull/2766
 		disableWarningsInGeneratedCode = true
-		val enableErrorProne = java.toolchain.implementation.orNull != JvmImplementation.J9
+		val enableErrorProne = java.toolchain.implementation.orNull != J9
 		if (name == "compileJava" && enableErrorProne) {
 			disable(
 				"AnnotateFormatMethod", // We don`t want to use ErrorProne's annotations.
