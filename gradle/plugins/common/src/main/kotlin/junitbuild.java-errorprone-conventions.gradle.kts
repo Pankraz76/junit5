@@ -67,7 +67,7 @@ tasks.withType<JavaCompile>().configureEach {
 							"SelfAssignment," +
 							"StringCharset," +
 							"StringJoin," +
-							"UnnecessarilyFullyQualified" +
+							"UnnecessarilyFullyQualified"
 				)
 			}
 		} else {
