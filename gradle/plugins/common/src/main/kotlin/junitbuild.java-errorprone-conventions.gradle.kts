@@ -1,6 +1,7 @@
 import junitbuild.extensions.dependencyFromLibs
 import net.ltgt.gradle.errorprone.errorprone
 import net.ltgt.gradle.nullaway.nullaway
+import java.lang.System.getenv
 
 plugins {
 	`java-library`
