@@ -40,6 +40,7 @@ spotless {
 			endWithNewline()
 			removeUnusedImports()
 			// expandWildcardImports() // https://github.com/diffplug/spotless/pull/2744
+			// forbidWildcardImports() // https://docs.openrewrite.org/recipes/java/removeunusedimports
 		}
 
 		format("moduleDescriptor") {
