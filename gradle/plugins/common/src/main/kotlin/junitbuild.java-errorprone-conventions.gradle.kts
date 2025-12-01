@@ -18,7 +18,6 @@ dependencies {
 
 tasks.withType<JavaCompile>().configureEach {
 	options.errorprone {
-		allErrorsAsWarnings = true
 		disableAllWarnings = true // considering this immense spam burden, remove this once to fix dedicated flaw. https://github.com/diffplug/spotless/pull/2766
 		disableWarningsInGeneratedCode = true
 		val enableErrorProne = java.toolchain.implementation.orNull != J9
