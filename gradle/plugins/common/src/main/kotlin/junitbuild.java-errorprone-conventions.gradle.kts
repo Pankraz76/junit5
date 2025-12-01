@@ -20,8 +20,8 @@ tasks.withType<JavaCompile>().configureEach {
 		allErrorsAsWarnings = true
 		disableAllWarnings = true // considering this immense spam burden, remove this once to fix dedicated flaw. https://github.com/diffplug/spotless/pull/2766
 		disableWarningsInGeneratedCode = true
-		val shouldDisableErrorProne = java.toolchain.implementation.orNull == JvmImplementation.J9
-		if (name == "compileJava" && !shouldDisableErrorProne) {
+		val enableErrorProne = java.toolchain.implementation.orNull != JvmImplementation.J9
+		if (name == "compileJava" && enableErrorProne) {
 			disable(
 				"AnnotateFormatMethod", // We don`t want to use ErrorProne's annotations.
 				"BadImport", // This check is opinionated wrt. which method names it considers unsuitable for import which includes a few of our own methods in `ReflectionUtils` etc.
@@ -74,10 +74,10 @@ tasks.withType<JavaCompile>().configureEach {
 			disableAllChecks = true
 		}
 		nullaway {
-			if (shouldDisableErrorProne) {
-				disable()
-			} else {
+			if (enableErrorProne) {
 				enable()
+			} else {
+				disable()
 			}
 			onlyNullMarked = true
 			isJSpecifyMode = true
