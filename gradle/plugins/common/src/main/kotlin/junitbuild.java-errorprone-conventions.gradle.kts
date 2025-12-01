@@ -33,6 +33,7 @@ tasks.withType<JavaCompile>().configureEach {
 				"StringSplitter", // We don`t want to use Guava.
 				"UnnecessaryLambda", // The findings of this check are subjective because a named constant can be more readable in many cases.
 				// picnic (https://error-prone.picnic.tech)
+				"ConstantNaming",
 				"DirectReturn", // We don`t want to use this: https://github.com/junit-team/junit-framework/pull/5006#discussion_r2403984446
 				"FormatStringConcatenation",
 				"IdentityConversion",
@@ -50,7 +51,6 @@ tasks.withType<JavaCompile>().configureEach {
 				"CanonicalAnnotationSyntax",
 				"IsInstanceLambdaUsage",
 				"MissingOverride",
-				"ConstantNaming",
 				"PackageLocation",
 				"RedundantStringConversion",
 				"RedundantStringEscape",
@@ -60,14 +60,6 @@ tasks.withType<JavaCompile>().configureEach {
 				"UnnecessarilyFullyQualified",
 			)
 			excludedPaths.set(".*module-info.java") // incompatible with UnnecessarilyFullyQualified
-			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
-				errorproneArgs.addAll(
-					"-XepPatchLocation:IN_PLACE",
-					"-XepPatchChecks:" +
-							"ConstantNaming," +
-							"UnnecessarilyFullyQualified"
-				)
-			}
 		} else {
 			disableAllChecks = true
 		}
