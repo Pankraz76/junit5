@@ -27,7 +27,7 @@ import java.util.concurrent.CountDownLatch;
 import example.domain.Person;
 import example.util.Calculator;
 
-import org.junit.jupiter.api.Tag;
+import extensions.DisabledOnOpenJ9;import extensions.ExpectToFail;import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class AssertionsDemo {
@@ -87,7 +87,7 @@ class AssertionsDemo {
 	}
 
 	// end::user_guide[]
-	@extensions.DisabledOnOpenJ9
+	@DisabledOnOpenJ9
 	// tag::user_guide[]
 	@Test
 	void exceptionTesting() {
@@ -131,7 +131,7 @@ class AssertionsDemo {
 
 	// end::user_guide[]
 	@Tag("timeout")
-	@extensions.ExpectToFail
+	@ExpectToFail
 	// tag::user_guide[]
 	@Test
 	void timeoutExceeded() {
@@ -145,7 +145,7 @@ class AssertionsDemo {
 
 	// end::user_guide[]
 	@Tag("timeout")
-	@extensions.ExpectToFail
+	@ExpectToFail
 	// tag::user_guide[]
 	@Test
 	void timeoutExceededWithPreemptiveTermination() {
