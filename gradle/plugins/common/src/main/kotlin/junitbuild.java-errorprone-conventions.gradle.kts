@@ -48,16 +48,14 @@ tasks.withType<JavaCompile>().configureEach {
 			error(
 				"CanonicalAnnotationSyntax",
 				"IsInstanceLambdaUsage",
+				"MissingOverride",
 				"PackageLocation",
 				"RedundantStringConversion",
 				"RedundantStringEscape",
-				"UnnecessarilyFullyQualified",
-				"MissingOverride",
 				"SelfAssignment",
 				"StringCharset",
 				"StringJoin",
 				"UnnecessarilyFullyQualified",
-				"UnnecessaryLambda",
 			)
 			excludedPaths.set(".*/groovy-dsl-plugins/output/adapter-src/.*")
 			if (!getenv().containsKey("CI") && getenv("IN_PLACE").toBoolean()) {
@@ -68,8 +66,7 @@ tasks.withType<JavaCompile>().configureEach {
 							"SelfAssignment," +
 							"StringCharset," +
 							"StringJoin," +
-							"UnnecessarilyFullyQualified," +
-							"UnnecessaryLambda"
+							"UnnecessarilyFullyQualified" +
 				)
 			}
 		} else {
