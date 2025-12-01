@@ -10,35 +10,30 @@ val license: License by rootProject.extra
 spotless {
 
 	format("misc") {
+		endWithNewline()
+		leadingSpacesToTabs()
 		target("*.gradle.kts", "gradle/plugins/**/*.gradle.kts", "*.gitignore")
 		targetExclude("gradle/plugins/**/build/**")
-		leadingSpacesToTabs()
 		trimTrailingWhitespace()
-		endWithNewline()
 	}
 
 	format("documentation") {
+		endWithNewline()
 		target("*.adoc", "*.md", "src/**/*.adoc", "src/**/*.md")
 		trimTrailingWhitespace()
-		endWithNewline()
 	}
 
 	pluginManager.withPlugin("java") {
-
 		val configDir = rootProject.layout.projectDirectory.dir("gradle/config/eclipse")
-		val importOrderConfigFile = configDir.file("junit-eclipse.importorder")
-		val javaFormatterConfigFile = configDir.file("junit-eclipse-formatter-settings.xml")
-
 		java {
-			targetExclude("**/module-info.java")
-			licenseHeaderFile(license.headerFile, "(package|import) ")
-			importOrderFile(importOrderConfigFile)
-			val fullVersion = requiredVersionFromLibs("eclipse")
-			val majorMinorVersion = "([0-9]+\\.[0-9]+).*".toRegex().matchEntire(fullVersion)!!.let { it.groups[1]!!.value }
-			eclipse(majorMinorVersion).configFile(javaFormatterConfigFile)
-			trimTrailingWhitespace()
+			eclipse("([0-9]+\\.[0-9]+).*".toRegex().matchEntire(requiredVersionFromLibs("eclipse"))!!.let<MatchResult, String> { it.groups[1]!!.value })
+				.configFile(configDir.file("junit-eclipse-formatter-settings.xml"))
 			endWithNewline()
+			importOrderFile(configDir.file("junit-eclipse.importorder"))
+			licenseHeaderFile(license.headerFile, "(package|import) ")
 			removeUnusedImports()
+			targetExclude("**/module-info.java")
+			trimTrailingWhitespace()
 			// expandWildcardImports() // https://github.com/diffplug/spotless/pull/2744
 			// forbidWildcardImports() // https://docs.openrewrite.org/recipes/java/removeunusedimports
 		}
@@ -55,20 +50,20 @@ spotless {
 
 	pluginManager.withPlugin("org.jetbrains.kotlin.jvm") {
 		kotlin {
-			targetExclude("**/src/test/resources/**")
+			endWithNewline()
 			ktlint(requiredVersionFromLibs("ktlint"))
 			licenseHeaderFile(license.headerFile)
-			trimTrailingWhitespace()
-			endWithNewline()
+			targetExclude("**/src/test/resources/**")
 			toggleOffOn("formatter:off", "formatter:on")
+			trimTrailingWhitespace()
 		}
 	}
 
 	pluginManager.withPlugin("groovy") {
 		groovy {
+			endWithNewline()
 			licenseHeaderFile(license.headerFile)
 			trimTrailingWhitespace()
-			endWithNewline()
 		}
 	}
 
