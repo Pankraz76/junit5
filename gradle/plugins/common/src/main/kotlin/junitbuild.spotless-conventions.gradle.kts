@@ -5,10 +5,8 @@ plugins {
 	id("com.diffplug.spotless")
 }
 
-val license: License by rootProject.extra
-
 spotless {
-
+	val license: License by rootProject.extra
 	format("misc") {
 		endWithNewline()
 		leadingSpacesToTabs()
@@ -16,13 +14,11 @@ spotless {
 		targetExclude("gradle/plugins/**/build/**")
 		trimTrailingWhitespace()
 	}
-
 	format("documentation") {
 		endWithNewline()
 		target("*.adoc", "*.md", "src/**/*.adoc", "src/**/*.md")
 		trimTrailingWhitespace()
 	}
-
 	pluginManager.withPlugin("java") {
 		val configDir = rootProject.layout.projectDirectory.dir("gradle/config/eclipse")
 		java {
@@ -37,7 +33,6 @@ spotless {
 			// expandWildcardImports() // https://github.com/diffplug/spotless/pull/2744
 			// forbidWildcardImports() // https://docs.openrewrite.org/recipes/java/removeunusedimports
 		}
-
 		format("moduleDescriptor") {
 			target(fileTree(layout.projectDirectory.dir("src/main/java")) {
 				include("module-info.java")
@@ -47,7 +42,6 @@ spotless {
 			endWithNewline()
 		}
 	}
-
 	pluginManager.withPlugin("org.jetbrains.kotlin.jvm") {
 		kotlin {
 			endWithNewline()
@@ -58,7 +52,6 @@ spotless {
 			trimTrailingWhitespace()
 		}
 	}
-
 	pluginManager.withPlugin("groovy") {
 		groovy {
 			endWithNewline()
@@ -66,7 +59,6 @@ spotless {
 			trimTrailingWhitespace()
 		}
 	}
-
 	// Explicitly configure line endings to avoid Spotless to search for .gitattributes file
 	// see https://github.com/gradle/gradle/issues/25469#issuecomment-3444231151
 	lineEndings = LineEnding.UNIX
