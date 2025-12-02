@@ -114,7 +114,7 @@ class TestInstancePostProcessorAndPreDestroyCallbackTests extends AbstractJupite
 		executeTestsForClass(testClass).testEvents()//
 				.assertStatistics(stats -> stats.started(1).succeeded(testsSuccessful));
 
-		assertEquals(asList(expectedCalls), callSequence, () -> "wrong call sequence for " + testClass.getName());
+		assertEquals(callSequence, asList(expectedCalls), () -> "wrong call sequence for " + testClass.getName());
 	}
 
 	// -------------------------------------------------------------------------

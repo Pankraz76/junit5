@@ -1,0 +1,32 @@
+name: Rewrite ♻️
+
+on:
+  push:
+    branches:
+      - main
+      - 'releases/**'
+    paths:
+      - '.github/**'
+  pull_request:
+    paths:
+      - '.github/**'
+
+permissions: {}
+
+jobs:
+  sanity-check:
+    name: Sanity Check 🕊
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        with:
+          persist-credentials: false
+
+      - name: rewriteDryRun
+        uses: ./.github/actions/run-gradle
+        with:
+          encryptionKey: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
+          arguments: rewriteDryRun -Dorg.gradle.jvmargs=-Xmx4G

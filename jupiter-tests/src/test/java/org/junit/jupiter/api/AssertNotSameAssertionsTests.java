@@ -39,7 +39,7 @@ class AssertNotSameAssertionsTests {
 
 	@Test
 	void assertNotSameWithObjectVsNull() {
-		assertNotSame(new Object(), null);
+		assertNotSame(null, new Object());
 	}
 
 	@Test
