@@ -23,7 +23,7 @@ import org.junit.jupiter.api.Test;
 class TestableAnnotationTests {
 
 	@Test
-	void testMethod() {
+	void method() {
 		assertNotNull(new TestableEverywhere().toString());
 	}
 

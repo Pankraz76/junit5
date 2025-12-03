@@ -29,7 +29,7 @@ import org.junit.platform.launcher.core.NamespacedHierarchicalStoreProviders;
 /**
  * @since  5.13
  */
-public class JupiterTestEngineTests {
+class JupiterTestEngineTests {
 
 	private final JupiterEngineDescriptor jupiterEngineDescriptor = mock();
 

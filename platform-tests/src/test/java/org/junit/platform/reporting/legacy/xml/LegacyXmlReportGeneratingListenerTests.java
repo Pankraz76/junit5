@@ -225,7 +225,7 @@ class LegacyXmlReportGeneratingListenerTests {
 	}
 
 	@Test
-	void testWithImmeasurableTimeIsOutputCorrectly() throws Exception {
+	void withImmeasurableTimeIsOutputCorrectly() throws Exception {
 		var engine = new DemoHierarchicalTestEngine("dummy");
 		engine.addTest("test", () -> {
 		});

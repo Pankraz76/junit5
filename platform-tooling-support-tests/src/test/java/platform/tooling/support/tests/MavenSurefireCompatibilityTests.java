@@ -38,7 +38,7 @@ class MavenSurefireCompatibilityTests {
 	LocalMavenRepo localMavenRepo;
 
 	@Test
-	void testMavenSurefireCompatibilityProject(@TempDir Path workspace, @FilePrefix("maven") OutputFiles outputFiles)
+	void mavenSurefireCompatibilityProject(@TempDir Path workspace, @FilePrefix("maven") OutputFiles outputFiles)
 			throws Exception {
 		var result = ProcessStarters.maven(Helper.getJavaHome(17).orElseThrow(TestAbortedException::new)) //
 				.workingDir(copyToWorkspace(Projects.MAVEN_SUREFIRE_COMPATIBILITY, workspace)) //

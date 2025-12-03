@@ -10,7 +10,6 @@
 
 package org.junit.jupiter.engine;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
@@ -28,7 +27,6 @@ class RecordTests extends AbstractJupiterTestEngineTests {
 
 		@Test
 		void succeedingTest() {
-			assertTrue(true);
 		}
 
 		@Test

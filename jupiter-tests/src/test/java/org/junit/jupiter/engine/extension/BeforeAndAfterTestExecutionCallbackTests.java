@@ -228,7 +228,7 @@ class BeforeAndAfterTestExecutionCallbackTests extends AbstractJupiterTestEngine
 	}
 
 	@Test
-	void testMethodThrowsAnException() {
+	void methodThrowsAnException() {
 		EngineExecutionResults executionResults = executeTestsForClass(ExceptionInTestMethodTestCase.class);
 
 		assertEquals(1, executionResults.testEvents().started().count(), "# tests started");
@@ -297,7 +297,7 @@ class BeforeAndAfterTestExecutionCallbackTests extends AbstractJupiterTestEngine
 		}
 
 		@Test
-		void testOuter() {
+		void outer() {
 			callSequence.add("testOuter");
 		}
 
@@ -316,7 +316,7 @@ class BeforeAndAfterTestExecutionCallbackTests extends AbstractJupiterTestEngine
 			}
 
 			@Test
-			void testInner() {
+			void inner() {
 				callSequence.add("testInner");
 			}
 

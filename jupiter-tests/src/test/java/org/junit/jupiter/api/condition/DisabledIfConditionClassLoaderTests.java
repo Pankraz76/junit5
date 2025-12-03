@@ -29,7 +29,7 @@ import org.junit.platform.commons.test.TestClassLoader;
  *
  * @since 5.10
  */
-public class DisabledIfConditionClassLoaderTests {
+class DisabledIfConditionClassLoaderTests {
 
 	@Test
 	// No need to introduce a "disabled" version of this test, since it would simply be the

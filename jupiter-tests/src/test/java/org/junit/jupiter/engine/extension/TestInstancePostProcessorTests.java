@@ -76,7 +76,7 @@ class TestInstancePostProcessorTests extends AbstractJupiterTestEngineTests {
 	}
 
 	@Test
-	void testSpecificTestInstancePostProcessorIsCalled() {
+	void specificTestInstancePostProcessorIsCalled() {
 		executeTestsForClass(TestCaseWithTestSpecificTestInstancePostProcessor.class).testEvents()//
 				.assertStatistics(stats -> stats.started(2).succeeded(2));
 
@@ -114,7 +114,7 @@ class TestInstancePostProcessorTests extends AbstractJupiterTestEngineTests {
 		}
 
 		@Test
-		void testOuter() {
+		void outer() {
 			assertEquals(
 				Map.of("foo", OuterTestCase.class.getSimpleName(), "legacy", OuterTestCase.class.getSimpleName()),
 				outerNames);
@@ -138,7 +138,7 @@ class TestInstancePostProcessorTests extends AbstractJupiterTestEngineTests {
 			}
 
 			@Test
-			void testInner() {
+			void inner() {
 				assertEquals(
 					Map.of("foo", InnerTestCase.class.getSimpleName(), "legacy", OuterTestCase.class.getSimpleName()),
 					outerNames);

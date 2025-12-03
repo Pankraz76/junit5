@@ -27,7 +27,7 @@ import org.junit.rules.Verifier;
  * @since 5.0
  */
 @SuppressWarnings("removal")
-public class AbstractTestRuleAdapterTests {
+class AbstractTestRuleAdapterTests {
 
 	@Test
 	void constructionWithAssignableArgumentsIsSuccessful() {

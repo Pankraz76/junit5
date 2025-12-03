@@ -262,7 +262,7 @@ class BeforeAndAfterEachTests extends AbstractJupiterTestEngineTests {
 	}
 
 	@Test
-	void testMethodThrowsAnException() {
+	void methodThrowsAnException() {
 		Events testEvents = executeTestsForClass(ExceptionInTestMethodTestCase.class).testEvents();
 
 		assertEquals(1, testEvents.started().count(), "# tests started");
@@ -329,7 +329,7 @@ class BeforeAndAfterEachTests extends AbstractJupiterTestEngineTests {
 		}
 
 		@Test
-		void testOuter() {
+		void outer() {
 			callSequence.add("testOuter");
 		}
 
@@ -348,7 +348,7 @@ class BeforeAndAfterEachTests extends AbstractJupiterTestEngineTests {
 			}
 
 			@Test
-			void testInner() {
+			void inner() {
 				callSequence.add("testInner");
 			}
 

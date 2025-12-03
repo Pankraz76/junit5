@@ -97,7 +97,7 @@ class TestInstancePostProcessorAndPreDestroyCallbackTests extends AbstractJupite
 	}
 
 	@Test
-	void testClassConstructorThrowsAnException() {
+	void classConstructorThrowsAnException() {
 		assertPostProcessorAndPreDestroyCallbacks(ExceptionInTestClassConstructorTestCase.class, 0,
 			"exceptionThrowingConstructor");
 	}

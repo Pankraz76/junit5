@@ -102,7 +102,7 @@ import org.opentest4j.TestAbortedException;
 /**
  * @since 5.13
  */
-public class ClassTemplateInvocationTests extends AbstractJupiterTestEngineTests {
+class ClassTemplateInvocationTests extends AbstractJupiterTestEngineTests {
 
 	@ParameterizedTest
 	@ValueSource(strings = { //
@@ -458,7 +458,7 @@ public class ClassTemplateInvocationTests extends AbstractJupiterTestEngineTests
 	}
 
 	@Test
-	void testTemplateInvocationInsideClassTemplateClassCanBeSelectedByUniqueId() {
+	void templateInvocationInsideClassTemplateClassCanBeSelectedByUniqueId() {
 		var engineId = UniqueId.forEngine(JupiterEngineDescriptor.ENGINE_ID);
 		var classTemplateId = engineId.append(ClassTemplateTestDescriptor.STANDALONE_CLASS_SEGMENT_TYPE,
 			CombinationWithTestTemplateTestCase.class.getName());

@@ -80,7 +80,7 @@ import org.mockito.ArgumentCaptor;
  *
  * @since 5.0
  */
-public class ExtensionContextTests {
+class ExtensionContextTests {
 
 	private static final ThrowingConsumer<Path> failingAction = __ -> fail("should not be called");
 

@@ -145,12 +145,10 @@ class StandardTestClassTests extends AbstractJupiterTestEngineTests {
 
 		@Test
 		void succeedingTest1() {
-			assertTrue(true);
 		}
 
 		@Test
 		void succeedingTest2() {
-			assertTrue(true);
 		}
 
 		@Test
@@ -160,20 +158,20 @@ class StandardTestClassTests extends AbstractJupiterTestEngineTests {
 
 		@Test
 		@DisplayName("Test aborted via the OTA's TestAbortedException")
-		void testAbortedOpenTest4J() {
+		void abortedOpenTest4J() {
 			throw new TestAbortedException("aborted!");
 		}
 
 		@Test
 		@DisplayName("Test aborted via JUnit 4's AssumptionViolatedException")
-		void testAbortedJUnit4() {
+		void abortedJUnit4() {
 			throw new org.junit.AssumptionViolatedException("aborted!");
 		}
 
 		@Test
 		@DisplayName("Test aborted via JUnit 4's legacy, deprecated AssumptionViolatedException")
 		@SuppressWarnings("deprecation")
-		void testAbortedJUnit4Legacy() {
+		void abortedJUnit4Legacy() {
 			throw new org.junit.internal.AssumptionViolatedException("aborted!");
 		}
 
@@ -184,12 +182,10 @@ class StandardTestClassTests extends AbstractJupiterTestEngineTests {
 
 		@Test
 		void succeedingTest1() {
-			assertTrue(true);
 		}
 
 		@Test
 		void succeedingTest2() {
-			assertTrue(true);
 		}
 
 		@Test
@@ -204,17 +200,14 @@ class StandardTestClassTests extends AbstractJupiterTestEngineTests {
 
 		@Test
 		void succeedingTest1() {
-			assertTrue(true);
 		}
 
 		@Test
 		void succeedingTest2() {
-			assertTrue(true);
 		}
 
 		@Test
 		void succeedingTest3() {
-			assertTrue(true);
 		}
 
 	}
