@@ -428,7 +428,7 @@ class DefaultClasspathScannerTests {
 	}
 
 	@Test
-	void resourcesCanBeRead() throws IOException {
+	void resourcesCanBeRead() throws Exception {
 		var thisResourceOnly = ResourceFilter.of(
 			resource -> "org/junit/platform/commons/example.resource".equals(resource.getName()));
 		var resources = classpathScanner.scanForResourcesInPackage("org.junit.platform.commons", thisResourceOnly);

@@ -13,6 +13,7 @@ package org.junit.jupiter.engine;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.platform.engine.discovery.ClassNameFilter.includeClassNamePatterns;
 import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass;
 import static org.junit.platform.engine.discovery.DiscoverySelectors.selectMethod;
@@ -31,7 +32,6 @@ import java.util.function.Consumer;
 import java.util.regex.Pattern;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Named;
 import org.junit.jupiter.api.Nested;
@@ -326,7 +326,7 @@ class NestedTestClassesTests extends AbstractJupiterTestEngineTests {
 
 			@Test
 			void failing() {
-				Assertions.fail("Something went horribly wrong");
+				fail("Something went horribly wrong");
 			}
 		}
 	}
@@ -375,7 +375,7 @@ class NestedTestClassesTests extends AbstractJupiterTestEngineTests {
 
 			@Test
 			void failing() {
-				Assertions.fail("Something went horribly wrong");
+				fail("Something went horribly wrong");
 			}
 
 			@Nested
@@ -397,7 +397,7 @@ class NestedTestClassesTests extends AbstractJupiterTestEngineTests {
 
 				@Test
 				void failing() {
-					Assertions.fail("Something went horribly wrong");
+					fail("Something went horribly wrong");
 				}
 			}
 		}
@@ -411,7 +411,7 @@ class NestedTestClassesTests extends AbstractJupiterTestEngineTests {
 
 			@Test
 			void notExecutedByImplementingClass() {
-				Assertions.fail("class in interface is static and should have been filtered out");
+				fail("class in interface is static and should have been filtered out");
 			}
 		}
 
@@ -428,7 +428,7 @@ class NestedTestClassesTests extends AbstractJupiterTestEngineTests {
 
 			@Test
 			void failing() {
-				Assertions.fail("something went wrong");
+				fail("something went wrong");
 			}
 
 			@Nested

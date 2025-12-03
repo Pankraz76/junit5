@@ -34,7 +34,7 @@ import org.junit.platform.launcher.core.LauncherDiscoveryResult.EngineResultInfo
 class ExecutionListenerAdapterTests {
 
 	@Test
-	void testReportingEntryPublished() {
+	void reportingEntryPublished() {
 		var testDescriptor = getSampleMethodTestDescriptor();
 
 		var discoveryResult = new LauncherDiscoveryResult(

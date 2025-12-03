@@ -652,7 +652,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 	static class UserTempDirectoryDeletionDoesNotCauseFailureTestCase {
 
 		@Test
-		void deleteTempDir(@TempDir Path tempDir) throws IOException {
+		void deleteTempDir(@TempDir Path tempDir) throws Exception {
 			Files.delete(tempDir);
 			assertThat(tempDir).doesNotExist();
 		}
@@ -664,7 +664,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 	static class NonWritableFileDoesNotCauseFailureTestCase {
 
 		@Test
-		void createReadonlyFile(@TempDir Path tempDir) throws IOException {
+		void createReadonlyFile(@TempDir Path tempDir) throws Exception {
 			// Removal of setWritable(false) files might fail (e.g. for Windows)
 			// The test verifies that @TempDir is capable of removing of such files
 			var path = Files.write(tempDir.resolve("test.txt"), new byte[0]);
@@ -679,7 +679,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 	static class ReadOnlyFileInReadOnlyDirDoesNotCauseFailureTestCase {
 
 		@Test
-		void createReadOnlyFileInReadOnlyDir(@TempDir File tempDir) throws IOException {
+		void createReadOnlyFileInReadOnlyDir(@TempDir File tempDir) throws Exception {
 			File file = tempDir.toPath().resolve("file").toFile();
 			assumeTrue(file.createNewFile());
 			assumeTrue(tempDir.setReadOnly());
@@ -693,7 +693,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 	static class ReadOnlyFileInDirInReadOnlyDirDoesNotCauseFailureTestCase {
 
 		@Test
-		void createReadOnlyFileInReadOnlyDir(@TempDir File tempDir) throws IOException {
+		void createReadOnlyFileInReadOnlyDir(@TempDir File tempDir) throws Exception {
 			File file = tempDir.toPath().resolve("dir").resolve("file").toFile();
 			assumeTrue(file.getParentFile().mkdirs());
 			assumeTrue(file.createNewFile());
@@ -709,75 +709,75 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 	static class NonMintPermissionContentInTempDirectoryDoesNotCauseFailureTestCase {
 
 		@Test
-		void createFile(@TempDir Path tempDir) throws IOException {
+		void createFile(@TempDir Path tempDir) throws Exception {
 			Files.createFile(tempDir.resolve("test-file.txt")).toFile();
 		}
 
 		@Test
-		void createFolder(@TempDir Path tempDir) throws IOException {
+		void createFolder(@TempDir Path tempDir) throws Exception {
 			Files.createFile(tempDir.resolve("test-file.txt")).toFile();
 		}
 
 		@Test
-		void createNonWritableFile(@TempDir Path tempDir) throws IOException {
+		void createNonWritableFile(@TempDir Path tempDir) throws Exception {
 			Files.createFile(tempDir.resolve("test-file.txt")).toFile().setWritable(false);
 		}
 
 		@Test
-		void createNonReadableFile(@TempDir Path tempDir) throws IOException {
+		void createNonReadableFile(@TempDir Path tempDir) throws Exception {
 			Files.createFile(tempDir.resolve("test-file.txt")).toFile().setReadable(false);
 		}
 
 		@Test
-		void createNonWritableDirectory(@TempDir Path tempDir) throws IOException {
+		void createNonWritableDirectory(@TempDir Path tempDir) throws Exception {
 			Files.createDirectory(tempDir.resolve("test-sub-dir")).toFile().setWritable(false);
 		}
 
 		@Test
-		void createNonReadableDirectory(@TempDir Path tempDir) throws IOException {
+		void createNonReadableDirectory(@TempDir Path tempDir) throws Exception {
 			Files.createDirectory(tempDir.resolve("test-sub-dir")).toFile().setReadable(false);
 		}
 
 		@Test
-		void createNonExecutableDirectory(@TempDir Path tempDir) throws IOException {
+		void createNonExecutableDirectory(@TempDir Path tempDir) throws Exception {
 			Files.createDirectory(tempDir.resolve("test-sub-dir")).toFile().setExecutable(false);
 		}
 
 		@Test
-		void createNonEmptyNonWritableDirectory(@TempDir Path tempDir) throws IOException {
+		void createNonEmptyNonWritableDirectory(@TempDir Path tempDir) throws Exception {
 			Path subDir = Files.createDirectory(tempDir.resolve("test-sub-dir"));
 			Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 			subDir.toFile().setWritable(false);
 		}
 
 		@Test
-		void createNonEmptyNonReadableDirectory(@TempDir Path tempDir) throws IOException {
+		void createNonEmptyNonReadableDirectory(@TempDir Path tempDir) throws Exception {
 			Path subDir = Files.createDirectory(tempDir.resolve("test-sub-dir"));
 			Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 			subDir.toFile().setReadable(false);
 		}
 
 		@Test
-		void createNonEmptyNonExecutableDirectory(@TempDir Path tempDir) throws IOException {
+		void createNonEmptyNonExecutableDirectory(@TempDir Path tempDir) throws Exception {
 			Path subDir = Files.createDirectory(tempDir.resolve("test-sub-dir"));
 			Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 			subDir.toFile().setExecutable(false);
 		}
 
 		@Test
-		void createNonEmptyDirectory(@TempDir Path tempDir) throws IOException {
+		void createNonEmptyDirectory(@TempDir Path tempDir) throws Exception {
 			Files.createDirectory(tempDir.resolve("test-sub-dir"));
 			Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 		}
 
 		@Test
-		void createNonEmptyDirectoryWithNonWritableFile(@TempDir Path tempDir) throws IOException {
+		void createNonEmptyDirectoryWithNonWritableFile(@TempDir Path tempDir) throws Exception {
 			Files.createDirectory(tempDir.resolve("test-sub-dir"));
 			Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt")).toFile().setWritable(false);
 		}
 
 		@Test
-		void createNonEmptyDirectoryWithNonReadableFile(@TempDir Path tempDir) throws IOException {
+		void createNonEmptyDirectoryWithNonReadableFile(@TempDir Path tempDir) throws Exception {
 			Files.createDirectory(tempDir.resolve("test-sub-dir"));
 			Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt")).toFile().setReadable(false);
 		}
@@ -796,49 +796,49 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 			}
 
 			@Test
-			void makeTempDirectoryWithFileNonWritable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithFileNonWritable(@TempDir Path tempDir) throws Exception {
 				Files.createFile(tempDir.resolve("test-file.txt"));
 				tempDir.toFile().setWritable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithEmptyFolderNonWritable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithEmptyFolderNonWritable(@TempDir Path tempDir) throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				tempDir.toFile().setWritable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonWritableFileNonWritable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonWritableFileNonWritable(@TempDir Path tempDir) throws Exception {
 				Files.createFile(tempDir.resolve("test-file.txt")).toFile().setWritable(false);
 				tempDir.toFile().setWritable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonReadableFileNonWritable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonReadableFileNonWritable(@TempDir Path tempDir) throws Exception {
 				Files.createFile(tempDir.resolve("test-file.txt")).toFile().setReadable(false);
 				tempDir.toFile().setWritable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonWritableFolderNonWritable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonWritableFolderNonWritable(@TempDir Path tempDir) throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir")).toFile().setWritable(false);
 				tempDir.toFile().setWritable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonReadableFolderNonWritable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonReadableFolderNonWritable(@TempDir Path tempDir) throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir")).toFile().setReadable(false);
 				tempDir.toFile().setWritable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonExecutableFolderNonWritable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonExecutableFolderNonWritable(@TempDir Path tempDir) throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir")).toFile().setExecutable(false);
 				tempDir.toFile().setWritable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonEmptyNonReadableFolderNonWritable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonEmptyNonReadableFolderNonWritable(@TempDir Path tempDir) throws Exception {
 				Path subDir = Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 				subDir.toFile().setReadable(false);
@@ -846,7 +846,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 			}
 
 			@Test
-			void makeTempDirectoryWithNonEmptyNonWritableFolderNonWritable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonEmptyNonWritableFolderNonWritable(@TempDir Path tempDir) throws Exception {
 				Path subDir = Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 				subDir.toFile().setWritable(false);
@@ -854,7 +854,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 			}
 
 			@Test
-			void makeTempDirectoryWithNonEmptyNonExecutableFolderNonWritable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonEmptyNonExecutableFolderNonWritable(@TempDir Path tempDir) throws Exception {
 				Path subDir = Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 				subDir.toFile().setExecutable(false);
@@ -862,7 +862,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 			}
 
 			@Test
-			void makeTempDirectoryWithNonEmptyFolderNonWritable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonEmptyFolderNonWritable(@TempDir Path tempDir) throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 				tempDir.toFile().setWritable(false);
@@ -870,7 +870,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 
 			@Test
 			void makeTempDirectoryWithNonEmptyFolderContainingNonWritableFileNonWritable(@TempDir Path tempDir)
-					throws IOException {
+					throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt")).toFile().setWritable(false);
 				tempDir.toFile().setWritable(false);
@@ -878,7 +878,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 
 			@Test
 			void makeTempDirectoryWithNonEmptyFolderContainingNonReadableFileNonWritable(@TempDir Path tempDir)
-					throws IOException {
+					throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt")).toFile().setReadable(false);
 				tempDir.toFile().setWritable(false);
@@ -894,49 +894,49 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 			}
 
 			@Test
-			void makeTempDirectoryWithFileNonReadable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithFileNonReadable(@TempDir Path tempDir) throws Exception {
 				Files.createFile(tempDir.resolve("test-file.txt"));
 				tempDir.toFile().setReadable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithEmptyFolderNonReadable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithEmptyFolderNonReadable(@TempDir Path tempDir) throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				tempDir.toFile().setReadable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonWritableFileNonReadable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonWritableFileNonReadable(@TempDir Path tempDir) throws Exception {
 				Files.createFile(tempDir.resolve("test-file.txt")).toFile().setWritable(false);
 				tempDir.toFile().setReadable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonReadableFileNonReadable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonReadableFileNonReadable(@TempDir Path tempDir) throws Exception {
 				Files.createFile(tempDir.resolve("test-file.txt")).toFile().setReadable(false);
 				tempDir.toFile().setReadable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonWritableFolderNonReadable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonWritableFolderNonReadable(@TempDir Path tempDir) throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir")).toFile().setWritable(false);
 				tempDir.toFile().setReadable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonReadableFolderNonReadable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonReadableFolderNonReadable(@TempDir Path tempDir) throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir")).toFile().setReadable(false);
 				tempDir.toFile().setReadable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonExecutableFolderNonReadable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonExecutableFolderNonReadable(@TempDir Path tempDir) throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir")).toFile().setExecutable(false);
 				tempDir.toFile().setReadable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonEmptyNonWritableFolderNonReadable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonEmptyNonWritableFolderNonReadable(@TempDir Path tempDir) throws Exception {
 				Path subDir = Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 				subDir.toFile().setWritable(false);
@@ -944,7 +944,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 			}
 
 			@Test
-			void makeTempDirectoryWithNonEmptyNonReadableFolderNonReadable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonEmptyNonReadableFolderNonReadable(@TempDir Path tempDir) throws Exception {
 				Path subDir = Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 				subDir.toFile().setReadable(false);
@@ -952,7 +952,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 			}
 
 			@Test
-			void makeTempDirectoryWithNonEmptyNonExecutableFolderNonReadable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonEmptyNonExecutableFolderNonReadable(@TempDir Path tempDir) throws Exception {
 				Path subDir = Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 				subDir.toFile().setExecutable(false);
@@ -960,7 +960,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 			}
 
 			@Test
-			void makeTempDirectoryWithNonEmptyFolderNonReadable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonEmptyFolderNonReadable(@TempDir Path tempDir) throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 				tempDir.toFile().setReadable(false);
@@ -968,7 +968,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 
 			@Test
 			void makeTempDirectoryWithNonEmptyFolderContainingNonWritableFileNonReadable(@TempDir Path tempDir)
-					throws IOException {
+					throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt")).toFile().setWritable(false);
 				tempDir.toFile().setReadable(false);
@@ -976,7 +976,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 
 			@Test
 			void makeTempDirectoryWithNonEmptyFolderContainingNonReadableFileNonReadable(@TempDir Path tempDir)
-					throws IOException {
+					throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt")).toFile().setReadable(false);
 				tempDir.toFile().setReadable(false);
@@ -992,49 +992,49 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 			}
 
 			@Test
-			void makeTempDirectoryWithFileNonExecutable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithFileNonExecutable(@TempDir Path tempDir) throws Exception {
 				Files.createFile(tempDir.resolve("test-file.txt"));
 				tempDir.toFile().setExecutable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithEmptyFolderNonExecutable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithEmptyFolderNonExecutable(@TempDir Path tempDir) throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				tempDir.toFile().setExecutable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonWritableFileNonExecutable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonWritableFileNonExecutable(@TempDir Path tempDir) throws Exception {
 				Files.createFile(tempDir.resolve("test-file.txt")).toFile().setWritable(false);
 				tempDir.toFile().setExecutable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonReadableFileNonExecutable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonReadableFileNonExecutable(@TempDir Path tempDir) throws Exception {
 				Files.createFile(tempDir.resolve("test-file.txt")).toFile().setReadable(false);
 				tempDir.toFile().setExecutable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonWritableFolderNonExecutable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonWritableFolderNonExecutable(@TempDir Path tempDir) throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir")).toFile().setWritable(false);
 				tempDir.toFile().setExecutable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonReadableFolderNonExecutable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonReadableFolderNonExecutable(@TempDir Path tempDir) throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir")).toFile().setReadable(false);
 				tempDir.toFile().setExecutable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonExecutableFolderNonExecutable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonExecutableFolderNonExecutable(@TempDir Path tempDir) throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir")).toFile().setExecutable(false);
 				tempDir.toFile().setExecutable(false);
 			}
 
 			@Test
-			void makeTempDirectoryWithNonEmptyNonWritableFolderNonExecutable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonEmptyNonWritableFolderNonExecutable(@TempDir Path tempDir) throws Exception {
 				Path subDir = Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 				subDir.toFile().setWritable(false);
@@ -1042,7 +1042,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 			}
 
 			@Test
-			void makeTempDirectoryWithNonEmptyNonReadableFolderNonExecutable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonEmptyNonReadableFolderNonExecutable(@TempDir Path tempDir) throws Exception {
 				Path subDir = Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 				subDir.toFile().setReadable(false);
@@ -1050,8 +1050,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 			}
 
 			@Test
-			void makeTempDirectoryWithNonEmptyNonExecutableFolderNonExecutable(@TempDir Path tempDir)
-					throws IOException {
+			void makeTempDirectoryWithNonEmptyNonExecutableFolderNonExecutable(@TempDir Path tempDir) throws Exception {
 				Path subDir = Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 				subDir.toFile().setExecutable(false);
@@ -1059,7 +1058,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 			}
 
 			@Test
-			void makeTempDirectoryWithNonEmptyFolderNonExecutable(@TempDir Path tempDir) throws IOException {
+			void makeTempDirectoryWithNonEmptyFolderNonExecutable(@TempDir Path tempDir) throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 				tempDir.toFile().setExecutable(false);
@@ -1067,7 +1066,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 
 			@Test
 			void makeTempDirectoryWithNonEmptyFolderContainingNonWritableFileNonExecutable(@TempDir Path tempDir)
-					throws IOException {
+					throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt")).toFile().setWritable(false);
 				tempDir.toFile().setExecutable(false);
@@ -1075,7 +1074,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 
 			@Test
 			void makeTempDirectoryWithNonEmptyFolderContainingNonReadableFileNonExecutable(@TempDir Path tempDir)
-					throws IOException {
+					throws Exception {
 				Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt")).toFile().setReadable(false);
 				tempDir.toFile().setExecutable(false);
@@ -1196,7 +1195,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 
 		@Test
 		@DisplayName("testA")
-		void testA(@TempDir Path param1, @TempDir Path param2, TestInfo testInfo) {
+		void a(@TempDir Path param1, @TempDir Path param2, TestInfo testInfo) {
 			getTempDirs(testInfo).putAll(Map.of( //
 				"test1", param1, //
 				"test2", param2 //
@@ -1206,7 +1205,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 
 		@Test
 		@DisplayName("testB")
-		void testB(@TempDir Path param1, @TempDir Path param2, TestInfo testInfo) {
+		void b(@TempDir Path param1, @TempDir Path param2, TestInfo testInfo) {
 			getTempDirs(testInfo).putAll(Map.of( //
 				"test1", param1, //
 				"test2", param2 //

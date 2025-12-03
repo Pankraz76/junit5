@@ -63,7 +63,7 @@ class TestInstancePreDestroyCallbackTests extends AbstractJupiterTestEngineTests
 	}
 
 	@Test
-	void testSpecificTestInstancePreDestroyCallbackIsCalled() {
+	void specificTestInstancePreDestroyCallbackIsCalled() {
 		executeTestsForClass(TestCaseWithTestSpecificTestInstancePreDestroyCallback.class).testEvents()//
 				.assertStatistics(stats -> stats.started(1).succeeded(1));
 
@@ -114,7 +114,7 @@ class TestInstancePreDestroyCallbackTests extends AbstractJupiterTestEngineTests
 		}
 
 		@Test
-		void testOuter() {
+		void outer() {
 			assertFalse(destroyed);
 			callSequence.add("testOuter");
 		}
@@ -131,7 +131,7 @@ class TestInstancePreDestroyCallbackTests extends AbstractJupiterTestEngineTests
 			}
 
 			@Test
-			void testInner() {
+			void inner() {
 				callSequence.add("testInner");
 			}
 		}

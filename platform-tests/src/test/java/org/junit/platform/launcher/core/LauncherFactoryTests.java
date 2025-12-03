@@ -71,7 +71,7 @@ class LauncherFactoryTests {
 	}
 
 	@Test
-	void testExecutionListenerIsLoadedViaServiceApi() {
+	void executionListenerIsLoadedViaServiceApi() {
 		withTestServices(() -> {
 			var config = LauncherConfig.builder() //
 					.addTestEngines(new TestEngineSpy()) //
@@ -88,7 +88,7 @@ class LauncherFactoryTests {
 	}
 
 	@Test
-	void testExecutionListenersExcludedViaConfigParametersIsNotLoadedViaServiceApi(
+	void executionListenersExcludedViaConfigParametersIsNotLoadedViaServiceApi(
 			@TrackLogRecords LogRecordListener listener) {
 		withTestServices(() -> {
 			var value = "org.junit.*.launcher.listeners.Unused*,org.junit.*.launcher.listeners.AnotherUnused*";
@@ -483,7 +483,7 @@ class LauncherFactoryTests {
 
 		@Tag("test-post-discovery")
 		@Test
-		void testJ5() {
+		void j5() {
 		}
 	}
 

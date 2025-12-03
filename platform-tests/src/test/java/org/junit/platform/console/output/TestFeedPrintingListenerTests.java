@@ -30,7 +30,7 @@ import org.junit.platform.launcher.TestIdentifier;
 import org.junit.platform.launcher.TestPlan;
 import org.opentest4j.TestAbortedException;
 
-public class TestFeedPrintingListenerTests {
+class TestFeedPrintingListenerTests {
 
 	TestPlan testPlan;
 	TestIdentifier testIdentifier;
@@ -52,7 +52,7 @@ public class TestFeedPrintingListenerTests {
 	}
 
 	@Test
-	public void testExecutionSkipped() {
+	void executionSkipped() {
 		listener.executionSkipped(testIdentifier, "Test disabled");
 		assertLinesMatch( //
 			"""
@@ -64,7 +64,7 @@ public class TestFeedPrintingListenerTests {
 	}
 
 	@Test
-	public void testExecutionFailed() {
+	void executionFailed() {
 		listener.executionFinished(testIdentifier, TestExecutionResult.failed(new AssertionError("Boom!")));
 		assertLinesMatch( //
 			"""
@@ -77,7 +77,7 @@ public class TestFeedPrintingListenerTests {
 	}
 
 	@Test
-	public void testExecutionAborted() {
+	void executionAborted() {
 		listener.executionFinished(testIdentifier, TestExecutionResult.aborted(new TestAbortedException("Boom!")));
 		assertLinesMatch( //
 			"""
@@ -90,13 +90,13 @@ public class TestFeedPrintingListenerTests {
 	}
 
 	@Test
-	public void testExecutionSucceeded() {
+	void executionSucceeded() {
 		listener.executionFinished(testIdentifier, TestExecutionResult.successful());
 		assertLinesMatch(Stream.of("Demo Engine > %c ool test :: SUCCESSFUL"), actualLines());
 	}
 
 	@Test
-	public void testExecutionFailedOfContainer() {
+	void executionFailedOfContainer() {
 		var engineIdentifier = getOnlyElement(testPlan.getRoots());
 		listener.executionFinished(engineIdentifier, TestExecutionResult.failed(new AssertionError("Boom!")));
 		assertLinesMatch( //

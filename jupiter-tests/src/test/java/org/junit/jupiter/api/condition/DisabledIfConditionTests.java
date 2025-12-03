@@ -21,7 +21,7 @@ import org.junit.jupiter.api.extension.ExecutionCondition;
  *
  * @since 5.7
  */
-public class DisabledIfConditionTests extends AbstractExecutionConditionTests {
+class DisabledIfConditionTests extends AbstractExecutionConditionTests {
 
 	@Override
 	protected ExecutionCondition getExecutionCondition() {
