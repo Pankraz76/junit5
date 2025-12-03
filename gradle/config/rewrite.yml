@@ -10,6 +10,6 @@ tags:
   - cleanup
 recipeList:
   - org.openrewrite.java.testing.junit.JupiterBestPractices
-  # - org.openrewrite.staticanalysis.CodeCleanup
-  # - org.openrewrite.staticanalysis.CommonStaticAnalysis
+  - org.openrewrite.staticanalysis.CodeCleanup
+  - org.openrewrite.staticanalysis.CommonStaticAnalysis
 ---
