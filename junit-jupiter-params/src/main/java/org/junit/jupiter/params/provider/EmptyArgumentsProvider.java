@@ -11,7 +11,6 @@
 package org.junit.jupiter.params.provider;
 
 import static org.junit.jupiter.params.provider.Arguments.arguments;
-import static org.junit.platform.commons.util.ReflectionUtils.newInstance;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
@@ -26,12 +25,12 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.stream.Stream;
-
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.support.ParameterDeclaration;
 import org.junit.jupiter.params.support.ParameterDeclarations;
 import org.junit.platform.commons.PreconditionViolationException;
 import org.junit.platform.commons.util.Preconditions;
+import org.junit.platform.commons.util.ReflectionUtils;
 
 /**
  * @since 5.4
@@ -80,7 +79,7 @@ class EmptyArgumentsProvider implements ArgumentsProvider {
 		if (Collection.class.isAssignableFrom(parameterType) || Map.class.isAssignableFrom(parameterType)) {
 			Optional<Constructor<?>> defaultConstructor = getDefaultConstructor(parameterType);
 			if (defaultConstructor.isPresent()) {
-				return Stream.of(arguments(newInstance(defaultConstructor.get())));
+				return Stream.of(arguments(ReflectionUtils.newInstance(defaultConstructor.get())));
 			}
 		}
 		if (parameterType.isArray()) {

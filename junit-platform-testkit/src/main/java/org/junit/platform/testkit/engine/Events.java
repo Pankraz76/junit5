@@ -10,7 +10,6 @@
 
 package org.junit.platform.testkit.engine;
 
-import static java.util.Collections.sort;
 import static java.util.function.Predicate.isEqual;
 import static org.apiguardian.api.API.Status.MAINTAINED;
 import static org.junit.platform.commons.util.FunctionUtils.where;
@@ -22,6 +21,7 @@ import java.io.PrintWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -29,7 +29,6 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
-
 import org.apiguardian.api.API;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.api.Condition;
@@ -457,7 +456,7 @@ public final class Events {
 
 	private static boolean isNotInIncreasingOrder(List<Integer> indices) {
 		List<Integer> copy = new ArrayList<>(indices);
-		sort(copy);
+		Collections.sort(copy);
 
 		return !indices.equals(copy);
 	}
