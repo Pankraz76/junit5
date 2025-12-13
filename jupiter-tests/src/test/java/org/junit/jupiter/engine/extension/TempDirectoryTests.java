@@ -1050,8 +1050,7 @@ class TempDirectoryTests extends AbstractJupiterTestEngineTests {
 			}
 
 			@Test
-			void makeTempDirectoryWithNonEmptyNonExecutableFolderNonExecutable(@TempDir Path tempDir)
-					throws Exception {
+			void makeTempDirectoryWithNonEmptyNonExecutableFolderNonExecutable(@TempDir Path tempDir) throws Exception {
 				Path subDir = Files.createDirectory(tempDir.resolve("test-sub-dir"));
 				Files.createFile(tempDir.resolve("test-sub-dir/test-file.txt"));
 				subDir.toFile().setExecutable(false);

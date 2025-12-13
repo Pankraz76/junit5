@@ -110,8 +110,7 @@ class AnnotationConsumerInitializerTests {
 
 	@ParameterizedTest
 	@FieldSource("argumentsProviders")
-	void shouldInitializeForEachAnnotations(AbstractAnnotationBasedArgumentsProvider provider)
-			throws Exception {
+	void shouldInitializeForEachAnnotations(AbstractAnnotationBasedArgumentsProvider provider) throws Exception {
 		var instance = spy(provider);
 		var method = SubjectClass.class.getDeclaredMethod("repeatableAnnotation", String.class);
 
@@ -181,7 +180,7 @@ class AnnotationConsumerInitializerTests {
 	private static class SubjectClass {
 
 		@ParameterizedTest
-		@CsvSource({"a", "b"})
+		@CsvSource({ "a", "b" })
 		void foo() {
 		}
 

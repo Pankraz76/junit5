@@ -12,7 +12,6 @@ package org.junit.jupiter.jmh;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
 import org.junit.Assert;
 import org.openjdk.jmh.annotations.Benchmark;
 
