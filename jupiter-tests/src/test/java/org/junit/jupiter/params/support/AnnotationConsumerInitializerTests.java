@@ -192,8 +192,8 @@ class AnnotationConsumerInitializerTests {
 		}
 
 		@ParameterizedTest
-		@ValueSource(strings = "a")
-		@CsvSource("b")
+		@ValueSource(strings = "b")
+		@ValueSource(strings = "b")
 		void repeatableAnnotation(String param) {
 		}
 	}
