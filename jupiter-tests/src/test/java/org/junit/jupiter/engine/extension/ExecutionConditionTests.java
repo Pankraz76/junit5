@@ -50,12 +50,12 @@ class ExecutionConditionTests extends AbstractJupiterTestEngineTests {
 	private static final String DEACTIVATE = "*AnotherAlwaysDisable*, org.junit.jupiter.engine.extension.sub.AlwaysDisable*";
 
 	@BeforeEach
-	public void setUp() {
+	void setUp() {
 		System.setProperty(FOO, BAR);
 	}
 
 	@AfterEach
-	public void tearDown() {
+	void tearDown() {
 		System.clearProperty(FOO);
 	}
 

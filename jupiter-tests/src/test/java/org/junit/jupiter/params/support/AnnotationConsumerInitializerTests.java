@@ -39,6 +39,7 @@ import org.junit.jupiter.params.provider.AnnotationBasedArgumentsProvider;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.FieldSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.junit.platform.commons.JUnitException;
 
 @DisplayName("AnnotationConsumerInitializer")
@@ -46,7 +47,7 @@ class AnnotationConsumerInitializerTests {
 
 	@Test
 	@DisplayName("should initialize annotation consumer")
-	void shouldInitializeAnnotationConsumer() throws NoSuchMethodException {
+	void shouldInitializeAnnotationConsumer() throws Exception {
 		var instance = new SomeAnnotationConsumer();
 		var method = SubjectClass.class.getDeclaredMethod("foo");
 		var initialisedAnnotationConsumer = initialize(method, instance);
@@ -60,7 +61,7 @@ class AnnotationConsumerInitializerTests {
 	@FieldSource("argumentsProviders")
 	@DisplayName("should initialize annotation-based ArgumentsProvider")
 	void shouldInitializeAnnotationBasedArgumentsProvider(AbstractAnnotationBasedArgumentsProvider instance)
-			throws NoSuchMethodException {
+			throws Exception {
 		var method = SubjectClass.class.getDeclaredMethod("foo");
 		var initialisedAnnotationConsumer = initialize(method, instance);
 
@@ -75,7 +76,7 @@ class AnnotationConsumerInitializerTests {
 
 	@Test
 	@DisplayName("should initialize annotation-based ArgumentConverter")
-	void shouldInitializeAnnotationBasedArgumentConverter() throws NoSuchMethodException {
+	void shouldInitializeAnnotationBasedArgumentConverter() throws Exception {
 		var instance = new SomeAnnotationBasedArgumentConverter();
 		var parameter = SubjectClass.class.getDeclaredMethod("bar", LocalDate.class).getParameters()[0];
 		var initialisedAnnotationConsumer = initialize(parameter, instance);
@@ -91,7 +92,7 @@ class AnnotationConsumerInitializerTests {
 
 	@Test
 	@DisplayName("should throw exception when method is not annotated")
-	void shouldThrowExceptionWhenMethodIsNotAnnotated() throws NoSuchMethodException {
+	void shouldThrowExceptionWhenMethodIsNotAnnotated() throws Exception {
 		var instance = new SomeAnnotationConsumer();
 		var method = SubjectClass.class.getDeclaredMethod("noAnnotation", String.class);
 
@@ -100,7 +101,7 @@ class AnnotationConsumerInitializerTests {
 
 	@Test
 	@DisplayName("should throw exception when parameter is not annotated")
-	void shouldThrowExceptionWhenParameterIsNotAnnotated() throws NoSuchMethodException {
+	void shouldThrowExceptionWhenParameterIsNotAnnotated() throws Exception {
 		var instance = new SomeAnnotationConsumer();
 		var parameter = SubjectClass.class.getDeclaredMethod("noAnnotation", String.class).getParameters()[0];
 
@@ -109,8 +110,7 @@ class AnnotationConsumerInitializerTests {
 
 	@ParameterizedTest
 	@FieldSource("argumentsProviders")
-	void shouldInitializeForEachAnnotations(AbstractAnnotationBasedArgumentsProvider provider)
-			throws NoSuchMethodException {
+	void shouldInitializeForEachAnnotations(AbstractAnnotationBasedArgumentsProvider provider) throws Exception {
 		var instance = spy(provider);
 		var method = SubjectClass.class.getDeclaredMethod("repeatableAnnotation", String.class);
 
@@ -179,6 +179,7 @@ class AnnotationConsumerInitializerTests {
 	@SuppressWarnings("unused")
 	private static class SubjectClass {
 
+		@ParameterizedTest
 		@CsvSource({ "a", "b" })
 		void foo() {
 		}
@@ -189,8 +190,9 @@ class AnnotationConsumerInitializerTests {
 		void noAnnotation(String param) {
 		}
 
-		@CsvSource("a")
-		@CsvSource("b")
+		@ParameterizedTest
+		@ValueSource(strings = "b")
+		@ValueSource(strings = "b")
 		void repeatableAnnotation(String param) {
 		}
 	}

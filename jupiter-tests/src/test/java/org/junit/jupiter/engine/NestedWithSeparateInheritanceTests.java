@@ -34,7 +34,7 @@ class NestedWithSeparateInheritanceTests extends SuperClass1 {
 	class NestedClass extends SuperClass2 {
 
 		@Test
-		public void test() {
+		void test() {
 			assertThat(lifecycleInvokingClassNames).containsExactly(OUTER, NESTED);
 		}
 
@@ -42,7 +42,7 @@ class NestedWithSeparateInheritanceTests extends SuperClass1 {
 		class NestedNestedClass extends SuperClass3 {
 
 			@Test
-			public void test() {
+			void test() {
 				assertThat(lifecycleInvokingClassNames).containsExactly(OUTER, NESTED, NESTEDNESTED);
 			}
 		}
@@ -59,7 +59,7 @@ class SuperClass1 {
 	}
 
 	@BeforeEach
-	public void beforeEach() {
+	void beforeEach() {
 		String invokingClass = this.getClass().getSimpleName();
 		requireNonNull(NestedWithSeparateInheritanceTests.lifecycleInvokingClassNames).add(invokingClass);
 	}
@@ -74,7 +74,7 @@ class SuperClass2 {
 	}
 
 	@BeforeEach
-	public void beforeEach() {
+	void beforeEach() {
 		String invokingClass = this.getClass().getSimpleName();
 		requireNonNull(NestedWithSeparateInheritanceTests.lifecycleInvokingClassNames).add(invokingClass);
 	}
@@ -89,7 +89,7 @@ class SuperClass3 {
 	}
 
 	@BeforeEach
-	public void beforeEach() {
+	void beforeEach() {
 		String invokingClass = this.getClass().getSimpleName();
 		requireNonNull(NestedWithSeparateInheritanceTests.lifecycleInvokingClassNames).add(invokingClass);
 	}

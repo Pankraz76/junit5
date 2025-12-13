@@ -112,7 +112,7 @@ import org.junit.platform.testkit.engine.Event;
 import org.junit.platform.testkit.engine.Events;
 
 @SuppressWarnings("JUnitMalformedDeclaration")
-public class ParameterizedClassIntegrationTests extends AbstractJupiterTestEngineTests {
+class ParameterizedClassIntegrationTests extends AbstractJupiterTestEngineTests {
 
 	@ParameterizedTest
 	@ValueSource(classes = { ConstructorInjectionTestCase.class, RecordTestCase.class,

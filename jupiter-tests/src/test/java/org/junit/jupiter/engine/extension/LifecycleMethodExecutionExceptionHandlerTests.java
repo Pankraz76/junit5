@@ -93,7 +93,7 @@ class LifecycleMethodExecutionExceptionHandlerTests extends AbstractJupiterTestE
 	}
 
 	@Test
-	void testLevelExceptionHandlersRethrowException() {
+	void levelExceptionHandlersRethrowException() {
 		throwExceptionBeforeAll = false;
 		throwExceptionAfterAll = false;
 		LauncherDiscoveryRequest request = request().selectors(selectClass(RethrowingTestCase.class)).build();
@@ -129,7 +129,7 @@ class LifecycleMethodExecutionExceptionHandlerTests extends AbstractJupiterTestE
 	}
 
 	@Test
-	void testLevelExceptionHandlersConvertException() {
+	void levelExceptionHandlersConvertException() {
 		throwExceptionBeforeAll = false;
 		throwExceptionAfterAll = false;
 		LauncherDiscoveryRequest request = request().selectors(selectClass(ConvertingTestCase.class)).build();

@@ -29,7 +29,7 @@ import org.junit.jupiter.engine.AbstractJupiterTestEngineTests;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-public class TestInstancePreDestroyCallbackUtilityMethodTests extends AbstractJupiterTestEngineTests {
+class TestInstancePreDestroyCallbackUtilityMethodTests extends AbstractJupiterTestEngineTests {
 
 	@ParameterizedTest(name = "{0}")
 	@ValueSource(classes = { PerMethodLifecycleOnAllLevels.class, PerMethodWithinPerClassLifecycle.class,

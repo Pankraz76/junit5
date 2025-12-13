@@ -96,7 +96,7 @@ class ExecutionListenerAdapterTests {
 	}
 
 	@Test
-	void testReportingEntryPublished() {
+	void reportingEntryPublished() {
 		var executionListenerAdapter = new ExecutionListenerAdapter(testPlan, testExecutionListener);
 		var entry = ReportEntry.from("one", "two");
 

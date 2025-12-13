@@ -25,7 +25,7 @@ import org.junit.platform.testkit.engine.EngineExecutionResults;
 class FailedAssumptionsTests extends AbstractJupiterTestEngineTests {
 
 	@Test
-	void testAbortedExceptionInBeforeAll() {
+	void abortedExceptionInBeforeAll() {
 		EngineExecutionResults results = executeTestsForClass(TestAbortedExceptionInBeforeAllTestCase.class);
 
 		results.containerEvents().assertStatistics(stats -> stats.aborted(1));

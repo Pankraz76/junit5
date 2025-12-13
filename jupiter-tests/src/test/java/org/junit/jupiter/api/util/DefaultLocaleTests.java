@@ -54,7 +54,7 @@ class DefaultLocaleTests extends AbstractJupiterTestEngineTests {
 		@Test
 		@ReadsDefaultLocale
 		@DisplayName("does nothing when annotation is not present")
-		void testDefaultLocaleNoAnnotation() {
+		void defaultLocaleNoAnnotation() {
 			assertThat(Locale.getDefault()).isEqualTo(TEST_DEFAULT_LOCALE);
 		}
 

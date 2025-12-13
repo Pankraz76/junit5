@@ -296,7 +296,7 @@ class ResourceLockAnnotationTests extends AbstractJupiterTestEngineTests {
 
 	@ParameterizedTest
 	@MethodSource("testMethodsCanNotDeclareSharedResourcesForChildrenArguments")
-	void testMethodsCanNotDeclareSharedResourcesForChildren(Class<?> testClass) {
+	void methodsCanNotDeclareSharedResourcesForChildren(Class<?> testClass) {
 		var messageTemplate = "'ResourceLockTarget.CHILDREN' is not supported for methods. Invalid method: %s";
 		assertThrowsJunitExceptionWithMessage( //
 			testClass, //

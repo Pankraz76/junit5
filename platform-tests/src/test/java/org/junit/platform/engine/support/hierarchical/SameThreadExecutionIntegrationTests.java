@@ -63,7 +63,7 @@ class SameThreadExecutionIntegrationTests {
 		}
 
 		@Test
-		void test2() throws InterruptedException {
+		void test2() throws Exception {
 			Thread.sleep(10);
 		}
 
@@ -73,7 +73,7 @@ class SameThreadExecutionIntegrationTests {
 		}
 
 		@Test
-		void test4() throws InterruptedException {
+		void test4() throws Exception {
 			Thread.sleep(10);
 		}
 

@@ -26,7 +26,7 @@ import org.junit.platform.engine.support.descriptor.ClassSource;
 import org.junit.platform.engine.support.descriptor.EngineDescriptor;
 import org.junit.platform.launcher.LauncherDiscoveryListener;
 
-public class EngineDiscoveryRequestResolverTests {
+class EngineDiscoveryRequestResolverTests {
 
 	@Test
 	void allowsSelectorResolversToReportDiscoveryIssues() {

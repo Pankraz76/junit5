@@ -114,7 +114,7 @@ record ForkJoinDeadLockTests(ParallelExecutorServiceType executorServiceType) {
 	}
 
 	@SuppressWarnings("JUnitMalformedDeclaration")
-	public static class SharedResourceTestCase {
+	static class SharedResourceTestCase {
 
 		@Test
 		@ResourceLock(value = SYSTEM_PROPERTIES, mode = READ)
@@ -134,7 +134,7 @@ record ForkJoinDeadLockTests(ParallelExecutorServiceType executorServiceType) {
 
 	@SuppressWarnings("JUnitMalformedDeclaration")
 	@ResourceLock(value = "foo", mode = READ_WRITE)
-	public static class ClassLevelTestCase {
+	static class ClassLevelTestCase {
 
 		@Test
 		@ResourceLock(value = SYSTEM_PROPERTIES, mode = READ)

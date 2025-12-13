@@ -18,7 +18,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 
 import org.junit.platform.commons.PreconditionViolationException;
@@ -83,7 +82,7 @@ class AssertionFailureBuilderTest {
 	}
 
 	@Test
-	void canTrimToEmptyStacktrace() throws ExecutionException, InterruptedException {
+	void canTrimToEmptyStacktrace() throws Exception {
 		try (ExecutorService service = newSingleThreadExecutor()) {
 			// Ensure that the stacktrace starts at Thread.
 			var error = service.submit(() -> AssertionsFacade.failWithTrimmedStacktrace(Thread.class, 0)).get();
