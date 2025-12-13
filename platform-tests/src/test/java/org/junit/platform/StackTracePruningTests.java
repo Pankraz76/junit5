@@ -11,7 +11,9 @@
 package org.junit.platform;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertLinesMatch;
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.platform.engine.discovery.DiscoverySelectors.selectMethod;
 
 import java.util.Arrays;
@@ -195,12 +197,12 @@ class StackTracePruningTests {
 
 		@Test
 		void failingAssertion() {
-			Assertions.fail();
+			fail();
 		}
 
 		@Test
 		void multipleFailingAssertions() {
-			Assertions.assertAll(Assertions::fail, Assertions::fail);
+			assertAll(Assertions::fail, Assertions::fail);
 		}
 
 		@Test
@@ -217,7 +219,7 @@ class StackTracePruningTests {
 
 		@BeforeEach
 		void setUp() {
-			Assertions.fail();
+			fail();
 		}
 
 		@Test

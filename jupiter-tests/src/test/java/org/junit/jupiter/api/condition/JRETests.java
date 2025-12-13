@@ -29,7 +29,7 @@ import org.junit.jupiter.api.Test;
  *
  * @since 5.7
  */
-public class JRETests {
+class JRETests {
 
 	private static final JRE CURRENT_JRE = JRE.currentJre();
 

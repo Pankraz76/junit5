@@ -192,7 +192,7 @@ class SummaryGenerationTests {
 	}
 
 	@Test
-	public void reportingCircularFailure() {
+	void reportingCircularFailure() {
 		var iaeCausedBy = new IllegalArgumentException("Illegal Argument Exception");
 		var failedException = new RuntimeException("Runtime Exception", iaeCausedBy);
 		var npeSuppressed = new NullPointerException("Null Pointer Exception");

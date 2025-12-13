@@ -24,7 +24,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.engine.AbstractJupiterTestEngineTests;
 
-public class CloseableResourceIntegrationTests extends AbstractJupiterTestEngineTests {
+class CloseableResourceIntegrationTests extends AbstractJupiterTestEngineTests {
 
 	@Test
 	void closesCloseableResourcesInReverseInsertOrder() {

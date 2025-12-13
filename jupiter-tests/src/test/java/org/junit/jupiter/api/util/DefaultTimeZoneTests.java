@@ -134,7 +134,7 @@ class DefaultTimeZoneTests extends AbstractJupiterTestEngineTests {
 			@Test
 			@ReadsDefaultTimeZone
 			@DisplayName("DefaultTimeZone should be set from enclosed class when it is not provided in nested")
-			public void shouldSetTimeZoneFromEnclosedClass() {
+			void shouldSetTimeZoneFromEnclosedClass() {
 				assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("GMT-8:00"));
 			}
 
@@ -148,14 +148,14 @@ class DefaultTimeZoneTests extends AbstractJupiterTestEngineTests {
 			@Test
 			@ReadsDefaultTimeZone
 			@DisplayName("DefaultTimeZone should be set from nested class when it is provided")
-			public void shouldSetTimeZoneFromNestedClass() {
+			void shouldSetTimeZoneFromNestedClass() {
 				assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("GMT-12:00"));
 			}
 
 			@Test
 			@DefaultTimeZone("GMT-6:00")
 			@DisplayName("DefaultTimeZone should be set from method when it is provided")
-			public void shouldSetTimeZoneFromMethodOfNestedClass() {
+			void shouldSetTimeZoneFromMethodOfNestedClass() {
 				assertThat(TimeZone.getDefault()).isEqualTo(TimeZone.getTimeZone("GMT-6:00"));
 			}
 

@@ -38,7 +38,7 @@ public class WrongExtendWithForVerifierMethodTests {
 	}
 
 	@Test
-	void testNothing() {
+	void nothing() {
 		//needed to start the test process at all
 	}
 

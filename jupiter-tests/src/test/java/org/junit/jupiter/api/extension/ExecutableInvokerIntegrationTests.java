@@ -23,7 +23,7 @@ import org.junit.platform.testkit.engine.EngineExecutionResults;
 /**
  * @since 5.9
  */
-public class ExecutableInvokerIntegrationTests extends AbstractJupiterTestEngineTests {
+class ExecutableInvokerIntegrationTests extends AbstractJupiterTestEngineTests {
 
 	@Test
 	void invokeConstructorViaExtensionContext() {
@@ -49,7 +49,7 @@ public class ExecutableInvokerIntegrationTests extends AbstractJupiterTestEngine
 
 		@SuppressWarnings("JUnitMalformedDeclaration")
 		@Test
-		void testWithResolvedParameter(TestInfo testInfo,
+		void withResolvedParameter(TestInfo testInfo,
 				@ExtendWith(ExtensionContextParameterResolver.class) ExtensionContext extensionContext) {
 			assertNotNull(testInfo);
 			assertEquals(testInfo.getTestMethod().orElseThrow(), extensionContext.getRequiredTestMethod());

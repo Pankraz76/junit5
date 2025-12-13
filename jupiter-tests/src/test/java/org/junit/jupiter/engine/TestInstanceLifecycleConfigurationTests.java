@@ -138,7 +138,7 @@ class TestInstanceLifecycleConfigurationTests extends AbstractJupiterTestEngineT
 		executionResults.testEvents().assertStatistics(//
 			stats -> stats.started(numTests).finished(numTests));
 
-		assertEquals(Arrays.asList(methods), methodsInvoked);
+		assertEquals(methodsInvoked, Arrays.asList(methods));
 	}
 
 	// -------------------------------------------------------------------------

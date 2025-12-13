@@ -129,7 +129,7 @@ class CloseablePathTests extends AbstractJupiterTestEngineTests {
 		@DisplayName("succeeds if the factory returns a directory")
 		@ParameterizedTest
 		@ElementTypeSource
-		void factoryReturnsDirectoryDynamic(Class<?> elementType) throws IOException {
+		void factoryReturnsDirectoryDynamic(Class<?> elementType) throws Exception {
 			TempDirFactory factory = (elementContext, extensionContext) -> createDirectory(root.resolve("directory"));
 
 			closeablePath = TempDirectory.createTempDir(factory, DEFAULT, elementType, elementContext,
@@ -143,7 +143,7 @@ class CloseablePathTests extends AbstractJupiterTestEngineTests {
 		@ParameterizedTest
 		@ElementTypeSource
 		@DisabledOnOs(WINDOWS)
-		void factoryReturnsSymbolicLinkToDirectory(Class<?> elementType) throws IOException {
+		void factoryReturnsSymbolicLinkToDirectory(Class<?> elementType) throws Exception {
 			Path directory = createDirectory(root.resolve("directory"));
 			TempDirFactory factory = (elementContext,
 					extensionContext) -> createSymbolicLink(root.resolve("symbolicLink"), directory);
@@ -158,7 +158,7 @@ class CloseablePathTests extends AbstractJupiterTestEngineTests {
 
 		@DisplayName("succeeds if the factory returns a directory on a non-default file system for a Path annotated element")
 		@Test
-		void factoryReturnsDirectoryOnNonDefaultFileSystemWithPath() throws IOException {
+		void factoryReturnsDirectoryOnNonDefaultFileSystemWithPath() throws Exception {
 			TempDirFactory factory = new JimfsFactory();
 
 			closeablePath = TempDirectory.createTempDir(factory, DEFAULT, Path.class, elementContext, extensionContext);
@@ -171,7 +171,7 @@ class CloseablePathTests extends AbstractJupiterTestEngineTests {
 		@DisplayName("fails if the factory returns null")
 		@ParameterizedTest
 		@ElementTypeSource
-		void factoryReturnsNull(Class<?> elementType) throws IOException {
+		void factoryReturnsNull(Class<?> elementType) throws Exception {
 			TempDirFactory factory = spy(new Factory(null));
 
 			assertThatExtensionConfigurationExceptionIsThrownBy(
@@ -183,7 +183,7 @@ class CloseablePathTests extends AbstractJupiterTestEngineTests {
 		@DisplayName("fails if the factory returns a file")
 		@ParameterizedTest
 		@ElementTypeSource
-		void factoryReturnsFile(Class<?> elementType) throws IOException {
+		void factoryReturnsFile(Class<?> elementType) throws Exception {
 			Path file = createFile(root.resolve("file"));
 			TempDirFactory factory = spy(new Factory(file));
 
@@ -198,7 +198,7 @@ class CloseablePathTests extends AbstractJupiterTestEngineTests {
 		@ParameterizedTest
 		@ElementTypeSource
 		@DisabledOnOs(WINDOWS)
-		void factoryReturnsSymbolicLinkToFile(Class<?> elementType) throws IOException {
+		void factoryReturnsSymbolicLinkToFile(Class<?> elementType) throws Exception {
 			Path file = createFile(root.resolve("file"));
 			Path symbolicLink = createSymbolicLink(root.resolve("symbolicLink"), file);
 			TempDirFactory factory = spy(new Factory(symbolicLink));
@@ -214,7 +214,7 @@ class CloseablePathTests extends AbstractJupiterTestEngineTests {
 
 		@DisplayName("fails if the factory returns a directory on a non-default file system for a File annotated element")
 		@Test
-		void factoryReturnsDirectoryOnNonDefaultFileSystemWithFile() throws IOException {
+		void factoryReturnsDirectoryOnNonDefaultFileSystemWithFile() throws Exception {
 			TempDirFactory factory = spy(new JimfsFactory());
 
 			assertThatExceptionOfType(ExtensionConfigurationException.class)//
@@ -288,7 +288,7 @@ class CloseablePathTests extends AbstractJupiterTestEngineTests {
 		@DisplayName("is done for a cleanup mode of ALWAYS")
 		@ParameterizedTest
 		@ElementTypeSource
-		void always(Class<?> elementType, @TrackLogRecords LogRecordListener listener) throws IOException {
+		void always(Class<?> elementType, @TrackLogRecords LogRecordListener listener) throws Exception {
 			reset(factory);
 
 			closeablePath = TempDirectory.createTempDir(factory, ALWAYS, elementType, elementContext, extensionContext);
@@ -384,7 +384,7 @@ class CloseablePathTests extends AbstractJupiterTestEngineTests {
 		@ParameterizedTest
 		@ElementTypeSource
 		void onSuccessWithNoException(Class<?> elementType, @TrackLogRecords LogRecordListener listener)
-				throws IOException {
+				throws Exception {
 
 			reset(factory);
 
@@ -407,7 +407,7 @@ class CloseablePathTests extends AbstractJupiterTestEngineTests {
 		@ElementTypeSource
 		@DisabledOnOs(WINDOWS)
 		void deletesSymbolicLinksTargetingDirInsideTempDir(Class<?> elementType,
-				@TrackLogRecords LogRecordListener listener) throws IOException {
+				@TrackLogRecords LogRecordListener listener) throws Exception {
 
 			reset(factory);
 
@@ -433,7 +433,7 @@ class CloseablePathTests extends AbstractJupiterTestEngineTests {
 		@ElementTypeSource
 		@DisabledOnOs(WINDOWS)
 		void deletesSymbolicLinksTargetingDirOutsideTempDir(Class<?> elementType,
-				@TrackLogRecords LogRecordListener listener) throws IOException {
+				@TrackLogRecords LogRecordListener listener) throws Exception {
 
 			reset(factory);
 

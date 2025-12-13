@@ -104,7 +104,7 @@ class LifecycleMethodOverridingTests {
 
 			// @Override
 			@BeforeEach
-			public void beforeEach() {
+			void beforeEach() {
 				assertThat(super.beforeEachInvoked).isTrue();
 			}
 
@@ -187,7 +187,7 @@ class SuperClassWithProtectedLifecycleMethodTestCase {
 class SuperClassWithPublicLifecycleMethodTestCase {
 
 	@BeforeEach
-	public void beforeEach() {
+	void beforeEach() {
 		fail();
 	}
 

@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
  *
  * @since 5.7
  */
-public class EnabledIfIntegrationTests {
+class EnabledIfIntegrationTests {
 
 	@Test
 	@Disabled("Only used in a unit test via reflection")

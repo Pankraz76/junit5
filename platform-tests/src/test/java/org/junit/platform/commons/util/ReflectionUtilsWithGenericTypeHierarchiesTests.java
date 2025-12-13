@@ -106,7 +106,7 @@ class ReflectionUtilsWithGenericTypeHierarchiesTests {
 
 	@Test
 	@Disabled("Describes cases where current implementation returns unexpected value")
-	public void findMethodWithMostSpecificParameterTypeInHierarchy() {
+	void findMethodWithMostSpecificParameterTypeInHierarchy() {
 		// Searched Parameter Type is more specific
 		assertSpecificFooMethodFound(ClassImplementingInterfaceWithInvertedHierarchy.class,
 			InterfaceWithGenericNumberParameter.class, Double.class);

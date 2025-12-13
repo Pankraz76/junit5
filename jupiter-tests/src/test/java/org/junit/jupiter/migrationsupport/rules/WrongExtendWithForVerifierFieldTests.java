@@ -34,7 +34,7 @@ public class WrongExtendWithForVerifierFieldTests {
 	};
 
 	@Test
-	void testNothing() {
+	void nothing() {
 		//needed to start the test process at all
 	}
 

@@ -10,8 +10,10 @@
 
 package org.junit.jupiter.jmh;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+
 import org.junit.Assert;
-import org.junit.jupiter.api.Assertions;
 import org.openjdk.jmh.annotations.Benchmark;
 
 /**
@@ -28,7 +30,6 @@ public class AssertionBenchmarks {
 
 	@Benchmark
 	public void junitJupiter_assertTrue_boolean() {
-		Assertions.assertTrue(true);
 	}
 
 	@Benchmark
@@ -38,22 +39,21 @@ public class AssertionBenchmarks {
 
 	@Benchmark
 	public void junitJupiter_assertTrue_boolean_String() {
-		Assertions.assertTrue(true, "message");
 	}
 
 	@Benchmark
 	public void junitJupiter_assertTrue_boolean_Supplier() {
-		Assertions.assertTrue(true, () -> "message");
+		assertTrue(true, () -> "message");
 	}
 
 	@Benchmark
 	public void junitJupiter_assertTrue_BooleanSupplier_String() {
-		Assertions.assertTrue(() -> true, "message");
+		assertTrue(() -> true, "message");
 	}
 
 	@Benchmark
 	public void junitJupiter_assertTrue_BooleanSupplier_Supplier() {
-		Assertions.assertTrue(() -> true, () -> "message");
+		assertTrue(() -> true, () -> "message");
 	}
 
 }

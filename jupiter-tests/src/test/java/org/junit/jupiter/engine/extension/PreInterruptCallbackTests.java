@@ -82,7 +82,7 @@ class PreInterruptCallbackTests extends AbstractJupiterTestEngineTests {
 
 	@Test
 	@ResourceLock(value = SYSTEM_OUT, mode = READ_WRITE)
-	void testCaseWithDefaultInterruptCallbackEnabled() {
+	void caseWithDefaultInterruptCallbackEnabled() {
 		PrintStream orgOutStream = System.out;
 		EngineExecutionResults results;
 		String output;
@@ -119,7 +119,7 @@ class PreInterruptCallbackTests extends AbstractJupiterTestEngineTests {
 	}
 
 	@Test
-	void testCaseWithNoInterruptCallbackEnabled() {
+	void caseWithNoInterruptCallbackEnabled() {
 		Events tests = executeDefaultPreInterruptCallbackTimeoutOnMethodTestCase("1 μs", UnaryOperator.identity()) //
 				.testEvents();
 		assertTestHasTimedOut(tests);
@@ -134,7 +134,7 @@ class PreInterruptCallbackTests extends AbstractJupiterTestEngineTests {
 	}
 
 	@Test
-	void testCaseWithDeclaredInterruptCallbackEnabled() {
+	void caseWithDeclaredInterruptCallbackEnabled() {
 		Events tests = executeTestsForClass(DefaultPreInterruptCallbackWithExplicitCallbackTestCase.class).testEvents();
 		assertTestHasTimedOut(tests);
 		assertTrue(interruptedTest.get());
@@ -145,7 +145,7 @@ class PreInterruptCallbackTests extends AbstractJupiterTestEngineTests {
 	}
 
 	@Test
-	void testCaseWithDeclaredInterruptCallbackEnabledWithSeparateThread() throws Exception {
+	void caseWithDeclaredInterruptCallbackEnabledWithSeparateThread() throws Exception {
 		Events tests = executeTestsForClass(
 			DefaultPreInterruptCallbackWithExplicitCallbackWithSeparateThreadTestCase.class).testEvents();
 		assertOneFailedTest(tests);
@@ -163,7 +163,7 @@ class PreInterruptCallbackTests extends AbstractJupiterTestEngineTests {
 	}
 
 	@Test
-	void testCaseWithDeclaredInterruptCallbackThrowsException() {
+	void caseWithDeclaredInterruptCallbackThrowsException() {
 		interruptCallbackShallThrowException.set(true);
 		Events tests = executeTestsForClass(DefaultPreInterruptCallbackWithExplicitCallbackTestCase.class).testEvents();
 		tests.failed().assertEventsMatchExactly(event(test(TC),
@@ -209,7 +209,7 @@ class PreInterruptCallbackTests extends AbstractJupiterTestEngineTests {
 	@SuppressWarnings("JUnitMalformedDeclaration")
 	static class DefaultPreInterruptCallbackTimeoutOnMethodTestCase {
 		@Test
-		void test() throws InterruptedException {
+		void test() throws Exception {
 			try {
 				Thread.sleep(5_000);
 			}
@@ -226,7 +226,7 @@ class PreInterruptCallbackTests extends AbstractJupiterTestEngineTests {
 	static class DefaultPreInterruptCallbackWithExplicitCallbackTestCase {
 		@Test
 		@Timeout(value = 1, unit = TimeUnit.MICROSECONDS)
-		void test() throws InterruptedException {
+		void test() throws Exception {
 			try {
 				Thread.sleep(1000);
 			}
@@ -243,7 +243,7 @@ class PreInterruptCallbackTests extends AbstractJupiterTestEngineTests {
 	static class DefaultPreInterruptCallbackWithExplicitCallbackWithSeparateThreadTestCase {
 		@Test
 		@Timeout(value = 200, unit = TimeUnit.MILLISECONDS, threadMode = Timeout.ThreadMode.SEPARATE_THREAD)
-		void test() throws InterruptedException {
+		void test() throws Exception {
 			try {
 				Thread.sleep(2000);
 			}
