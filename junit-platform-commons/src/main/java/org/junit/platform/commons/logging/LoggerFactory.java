@@ -143,7 +143,7 @@ public final class LoggerFactory {
 		}
 
 		private void log(Level level, @Nullable Throwable throwable, Supplier<String> messageSupplier) {
-			boolean loggable = this.julLogger.isLoggable(level);
+			var loggable = this.julLogger.isLoggable(level);
 			if (loggable || !listeners.isEmpty()) {
 				LogRecord logRecord = createLogRecord(level, throwable, messageSupplier.get());
 				if (loggable) {
@@ -156,7 +156,7 @@ public final class LoggerFactory {
 		private LogRecord createLogRecord(Level level, @Nullable Throwable throwable, String message) {
 			String sourceClassName = null;
 			String sourceMethodName = null;
-			boolean found = false;
+			var found = false;
 			for (StackTraceElement element : new Throwable().getStackTrace()) {
 				String className = element.getClassName();
 				if (FQCN.equals(className)) {

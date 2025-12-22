@@ -96,9 +96,9 @@ public class TestFeedPrintingListener implements DetailsPrintingListener {
 	}
 
 	private List<String> collectDisplayNames(UniqueId uniqueId) {
-		int size = uniqueId.getSegments().size();
-		List<String> displayNames = new ArrayList<>(size);
-		for (int i = 0; i < size; i++) {
+		var size = uniqueId.getSegments().size();
+		var displayNames = new ArrayList<String>(size);
+		for (var i = 0; i < size; i++) {
 			displayNames.add(0, requireNonNull(testPlan).getTestIdentifier(uniqueId).getDisplayName());
 			if (i < size - 1) {
 				uniqueId = uniqueId.removeLastSegment();

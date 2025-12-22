@@ -182,7 +182,7 @@ public class EngineExecutionOrchestrator {
 
 	private static EngineExecutionListener selectExecutionListener(EngineExecutionListener engineExecutionListener,
 			ConfigurationParameters configurationParameters) {
-		boolean stackTracePruningEnabled = configurationParameters.getBoolean(STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME) //
+		var stackTracePruningEnabled = configurationParameters.getBoolean(STACKTRACE_PRUNING_ENABLED_PROPERTY_NAME) //
 				.orElse(true);
 		if (stackTracePruningEnabled) {
 			return new StackTracePruningEngineExecutionListener(engineExecutionListener);

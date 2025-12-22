@@ -43,9 +43,9 @@ class ArgumentCountValidator {
 			case DEFAULT, NONE -> {
 			}
 			case STRICT -> {
-				int consumedCount = this.declarationContext.getResolverFacade().determineConsumedArgumentCount(
+				var consumedCount = this.declarationContext.getResolverFacade().determineConsumedArgumentCount(
 					this.arguments);
-				int totalCount = this.arguments.getTotalLength();
+				var totalCount = this.arguments.getTotalLength();
 				Preconditions.condition(consumedCount == totalCount,
 					() -> wrongNumberOfArgumentsMessages("consumes", consumedCount, null, null));
 			}
@@ -66,7 +66,7 @@ class ArgumentCountValidator {
 
 	private String wrongNumberOfArgumentsMessages(String verb, int actualCount, @Nullable String parameterAdjective,
 			@Nullable String reason) {
-		int totalCount = this.arguments.getTotalLength();
+		var totalCount = this.arguments.getTotalLength();
 		return "Configuration error: @%s %s %s %s%s%s but there %s %s %s provided.%nNote: the provided arguments were %s".formatted(
 			this.declarationContext.getAnnotationName(), verb, actualCount,
 			parameterAdjective == null ? "" : parameterAdjective + " ",

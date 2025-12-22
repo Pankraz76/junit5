@@ -41,7 +41,7 @@ class InstantiatingConfigurationParameterConverterTests {
 		ConfigurationParameters configurationParameters = mock();
 		when(configurationParameters.get(KEY)).thenReturn(Optional.of(CustomDisplayNameGenerator.class.getName()));
 
-		InstantiatingConfigurationParameterConverter<DisplayNameGenerator> converter = new InstantiatingConfigurationParameterConverter<>(
+		var converter = new InstantiatingConfigurationParameterConverter<DisplayNameGenerator>(
 			DisplayNameGenerator.class, "display name generator");
 		DisplayNameGenerator displayNameGenerator = converter.get(configurationParameters, KEY).orElseThrow();
 
@@ -57,7 +57,7 @@ class InstantiatingConfigurationParameterConverterTests {
 		ConfigurationParameters configurationParameters = mock();
 		when(configurationParameters.get(KEY)).thenReturn(Optional.empty());
 
-		InstantiatingConfigurationParameterConverter<DisplayNameGenerator> converter = new InstantiatingConfigurationParameterConverter<>(
+		var converter = new InstantiatingConfigurationParameterConverter<DisplayNameGenerator>(
 			DisplayNameGenerator.class, "display name generator");
 		Optional<DisplayNameGenerator> displayNameGenerator = converter.get(configurationParameters, KEY);
 
@@ -69,7 +69,7 @@ class InstantiatingConfigurationParameterConverterTests {
 		ConfigurationParameters configurationParameters = mock();
 		when(configurationParameters.get(KEY)).thenReturn(Optional.of(""));
 
-		InstantiatingConfigurationParameterConverter<DisplayNameGenerator> converter = new InstantiatingConfigurationParameterConverter<>(
+		var converter = new InstantiatingConfigurationParameterConverter<DisplayNameGenerator>(
 			DisplayNameGenerator.class, "display name generator");
 		Optional<DisplayNameGenerator> displayNameGenerator = converter.get(configurationParameters, KEY);
 
@@ -82,7 +82,7 @@ class InstantiatingConfigurationParameterConverterTests {
 		String classNameWithSpaces = " " + CustomDisplayNameGenerator.class.getName() + "  ";
 		when(configurationParameters.get(KEY)).thenReturn(Optional.of(classNameWithSpaces));
 
-		InstantiatingConfigurationParameterConverter<DisplayNameGenerator> converter = new InstantiatingConfigurationParameterConverter<>(
+		var converter = new InstantiatingConfigurationParameterConverter<DisplayNameGenerator>(
 			DisplayNameGenerator.class, "display name generator");
 		DisplayNameGenerator displayNameGenerator = converter.get(configurationParameters, KEY).orElseThrow();
 
@@ -98,7 +98,7 @@ class InstantiatingConfigurationParameterConverterTests {
 		ConfigurationParameters configurationParameters = mock();
 		when(configurationParameters.get(KEY)).thenReturn(Optional.of("random-string"));
 
-		InstantiatingConfigurationParameterConverter<DisplayNameGenerator> converter = new InstantiatingConfigurationParameterConverter<>(
+		var converter = new InstantiatingConfigurationParameterConverter<DisplayNameGenerator>(
 			DisplayNameGenerator.class, "display name generator");
 		Optional<DisplayNameGenerator> displayNameGenerator = converter.get(configurationParameters, KEY);
 
@@ -114,7 +114,7 @@ class InstantiatingConfigurationParameterConverterTests {
 		ConfigurationParameters configurationParameters = mock();
 		when(configurationParameters.get(KEY)).thenReturn(Optional.of(Object.class.getName()));
 
-		InstantiatingConfigurationParameterConverter<DisplayNameGenerator> converter = new InstantiatingConfigurationParameterConverter<>(
+		var converter = new InstantiatingConfigurationParameterConverter<DisplayNameGenerator>(
 			DisplayNameGenerator.class, "display name generator");
 		Optional<DisplayNameGenerator> displayNameGenerator = converter.get(configurationParameters, KEY);
 
@@ -131,7 +131,7 @@ class InstantiatingConfigurationParameterConverterTests {
 		when(configurationParameters.get(KEY)).thenReturn(
 			Optional.of(CustomDisplayNameGenerator.class.getSimpleName()));
 
-		InstantiatingConfigurationParameterConverter<DisplayNameGenerator> converter = new InstantiatingConfigurationParameterConverter<>(
+		var converter = new InstantiatingConfigurationParameterConverter<DisplayNameGenerator>(
 			DisplayNameGenerator.class, "display name generator");
 		Optional<DisplayNameGenerator> displayNameGenerator = converter.get(configurationParameters, KEY);
 

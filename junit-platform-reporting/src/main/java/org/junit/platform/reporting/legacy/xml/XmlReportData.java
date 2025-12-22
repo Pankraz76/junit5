@@ -133,7 +133,7 @@ class XmlReportData {
 
 	private List<TestIdentifier> getAncestors(TestIdentifier testIdentifier) {
 		TestIdentifier current = testIdentifier;
-		List<TestIdentifier> ancestors = new ArrayList<>();
+		var ancestors = new ArrayList<TestIdentifier>();
 		while (current != null) {
 			ancestors.add(current);
 			current = this.testPlan.getParent(current).orElse(null);

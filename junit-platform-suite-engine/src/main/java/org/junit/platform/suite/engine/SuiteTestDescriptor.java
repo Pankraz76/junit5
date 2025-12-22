@@ -253,7 +253,7 @@ final class SuiteTestDescriptor extends AbstractTestDescriptor {
 		private static final Predicate<Segment> SUITE_SEGMENTS = where(Segment::getType, isEqual(SEGMENT_TYPE));
 
 		static DiscoveryIssueForwardingListener create(UniqueId id, EngineDiscoveryListener discoveryListener) {
-			boolean isNestedSuite = id.getSegments().stream().filter(SUITE_SEGMENTS).count() > 1;
+			var isNestedSuite = id.getSegments().stream().filter(SUITE_SEGMENTS).count() > 1;
 			if (isNestedSuite) {
 				return new DiscoveryIssueForwardingListener(discoveryListener, (__, issue) -> issue);
 			}

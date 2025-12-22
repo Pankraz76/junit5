@@ -149,7 +149,7 @@ class CsvReaderFactory {
 	}
 
 	private static boolean stringValuesUnique(Object... values) {
-		long uniqueCount = Stream.of(values).map(String::valueOf).distinct().count();
+		var uniqueCount = Stream.of(values).map(String::valueOf).distinct().count();
 		return uniqueCount == values.length;
 	}
 

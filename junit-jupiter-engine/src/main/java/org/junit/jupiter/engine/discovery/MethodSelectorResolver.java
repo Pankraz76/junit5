@@ -90,7 +90,7 @@ class MethodSelectorResolver implements SelectorResolver {
 			if (testClasses.size() == 1) {
 				return resolve(context, emptyList(), testClasses.get(0), methodSelector::method, Match::exact);
 			}
-			int lastIndex = testClasses.size() - 1;
+			var lastIndex = testClasses.size() - 1;
 			return resolve(context, testClasses.subList(0, lastIndex), testClasses.get(lastIndex),
 				methodSelector::method, Match::exact);
 		}
@@ -132,7 +132,7 @@ class MethodSelectorResolver implements SelectorResolver {
 				.map(methodType -> methodType.resolveUniqueIdIntoTestDescriptor(uniqueId, context, configuration))
 				.flatMap(Optional::stream)
 				.map(testDescriptor -> {
-					boolean exactMatch = uniqueId.equals(testDescriptor.getUniqueId());
+					var exactMatch = uniqueId.equals(testDescriptor.getUniqueId());
 					if (testDescriptor instanceof Filterable filterable) {
 						if (exactMatch) {
 							filterable.getDynamicDescendantFilter().allowAll();

@@ -104,7 +104,7 @@ public class MutableExtensionRegistry implements ExtensionRegistry, ExtensionReg
 		ServiceLoader<Extension> serviceLoader = ServiceLoader.load(Extension.class,
 			ClassLoaderUtils.getDefaultClassLoader());
 		ServiceLoaderUtils.filter(serviceLoader, clazz -> {
-			boolean included = filter.test(clazz);
+			var included = filter.test(clazz);
 			if (!included) {
 				excludedExtensions.add(clazz);
 			}

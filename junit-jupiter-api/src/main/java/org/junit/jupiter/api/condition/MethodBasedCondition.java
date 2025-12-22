@@ -97,7 +97,7 @@ abstract class MethodBasedCondition<A extends Annotation> implements ExecutionCo
 	}
 
 	private boolean acceptsExtensionContextOrNoArguments(Method method) {
-		int parameterCount = method.getParameterCount();
+		var parameterCount = method.getParameterCount();
 		return parameterCount == 0 || (parameterCount == 1 && method.getParameterTypes()[0] == ExtensionContext.class);
 	}
 

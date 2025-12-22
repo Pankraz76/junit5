@@ -82,7 +82,7 @@ public final class AnnotationConsumerInitializer {
 
 	@SuppressWarnings("unchecked")
 	private static Class<? extends Annotation> getAnnotationType(Method method) {
-		int annotationIndex = annotationConsumingMethodSignatures.stream() //
+		var annotationIndex = annotationConsumingMethodSignatures.stream() //
 				.filter(signature -> signature.isMatchingWith(method)) //
 				.findFirst() //
 				.map(AnnotationConsumingMethodSignature::annotationParameterIndex) //

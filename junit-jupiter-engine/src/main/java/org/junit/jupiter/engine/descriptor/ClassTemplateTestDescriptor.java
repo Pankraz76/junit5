@@ -85,7 +85,7 @@ public class ClassTemplateTestDescriptor extends ClassBasedTestDescriptor implem
 
 	@Override
 	protected void validateClassTemplateInvocationLifecycleMethods(DiscoveryIssueReporter reporter) {
-		boolean requireStatic = this.classInfo.lifecycle == PER_METHOD;
+		var requireStatic = this.classInfo.lifecycle == PER_METHOD;
 		validateClassTemplateInvocationLifecycleMethodsAreDeclaredCorrectly(getTestClass(), requireStatic, reporter);
 	}
 
@@ -134,7 +134,7 @@ public class ClassTemplateTestDescriptor extends ClassBasedTestDescriptor implem
 		// Second iteration to avoid processing children that were pruned in the first iteration
 		this.children.forEach(child -> {
 			if (child instanceof ClassTemplateInvocationTestDescriptor descriptor) {
-				int index = descriptor.getIndex();
+				var index = descriptor.getIndex();
 				this.dynamicDescendantFilter.allowIndex(index - 1);
 				this.childrenPrototypesByIndex.put(index, child.getChildren());
 			}

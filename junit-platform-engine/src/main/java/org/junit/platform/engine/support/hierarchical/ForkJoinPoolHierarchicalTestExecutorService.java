@@ -146,9 +146,9 @@ public class ForkJoinPoolHierarchicalTestExecutorService implements Hierarchical
 			new ExclusiveTask(tasks.get(0)).execSync();
 			return;
 		}
-		Deque<ExclusiveTask> isolatedTasks = new ArrayDeque<>();
-		Deque<ExclusiveTask> sameThreadTasks = new ArrayDeque<>();
-		Deque<ExclusiveTask> concurrentTasksInReverseOrder = new ArrayDeque<>();
+		var isolatedTasks = new ArrayDeque<ExclusiveTask>();
+		var sameThreadTasks = new ArrayDeque<ExclusiveTask>();
+		var concurrentTasksInReverseOrder = new ArrayDeque<ExclusiveTask>();
 		forkConcurrentTasks(tasks, isolatedTasks, sameThreadTasks, concurrentTasksInReverseOrder);
 		executeSync(sameThreadTasks);
 		joinConcurrentTasksInReverseOrderToEnableWorkStealing(concurrentTasksInReverseOrder);
@@ -236,7 +236,7 @@ public class ForkJoinPoolHierarchicalTestExecutorService implements Hierarchical
 		}
 
 		void execSync() {
-			boolean completed = exec();
+			var completed = exec();
 			if (!completed) {
 				throw new IllegalStateException(
 					"Task was deferred but should have been executed synchronously: " + testTask);

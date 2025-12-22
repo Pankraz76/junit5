@@ -286,7 +286,7 @@ public class ParameterizedClassIntegrationTests extends AbstractJupiterTestEngin
 		void annotationsAreInherited() {
 			var results = executeTestsForClass(ConcreteInheritanceTestCase.class);
 
-			int numArgumentSets = 13;
+			var numArgumentSets = 13;
 			var numContainers = numArgumentSets * 3; // once for outer invocation, once for nested class, once for inner invocation
 			var numTests = numArgumentSets * 2; // once for outer test, once for inner test
 			results.containerEvents() //

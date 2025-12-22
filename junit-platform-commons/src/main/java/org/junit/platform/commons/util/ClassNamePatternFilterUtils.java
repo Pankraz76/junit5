@@ -110,7 +110,7 @@ public class ClassNamePatternFilterUtils {
 
 		List<Pattern> patternList = convertToRegularExpressions(patterns);
 		return object -> {
-			boolean isMatchingAnyPattern = patternList.stream().anyMatch(
+			var isMatchingAnyPattern = patternList.stream().anyMatch(
 				pattern -> pattern.matcher(classNameProvider.apply(object)).matches());
 			return (type == FilterType.INCLUDE) == isMatchingAnyPattern;
 		};

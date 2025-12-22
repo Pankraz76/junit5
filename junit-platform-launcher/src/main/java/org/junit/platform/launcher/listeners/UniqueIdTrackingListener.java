@@ -166,7 +166,7 @@ public class UniqueIdTrackingListener implements TestExecutionListener {
 	}
 
 	private void trackTestUidRecursively(TestIdentifier testIdentifier) {
-		boolean tracked = trackTestUid(testIdentifier);
+		var tracked = trackTestUid(testIdentifier);
 		if (!tracked) {
 			requireNonNull(this.testPlan).getChildren(testIdentifier).forEach(this::trackTestUidRecursively);
 		}

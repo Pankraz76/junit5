@@ -195,7 +195,7 @@ class AssertArrayEquals {
 		}
 		assertArraysHaveSameLength(expected.length, actual.length, indexes, messageOrSupplier);
 
-		for (int i = 0; i < expected.length; i++) {
+		for (var i = 0; i < expected.length; i++) {
 			if (expected[i] != actual[i]) {
 				failArraysNotEqual(expected[i], actual[i], nullSafeIndexes(indexes, i), messageOrSupplier);
 			}
@@ -217,7 +217,7 @@ class AssertArrayEquals {
 		}
 		assertArraysHaveSameLength(expected.length, actual.length, indexes, messageOrSupplier);
 
-		for (int i = 0; i < expected.length; i++) {
+		for (var i = 0; i < expected.length; i++) {
 			if (expected[i] != actual[i]) {
 				failArraysNotEqual(expected[i], actual[i], nullSafeIndexes(indexes, i), messageOrSupplier);
 			}
@@ -239,7 +239,7 @@ class AssertArrayEquals {
 		}
 		assertArraysHaveSameLength(expected.length, actual.length, indexes, messageOrSupplier);
 
-		for (int i = 0; i < expected.length; i++) {
+		for (var i = 0; i < expected.length; i++) {
 			if (expected[i] != actual[i]) {
 				failArraysNotEqual(expected[i], actual[i], nullSafeIndexes(indexes, i), messageOrSupplier);
 			}
@@ -261,7 +261,7 @@ class AssertArrayEquals {
 		}
 		assertArraysHaveSameLength(expected.length, actual.length, indexes, messageOrSupplier);
 
-		for (int i = 0; i < expected.length; i++) {
+		for (var i = 0; i < expected.length; i++) {
 			if (expected[i] != actual[i]) {
 				failArraysNotEqual(expected[i], actual[i], nullSafeIndexes(indexes, i), messageOrSupplier);
 			}
@@ -283,7 +283,7 @@ class AssertArrayEquals {
 		}
 		assertArraysHaveSameLength(expected.length, actual.length, indexes, messageOrSupplier);
 
-		for (int i = 0; i < expected.length; i++) {
+		for (var i = 0; i < expected.length; i++) {
 			if (expected[i] != actual[i]) {
 				failArraysNotEqual(expected[i], actual[i], nullSafeIndexes(indexes, i), messageOrSupplier);
 			}
@@ -305,7 +305,7 @@ class AssertArrayEquals {
 		}
 		assertArraysHaveSameLength(expected.length, actual.length, indexes, messageOrSupplier);
 
-		for (int i = 0; i < expected.length; i++) {
+		for (var i = 0; i < expected.length; i++) {
 			if (expected[i] != actual[i]) {
 				failArraysNotEqual(expected[i], actual[i], nullSafeIndexes(indexes, i), messageOrSupplier);
 			}
@@ -327,7 +327,7 @@ class AssertArrayEquals {
 		}
 		assertArraysHaveSameLength(expected.length, actual.length, indexes, messageOrSupplier);
 
-		for (int i = 0; i < expected.length; i++) {
+		for (var i = 0; i < expected.length; i++) {
 			if (!AssertionUtils.floatsAreEqual(expected[i], actual[i])) {
 				failArraysNotEqual(expected[i], actual[i], nullSafeIndexes(indexes, i), messageOrSupplier);
 			}
@@ -350,7 +350,7 @@ class AssertArrayEquals {
 		}
 		assertArraysHaveSameLength(expected.length, actual.length, indexes, messageOrSupplier);
 
-		for (int i = 0; i < expected.length; i++) {
+		for (var i = 0; i < expected.length; i++) {
 			if (!AssertionUtils.floatsAreEqual(expected[i], actual[i], delta)) {
 				failArraysNotEqual(expected[i], actual[i], nullSafeIndexes(indexes, i), messageOrSupplier);
 			}
@@ -372,7 +372,7 @@ class AssertArrayEquals {
 		}
 		assertArraysHaveSameLength(expected.length, actual.length, indexes, messageOrSupplier);
 
-		for (int i = 0; i < expected.length; i++) {
+		for (var i = 0; i < expected.length; i++) {
 			if (!AssertionUtils.doublesAreEqual(expected[i], actual[i])) {
 				failArraysNotEqual(expected[i], actual[i], nullSafeIndexes(indexes, i), messageOrSupplier);
 			}
@@ -395,7 +395,7 @@ class AssertArrayEquals {
 		}
 		assertArraysHaveSameLength(expected.length, actual.length, indexes, messageOrSupplier);
 
-		for (int i = 0; i < expected.length; i++) {
+		for (var i = 0; i < expected.length; i++) {
 			if (!AssertionUtils.doublesAreEqual(expected[i], actual[i], delta)) {
 				failArraysNotEqual(expected[i], actual[i], nullSafeIndexes(indexes, i), messageOrSupplier);
 			}
@@ -417,7 +417,7 @@ class AssertArrayEquals {
 		}
 		assertArraysHaveSameLength(expected.length, actual.length, indexes, messageOrSupplier);
 
-		for (int i = 0; i < expected.length; i++) {
+		for (var i = 0; i < expected.length; i++) {
 			Object expectedElement = expected[i];
 			Object actualElement = actual[i];
 

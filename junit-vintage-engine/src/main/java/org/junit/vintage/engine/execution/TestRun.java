@@ -88,7 +88,7 @@ class TestRun {
 	}
 
 	Collection<TestDescriptor> getInProgressTestDescriptors() {
-		List<TestDescriptor> result = new ArrayList<>(inProgressDescriptors.keySet());
+		var result = new ArrayList<TestDescriptor>(inProgressDescriptors.keySet());
 		Collections.reverse(result);
 		return result;
 	}
@@ -218,8 +218,7 @@ class TestRun {
 		private int skippedOrStartedCount;
 
 		static VintageDescriptors merge(VintageDescriptors a, VintageDescriptors b) {
-			List<VintageTestDescriptor> mergedDescriptors = new ArrayList<>(
-				a.descriptors.size() + b.descriptors.size());
+			var mergedDescriptors = new ArrayList<VintageTestDescriptor>(a.descriptors.size() + b.descriptors.size());
 			mergedDescriptors.addAll(a.descriptors);
 			mergedDescriptors.addAll(b.descriptors);
 			return new VintageDescriptors(mergedDescriptors);

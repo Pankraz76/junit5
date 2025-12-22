@@ -60,7 +60,7 @@ class TestRuleSupport implements BeforeEachCallback, TestExecutionExceptionHandl
 	 */
 	@SuppressWarnings("JavadocReference")
 	private List<TestRuleAnnotatedMember> findRuleAnnotatedMembers(Object testInstance) {
-		List<TestRuleAnnotatedMember> result = new ArrayList<>();
+		var result = new ArrayList<TestRuleAnnotatedMember>();
 		// @formatter:off
 		// Instantiate rules from methods by calling them
 		findAnnotatedMethods(testInstance).stream()
@@ -96,7 +96,7 @@ class TestRuleSupport implements BeforeEachCallback, TestExecutionExceptionHandl
 
 	@Override
 	public void handleTestExecutionException(ExtensionContext context, Throwable throwable) throws Throwable {
-		int numRuleAnnotatedMembers = invokeAppropriateMethodOnRuleAnnotatedMembers(context, true,
+		var numRuleAnnotatedMembers = invokeAppropriateMethodOnRuleAnnotatedMembers(context, true,
 			advice -> advice.handleTestExecutionException(throwable));
 
 		// If no appropriate @Rule annotated members were discovered, we then

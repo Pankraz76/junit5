@@ -106,7 +106,7 @@ public class ExclusiveResource {
 
 	@Override
 	public int hashCode() {
-		int h = hash;
+		var h = hash;
 		if (h == 0) {
 			h = hash = Objects.hash(key, lockMode);
 		}

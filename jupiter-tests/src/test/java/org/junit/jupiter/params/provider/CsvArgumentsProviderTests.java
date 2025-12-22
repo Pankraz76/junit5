@@ -506,7 +506,7 @@ class CsvArgumentsProviderTests {
 		var arguments = provideArguments(csvSource);
 		return arguments.map(array -> {
 			String[] strings = new String[array.length];
-			for (int i = 0; i < array.length; i++) {
+			for (var i = 0; i < array.length; i++) {
 				if (array[i] instanceof ParameterNameAndArgument parameterNameAndArgument) {
 					strings[i] = parameterNameAndArgument.getName() + " = " + parameterNameAndArgument.getPayload();
 				}

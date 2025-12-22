@@ -54,7 +54,7 @@ public class AbstractTestRuleAdapterTests {
 
 		JUnitException exception = assertThrows(JUnitException.class, adapter::before);
 
-		assertEquals(exception.getMessage(), "Failed to find method foo() in class org.junit.rules.ErrorCollector");
+		assertEquals("Failed to find method foo() in class org.junit.rules.ErrorCollector", exception.getMessage());
 	}
 
 	private static class TestableTestRuleAdapter extends AbstractTestRuleAdapter {

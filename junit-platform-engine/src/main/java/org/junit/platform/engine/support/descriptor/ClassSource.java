@@ -123,7 +123,7 @@ public final class ClassSource implements TestSource {
 
 		String className = uri.getSchemeSpecificPart();
 		FilePosition filePosition = null;
-		int indexOfQuery = className.indexOf('?');
+		var indexOfQuery = className.indexOf('?');
 		if (indexOfQuery >= 0) {
 			filePosition = FilePosition.fromQuery(className.substring(indexOfQuery + 1)).orElse(null);
 			className = className.substring(0, indexOfQuery);

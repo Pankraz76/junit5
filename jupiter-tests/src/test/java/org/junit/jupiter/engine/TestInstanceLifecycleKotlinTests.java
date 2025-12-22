@@ -14,7 +14,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.platform.commons.util.CollectionUtils.getOnlyElement;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -57,7 +56,7 @@ class TestInstanceLifecycleKotlinTests extends AbstractJupiterTestEngineTests {
 		EngineExecutionResults executionResults = executeTestsForClass(testClass);
 
 		assertThat(executionResults.testEvents().finished().count()).isEqualTo(2);
-		List<Object> instances = new ArrayList<>(InstancePerMethodKotlinTestCase.TEST_INSTANCES.keySet());
+		var instances = new ArrayList<Object>(InstancePerMethodKotlinTestCase.TEST_INSTANCES.keySet());
 		assertThat(instances) //
 				.hasSize(3) //
 				.extracting(o -> (Object) o.getClass()) //

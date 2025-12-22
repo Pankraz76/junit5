@@ -960,7 +960,7 @@ public interface ExtensionContext {
 		public Namespace append(Object... parts) {
 			Preconditions.notEmpty(parts, "parts array must not be null or empty");
 			Preconditions.containsNoNullElements(parts, "individual parts must not be null");
-			ArrayList<Object> newParts = new ArrayList<>(this.parts.size() + parts.length);
+			var newParts = new ArrayList<Object>(this.parts.size() + parts.length);
 			newParts.addAll(this.parts);
 			Collections.addAll(newParts, parts);
 			return new Namespace(newParts);

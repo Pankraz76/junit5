@@ -16,7 +16,6 @@ import static org.junit.platform.commons.util.Preconditions.condition;
 import static org.junit.platform.commons.util.Preconditions.notNull;
 
 import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.List;
 import java.util.regex.PatternSyntaxException;
 import java.util.stream.IntStream;
@@ -86,8 +85,8 @@ class AssertLinesMatch {
 			@Nullable Object messageOrSupplier) {
 
 		void assertLinesMatch() {
-			int expectedSize = expectedLines.size();
-			int actualSize = actualLines.size();
+			var expectedSize = expectedLines.size();
+			var actualSize = actualLines.size();
 
 			// trivial case: when expecting more than actual lines available, something is wrong
 			if (expectedSize > actualSize) {
@@ -106,12 +105,12 @@ class AssertLinesMatch {
 		}
 
 		void assertLinesMatchWithFastForward() {
-			Deque<String> expectedDeque = new ArrayDeque<>(expectedLines);
-			Deque<String> actualDeque = new ArrayDeque<>(actualLines);
+			var expectedDeque = new ArrayDeque<String>(expectedLines);
+			var actualDeque = new ArrayDeque<String>(actualLines);
 
 			main: while (!expectedDeque.isEmpty()) {
 				String expectedLine = expectedDeque.pop();
-				int expectedLineNumber = expectedLines.size() - expectedDeque.size(); // 1-based line number
+				var expectedLineNumber = expectedLines.size() - expectedDeque.size(); // 1-based line number
 				// trivial case: no more actual lines available
 				if (actualDeque.isEmpty()) {
 					fail("expected line #%d:`%s` not found - actual lines depleted", expectedLineNumber,
@@ -127,8 +126,8 @@ class AssertLinesMatch {
 
 				// fast-forward marker found in expected line: fast-forward actual line...
 				if (isFastForwardLine(expectedLine)) {
-					int fastForwardLimit = parseFastForwardLimit(expectedLine);
-					int actualRemaining = actualDeque.size();
+					var fastForwardLimit = parseFastForwardLimit(expectedLine);
+					var actualRemaining = actualDeque.size();
 
 					// trivial case: fast-forward marker was in last expected line
 					if (expectedDeque.isEmpty()) {
@@ -147,7 +146,7 @@ class AssertLinesMatch {
 								actualRemaining);
 						}
 						// fast-forward now: actualDeque.pop(fastForwardLimit)
-						for (int i = 0; i < fastForwardLimit; i++) {
+						for (var i = 0; i < fastForwardLimit; i++) {
 							actualDeque.pop();
 						}
 						continue; // main
@@ -167,7 +166,7 @@ class AssertLinesMatch {
 					}
 				}
 
-				int actualLineNumber = actualLines.size() - actualDeque.size() + 1; // 1-based line number
+				var actualLineNumber = actualLines.size() - actualDeque.size() + 1; // 1-based line number
 				fail("expected line #%d doesn't match actual line #%d%n" + "\texpected: `%s`%n" + "\t  actual: `%s`",
 					expectedLineNumber, actualLineNumber, expectedLine, actualLine);
 			}
@@ -207,7 +206,7 @@ class AssertLinesMatch {
 		fastForwardLine = fastForwardLine.strip();
 		String text = fastForwardLine.substring(2, fastForwardLine.length() - 2).strip();
 		try {
-			int limit = Integer.parseInt(text);
+			var limit = Integer.parseInt(text);
 			condition(limit > 0, () -> "fast-forward(%d) limit must be greater than zero".formatted(limit));
 			return limit;
 		}

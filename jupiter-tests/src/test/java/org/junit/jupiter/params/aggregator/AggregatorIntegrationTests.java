@@ -279,7 +279,7 @@ public class AggregatorIntegrationTests {
 		@Override
 		protected Person aggregateArguments(ArgumentsAccessor accessor, Class<?> targetType,
 				AnnotatedElementContext context, int parameterIndex) {
-			int startIndex = context.findAnnotation(StartIndex.class).map(StartIndex::value).orElse(0);
+			var startIndex = context.findAnnotation(StartIndex.class).map(StartIndex::value).orElse(0);
 
 			// @formatter:off
 			return new Person(
@@ -297,7 +297,7 @@ public class AggregatorIntegrationTests {
 		@Override
 		public Address aggregateArguments(ArgumentsAccessor arguments, Class<?> targetType,
 				AnnotatedElementContext context, int parameterIndex) {
-			int startIndex = context.findAnnotation(StartIndex.class).map(StartIndex::value).orElse(0);
+			var startIndex = context.findAnnotation(StartIndex.class).map(StartIndex::value).orElse(0);
 
 			// @formatter:off
 			return new Address(

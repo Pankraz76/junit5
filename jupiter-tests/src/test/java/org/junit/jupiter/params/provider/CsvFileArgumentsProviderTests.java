@@ -334,7 +334,7 @@ class CsvFileArgumentsProviderTests {
 
 		Stream<String[]> argumentsAsStrings = arguments.map(array -> {
 			String[] strings = new String[array.length];
-			for (int i = 0; i < array.length; i++) {
+			for (var i = 0; i < array.length; i++) {
 				if (array[i] instanceof ParameterNameAndArgument parameterNameAndArgument) {
 					strings[i] = parameterNameAndArgument.getName() + " = " + parameterNameAndArgument.getPayload();
 				}
@@ -477,7 +477,7 @@ class CsvFileArgumentsProviderTests {
 		try (var out = Files.newBufferedWriter(csvFile)) {
 			var chunks = 10;
 			var chunk = "a".repeat(8192);
-			for (long i = 0; i < chunks; i++) {
+			for (var i = 0L; i < chunks; i++) {
 				out.write(chunk);
 			}
 		}

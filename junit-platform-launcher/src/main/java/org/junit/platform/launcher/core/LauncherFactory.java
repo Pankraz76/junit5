@@ -149,7 +149,7 @@ public class LauncherFactory {
 
 	private static List<LauncherInterceptor> collectLauncherInterceptors(
 			LauncherConfigurationParameters configurationParameters) {
-		List<LauncherInterceptor> interceptors = new ArrayList<>();
+		var interceptors = new ArrayList<LauncherInterceptor>();
 		if (configurationParameters.getBoolean(ENABLE_LAUNCHER_INTERCEPTORS).orElse(false)) {
 			ServiceLoaderRegistry.load(LauncherInterceptor.class).forEach(interceptors::add);
 		}
@@ -158,7 +158,7 @@ public class LauncherFactory {
 	}
 
 	private static Set<TestEngine> collectTestEngines(LauncherConfig config) {
-		Set<TestEngine> engines = new LinkedHashSet<>();
+		var engines = new LinkedHashSet<TestEngine>();
 		if (config.isTestEngineAutoRegistrationEnabled()) {
 			new ServiceLoaderTestEngineRegistry().loadTestEngines().forEach(engines::add);
 		}
@@ -176,7 +176,7 @@ public class LauncherFactory {
 	}
 
 	private static List<PostDiscoveryFilter> collectPostDiscoveryFilters(LauncherConfig config) {
-		List<PostDiscoveryFilter> filters = new ArrayList<>();
+		var filters = new ArrayList<PostDiscoveryFilter>();
 		if (config.isPostDiscoveryFilterAutoRegistrationEnabled()) {
 			ServiceLoaderRegistry.load(PostDiscoveryFilter.class).forEach(filters::add);
 		}

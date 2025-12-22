@@ -66,8 +66,8 @@ class AssertTimeout {
 
 	private static <T extends @Nullable Object> T assertTimeout(Duration timeout, ThrowingSupplier<T> supplier,
 			@Nullable Object messageOrSupplier) {
-		long timeoutInMillis = timeout.toMillis();
-		long start = System.currentTimeMillis();
+		var timeoutInMillis = timeout.toMillis();
+		var start = System.currentTimeMillis();
 		T result;
 		try {
 			result = supplier.get();
@@ -76,7 +76,7 @@ class AssertTimeout {
 			throw throwAsUncheckedException(ex);
 		}
 
-		long timeElapsed = System.currentTimeMillis() - start;
+		var timeElapsed = System.currentTimeMillis() - start;
 		if (timeElapsed > timeoutInMillis) {
 			assertionFailure() //
 					.message(messageOrSupplier) //

@@ -119,7 +119,7 @@ class ReportingTests extends AbstractJupiterTestEngineTests {
 		void invalidReportData(TestReporter reporter) {
 
 			// Maps
-			Map<String, String> map = new HashMap<>();
+			var map = new HashMap<String, String>();
 
 			map.put("key", null);
 			assertPreconditionViolationFor(() -> reporter.publishEntry(map));

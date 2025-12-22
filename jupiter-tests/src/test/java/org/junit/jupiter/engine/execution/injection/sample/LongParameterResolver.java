@@ -41,8 +41,8 @@ public class LongParameterResolver implements ParameterResolver {
 
 		// Type variables in parameterized class
 		for (TypeVariable<?> typeVariable : parameterContext.getDeclaringExecutable().getDeclaringClass().getTypeParameters()) {
-			boolean namesMatch = typeInMethod.getTypeName().equals(typeVariable.getName());
-			boolean typesAreCompatible = typeVariable.getBounds().length == 1 && //
+			var namesMatch = typeInMethod.getTypeName().equals(typeVariable.getName());
+			var typesAreCompatible = typeVariable.getBounds().length == 1 && //
 					typeVariable.getBounds()[0] instanceof Class<?> clazz && //
 					clazz.isAssignableFrom(Long.class);
 

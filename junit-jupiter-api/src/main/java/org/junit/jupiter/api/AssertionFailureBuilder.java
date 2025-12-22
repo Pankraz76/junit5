@@ -216,8 +216,8 @@ public class AssertionFailureBuilder {
 		var pruneTargetClassName = trimStackTraceTarget.getName();
 		var stackTrace = throwable.getStackTrace();
 
-		int lastIndexOf = -1;
-		for (int i = 0; i < stackTrace.length; i++) {
+		var lastIndexOf = -1;
+		for (var i = 0; i < stackTrace.length; i++) {
 			var element = stackTrace[i];
 			var className = element.getClassName();
 			if (className.equals(pruneTargetClassName)) {
@@ -226,7 +226,7 @@ public class AssertionFailureBuilder {
 		}
 
 		if (lastIndexOf != -1) {
-			int from = clamp0(lastIndexOf + 1 - retainStackTraceElements, stackTrace.length);
+			var from = clamp0(lastIndexOf + 1 - retainStackTraceElements, stackTrace.length);
 			var trimmed = Arrays.copyOfRange(stackTrace, from, stackTrace.length);
 			throwable.setStackTrace(trimmed);
 		}

@@ -117,7 +117,7 @@ class TestWatcherTests extends AbstractJupiterTestEngineTests {
 		assertCommonStatistics(executeTestsForClass(ExceptionThrowingTestWatcherTestCase.class));
 
 		// @formatter:off
-		long exceptionCount = logRecordListener.stream(MethodBasedTestDescriptor.class, Level.WARNING)
+		var exceptionCount = logRecordListener.stream(MethodBasedTestDescriptor.class, Level.WARNING)
 				.map(LogRecord::getThrown)
 				.filter(JUnitException.class::isInstance)
 				.map(throwable -> throwable.getStackTrace()[0].getMethodName())

@@ -23,7 +23,6 @@ import static org.mockito.Mockito.mock;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -154,7 +153,7 @@ class DefaultJupiterConfigurationTests {
 
 	@Test
 	void doesNotReportAnyIssuesIfConfigurationParametersAreEmpty() {
-		List<DiscoveryIssue> issues = new ArrayList<>();
+		var issues = new ArrayList<DiscoveryIssue>();
 
 		new DefaultJupiterConfiguration(configurationParameters(Map.of()), dummyOutputDirectoryCreator(),
 			DiscoveryIssueReporter.collecting(issues)).getDefaultTestInstanceLifecycle();
@@ -168,7 +167,7 @@ class DefaultJupiterConfigurationTests {
 			ParallelExecutorServiceType executorServiceType) {
 		var parameters = Map.of(JupiterConfiguration.PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME, true, //
 			JupiterConfiguration.PARALLEL_CONFIG_EXECUTOR_SERVICE_PROPERTY_NAME, executorServiceType);
-		List<DiscoveryIssue> issues = new ArrayList<>();
+		var issues = new ArrayList<DiscoveryIssue>();
 
 		new DefaultJupiterConfiguration(ConfigurationParametersFactoryForTests.create(parameters),
 			dummyOutputDirectoryCreator(), DiscoveryIssueReporter.collecting(issues)).getDefaultTestInstanceLifecycle();
@@ -179,7 +178,7 @@ class DefaultJupiterConfigurationTests {
 	@Test
 	void asksUsersToTryWorkerThreadPoolHierarchicalExecutorServiceIfParallelExecutionIsEnabled() {
 		var parameters = Map.of(JupiterConfiguration.PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME, true);
-		List<DiscoveryIssue> issues = new ArrayList<>();
+		var issues = new ArrayList<DiscoveryIssue>();
 
 		new DefaultJupiterConfiguration(configurationParameters(parameters), dummyOutputDirectoryCreator(),
 			DiscoveryIssueReporter.collecting(issues)).getDefaultTestInstanceLifecycle();

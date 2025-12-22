@@ -43,7 +43,7 @@ class EngineFilterer {
 	}
 
 	boolean isExcluded(TestEngine testEngine) {
-		boolean excluded = engineFilters.stream() //
+		var excluded = engineFilters.stream() //
 				.map(engineFilter -> engineFilter.apply(testEngine)) //
 				.anyMatch(FilterResult::excluded);
 		checkedTestEngines.put(testEngine, excluded);

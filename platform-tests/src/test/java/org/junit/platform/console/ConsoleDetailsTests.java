@@ -29,7 +29,6 @@ import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Disabled;
@@ -76,8 +75,8 @@ class ConsoleDetailsTests {
 	private List<DynamicNode> scanContainerClassAndCreateDynamicTests(Class<?> containerClass) {
 		var containerName = containerClass.getSimpleName().replace("TestCase", "");
 		// String containerName = containerClass.getSimpleName();
-		List<DynamicNode> nodes = new ArrayList<>();
-		Map<Details, List<DynamicTest>> map = new EnumMap<>(Details.class);
+		var nodes = new ArrayList<DynamicNode>();
+		var map = new EnumMap<Details, List<DynamicTest>>(Details.class);
 		for (var method : findMethods(containerClass, m -> m.isAnnotationPresent(Test.class), TOP_DOWN)) {
 			var methodName = method.getName();
 			var types = method.getParameterTypes();
@@ -184,12 +183,12 @@ class ConsoleDetailsTests {
 
 		@Test
 		void reportMultiEntriesWithMultiMappings(TestReporter reporter) {
-			Map<String, String> values = new LinkedHashMap<>();
+			var values = new LinkedHashMap<String, String>();
 			values.put("user name", "dk38");
 			values.put("award year", "1974");
 			reporter.publishEntry(values);
 			reporter.publishEntry("single", "mapping");
-			Map<String, String> more = new LinkedHashMap<>();
+			var more = new LinkedHashMap<String, String>();
 			more.put("user name", "st77");
 			more.put("award year", "1977");
 			more.put("last seen", "2001");

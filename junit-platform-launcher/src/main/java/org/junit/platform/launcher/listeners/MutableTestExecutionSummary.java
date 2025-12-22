@@ -219,7 +219,7 @@ class MutableTestExecutionSummary implements TestExecutionSummary {
 	}
 
 	private String describeTest(TestIdentifier testIdentifier) {
-		List<String> descriptionParts = new ArrayList<>();
+		var descriptionParts = new ArrayList<String>();
 		collectTestDescription(testIdentifier, descriptionParts);
 		return join(":", descriptionParts);
 	}
@@ -254,10 +254,10 @@ class MutableTestExecutionSummary implements TestExecutionSummary {
 		if (parentTrace.length > 0) {
 			writer.printf("%s%s%s%n", indentation, caption, throwable);
 		}
-		int duplicates = numberOfCommonFrames(trace, parentTrace);
-		int numDistinctFrames = trace.length - duplicates;
-		int numDisplayLines = Math.min(numDistinctFrames, max);
-		for (int i = 0; i < numDisplayLines; i++) {
+		var duplicates = numberOfCommonFrames(trace, parentTrace);
+		var numDistinctFrames = trace.length - duplicates;
+		var numDisplayLines = Math.min(numDistinctFrames, max);
+		for (var i = 0; i < numDisplayLines; i++) {
 			writer.printf("%s%s%s%n", indentation, TAB, trace[i]);
 		}
 		if (trace.length > max || duplicates != 0) {
@@ -273,8 +273,8 @@ class MutableTestExecutionSummary implements TestExecutionSummary {
 	}
 
 	private int numberOfCommonFrames(StackTraceElement[] currentTrace, StackTraceElement[] parentTrace) {
-		int currentIndex = currentTrace.length - 1;
-		for (int parentIndex = parentTrace.length - 1; currentIndex >= 0
+		var currentIndex = currentTrace.length - 1;
+		for (var parentIndex = parentTrace.length - 1; currentIndex >= 0
 				&& parentIndex >= 0; currentIndex--, parentIndex--) {
 			if (!currentTrace[currentIndex].equals(parentTrace[parentIndex])) {
 				break;

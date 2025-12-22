@@ -25,7 +25,6 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -72,7 +71,7 @@ class ParameterizedInvocationNameFormatter {
 				declarationContext.getAnnotationName(),
 				declarationContext.getResolverFacade().getIndexedParameterDeclarations().getSourceElementDescription()));
 
-		int argumentMaxLength = extensionContext.getConfigurationParameter(ARGUMENT_MAX_LENGTH_KEY, Integer::parseInt) //
+		var argumentMaxLength = extensionContext.getConfigurationParameter(ARGUMENT_MAX_LENGTH_KEY, Integer::parseInt) //
 				.orElse(512);
 
 		return new ParameterizedInvocationNameFormatter(pattern, extensionContext.getDisplayName(), declarationContext,
@@ -118,7 +117,7 @@ class ParameterizedInvocationNameFormatter {
 	private PartialFormatter[] parse(String pattern, String displayName,
 			ParameterizedDeclarationContext<?> declarationContext, int argumentMaxLength) {
 
-		List<PartialFormatter> result = new ArrayList<>();
+		var result = new ArrayList<PartialFormatter>();
 		PartialFormatters formatters = createPartialFormatters(displayName, declarationContext, argumentMaxLength);
 		String unparsedSegment = pattern;
 
@@ -145,7 +144,7 @@ class ParameterizedInvocationNameFormatter {
 		}
 		PlaceholderPosition minimum = null;
 		for (String placeholder : formatters.placeholders()) {
-			int index = segment.indexOf(placeholder);
+			var index = segment.indexOf(placeholder);
 			if (index >= 0) {
 				if (index < formatters.minimumPlaceholderLength) {
 					return new PlaceholderPosition(index, placeholder);
@@ -194,7 +193,7 @@ class ParameterizedInvocationNameFormatter {
 		return argumentsPatternCache.computeIfAbsent(length, //
 			key -> {
 				StringJoiner sj = new StringJoiner(", ");
-				for (int i = 0; i < length; i++) {
+				for (var i = 0; i < length; i++) {
 					sj.add("{" + i + "}");
 				}
 				return sj.toString();
@@ -266,7 +265,7 @@ class ParameterizedInvocationNameFormatter {
 			Format[] formats = messageFormat.getFormatsByArgumentIndex();
 			@Nullable
 			Object[] result = Arrays.copyOf(arguments, Math.min(arguments.length, formats.length), Object[].class);
-			for (int i = 0; i < result.length; i++) {
+			for (var i = 0; i < result.length; i++) {
 				if (formats[i] == null) {
 					Object argument = arguments[i];
 					String prefix = "";
@@ -342,7 +341,7 @@ class ParameterizedInvocationNameFormatter {
 
 		void put(String placeholder, PartialFormatter formatter) {
 			formattersByPlaceholder.put(placeholder, formatter);
-			int newPlaceholderLength = placeholder.length();
+			var newPlaceholderLength = placeholder.length();
 			if (newPlaceholderLength < minimumPlaceholderLength) {
 				minimumPlaceholderLength = newPlaceholderLength;
 			}

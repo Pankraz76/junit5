@@ -36,10 +36,10 @@ abstract class AbstractJreRangeCondition<A extends Annotation> extends BooleanEx
 	protected final boolean isCurrentVersionWithinRange(JRE minJre, JRE maxJre, int minVersion, int maxVersion) {
 		String annotationName = super.annotationType.getSimpleName();
 
-		boolean minJreSet = minJre != JRE.UNDEFINED;
-		boolean maxJreSet = maxJre != JRE.UNDEFINED;
-		boolean minVersionSet = minVersion != JRE.UNDEFINED_VERSION;
-		boolean maxVersionSet = maxVersion != JRE.UNDEFINED_VERSION;
+		var minJreSet = minJre != JRE.UNDEFINED;
+		var maxJreSet = maxJre != JRE.UNDEFINED;
+		var minVersionSet = minVersion != JRE.UNDEFINED_VERSION;
+		var maxVersionSet = maxVersion != JRE.UNDEFINED_VERSION;
 
 		// Users must choose between JRE enum constants and version numbers.
 		Preconditions.condition(!minJreSet || !minVersionSet,

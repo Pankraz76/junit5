@@ -384,7 +384,7 @@ class RepeatedTestTests extends AbstractJupiterTestEngineTests {
 
 		@RepeatedTest(value = 3, failureThreshold = 1)
 		void failureThreshold1() {
-			int count = counter.incrementAndGet();
+			var count = counter.incrementAndGet();
 			if (count > 1) {
 				fail("Boom!");
 			}
@@ -392,7 +392,7 @@ class RepeatedTestTests extends AbstractJupiterTestEngineTests {
 
 		@RepeatedTest(value = 4, failureThreshold = 2)
 		void failureThreshold2() {
-			int count = counter.incrementAndGet();
+			var count = counter.incrementAndGet();
 			if (count > 1) {
 				fail("Boom!");
 			}
@@ -400,7 +400,7 @@ class RepeatedTestTests extends AbstractJupiterTestEngineTests {
 
 		@RepeatedTest(value = 8, failureThreshold = 3)
 		void failureThreshold3() {
-			int count = counter.incrementAndGet();
+			var count = counter.incrementAndGet();
 			if ((count > 1) && (count % 2 == 0)) {
 				fail("Boom!");
 			}
@@ -408,7 +408,7 @@ class RepeatedTestTests extends AbstractJupiterTestEngineTests {
 
 		@RepeatedTest(value = 20, failureThreshold = 3)
 		void failureThresholdWithConcurrentExecution() {
-			int count = counter.incrementAndGet();
+			var count = counter.incrementAndGet();
 			if ((count > 1) && (count % 2 == 0)) {
 				fail("Boom!");
 			}

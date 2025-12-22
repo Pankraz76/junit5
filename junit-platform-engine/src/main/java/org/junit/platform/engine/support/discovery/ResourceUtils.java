@@ -37,7 +37,7 @@ class ResourceUtils {
 	}
 
 	private static String packageName(String classpathResourceName) {
-		int lastIndexOf = classpathResourceName.lastIndexOf(CLASSPATH_RESOURCE_PATH_SEPARATOR);
+		var lastIndexOf = classpathResourceName.lastIndexOf(CLASSPATH_RESOURCE_PATH_SEPARATOR);
 		if (lastIndexOf < 0) {
 			return DEFAULT_PACKAGE_NAME;
 		}

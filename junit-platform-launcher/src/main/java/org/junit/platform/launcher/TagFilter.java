@@ -133,7 +133,7 @@ public final class TagFilter {
 		List<TagExpression> parsedTagExpressions = parseAll(tagExpressions);
 		return descriptor -> {
 			Set<TestTag> tags = descriptor.getTags();
-			boolean included = parsedTagExpressions.stream().anyMatch(expression -> expression.evaluate(tags));
+			var included = parsedTagExpressions.stream().anyMatch(expression -> expression.evaluate(tags));
 
 			return FilterResult.includedIf(included, inclusionReason, exclusionReason);
 		};
@@ -153,7 +153,7 @@ public final class TagFilter {
 		List<TagExpression> parsedTagExpressions = parseAll(tagExpressions);
 		return descriptor -> {
 			Set<TestTag> tags = descriptor.getTags();
-			boolean included = parsedTagExpressions.stream().noneMatch(expression -> expression.evaluate(tags));
+			var included = parsedTagExpressions.stream().noneMatch(expression -> expression.evaluate(tags));
 
 			return FilterResult.includedIf(included, inclusionReason, exclusionReason);
 		};

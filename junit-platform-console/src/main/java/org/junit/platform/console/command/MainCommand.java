@@ -99,7 +99,7 @@ class MainCommand implements Runnable, IExitCodeGenerator {
 			@SuppressWarnings("OptionalUsedAsFieldOrParameterType") Optional<OutputStreamConfig> outputStreamConfig) {
 		BaseCommand.initialize(commandLine);
 		outputStreamConfig.ifPresent(it -> it.applyTo(commandLine));
-		int exitCode = commandLine.execute(args);
+		var exitCode = commandLine.execute(args);
 		return CommandResult.create(exitCode, getLikelyExecutedCommand(commandLine).getExecutionResult());
 	}
 

@@ -22,11 +22,11 @@ public class DescriptionUtils {
 
 	public static @Nullable String getMethodName(Description description) {
 		String displayName = description.getDisplayName();
-		int i = displayName.indexOf('(');
+		var i = displayName.indexOf('(');
 		if (i >= 0) {
-			int j = displayName.lastIndexOf('(');
+			var j = displayName.lastIndexOf('(');
 			if (i == j) {
-				char lastChar = displayName.charAt(displayName.length() - 1);
+				var lastChar = displayName.charAt(displayName.length() - 1);
 				if (lastChar == ')') {
 					return displayName.substring(0, i);
 				}

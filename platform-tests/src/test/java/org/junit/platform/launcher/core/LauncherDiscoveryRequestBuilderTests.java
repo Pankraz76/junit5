@@ -295,7 +295,7 @@ class LauncherDiscoveryRequestBuilderTests {
 
 		@Test
 		void multipleConfigurationParametersAddedByMap_areStoredInDiscoveryRequest() {
-			Map<String, String> configurationParams = new HashMap<>();
+			var configurationParams = new HashMap<String, String>();
 			configurationParams.put("key1", "value1");
 			configurationParams.put("key2", "value2");
 

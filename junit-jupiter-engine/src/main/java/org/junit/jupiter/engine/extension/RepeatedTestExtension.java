@@ -41,9 +41,9 @@ class RepeatedTestExtension implements TestTemplateInvocationContextProvider {
 		Method testMethod = context.getRequiredTestMethod();
 		String displayName = context.getDisplayName();
 		RepeatedTest repeatedTest = findAnnotation(testMethod, RepeatedTest.class).get();
-		int totalRepetitions = totalRepetitions(repeatedTest, testMethod);
+		var totalRepetitions = totalRepetitions(repeatedTest, testMethod);
 		AtomicInteger failureCount = new AtomicInteger();
-		int failureThreshold = failureThreshold(repeatedTest, testMethod);
+		var failureThreshold = failureThreshold(repeatedTest, testMethod);
 		RepeatedTestDisplayNameFormatter formatter = displayNameFormatter(repeatedTest, testMethod, displayName);
 
 		// @formatter:off
@@ -55,7 +55,7 @@ class RepeatedTestExtension implements TestTemplateInvocationContextProvider {
 	}
 
 	private int totalRepetitions(RepeatedTest repeatedTest, Method method) {
-		int repetitions = repeatedTest.value();
+		var repetitions = repeatedTest.value();
 		Preconditions.condition(repetitions > 0,
 			() -> "Configuration error: @RepeatedTest on method [%s] must be declared with a positive 'value'.".formatted(
 				method));
@@ -63,9 +63,9 @@ class RepeatedTestExtension implements TestTemplateInvocationContextProvider {
 	}
 
 	private int failureThreshold(RepeatedTest repeatedTest, Method method) {
-		int failureThreshold = repeatedTest.failureThreshold();
+		var failureThreshold = repeatedTest.failureThreshold();
 		if (failureThreshold != Integer.MAX_VALUE) {
-			int repetitions = repeatedTest.value();
+			var repetitions = repeatedTest.value();
 			Preconditions.condition((failureThreshold > 0) && (failureThreshold < repetitions),
 				() -> """
 						Configuration error: @RepeatedTest on method [%s] must declare a \

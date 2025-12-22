@@ -55,7 +55,7 @@ class SameThreadTimeoutInvocation<T extends @Nullable Object> implements Invocat
 			failure = t;
 		}
 		finally {
-			boolean cancelled = future.cancel(false);
+			var cancelled = future.cancel(false);
 			if (!cancelled) {
 				future.get();
 			}

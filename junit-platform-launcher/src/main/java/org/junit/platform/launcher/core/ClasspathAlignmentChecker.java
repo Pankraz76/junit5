@@ -15,7 +15,6 @@ import static java.util.Comparator.comparing;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
@@ -53,7 +52,7 @@ class ClasspathAlignmentChecker {
 
 	// VisibleForTesting
 	static Optional<JUnitException> check(LinkageError error, Function<String, @Nullable Package> packageLookup) {
-		Map<String, List<Package>> packagesByVersions = new HashMap<>();
+		var packagesByVersions = new HashMap<String, List<Package>>();
 		WELL_KNOWN_PACKAGES.stream() //
 				.map(packageLookup) //
 				.filter(Objects::nonNull) //
