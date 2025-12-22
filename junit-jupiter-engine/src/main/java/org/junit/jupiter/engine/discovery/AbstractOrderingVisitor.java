@@ -166,12 +166,12 @@ abstract class AbstractOrderingVisitor implements TestDescriptor.Visitor {
 		}
 
 		private void orderWrappers(PARENT parentTestDescriptor, List<WRAPPER> wrappers, Consumer<String> errorHandler) {
-			List<WRAPPER> orderedWrappers = new ArrayList<>(wrappers);
+			var orderedWrappers = new ArrayList<WRAPPER>(wrappers);
 			requireNonNull(this.orderingAction).order(parentTestDescriptor, orderedWrappers);
 			Map<Object, Integer> distinctWrappersToIndex = distinctWrappersToIndex(orderedWrappers);
 
-			int difference = orderedWrappers.size() - wrappers.size();
-			int distinctDifference = distinctWrappersToIndex.size() - wrappers.size();
+			var difference = orderedWrappers.size() - wrappers.size();
+			var distinctDifference = distinctWrappersToIndex.size() - wrappers.size();
 			if (difference > 0) { // difference >= distinctDifference
 				reportDescriptorsAddedWarning(difference, errorHandler, parentTestDescriptor);
 			}
@@ -183,8 +183,8 @@ abstract class AbstractOrderingVisitor implements TestDescriptor.Visitor {
 		}
 
 		private Map<Object, Integer> distinctWrappersToIndex(List<?> wrappers) {
-			Map<Object, Integer> toIndex = new HashMap<>();
-			for (int i = 0; i < wrappers.size(); i++) {
+			var toIndex = new HashMap<Object, Integer>();
+			for (var i = 0; i < wrappers.size(); i++) {
 				// Avoid ClassCastException if a misbehaving ordering action added a non-WRAPPER
 				Object wrapper = wrappers.get(i);
 				if (!toIndex.containsKey(wrapper)) {

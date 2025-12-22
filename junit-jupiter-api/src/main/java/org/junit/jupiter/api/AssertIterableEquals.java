@@ -72,7 +72,7 @@ class AssertIterableEquals {
 		Iterator<?> expectedIterator = expected.iterator();
 		Iterator<?> actualIterator = actual.iterator();
 
-		int processed = 0;
+		var processed = 0;
 		while (expectedIterator.hasNext() && actualIterator.hasNext()) {
 			Object expectedElement = expectedIterator.next();
 			Object actualElement = actualIterator.next();

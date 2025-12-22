@@ -37,7 +37,6 @@ import java.time.Year;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Set;
 
 import org.joox.Match;
@@ -408,7 +407,7 @@ class LegacyXmlReportGeneratingListenerTests {
 		var testIdentifier = testPlan.getTestIdentifier(childUniqueId);
 		listener.executionStarted(testIdentifier);
 		listener.reportingEntryPublished(testIdentifier, ReportEntry.from("foo", "bar"));
-		Map<String, String> map = new LinkedHashMap<>();
+		var map = new LinkedHashMap<String, String>();
 		map.put("bar", "baz");
 		map.put("qux", "foo");
 		listener.reportingEntryPublished(testIdentifier, ReportEntry.from(map));

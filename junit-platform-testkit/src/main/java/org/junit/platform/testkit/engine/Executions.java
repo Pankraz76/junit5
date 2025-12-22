@@ -19,7 +19,6 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -251,8 +250,8 @@ public final class Executions {
 	 * Create executions from the supplied list of events.
 	 */
 	private static List<Execution> createExecutions(List<Event> events) {
-		List<Execution> executions = new ArrayList<>();
-		Map<TestDescriptor, Instant> executionStarts = new HashMap<>();
+		var executions = new ArrayList<Execution>();
+		var executionStarts = new HashMap<TestDescriptor, Instant>();
 
 		for (Event event : events) {
 			switch (event.getType()) {

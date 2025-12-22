@@ -27,7 +27,7 @@ final class QuoteUtils {
 		}
 		StringBuilder builder = new StringBuilder();
 		builder.append('"');
-		for (int i = 0; i < text.length(); i++) {
+		for (var i = 0; i < text.length(); i++) {
 			builder.append(escape(text.charAt(i), true));
 		}
 		builder.append('"');

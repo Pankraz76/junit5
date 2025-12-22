@@ -219,7 +219,7 @@ public final class EventConditions {
 		Preconditions.notNull(clazz, "Class must not be null");
 		Preconditions.notNull(clazz.getEnclosingClass(), () -> clazz.getName() + " must be a nested class");
 
-		List<String> classNames = new ArrayList<>();
+		var classNames = new ArrayList<String>();
 		for (Class<?> current = clazz; current != null; current = current.getEnclosingClass()) {
 			classNames.add(0, current.getSimpleName());
 		}

@@ -40,7 +40,7 @@ class JUnit4ParameterizedTests {
 	void selectingWholeParameterizedClassRunsTestsWithAllValues() {
 		executeTests(selectClass(JUnit4ParameterizedTestCase.class));
 
-		Map<TestExecutionResult.Status, Integer> expectedCallCounts = new HashMap<>();
+		var expectedCallCounts = new HashMap<TestExecutionResult.Status, Integer>();
 		expectedCallCounts.put(SUCCESSFUL, 3);
 		expectedCallCounts.put(FAILED, 9);
 

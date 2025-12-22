@@ -189,7 +189,7 @@ class UniqueIdTrackingListenerIntegrationTests {
 		var customDir = workingDir.resolve("build/UniqueIdTrackingListenerIntegrationTests");
 		var prefix = DEFAULT_OUTPUT_FILE_PREFIX;
 
-		Map<String, String> configurationParameters = new HashMap<>();
+		var configurationParameters = new HashMap<String, String>();
 		configurationParameters.put(LISTENER_ENABLED_PROPERTY_NAME, "true");
 		configurationParameters.put(OUTPUT_DIR_PROPERTY_NAME, customDir.toAbsolutePath().toString());
 
@@ -212,7 +212,7 @@ class UniqueIdTrackingListenerIntegrationTests {
 	}
 
 	private List<String> executeTests(Map<String, String> configurationParameters, List<ClassSelector> classSelectors) {
-		List<String> uniqueIds = new ArrayList<>();
+		var uniqueIds = new ArrayList<String>();
 		var listener = new TestExecutionListener() {
 
 			@Nullable

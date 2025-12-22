@@ -39,16 +39,16 @@ public enum DefaultParallelExecutionConfigurationStrategy implements ParallelExe
 	FIXED {
 		@Override
 		public ParallelExecutionConfiguration createConfiguration(ConfigurationParameters configurationParameters) {
-			int parallelism = configurationParameters.get(CONFIG_FIXED_PARALLELISM_PROPERTY_NAME,
+			var parallelism = configurationParameters.get(CONFIG_FIXED_PARALLELISM_PROPERTY_NAME,
 				Integer::valueOf).orElseThrow(
 					() -> new JUnitException(
 						"Configuration parameter '%s' must be set".formatted(CONFIG_FIXED_PARALLELISM_PROPERTY_NAME)));
 
-			int maxPoolSize = configurationParameters.get(CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME,
+			var maxPoolSize = configurationParameters.get(CONFIG_FIXED_MAX_POOL_SIZE_PROPERTY_NAME,
 				Integer::valueOf).orElse(parallelism + 256);
 
-			boolean saturate = configurationParameters.get(CONFIG_FIXED_SATURATE_PROPERTY_NAME,
-				Boolean::valueOf).orElse(true);
+			var saturate = configurationParameters.get(CONFIG_FIXED_SATURATE_PROPERTY_NAME, Boolean::valueOf).orElse(
+				true);
 
 			return new DefaultParallelExecutionConfiguration(parallelism, parallelism, maxPoolSize, parallelism,
 				KEEP_ALIVE_SECONDS, __ -> saturate);
@@ -70,10 +70,10 @@ public enum DefaultParallelExecutionConfigurationStrategy implements ParallelExe
 				() -> "Factor '%s' specified via configuration parameter '%s' must be greater than 0".formatted(factor,
 					CONFIG_DYNAMIC_FACTOR_PROPERTY_NAME));
 
-			int parallelism = Math.max(1,
+			var parallelism = Math.max(1,
 				factor.multiply(BigDecimal.valueOf(Runtime.getRuntime().availableProcessors())).intValue());
 
-			int maxPoolSize = configurationParameters.get(CONFIG_DYNAMIC_MAX_POOL_SIZE_FACTOR_PROPERTY_NAME,
+			var maxPoolSize = configurationParameters.get(CONFIG_DYNAMIC_MAX_POOL_SIZE_FACTOR_PROPERTY_NAME,
 				BigDecimal::new).map(maxPoolSizeFactor -> {
 					Preconditions.condition(maxPoolSizeFactor.compareTo(BigDecimal.ONE) >= 0,
 						() -> "Factor '%s' specified via configuration parameter '%s' must be greater than or equal to 1".formatted(
@@ -81,8 +81,8 @@ public enum DefaultParallelExecutionConfigurationStrategy implements ParallelExe
 					return maxPoolSizeFactor.multiply(BigDecimal.valueOf(parallelism)).intValue();
 				}).orElseGet(() -> 256 + parallelism);
 
-			boolean saturate = configurationParameters.get(CONFIG_DYNAMIC_SATURATE_PROPERTY_NAME,
-				Boolean::valueOf).orElse(true);
+			var saturate = configurationParameters.get(CONFIG_DYNAMIC_SATURATE_PROPERTY_NAME, Boolean::valueOf).orElse(
+				true);
 
 			return new DefaultParallelExecutionConfiguration(parallelism, parallelism, maxPoolSize, parallelism,
 				KEEP_ALIVE_SECONDS, __ -> saturate);

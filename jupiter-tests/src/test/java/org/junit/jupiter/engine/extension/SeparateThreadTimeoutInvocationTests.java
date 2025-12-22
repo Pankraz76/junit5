@@ -40,7 +40,7 @@ class SeparateThreadTimeoutInvocationTests {
 	@Test
 	@DisplayName("throws timeout exception when timeout duration is exceeded")
 	void throwsTimeoutException() {
-		AtomicReference<String> threadName = new AtomicReference<>();
+		var threadName = new AtomicReference<String>();
 		var invocation = aSeparateThreadInvocation(() -> {
 			threadName.set(Thread.currentThread().getName());
 			Thread.sleep(PREEMPTIVE_TIMEOUT_MILLIS * 2);

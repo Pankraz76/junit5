@@ -49,7 +49,7 @@ class TimeoutDurationParser {
 	TimeoutDuration parse(CharSequence text) throws DateTimeParseException {
 		Matcher matcher = PATTERN.matcher(text);
 		if (matcher.matches()) {
-			long value = Long.parseLong(matcher.group(1));
+			var value = Long.parseLong(matcher.group(1));
 			String unitAbbreviation = matcher.group(2);
 			TimeUnit unit = unitAbbreviation == null ? SECONDS
 					: requireNonNull(UNITS_BY_ABBREVIATION.get(unitAbbreviation.toLowerCase(Locale.ENGLISH)));

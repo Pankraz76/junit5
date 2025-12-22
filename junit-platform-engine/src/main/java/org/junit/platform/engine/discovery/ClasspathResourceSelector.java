@@ -65,7 +65,7 @@ public final class ClasspathResourceSelector implements DiscoverySelector {
 	private @Nullable Set<Resource> resources;
 
 	ClasspathResourceSelector(String classpathResourceName, @Nullable FilePosition position) {
-		boolean startsWithSlash = classpathResourceName.startsWith("/");
+		var startsWithSlash = classpathResourceName.startsWith("/");
 		this.classpathResourceName = (startsWithSlash ? classpathResourceName.substring(1) : classpathResourceName);
 		Preconditions.notBlank(this.classpathResourceName,
 			"classpath resource name must not be blank after removing leading slash");

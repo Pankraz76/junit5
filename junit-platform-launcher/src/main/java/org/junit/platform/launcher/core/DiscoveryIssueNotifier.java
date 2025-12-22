@@ -119,7 +119,7 @@ class DiscoveryIssueNotifier {
 			message.append(issues.size()).append(' ').append(adjective).append(" issues");
 		}
 		message.append(" during test discovery:");
-		for (int i = 0; i < issues.size(); i++) {
+		for (var i = 0; i < issues.size(); i++) {
 			DiscoveryIssue issue = issues.get(i);
 			message.append("\n\n(").append(i + 1).append(") [").append(issue.severity()).append("] ").append(
 				issue.message());

@@ -98,8 +98,8 @@ class ReflectionSupportTests {
 
 	@TestFactory
 	List<DynamicTest> findAllClassesInClasspathRootDelegates() throws Throwable {
-		List<DynamicTest> tests = new ArrayList<>();
-		List<Path> paths = new ArrayList<>();
+		var tests = new ArrayList<DynamicTest>();
+		var paths = new ArrayList<Path>();
 		paths.add(Path.of(".").toRealPath());
 		paths.addAll(ReflectionUtils.getAllClasspathRootDirectories());
 		for (var path : paths) {
@@ -159,8 +159,8 @@ class ReflectionSupportTests {
 	@SuppressWarnings("removal")
 	@TestFactory
 	List<DynamicTest> findAllResourcesInClasspathRootDelegates() throws Throwable {
-		List<DynamicTest> tests = new ArrayList<>();
-		List<Path> paths = new ArrayList<>();
+		var tests = new ArrayList<DynamicTest>();
+		var paths = new ArrayList<Path>();
 		paths.add(Path.of(".").toRealPath());
 		paths.addAll(ReflectionUtils.getAllClasspathRootDirectories());
 		for (var path : paths) {
@@ -192,8 +192,8 @@ class ReflectionSupportTests {
 	@SuppressWarnings("removal")
 	@TestFactory
 	List<DynamicTest> streamAllResourcesInClasspathRootDelegates() throws Throwable {
-		List<DynamicTest> tests = new ArrayList<>();
-		List<Path> paths = new ArrayList<>();
+		var tests = new ArrayList<DynamicTest>();
+		var paths = new ArrayList<Path>();
 		paths.add(Path.of(".").toRealPath());
 		paths.addAll(ReflectionUtils.getAllClasspathRootDirectories());
 		for (var path : paths) {

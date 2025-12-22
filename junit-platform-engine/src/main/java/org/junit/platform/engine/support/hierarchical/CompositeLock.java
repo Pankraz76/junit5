@@ -47,7 +47,7 @@ class CompositeLock implements ResourceLock {
 
 	@Override
 	public boolean tryAcquire() {
-		List<Lock> acquiredLocks = new ArrayList<>(this.locks.size());
+		var acquiredLocks = new ArrayList<Lock>(this.locks.size());
 		for (Lock lock : this.locks) {
 			if (lock.tryLock()) {
 				acquiredLocks.add(lock);
@@ -72,7 +72,7 @@ class CompositeLock implements ResourceLock {
 	}
 
 	private void acquireAllLocks() throws InterruptedException {
-		List<Lock> acquiredLocks = new ArrayList<>(this.locks.size());
+		var acquiredLocks = new ArrayList<Lock>(this.locks.size());
 		try {
 			for (Lock lock : this.locks) {
 				lock.lockInterruptibly();
@@ -91,7 +91,7 @@ class CompositeLock implements ResourceLock {
 	}
 
 	private void release(List<Lock> acquiredLocks) {
-		for (int i = acquiredLocks.size() - 1; i >= 0; i--) {
+		for (var i = acquiredLocks.size() - 1; i >= 0; i--) {
 			acquiredLocks.get(i).unlock();
 		}
 	}

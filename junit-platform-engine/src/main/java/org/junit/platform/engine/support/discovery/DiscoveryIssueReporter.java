@@ -14,7 +14,6 @@ import static org.apiguardian.api.API.Status.EXPERIMENTAL;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -83,9 +82,9 @@ public interface DiscoveryIssueReporter {
 	 */
 	static DiscoveryIssueReporter deduplicating(DiscoveryIssueReporter delegate) {
 		Preconditions.notNull(delegate, "delegate must not be null");
-		Set<DiscoveryIssue> seen = new HashSet<>();
+		var seen = new HashSet<DiscoveryIssue>();
 		return issue -> {
-			boolean notSeen = seen.add(issue);
+			var notSeen = seen.add(issue);
 			if (notSeen) {
 				delegate.reportIssue(issue);
 			}

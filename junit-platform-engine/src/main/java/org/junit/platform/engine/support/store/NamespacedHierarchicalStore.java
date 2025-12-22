@@ -21,7 +21,6 @@ import static org.junit.platform.commons.util.ReflectionUtils.isAssignableTo;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -132,7 +131,7 @@ public final class NamespacedHierarchicalStore<N> implements AutoCloseable {
 		if (!this.closed) {
 			try {
 				if (this.closeAction != null) {
-					List<Throwable> failures = new ArrayList<>();
+					var failures = new ArrayList<Throwable>();
 					this.storedValues.entrySet().stream() //
 							.map(e -> e.getValue().evaluateSafely(e.getKey())) //
 							.filter(it -> it != null && it.value != null) //
@@ -210,7 +209,7 @@ public final class NamespacedHierarchicalStore<N> implements AutoCloseable {
 	public <K, V extends @Nullable Object> @Nullable Object getOrComputeIfAbsent(N namespace, K key,
 			Function<? super K, ? extends V> defaultCreator) {
 		Preconditions.notNull(defaultCreator, "defaultCreator must not be null");
-		CompositeKey<N> compositeKey = new CompositeKey<>(namespace, key);
+		var compositeKey = new CompositeKey<N>(namespace, key);
 		StoredValue storedValue = getStoredValue(compositeKey);
 		if (storedValue == null) {
 			storedValue = this.storedValues.computeIfAbsent(compositeKey,
@@ -240,7 +239,7 @@ public final class NamespacedHierarchicalStore<N> implements AutoCloseable {
 	@API(status = MAINTAINED, since = "6.0")
 	public <K, V> Object computeIfAbsent(N namespace, K key, Function<? super K, ? extends V> defaultCreator) {
 		Preconditions.notNull(defaultCreator, "defaultCreator must not be null");
-		CompositeKey<N> compositeKey = new CompositeKey<>(namespace, key);
+		var compositeKey = new CompositeKey<N>(namespace, key);
 		StoredValue storedValue = getStoredValue(compositeKey);
 		var result = StoredValue.evaluateIfNotNull(storedValue);
 		if (result == null) {

@@ -188,7 +188,7 @@ class AssertTimeoutPreemptivelyAssertionsTests {
 
 	@Test
 	void assertTimeoutPreemptivelyUsesThreadsWithSpecificNamePrefix() {
-		AtomicReference<String> threadName = new AtomicReference<>("");
+		var threadName = new AtomicReference<String>("");
 		assertTimeoutPreemptively(ofMillis(1000), () -> threadName.set(Thread.currentThread().getName()));
 		assertThat(threadName.get()) //
 				.withFailMessage("Thread name does not match the expected prefix") //

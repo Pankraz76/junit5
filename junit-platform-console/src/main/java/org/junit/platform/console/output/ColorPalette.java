@@ -42,7 +42,7 @@ public class ColorPalette {
 
 	// https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_parameters
 	private static Map<Style, String> defaultPalette() {
-		Map<Style, String> colorsToAnsiSequences = new EnumMap<>(Style.class);
+		var colorsToAnsiSequences = new EnumMap<Style, String>(Style.class);
 		colorsToAnsiSequences.put(Style.NONE, "0");
 		colorsToAnsiSequences.put(Style.SUCCESSFUL, "32");
 		colorsToAnsiSequences.put(Style.ABORTED, "33");
@@ -56,7 +56,7 @@ public class ColorPalette {
 	}
 
 	private static Map<Style, String> singleColorPalette() {
-		Map<Style, String> colorsToAnsiSequences = new EnumMap<>(Style.class);
+		var colorsToAnsiSequences = new EnumMap<Style, String>(Style.class);
 		colorsToAnsiSequences.put(Style.NONE, "0");
 		colorsToAnsiSequences.put(Style.SUCCESSFUL, "1");
 		colorsToAnsiSequences.put(Style.ABORTED, "4");

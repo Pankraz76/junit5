@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.platform.commons.test.PreconditionAssertions.assertPreconditionViolationFor;
 
 import java.util.LinkedHashMap;
-import java.util.Map;
 
 import org.jspecify.annotations.NullUnmarked;
 import org.junit.jupiter.api.Test;
@@ -129,10 +128,9 @@ class ToStringBuilderTests {
 	@SuppressWarnings("serial")
 	void withMapField() {
 		// @formatter:off
-		Map<String,Object> map = new LinkedHashMap<>() {{
-			put("foo", 42);
-			put("bar", "enigma");
-		}};
+		var map = new LinkedHashMap<String, Object>();
+		map.put("foo", 42);
+		map.put("bar", "enigma");
 		// @formatter:on
 		assertEquals("RoleModel [mystery map = {foo=42, bar=enigma}]",
 			new ToStringBuilder(new RoleModel()).append("mystery map", map).toString());

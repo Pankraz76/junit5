@@ -419,7 +419,7 @@ public final class Events {
 		Assertions.assertThat(events).hasSize(conditions.length);
 
 		SoftAssertions softly = new SoftAssertions();
-		for (int i = 0; i < conditions.length; i++) {
+		for (var i = 0; i < conditions.length; i++) {
 			softly.assertThat(events).has(conditions[i], Index.atIndex(i));
 		}
 		softly.assertAll();
@@ -456,7 +456,7 @@ public final class Events {
 	}
 
 	private static boolean isNotInIncreasingOrder(List<Integer> indices) {
-		List<Integer> copy = new ArrayList<>(indices);
+		var copy = new ArrayList<Integer>(indices);
 		sort(copy);
 
 		return !indices.equals(copy);

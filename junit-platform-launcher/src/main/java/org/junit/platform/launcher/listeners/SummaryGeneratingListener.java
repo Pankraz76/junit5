@@ -82,10 +82,10 @@ public class SummaryGeneratingListener implements TestExecutionListener {
 	public void executionSkipped(TestIdentifier testIdentifier, String reason) {
 		var testPlan = requireNonNull(this.testPlan);
 		// @formatter:off
-		long skippedContainers = concat(Stream.of(testIdentifier), testPlan.getDescendants(testIdentifier).stream())
+		var skippedContainers = concat(Stream.of(testIdentifier), testPlan.getDescendants(testIdentifier).stream())
 				.filter(TestIdentifier::isContainer)
 				.count();
-		long skippedTests = concat(Stream.of(testIdentifier), testPlan.getDescendants(testIdentifier).stream())
+		var skippedTests = concat(Stream.of(testIdentifier), testPlan.getDescendants(testIdentifier).stream())
 				.filter(TestIdentifier::isTest)
 				.count();
 		// @formatter:on

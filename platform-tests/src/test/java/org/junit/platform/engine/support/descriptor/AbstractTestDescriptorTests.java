@@ -105,7 +105,7 @@ class AbstractTestDescriptorTests implements TestDescriptorOrderChildrenTests {
 
 	@Test
 	void visitAllNodes() {
-		List<TestDescriptor> visited = new ArrayList<>();
+		var visited = new ArrayList<TestDescriptor>();
 		engineDescriptor.accept(visited::add);
 
 		assertEquals(8, visited.size());
@@ -120,7 +120,7 @@ class AbstractTestDescriptorTests implements TestDescriptorOrderChildrenTests {
 		};
 		engineDescriptor.accept(visitor);
 
-		List<UniqueId> visited = new ArrayList<>();
+		var visited = new ArrayList<UniqueId>();
 		engineDescriptor.accept(descriptor -> visited.add(descriptor.getUniqueId()));
 
 		assertEquals(7, visited.size());
@@ -141,7 +141,7 @@ class AbstractTestDescriptorTests implements TestDescriptorOrderChildrenTests {
 
 		assertEquals(4, countVisited.get(), "Children of pruned element are not visited");
 
-		List<UniqueId> visited = new ArrayList<>();
+		var visited = new ArrayList<UniqueId>();
 		engineDescriptor.accept(descriptor -> visited.add(descriptor.getUniqueId()));
 
 		assertEquals(3, visited.size());

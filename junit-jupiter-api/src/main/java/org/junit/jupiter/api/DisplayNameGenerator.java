@@ -221,7 +221,7 @@ public interface DisplayNameGenerator {
 		@Override
 		public String generateDisplayNameForClass(Class<?> testClass) {
 			String name = testClass.getName();
-			int lastDot = name.lastIndexOf('.');
+			var lastDot = name.lastIndexOf('.');
 			return name.substring(lastDot + 1);
 		}
 
@@ -414,7 +414,7 @@ public interface DisplayNameGenerator {
 
 			// Only build prefix based on the enclosing class if the enclosing
 			// class is also configured to use the IndicativeSentences generator.
-			boolean buildPrefix = findDisplayNameGeneration(enclosingClass, remainingEnclosingInstanceTypes)//
+			var buildPrefix = findDisplayNameGeneration(enclosingClass, remainingEnclosingInstanceTypes)//
 					.map(DisplayNameGeneration::value)//
 					.filter(IndicativeSentences.class::equals)//
 					.isPresent();

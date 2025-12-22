@@ -79,7 +79,7 @@ class TreePrinter {
 			out.print(" ");
 			out.print(duration);
 		}
-		boolean nodeIsBeingListed = node.duration == 0 && node.result().isEmpty() && node.reason().isEmpty();
+		var nodeIsBeingListed = node.duration == 0 && node.result().isEmpty() && node.reason().isEmpty();
 		if (!nodeIsBeingListed) {
 			out.print(" ");
 			out.print(icon);
@@ -166,7 +166,7 @@ class TreePrinter {
 		out.print(" ");
 		out.print(color(style, lines[0]));
 		if (lines.length > 1) {
-			for (int i = 1; i < lines.length; i++) {
+			for (var i = 1; i < lines.length; i++) {
 				out.println();
 				out.print(indent);
 				if (StringUtils.isNotBlank(lines[i])) {

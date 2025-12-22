@@ -95,7 +95,7 @@ final class ExtensionUtils {
 				.forEach(field -> {
 					List<Class<? extends Extension>> extensionTypes = streamDeclarativeExtensionTypes(field).collect(
 						toList());
-					boolean isExtendWithPresent = !extensionTypes.isEmpty();
+					var isExtendWithPresent = !extensionTypes.isEmpty();
 
 					if (isExtendWithPresent) {
 						extensionTypes.forEach(registrar::registerExtension);
@@ -124,7 +124,7 @@ final class ExtensionUtils {
 				.forEach(field -> {
 					List<Class<? extends Extension>> extensionTypes = streamDeclarativeExtensionTypes(field).collect(
 						toList());
-					boolean isExtendWithPresent = !extensionTypes.isEmpty();
+					var isExtendWithPresent = !extensionTypes.isEmpty();
 
 					if (isExtendWithPresent) {
 						extensionTypes.forEach(registrar::registerExtension);

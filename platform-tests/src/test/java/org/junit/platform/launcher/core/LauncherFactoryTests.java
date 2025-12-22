@@ -319,7 +319,7 @@ class LauncherFactoryTests {
 					.addTestEngines(engine) //
 					.build();
 
-			AtomicReference<TestExecutionResult> result = new AtomicReference<>();
+			var result = new AtomicReference<TestExecutionResult>();
 			var listener = new TestExecutionListener() {
 				@Override
 				public void executionFinished(TestIdentifier testIdentifier, TestExecutionResult testExecutionResult) {
@@ -354,7 +354,7 @@ class LauncherFactoryTests {
 
 		try (LauncherSession session = LauncherFactory.openSession(config)) {
 
-			AtomicReference<Throwable> errorRef = new AtomicReference<>();
+			var errorRef = new AtomicReference<Throwable>();
 			var listener = new TestExecutionListener() {
 				@Override
 				public void executionFinished(TestIdentifier testIdentifier, TestExecutionResult testExecutionResult) {
@@ -382,7 +382,7 @@ class LauncherFactoryTests {
 
 		try (LauncherSession session = LauncherFactory.openSession(config)) {
 
-			AtomicReference<Throwable> errorRef = new AtomicReference<>();
+			var errorRef = new AtomicReference<Throwable>();
 			var listener = new TestExecutionListener() {
 				@Override
 				public void executionFinished(TestIdentifier testIdentifier, TestExecutionResult testExecutionResult) {

@@ -12,7 +12,6 @@ package org.junit.jupiter.engine.execution.injection.sample;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.Map;
 import java.util.TreeMap;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -41,7 +40,7 @@ public class MapOfStringsParameterResolver implements ParameterResolver {
 
 	@Override
 	public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) {
-		Map<String, String> map = new TreeMap<>();
+		var map = new TreeMap<String, String>();
 		map.put("key", "value");
 		return map;
 	}

@@ -161,7 +161,7 @@ public final class UniqueId implements Cloneable, Serializable {
 	@API(status = STABLE, since = "1.1")
 	public UniqueId append(Segment segment) {
 		Preconditions.notNull(segment, "segment must not be null");
-		List<Segment> baseSegments = new ArrayList<>(this.segments.size() + 1);
+		var baseSegments = new ArrayList<Segment>(this.segments.size() + 1);
 		baseSegments.addAll(this.segments);
 		baseSegments.add(segment);
 		return new UniqueId(this.uniqueIdFormat, baseSegments);
@@ -196,8 +196,8 @@ public final class UniqueId implements Cloneable, Serializable {
 	@API(status = STABLE, since = "1.1")
 	public boolean hasPrefix(UniqueId potentialPrefix) {
 		Preconditions.notNull(potentialPrefix, "potentialPrefix must not be null");
-		int size = this.segments.size();
-		int prefixSize = potentialPrefix.segments.size();
+		var size = this.segments.size();
+		var prefixSize = potentialPrefix.segments.size();
 		return size >= prefixSize && this.segments.subList(0, prefixSize).equals(potentialPrefix.segments);
 	}
 
@@ -249,7 +249,7 @@ public final class UniqueId implements Cloneable, Serializable {
 
 	@Override
 	public int hashCode() {
-		int value = this.hashCode;
+		var value = this.hashCode;
 		if (value == 0) {
 			value = this.segments.hashCode();
 			if (value == 0) {

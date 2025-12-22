@@ -116,21 +116,21 @@ class TestClassInheritanceTests extends AbstractJupiterTestEngineTests {
 		// @formatter:on
 
 		// @formatter:off
-		assertEquals(asList(
-			"beforeAll1",
+		assertEquals(callSequence, asList(
+				"beforeAll1",
 				"beforeAll2",
-					"beforeAll3",
-						"beforeEach1",
-							"beforeEach2",
-								"beforeEach3",
-									"test3",
-								"afterEach3",
-							"afterEach2",
-						"afterEach1",
-					"afterAll3",
+				"beforeAll3",
+				"beforeEach1",
+				"beforeEach2",
+				"beforeEach3",
+				"test3",
+				"afterEach3",
+				"afterEach2",
+				"afterEach1",
+				"afterAll3",
 				"afterAll2",
-			"afterAll1"
-		), callSequence, "wrong call sequence");
+				"afterAll1"
+		), "wrong call sequence");
 		// @formatter:on
 	}
 

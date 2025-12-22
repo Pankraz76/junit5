@@ -156,11 +156,11 @@ public class EngineDiscoveryOrchestrator {
 	private Map<TestEngine, EngineResultInfo> discoverSafely(LauncherDiscoveryRequest request,
 			Optional<LauncherPhase> phase, DiscoveryIssueCollector issueCollector,
 			Function<String, UniqueId> uniqueIdCreator) {
-		Map<TestEngine, EngineResultInfo> testEngineDescriptors = new LinkedHashMap<>();
+		var testEngineDescriptors = new LinkedHashMap<TestEngine, EngineResultInfo>();
 		EngineFilterer engineFilterer = new EngineFilterer(request.getEngineFilters());
 
 		for (TestEngine testEngine : this.testEngines) {
-			boolean engineIsExcluded = engineFilterer.isExcluded(testEngine);
+			var engineIsExcluded = engineFilterer.isExcluded(testEngine);
 
 			if (engineIsExcluded) {
 				logger.debug(() -> "Test discovery for engine '%s' was skipped due to an EngineFilter%s.".formatted(
@@ -177,7 +177,7 @@ public class EngineDiscoveryOrchestrator {
 
 		engineFilterer.performSanityChecks();
 
-		List<PostDiscoveryFilter> filters = new ArrayList<>(postDiscoveryFilters);
+		var filters = new ArrayList<PostDiscoveryFilter>(postDiscoveryFilters);
 		filters.addAll(request.getPostDiscoveryFilters());
 
 		applyPostDiscoveryFilters(testEngineDescriptors, filters);
@@ -224,7 +224,7 @@ public class EngineDiscoveryOrchestrator {
 	private void applyPostDiscoveryFilters(Map<TestEngine, EngineResultInfo> testEngineDescriptors,
 			List<PostDiscoveryFilter> filters) {
 		Filter<TestDescriptor> postDiscoveryFilter = composeFilters(filters);
-		Map<String, List<TestDescriptor>> excludedTestDescriptorsByReason = new LinkedHashMap<>();
+		var excludedTestDescriptorsByReason = new LinkedHashMap<String, List<TestDescriptor>>();
 		TestDescriptor.Visitor removeExcludedTestDescriptors = descriptor -> {
 			FilterResult filterResult = postDiscoveryFilter.apply(descriptor);
 			if (!descriptor.isRoot() && isExcluded(descriptor, filterResult)) {
@@ -245,8 +245,8 @@ public class EngineDiscoveryOrchestrator {
 	private void logTestDescriptorExclusionReasons(Map<String, List<TestDescriptor>> excludedTestDescriptorsByReason) {
 		excludedTestDescriptorsByReason.forEach((exclusionReason, testDescriptors) -> {
 			String displayNames = testDescriptors.stream().map(TestDescriptor::getDisplayName).collect(joining(", "));
-			long containerCount = testDescriptors.stream().filter(TestDescriptor::isContainer).count();
-			long methodCount = testDescriptors.stream().filter(TestDescriptor::isTest).count();
+			var containerCount = testDescriptors.stream().filter(TestDescriptor::isContainer).count();
+			var methodCount = testDescriptors.stream().filter(TestDescriptor::isTest).count();
 			logger.config(
 				() -> "%d containers and %d tests were %s".formatted(containerCount, methodCount, exclusionReason));
 			logger.debug(

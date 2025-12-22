@@ -34,7 +34,7 @@ interface GitInfoCollector {
 
 	static Optional<GitInfoCollector> get(Path workingDir) {
 		ProcessExecutor executor = new ProcessExecutor(workingDir);
-		boolean gitInstalled = executor.exec("git", "--version").isPresent();
+		var gitInstalled = executor.exec("git", "--version").isPresent();
 		return gitInstalled ? Optional.of(new CliGitInfoCollector(executor)) : Optional.empty();
 	}
 
@@ -144,7 +144,7 @@ interface GitInfoCollector {
 					// ignore
 				});
 
-				boolean terminated = process.waitFor(10, TimeUnit.SECONDS);
+				var terminated = process.waitFor(10, TimeUnit.SECONDS);
 				return terminated && process.exitValue() == 0 ? Optional.of(trimAtEnd(output)) : Optional.empty();
 			}
 			catch (InterruptedException e) {
@@ -182,8 +182,8 @@ interface GitInfoCollector {
 		}
 
 		private static String trimAtEnd(StringBuilder value) {
-			int endIndex = value.length();
-			for (int i = value.length() - 1; i >= 0; i--) {
+			var endIndex = value.length();
+			for (var i = value.length() - 1; i >= 0; i--) {
 				if (Character.isWhitespace(value.charAt(i))) {
 					endIndex--;
 					break;

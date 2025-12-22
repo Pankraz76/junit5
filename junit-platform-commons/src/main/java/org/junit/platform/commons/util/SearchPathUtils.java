@@ -67,7 +67,7 @@ class SearchPathUtils {
 	}
 
 	private static String removeExtension(String fileName) {
-		int lastDot = fileName.lastIndexOf(FILE_NAME_EXTENSION_SEPARATOR_CHAR);
+		var lastDot = fileName.lastIndexOf(FILE_NAME_EXTENSION_SEPARATOR_CHAR);
 		if (lastDot < 0) {
 			throw new JUnitException("Expected file name with file extension, but got: " + fileName);
 		}

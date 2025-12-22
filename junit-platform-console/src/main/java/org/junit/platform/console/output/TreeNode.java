@@ -97,7 +97,7 @@ class TreeNode {
 
 	@SuppressWarnings("DataFlowIssue")
 	static String createCaption(String displayName) {
-		boolean normal = displayName.length() <= 80;
+		var normal = displayName.length() <= 80;
 		String caption = normal ? displayName : displayName.substring(0, 80) + "...";
 		String whites = StringUtils.replaceWhitespaceCharacters(caption, " ");
 		return StringUtils.replaceIsoControlCharacters(whites, ".");

@@ -209,7 +209,7 @@ class VintageTestEngineDiscoveryTests {
 		var runnerDescriptor = getOnlyElement(engineDescriptor.getChildren());
 		assertRunnerTestDescriptor(runnerDescriptor, testClass);
 
-		List<TestDescriptor> testMethodDescriptors = new ArrayList<>(runnerDescriptor.getChildren());
+		var testMethodDescriptors = new ArrayList<TestDescriptor>(runnerDescriptor.getChildren());
 		assertThat(testMethodDescriptors).hasSize(2);
 
 		var testMethodDescriptor = testMethodDescriptors.getFirst();
@@ -235,7 +235,7 @@ class VintageTestEngineDiscoveryTests {
 		var runnerDescriptor = getOnlyElement(engineDescriptor.getChildren());
 		assertRunnerTestDescriptor(runnerDescriptor, testClass);
 
-		List<TestDescriptor> testMethodDescriptors = new ArrayList<>(runnerDescriptor.getChildren());
+		var testMethodDescriptors = new ArrayList<TestDescriptor>(runnerDescriptor.getChildren());
 
 		var testMethodDescriptor = getOnlyElement(testMethodDescriptors);
 		assertEquals("test", testMethodDescriptor.getDisplayName());
@@ -442,7 +442,7 @@ class VintageTestEngineDiscoveryTests {
 		var runnerDescriptor = getOnlyElement(engineDescriptor.getChildren());
 		assertRunnerTestDescriptor(runnerDescriptor, testClass);
 
-		List<TestDescriptor> testMethodDescriptors = new ArrayList<>(runnerDescriptor.getChildren());
+		var testMethodDescriptors = new ArrayList<TestDescriptor>(runnerDescriptor.getChildren());
 		assertThat(testMethodDescriptors).hasSize(2);
 
 		var failingTest = testMethodDescriptors.get(0);
@@ -536,7 +536,7 @@ class VintageTestEngineDiscoveryTests {
 		var runnerDescriptor = getOnlyElement(engineDescriptor.getChildren());
 		assertRunnerTestDescriptor(runnerDescriptor, testClass);
 
-		List<TestDescriptor> testMethodDescriptors = new ArrayList<>(runnerDescriptor.getChildren());
+		var testMethodDescriptors = new ArrayList<TestDescriptor>(runnerDescriptor.getChildren());
 		assertThat(testMethodDescriptors).hasSize(2);
 		assertTestMethodDescriptor(testMethodDescriptors.get(0), testClass, "failingTest",
 			VintageUniqueIdBuilder.uniqueIdForClass(testClass));
@@ -588,7 +588,7 @@ class VintageTestEngineDiscoveryTests {
 		var runnerDescriptor = getOnlyElement(engineDescriptor.getChildren());
 		assertRunnerTestDescriptor(runnerDescriptor, testClass);
 
-		List<TestDescriptor> testMethodDescriptors = new ArrayList<>(runnerDescriptor.getChildren());
+		var testMethodDescriptors = new ArrayList<TestDescriptor>(runnerDescriptor.getChildren());
 		assertThat(testMethodDescriptors).hasSize(2);
 		assertTestMethodDescriptor(testMethodDescriptors.get(0), testClass, "abortedTest",
 			VintageUniqueIdBuilder.uniqueIdForClass(testClass));

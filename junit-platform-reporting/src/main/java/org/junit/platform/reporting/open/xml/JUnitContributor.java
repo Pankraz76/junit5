@@ -15,7 +15,6 @@ import static org.apiguardian.api.API.Status.INTERNAL;
 
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import org.apiguardian.api.API;
@@ -43,7 +42,7 @@ public class JUnitContributor implements Contributor {
 	public List<Section> contributeSectionsForTestNode(Context context) {
 		return findChild(context.element(), Namespace.REPORTING_CORE, "metadata") //
 				.map(metadata -> {
-					Map<String, String> table = new LinkedHashMap<>();
+					var table = new LinkedHashMap<String, String>();
 					findChild(metadata, JUnitFactory.NAMESPACE, "type") //
 							.map(Node::getTextContent) //
 							.ifPresent(value -> table.put("Type", value));
@@ -66,7 +65,7 @@ public class JUnitContributor implements Contributor {
 
 	private static Optional<Node> findChild(Node parent, Namespace namespace, String localName) {
 		NodeList children = parent.getChildNodes();
-		for (int i = 0; i < children.getLength(); i++) {
+		for (var i = 0; i < children.getLength(); i++) {
 			Node child = children.item(i);
 			if (localName.equals(child.getLocalName()) && namespace.getUri().equals(child.getNamespaceURI())) {
 				return Optional.of(child);

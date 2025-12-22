@@ -54,7 +54,7 @@ public class VerboseTreePrintingListener implements DetailsPrintingListener {
 		this.verticals[1] = ""; // synthetic root "/" level
 		this.verticals[2] = ""; // "engine" level
 
-		for (int i = 3; i < verticals.length; i++) {
+		for (var i = 3; i < verticals.length; i++) {
 			verticals[i] = verticals[i - 1] + theme.vertical();
 		}
 	}
@@ -76,7 +76,7 @@ public class VerboseTreePrintingListener implements DetailsPrintingListener {
 	}
 
 	private void printNumberOfTests(TestPlan testPlan, String prefix) {
-		long tests = testPlan.countTestIdentifiers(TestIdentifier::isTest);
+		var tests = testPlan.countTestIdentifiers(TestIdentifier::isTest);
 		printf(NONE, "%s", prefix);
 		printf(Style.TEST, "%d%n", tests);
 	}
@@ -189,7 +189,7 @@ public class VerboseTreePrintingListener implements DetailsPrintingListener {
 		printf(style, "%s", lines[0]);
 		if (lines.length > 1) {
 			String delimiter = System.lineSeparator() + verticals + (detailFormat + "    ").formatted("");
-			for (int i = 1; i < lines.length; i++) {
+			for (var i = 1; i < lines.length; i++) {
 				printf(NONE, "%s", delimiter);
 				printf(style, "%s", lines[i]);
 			}

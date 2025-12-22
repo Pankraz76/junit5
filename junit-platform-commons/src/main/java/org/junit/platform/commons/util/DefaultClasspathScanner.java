@@ -26,7 +26,6 @@ import java.util.Collection;
 import java.util.Enumeration;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
@@ -130,7 +129,7 @@ class DefaultClasspathScanner implements ClasspathScanner {
 	}
 
 	private List<Class<?>> findClassesForUri(URI baseUri, String basePackageName, ClassFilter classFilter) {
-		List<Class<?>> classes = new ArrayList<>();
+		var classes = new ArrayList<Class<?>>();
 		// @formatter:off
 		walkFilesForUri(baseUri, SearchPathUtils::isClassOrSourceFile,
 				(baseDir, file) ->
@@ -154,7 +153,7 @@ class DefaultClasspathScanner implements ClasspathScanner {
 	}
 
 	private List<Resource> findResourcesForUri(URI baseUri, String basePackageName, ResourceFilter resourceFilter) {
-		List<Resource> resources = new ArrayList<>();
+		var resources = new ArrayList<Resource>();
 		// @formatter:off
 		walkFilesForUri(baseUri, SearchPathUtils::isResourceFile,
 				(baseDir, file) ->
@@ -300,7 +299,7 @@ class DefaultClasspathScanner implements ClasspathScanner {
 	}
 
 	private List<URI> getRootUrisForPackageNameOnClassPathAndModulePath(String basePackageName) {
-		Set<URI> uriSet = new LinkedHashSet<>(getRootUrisForPackage(basePackageName));
+		var uriSet = new LinkedHashSet<URI>(getRootUrisForPackage(basePackageName));
 		if (!basePackageName.isEmpty() && !basePackageName.endsWith(PACKAGE_SEPARATOR_STRING)) {
 			getRootUrisForPackage(basePackageName + PACKAGE_SEPARATOR_STRING).stream() //
 					.map(DefaultClasspathScanner::removeTrailingClasspathResourcePathSeparator) //
@@ -325,7 +324,7 @@ class DefaultClasspathScanner implements ClasspathScanner {
 	}
 
 	private List<URI> getRootUrisForPackage(String basePackageName) {
-		List<URI> uris = new ArrayList<>();
+		var uris = new ArrayList<URI>();
 		try {
 			Enumeration<URL> resources = getClassLoader().getResources(packagePath(basePackageName));
 			while (resources.hasMoreElements()) {

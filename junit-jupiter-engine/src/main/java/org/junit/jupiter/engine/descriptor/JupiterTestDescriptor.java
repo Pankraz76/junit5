@@ -80,11 +80,11 @@ public abstract class JupiterTestDescriptor extends AbstractTestDescriptor
 
 	static Set<TestTag> getTags(AnnotatedElement element, Supplier<String> elementDescription,
 			Supplier<TestSource> sourceProvider, Consumer<DiscoveryIssue> issueCollector) {
-		AtomicReference<@Nullable TestSource> source = new AtomicReference<>();
+		var source = new AtomicReference<@Nullable TestSource>();
 		return findRepeatableAnnotations(element, Tag.class).stream() //
 				.map(Tag::value) //
 				.filter(tag -> {
-					boolean isValid = TestTag.isValid(tag);
+					var isValid = TestTag.isValid(tag);
 					if (!isValid) {
 						String message = "Invalid tag syntax in @Tag(\"%s\") declaration on %s. Tag will be ignored.".formatted(
 							tag, elementDescription.get());

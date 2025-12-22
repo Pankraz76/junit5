@@ -101,11 +101,11 @@ class TestInstanceLifecycleTests extends AbstractJupiterTestEngineTests {
 	@Test
 	void instancePerMethod() {
 		Class<?> testClass = InstancePerMethodTestCase.class;
-		int containers = 3;
-		int tests = 3;
+		var containers = 3;
+		var tests = 3;
 		Map.Entry<Class<?>, Integer>[] instances = instanceCounts(entry(InstancePerMethodTestCase.class, 3));
-		int allMethods = 1;
-		int eachMethods = 3;
+		var allMethods = 1;
+		var eachMethods = 3;
 
 		performAssertions(testClass, containers, tests, instances, allMethods, eachMethods);
 
@@ -185,10 +185,10 @@ class TestInstanceLifecycleTests extends AbstractJupiterTestEngineTests {
 
 	@SuppressWarnings("NullAway")
 	private void instancePerClass(Class<?> testClass, Map.Entry<Class<?>, Integer>[] instances) {
-		int containers = 3;
-		int tests = 3;
-		int allMethods = 2;
-		int eachMethods = 3;
+		var containers = 3;
+		var tests = 3;
+		var allMethods = 2;
+		var eachMethods = 3;
 
 		performAssertions(testClass, containers, tests, instances, allMethods, eachMethods);
 
@@ -256,11 +256,11 @@ class TestInstanceLifecycleTests extends AbstractJupiterTestEngineTests {
 	void instancePerMethodWithNestedTestClass() {
 		Class<?> testClass = InstancePerMethodOuterTestCase.class;
 		Class<?> nestedTestClass = InstancePerMethodOuterTestCase.NestedInstancePerMethodTestCase.class;
-		int containers = 4;
-		int tests = 4;
+		var containers = 4;
+		var tests = 4;
 		Map.Entry<Class<?>, Integer>[] instances = instanceCounts(entry(testClass, 4), entry(nestedTestClass, 3));
-		int allMethods = 1;
-		int eachMethods = 3;
+		var allMethods = 1;
+		var eachMethods = 3;
 
 		performAssertions(testClass, containers, tests, instances, allMethods, eachMethods);
 
@@ -379,11 +379,11 @@ class TestInstanceLifecycleTests extends AbstractJupiterTestEngineTests {
 	void instancePerClassWithNestedTestClass() {
 		Class<?> testClass = InstancePerClassOuterTestCase.class;
 		Class<?> nestedTestClass = InstancePerClassOuterTestCase.NestedInstancePerClassTestCase.class;
-		int containers = 4;
-		int tests = 4;
+		var containers = 4;
+		var tests = 4;
 		Map.Entry<Class<?>, Integer>[] instances = instanceCounts(entry(testClass, 1), entry(nestedTestClass, 1));
-		int allMethods = 2;
-		int eachMethods = 3;
+		var allMethods = 2;
+		var eachMethods = 3;
 
 		performAssertions(testClass, containers, tests, instances, allMethods, eachMethods);
 
@@ -500,11 +500,11 @@ class TestInstanceLifecycleTests extends AbstractJupiterTestEngineTests {
 	void instancePerMethodOnOuterTestClassWithInstancePerClassOnNestedTestClass() {
 		Class<?> testClass = MixedLifecyclesOuterTestCase.class;
 		Class<?> nestedTestClass = MixedLifecyclesOuterTestCase.NestedInstancePerClassTestCase.class;
-		int containers = 4;
-		int tests = 4;
+		var containers = 4;
+		var tests = 4;
 		Map.Entry<Class<?>, Integer>[] instances = instanceCounts(entry(testClass, 2), entry(nestedTestClass, 1));
-		int allMethods = 1;
-		int eachMethods = 7;
+		var allMethods = 1;
+		var eachMethods = 7;
 
 		performAssertions(testClass, containers, tests, instances, allMethods, eachMethods);
 
