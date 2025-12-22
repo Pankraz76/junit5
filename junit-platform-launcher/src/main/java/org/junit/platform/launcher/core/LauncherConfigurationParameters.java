@@ -133,7 +133,7 @@ class LauncherConfigurationParameters implements ConfigurationParameters {
 		}
 
 		LauncherConfigurationParameters build() {
-			List<ParameterProvider> parameterProviders = new ArrayList<>();
+			var parameterProviders = new ArrayList<ParameterProvider>();
 			if (!explicitParameters.isEmpty()) {
 				parameterProviders.add(ParameterProvider.explicit(explicitParameters));
 			}

@@ -19,7 +19,6 @@ import static org.apiguardian.api.API.Status.MAINTAINED;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.SortedSet;
@@ -122,7 +121,7 @@ public final class IterationSelector implements DiscoverySelector {
 			}
 		}
 
-		List<Range> ranges = new ArrayList<>();
+		var ranges = new ArrayList<Range>();
 		Range current = new Range(this.iterationIndices.first());
 		ranges.add(current);
 		for (int n : this.iterationIndices.tailSet(current.start + 1)) {

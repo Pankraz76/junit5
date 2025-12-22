@@ -62,7 +62,7 @@ public class InterceptingExecutableInvoker {
 		@Nullable
 		Object[] arguments = resolveParameters(constructor, Optional.empty(), outerInstance, extensionContext,
 			extensionRegistry);
-		ConstructorInvocation<T> invocation = new ConstructorInvocation<>(constructor, arguments);
+		var invocation = new ConstructorInvocation<T>(constructor, arguments);
 		return invoke(invocation, invocation, extensionContext, extensionRegistry, interceptorCall);
 	}
 
@@ -94,7 +94,7 @@ public class InterceptingExecutableInvoker {
 				: Optional.ofNullable(target));
 		@Nullable
 		Object[] arguments = resolveParameters(method, optionalTarget, extensionContext, extensionRegistry);
-		MethodInvocation<T> invocation = new MethodInvocation<>(method, optionalTarget, arguments);
+		var invocation = new MethodInvocation<T>(method, optionalTarget, arguments);
 		return invoke(invocation, invocation, extensionContext, extensionRegistry, interceptorCall);
 	}
 

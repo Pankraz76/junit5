@@ -33,9 +33,9 @@ class ServiceLoaderRegistry {
 
 	static <T> Iterable<T> load(@SuppressWarnings("SameParameterValue") Class<T> type,
 			Predicate<String> classNameFilter) {
-		List<String> exclusions = new ArrayList<>();
+		var exclusions = new ArrayList<String>();
 		Predicate<String> collectingClassNameFilter = className -> {
-			boolean included = classNameFilter.test(className);
+			var included = classNameFilter.test(className);
 			if (!included) {
 				exclusions.add(className);
 			}

@@ -62,8 +62,8 @@ class FilterCompositionTests {
 
 	@Test
 	void aFilterComposedOfMultipleFiltersHasReadableDescription() {
-		Filter<Object> firstFilter = new FilterStub<>(o -> excluded("wrong"), () -> "1st");
-		Filter<Object> secondFilter = new FilterStub<>(o -> included("right"), () -> "2nd");
+		var firstFilter = new FilterStub<Object>(o -> excluded("wrong"), () -> "1st");
+		var secondFilter = new FilterStub<Object>(o -> included("right"), () -> "2nd");
 
 		var composed = Filter.composeFilters(firstFilter, secondFilter);
 

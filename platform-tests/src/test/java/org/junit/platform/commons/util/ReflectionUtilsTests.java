@@ -1945,7 +1945,7 @@ class ReflectionUtilsTests {
 		@SuppressWarnings("DataFlowIssue")
 		@Test
 		void readFieldValuesPreconditions() {
-			List<Field> fields = new ArrayList<>();
+			var fields = new ArrayList<Field>();
 			assertPreconditionViolationFor(() -> readFieldValues(null, new Object()));
 			assertPreconditionViolationFor(() -> readFieldValues(fields, null, null));
 			assertPreconditionViolationFor(() -> readFieldValues(fields, new Object(), null));

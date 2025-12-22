@@ -141,8 +141,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void assertNotEqualsChar() {
-			char unexpected = 'a';
-			char actual = 'b';
+			var unexpected = 'a';
+			var actual = 'b';
 			assertNotEquals(unexpected, actual);
 			assertNotEquals(unexpected, actual, "message");
 			assertNotEquals(unexpected, actual, () -> "message");
@@ -150,8 +150,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValues() {
-			char unexpected = 'a';
-			char actual = 'a';
+			var unexpected = 'a';
+			var actual = 'a';
 			try {
 				assertNotEquals(unexpected, actual);
 				expectAssertionFailedError();
@@ -163,8 +163,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValuesWithMessage() {
-			char unexpected = 'a';
-			char actual = 'a';
+			var unexpected = 'a';
+			var actual = 'a';
 			try {
 				assertNotEquals(unexpected, actual, "custom message");
 				expectAssertionFailedError();
@@ -177,8 +177,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValuesWithMessageSupplier() {
-			char unexpected = 'a';
-			char actual = 'a';
+			var unexpected = 'a';
+			var actual = 'a';
 			try {
 				assertNotEquals(unexpected, actual, () -> "custom message from supplier");
 				expectAssertionFailedError();
@@ -196,8 +196,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void assertNotEqualsInt() {
-			int unexpected = 1;
-			int actual = 2;
+			var unexpected = 1;
+			var actual = 2;
 			assertNotEquals(unexpected, actual);
 			assertNotEquals(unexpected, actual, "message");
 			assertNotEquals(unexpected, actual, () -> "message");
@@ -205,8 +205,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValues() {
-			int unexpected = 1;
-			int actual = 1;
+			var unexpected = 1;
+			var actual = 1;
 			try {
 				assertNotEquals(unexpected, actual);
 				expectAssertionFailedError();
@@ -218,8 +218,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValuesWithMessage() {
-			int unexpected = 1;
-			int actual = 1;
+			var unexpected = 1;
+			var actual = 1;
 			try {
 				assertNotEquals(unexpected, actual, "custom message");
 				expectAssertionFailedError();
@@ -232,8 +232,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValuesWithMessageSupplier() {
-			int unexpected = 1;
-			int actual = 1;
+			var unexpected = 1;
+			var actual = 1;
 			try {
 				assertNotEquals(unexpected, actual, () -> "custom message from supplier");
 				expectAssertionFailedError();
@@ -251,8 +251,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void assertNotEqualsLong() {
-			long unexpected = 1L;
-			long actual = 2L;
+			var unexpected = 1L;
+			var actual = 2L;
 			assertNotEquals(unexpected, actual);
 			assertNotEquals(unexpected, actual, "message");
 			assertNotEquals(unexpected, actual, () -> "message");
@@ -260,8 +260,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValues() {
-			long unexpected = 1L;
-			long actual = 1L;
+			var unexpected = 1L;
+			var actual = 1L;
 			try {
 				assertNotEquals(unexpected, actual);
 				expectAssertionFailedError();
@@ -273,8 +273,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValuesWithMessage() {
-			long unexpected = 1L;
-			long actual = 1L;
+			var unexpected = 1L;
+			var actual = 1L;
 			try {
 				assertNotEquals(unexpected, actual, "custom message");
 				expectAssertionFailedError();
@@ -287,8 +287,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValuesWithMessageSupplier() {
-			long unexpected = 1L;
-			long actual = 1L;
+			var unexpected = 1L;
+			var actual = 1L;
 			try {
 				assertNotEquals(unexpected, actual, () -> "custom message from supplier");
 				expectAssertionFailedError();
@@ -306,8 +306,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void assertNotEqualsFloat() {
-			float unexpected = 1.0f;
-			float actual = 2.0f;
+			var unexpected = 1.0f;
+			var actual = 2.0f;
 			assertNotEquals(unexpected, actual);
 			assertNotEquals(unexpected, actual, "message");
 			assertNotEquals(unexpected, actual, () -> "message");
@@ -348,8 +348,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValues() {
-			float unexpected = 1.0f;
-			float actual = 1.0f;
+			var unexpected = 1.0f;
+			var actual = 1.0f;
 			try {
 				assertNotEquals(unexpected, actual);
 				expectAssertionFailedError();
@@ -361,8 +361,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValuesWithMessage() {
-			float unexpected = 1.0f;
-			float actual = 1.0f;
+			var unexpected = 1.0f;
+			var actual = 1.0f;
 			try {
 				assertNotEquals(unexpected, actual, "custom message");
 				expectAssertionFailedError();
@@ -375,8 +375,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValuesWithMessageSupplier() {
-			float unexpected = 1.0f;
-			float actual = 1.0f;
+			var unexpected = 1.0f;
+			var actual = 1.0f;
 			try {
 				assertNotEquals(unexpected, actual, () -> "custom message from supplier");
 				expectAssertionFailedError();
@@ -401,9 +401,9 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValues() {
-			float unexpected = 1.0f;
-			float actual = 1.5f;
-			float delta = 0.5f;
+			var unexpected = 1.0f;
+			var actual = 1.5f;
+			var delta = 0.5f;
 			try {
 				assertNotEquals(unexpected, actual, delta);
 				expectAssertionFailedError();
@@ -415,9 +415,9 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValuesWithMessage() {
-			float unexpected = 1.0f;
-			float actual = 1.5f;
-			float delta = 0.5f;
+			var unexpected = 1.0f;
+			var actual = 1.5f;
+			var delta = 0.5f;
 			try {
 				assertNotEquals(unexpected, actual, delta, "custom message");
 				expectAssertionFailedError();
@@ -430,9 +430,9 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValuesWithMessageSupplier() {
-			float unexpected = 1.0f;
-			float actual = 1.5f;
-			float delta = 0.5f;
+			var unexpected = 1.0f;
+			var actual = 1.5f;
+			var delta = 0.5f;
 			try {
 				assertNotEquals(unexpected, actual, delta, () -> "custom message from supplier");
 				expectAssertionFailedError();
@@ -450,8 +450,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void assertNotEqualsDouble() {
-			double unexpected = 1.0d;
-			double actual = 2.0d;
+			var unexpected = 1.0d;
+			var actual = 2.0d;
 			assertNotEquals(unexpected, actual);
 			assertNotEquals(unexpected, actual, "message");
 			assertNotEquals(unexpected, actual, () -> "message");
@@ -470,8 +470,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValues() {
-			double unexpected = 1.0d;
-			double actual = 1.0d;
+			var unexpected = 1.0d;
+			var actual = 1.0d;
 			try {
 				assertNotEquals(unexpected, actual);
 				expectAssertionFailedError();
@@ -483,8 +483,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValuesWithMessage() {
-			double unexpected = 1.0d;
-			double actual = 1.0d;
+			var unexpected = 1.0d;
+			var actual = 1.0d;
 			try {
 				assertNotEquals(unexpected, actual, "custom message");
 				expectAssertionFailedError();
@@ -497,8 +497,8 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValuesWithMessageSupplier() {
-			double unexpected = 1.0d;
-			double actual = 1.0d;
+			var unexpected = 1.0d;
+			var actual = 1.0d;
 			try {
 				assertNotEquals(unexpected, actual, () -> "custom message from supplier");
 				expectAssertionFailedError();
@@ -523,9 +523,9 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValues() {
-			double unexpected = 1.0d;
-			double actual = 1.5d;
-			double delta = 0.5d;
+			var unexpected = 1.0d;
+			var actual = 1.5d;
+			var delta = 0.5d;
 			try {
 				assertNotEquals(unexpected, actual, delta);
 				expectAssertionFailedError();
@@ -537,9 +537,9 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValuesWithMessage() {
-			double unexpected = 1.0d;
-			double actual = 1.5d;
-			double delta = 0.5d;
+			var unexpected = 1.0d;
+			var actual = 1.5d;
+			var delta = 0.5d;
 			try {
 				assertNotEquals(unexpected, actual, delta, "custom message");
 				expectAssertionFailedError();
@@ -552,9 +552,9 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void withEqualValuesWithMessageSupplier() {
-			double unexpected = 1.0d;
-			double actual = 1.5d;
-			double delta = 0.5d;
+			var unexpected = 1.0d;
+			var actual = 1.5d;
+			var delta = 0.5d;
 			try {
 				assertNotEquals(unexpected, actual, delta, () -> "custom message from supplier");
 				expectAssertionFailedError();
@@ -659,7 +659,7 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void integers() {
-			int primitive = 42;
+			var primitive = 42;
 			Integer wrapper = Integer.valueOf("99");
 
 			assertNotEquals(primitive, wrapper);
@@ -673,7 +673,7 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void longs() {
-			long primitive = 42L;
+			var primitive = 42L;
 			Long wrapper = Long.valueOf("99");
 
 			assertNotEquals(primitive, wrapper);
@@ -687,7 +687,7 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void floats() {
-			float primitive = 42.0f;
+			var primitive = 42.0f;
 			Float wrapper = Float.valueOf("99.0");
 
 			assertNotEquals(primitive, wrapper);
@@ -707,7 +707,7 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void doubles() {
-			double primitive = 42.0d;
+			var primitive = 42.0d;
 			Double wrapper = Double.valueOf("99.0");
 
 			assertNotEquals(primitive, wrapper);
@@ -727,7 +727,7 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void booleans() {
-			boolean primitive = true;
+			var primitive = true;
 			Boolean wrapper = Boolean.valueOf("false");
 
 			assertNotEquals(primitive, wrapper);
@@ -741,7 +741,7 @@ class AssertNotEqualsAssertionsTests {
 
 		@Test
 		void chars() {
-			char primitive = 'a';
+			var primitive = 'a';
 			Character wrapper = Character.valueOf('z');
 
 			assertNotEquals(primitive, wrapper);

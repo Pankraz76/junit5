@@ -654,7 +654,7 @@ class AssertEqualsAssertionsTests {
 
 		@Test
 		void integers() {
-			int primitive = 42;
+			var primitive = 42;
 			Integer wrapper = Integer.valueOf("42");
 
 			assertEquals(primitive, wrapper);
@@ -668,7 +668,7 @@ class AssertEqualsAssertionsTests {
 
 		@Test
 		void longs() {
-			long primitive = 42L;
+			var primitive = 42L;
 			Long wrapper = Long.valueOf("42");
 
 			assertEquals(primitive, wrapper);
@@ -682,7 +682,7 @@ class AssertEqualsAssertionsTests {
 
 		@Test
 		void floats() {
-			float primitive = 42.0f;
+			var primitive = 42.0f;
 			Float wrapper = Float.valueOf("42.0");
 
 			assertEquals(primitive, wrapper);
@@ -702,7 +702,7 @@ class AssertEqualsAssertionsTests {
 
 		@Test
 		void doubles() {
-			double primitive = 42.0d;
+			var primitive = 42.0d;
 			Double wrapper = Double.valueOf("42.0");
 
 			assertEquals(primitive, wrapper);
@@ -722,7 +722,7 @@ class AssertEqualsAssertionsTests {
 
 		@Test
 		void booleans() {
-			boolean primitive = true;
+			var primitive = true;
 			Boolean wrapper = Boolean.valueOf("true");
 
 			assertEquals(primitive, wrapper);
@@ -736,7 +736,7 @@ class AssertEqualsAssertionsTests {
 
 		@Test
 		void chars() {
-			char primitive = 'a';
+			var primitive = 'a';
 			Character wrapper = Character.valueOf('a');
 
 			assertEquals(primitive, wrapper);

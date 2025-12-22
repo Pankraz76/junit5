@@ -172,7 +172,7 @@ class XmlReportWriter {
 		private void writeTestCounts(Collection<AggregatedTestResult> testResults) throws XMLStreamException {
 			Map<Type, Long> counts = testResults.stream().map(it -> it.type).collect(
 				groupingBy(identity(), counting()));
-			long total = counts.values().stream().mapToLong(Long::longValue).sum();
+			var total = counts.values().stream().mapToLong(Long::longValue).sum();
 			writeAttributeSafely("tests", String.valueOf(total));
 			writeAttributeSafely("skipped", counts.getOrDefault(SKIPPED, 0L).toString());
 			writeAttributeSafely("failures", counts.getOrDefault(FAILURE, 0L).toString());
@@ -205,8 +205,8 @@ class XmlReportWriter {
 
 			writeSkippedOrErrorOrFailureElement(testIdentifier, testResult);
 
-			List<String> systemOutElements = new ArrayList<>();
-			List<String> systemErrElements = new ArrayList<>();
+			var systemOutElements = new ArrayList<String>();
+			var systemErrElements = new ArrayList<String>();
 			systemOutElements.add(formatNonStandardAttributesAsString(testIdentifier));
 			collectReportEntries(testIdentifier, systemOutElements, systemErrElements);
 			writeOutputElements("system-out", systemOutElements);
@@ -280,11 +280,11 @@ class XmlReportWriter {
 				List<String> systemErrElements) {
 			List<ReportEntry> entries = reportData.getReportEntries(testIdentifier);
 			if (!entries.isEmpty()) {
-				List<String> systemOutElementsForCapturedOutput = new ArrayList<>();
+				var systemOutElementsForCapturedOutput = new ArrayList<String>();
 				StringBuilder formattedReportEntries = new StringBuilder();
-				for (int i = 0; i < entries.size(); i++) {
+				for (var i = 0; i < entries.size(); i++) {
 					ReportEntry reportEntry = entries.get(i);
-					Map<String, String> keyValuePairs = new LinkedHashMap<>(reportEntry.getKeyValuePairs());
+					var keyValuePairs = new LinkedHashMap<String, String>(reportEntry.getKeyValuePairs());
 					removeIfPresentAndAddAsSeparateElement(keyValuePairs, STDOUT_REPORT_ENTRY_KEY,
 						systemOutElementsForCapturedOutput);
 					removeIfPresentAndAddAsSeparateElement(keyValuePairs, STDERR_REPORT_ENTRY_KEY, systemErrElements);
@@ -468,8 +468,8 @@ class XmlReportWriter {
 				return;
 			}
 			StringBuilder stringBuilder = new StringBuilder(len * 2);
-			for (int i = off; i < off + len; i++) {
-				char c = cbuf[i];
+			for (var i = off; i < off + len; i++) {
+				var c = cbuf[i];
 				String replacement = REPLACEMENTS_IN_ATTRIBUTE_VALUES.get(c);
 				if (replacement != null) {
 					stringBuilder.append(replacement);

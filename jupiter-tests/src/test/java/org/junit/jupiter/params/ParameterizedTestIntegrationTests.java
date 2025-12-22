@@ -444,7 +444,7 @@ class ParameterizedTestIntegrationTests extends AbstractJupiterTestEngineTests {
 				.haveExactly(1,
 					event(test("test1"), displayName("[2] argument = bar"), finishedWithFailure(message("bar"))));
 
-		List<String> testMethods = new ArrayList<>(LifecycleTestCase.testMethods);
+		var testMethods = new ArrayList<String>(LifecycleTestCase.testMethods);
 
 		// @formatter:off
 		assertThat(LifecycleTestCase.lifecycleEvents).containsExactly(

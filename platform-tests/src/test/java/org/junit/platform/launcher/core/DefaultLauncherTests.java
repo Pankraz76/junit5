@@ -1046,13 +1046,13 @@ class DefaultLauncherTests {
 			UnaryOperator<LauncherExecutionRequestBuilder> executionConfigurer) {
 		var executionListener = mock(TestExecutionListener.class);
 
-		AtomicReference<Instant> startTime = new AtomicReference<>();
+		var startTime = new AtomicReference<Instant>();
 		doAnswer(invocation -> {
 			startTime.set(Instant.now());
 			return null;
 		}).when(executionListener).executionStarted(any());
 
-		AtomicReference<Instant> finishTime = new AtomicReference<>();
+		var finishTime = new AtomicReference<Instant>();
 		doAnswer(invocation -> {
 			finishTime.set(Instant.now());
 			return null;

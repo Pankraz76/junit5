@@ -153,7 +153,7 @@ class AssertTimeoutAssertionsTests {
 	 * Take a nap for 100 milliseconds.
 	 */
 	private void nap() throws InterruptedException {
-		long start = System.nanoTime();
+		var start = System.nanoTime();
 		// workaround for imprecise clocks (yes, Windows, I'm talking about you)
 		do {
 			Thread.sleep(100);

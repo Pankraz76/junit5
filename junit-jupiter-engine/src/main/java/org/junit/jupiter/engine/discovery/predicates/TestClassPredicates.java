@@ -90,8 +90,8 @@ public class TestClassPredicates {
 	}
 
 	public @Nullable NestedClassInvalidityReason validateNestedTestClass(Class<?> candidate) {
-		boolean isInner = this.isInnerNestedClass.check(candidate);
-		boolean isNotPrivateUnlessAbstract = this.isNotPrivateUnlessAbstractNestedClass.check(candidate);
+		var isInner = this.isInnerNestedClass.check(candidate);
+		var isNotPrivateUnlessAbstract = this.isNotPrivateUnlessAbstractNestedClass.check(candidate);
 		if (isNotPrivateUnlessAbstract && isNotAbstract(candidate)) {
 			return isInner ? null : NestedClassInvalidityReason.NOT_INNER;
 		}

@@ -70,13 +70,13 @@ class ResolverFacade {
 	static ResolverFacade create(Class<?> clazz, List<Field> fields) {
 		Preconditions.notEmpty(fields, "Fields must not be empty");
 
-		NavigableMap<Integer, List<FieldParameterDeclaration>> allIndexedParameters = new TreeMap<>();
-		Set<FieldParameterDeclaration> aggregatorParameters = new LinkedHashSet<>();
+		var allIndexedParameters = new TreeMap<Integer, List<FieldParameterDeclaration>>();
+		var aggregatorParameters = new LinkedHashSet<FieldParameterDeclaration>();
 
 		for (Field field : fields) {
 			Parameter annotation = findAnnotation(field, Parameter.class) //
 					.orElseThrow(() -> new JUnitException("No @Parameter annotation present"));
-			int index = annotation.value();
+			var index = annotation.value();
 
 			FieldParameterDeclaration declaration = new FieldParameterDeclaration(field, annotation.value());
 			if (declaration.isAggregator()) {
@@ -135,9 +135,9 @@ class ResolverFacade {
 
 	private static ResolverFacade create(Executable executable, Annotation annotation, int indexOffset,
 			java.lang.reflect.Parameter[] parameters) {
-		NavigableMap<Integer, ExecutableParameterDeclaration> indexedParameters = new TreeMap<>();
-		NavigableMap<Integer, ExecutableParameterDeclaration> aggregatorParameters = new TreeMap<>();
-		for (int index = indexOffset; index < parameters.length; index++) {
+		var indexedParameters = new TreeMap<Integer, ExecutableParameterDeclaration>();
+		var aggregatorParameters = new TreeMap<Integer, ExecutableParameterDeclaration>();
+		for (var index = indexOffset; index < parameters.length; index++) {
 			ExecutableParameterDeclaration declaration = new ExecutableParameterDeclaration(parameters[index], index,
 				indexOffset);
 			if (declaration.isAggregator()) {
@@ -187,7 +187,7 @@ class ResolverFacade {
 	}
 
 	boolean isSupportedParameter(ParameterContext parameterContext, EvaluatedArgumentSet arguments) {
-		int index = toLogicalIndex(parameterContext);
+		var index = toLogicalIndex(parameterContext);
 		if (this.indexedParameterDeclarations.get(index).isPresent()) {
 			return index < arguments.getConsumedLength();
 		}
@@ -242,7 +242,7 @@ class ResolverFacade {
 		ResolverFacade originalResolverFacade = this;
 		ResolverFacade lifecycleMethodResolverFacade = create(method, annotation);
 
-		Map<ParameterDeclaration, ResolvableParameterDeclaration> parameterDeclarationMapping = new HashMap<>();
+		var parameterDeclarationMapping = new HashMap<ParameterDeclaration, ResolvableParameterDeclaration>();
 		List<String> errors = validateLifecycleMethodParameters(originalResolverFacade, lifecycleMethodResolverFacade,
 			parameterDeclarationMapping);
 
@@ -264,7 +264,7 @@ class ResolverFacade {
 	Object resolve(ParameterContext parameterContext, ExtensionContext extensionContext, EvaluatedArgumentSet arguments,
 			int invocationIndex, ResolutionCache resolutionCache) {
 
-		int parameterIndex = toLogicalIndex(parameterContext);
+		var parameterIndex = toLogicalIndex(parameterContext);
 		ResolvableParameterDeclaration declaration = findDeclaration(parameterIndex) //
 				.orElseThrow(
 					() -> new ParameterResolutionException("Parameter index out of bounds: " + parameterIndex));
@@ -328,7 +328,7 @@ class ResolverFacade {
 	}
 
 	private int toLogicalIndex(ParameterContext parameterContext) {
-		int index = parameterContext.getIndex() - this.parameterIndexOffset;
+		var index = parameterContext.getIndex() - this.parameterIndexOffset;
 		Preconditions.condition(index >= 0, () -> "Parameter index must be greater than or equal to zero");
 		return index;
 	}
@@ -337,7 +337,7 @@ class ResolverFacade {
 			NavigableMap<Integer, List<FieldParameterDeclaration>> indexedParameters,
 			Set<FieldParameterDeclaration> aggregatorParameters) {
 
-		List<String> errors = new ArrayList<>();
+		var errors = new ArrayList<String>();
 		validateIndexedParameters(indexedParameters, errors);
 		validateAggregatorParameters(aggregatorParameters, errors);
 
@@ -349,8 +349,8 @@ class ResolverFacade {
 			ResolverFacade lifecycleMethodResolverFacade,
 			Map<ParameterDeclaration, ResolvableParameterDeclaration> parameterDeclarationMapping) {
 		List<ParameterDeclaration> actualDeclarations = lifecycleMethodResolverFacade.indexedParameterDeclarations.getAll();
-		List<String> errors = new ArrayList<>();
-		for (int parameterIndex = 0; parameterIndex < actualDeclarations.size(); parameterIndex++) {
+		var errors = new ArrayList<String>();
+		for (var parameterIndex = 0; parameterIndex < actualDeclarations.size(); parameterIndex++) {
 			ParameterDeclaration actualDeclaration = actualDeclarations.get(parameterIndex);
 			ResolvableParameterDeclaration originalDeclaration = originalResolverFacade.indexedParameterDeclarations.declarationsByIndex //
 					.get(parameterIndex);
@@ -401,7 +401,7 @@ class ResolverFacade {
 		indexedParameters.forEach(
 			(index, declarations) -> validateIndexedParameterDeclarations(index, declarations, errors));
 
-		for (int index = 0; index <= indexedParameters.lastKey(); index++) {
+		for (var index = 0; index <= indexedParameters.lastKey(); index++) {
 			if (!indexedParameters.containsKey(index)) {
 				errors.add("no field annotated with @Parameter(%d) declared".formatted(index));
 			}

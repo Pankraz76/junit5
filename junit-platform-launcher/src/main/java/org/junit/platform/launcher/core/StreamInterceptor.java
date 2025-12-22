@@ -99,7 +99,7 @@ class StreamInterceptor extends PrintStream {
 	public void write(byte[] buf, int off, int len) {
 		RewindableByteArrayOutputStream out = getOutput();
 		if (out != null) {
-			int actualLength = Math.max(0, Math.min(len, maxNumberOfBytesPerThread - out.size()));
+			var actualLength = Math.max(0, Math.min(len, maxNumberOfBytesPerThread - out.size()));
 			if (actualLength > 0) {
 				pushToTop(out);
 				out.write(buf, off, actualLength);
@@ -137,7 +137,7 @@ class StreamInterceptor extends PrintStream {
 			if (position == null || position == count) {
 				return "";
 			}
-			int length = count - position;
+			var length = count - position;
 			count -= length;
 			return new String(buf, position, length, Charset.defaultCharset());
 		}

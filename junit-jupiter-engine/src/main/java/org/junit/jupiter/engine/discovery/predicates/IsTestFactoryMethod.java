@@ -62,7 +62,7 @@ public class IsTestFactoryMethod extends IsTestableMethod {
 			issueReporter.reportIssue(createTooGenericReturnTypeIssue(method));
 			return true;
 		}
-		boolean validContainerType = !returnType.isArray() && isConvertibleToStream(returnType);
+		var validContainerType = !returnType.isArray() && isConvertibleToStream(returnType);
 		return validContainerType && isCompatibleContainerType(method, issueReporter);
 	}
 

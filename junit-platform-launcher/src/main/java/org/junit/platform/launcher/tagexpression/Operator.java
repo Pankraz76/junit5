@@ -129,7 +129,7 @@ class Operator {
 		}
 
 		if (2 == arity) {
-			int mismatch = arity - expressions.size();
+			var mismatch = arity - expressions.size();
 			if (2 == mismatch) {
 				return "missing lhs and rhs operand";
 			}

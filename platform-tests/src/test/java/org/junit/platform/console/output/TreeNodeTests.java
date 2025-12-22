@@ -46,7 +46,7 @@ class TreeNodeTests {
 		var treeNode = new TreeNode("root");
 
 		runConcurrently(() -> {
-			for (long i = 0; i < ITEMS_PER_THREAD; i++) {
+			for (var i = 0L; i < ITEMS_PER_THREAD; i++) {
 				treeNode.addChild(new TreeNode(String.valueOf(i)));
 			}
 		});
@@ -59,7 +59,7 @@ class TreeNodeTests {
 		var treeNode = new TreeNode("root");
 
 		runConcurrently(() -> {
-			for (long i = 0; i < ITEMS_PER_THREAD; i++) {
+			for (var i = 0L; i < ITEMS_PER_THREAD; i++) {
 				treeNode.addReportEntry(ReportEntry.from("index", String.valueOf(i)));
 			}
 		});
@@ -73,7 +73,7 @@ class TreeNodeTests {
 			new ArrayBlockingQueue<>(NUM_THREADS));
 		try {
 			var barrier = new CyclicBarrier(NUM_THREADS);
-			for (long i = 0; i < NUM_THREADS; i++) {
+			for (var i = 0L; i < NUM_THREADS; i++) {
 				executor.submit(() -> {
 					await(barrier);
 					action.run();

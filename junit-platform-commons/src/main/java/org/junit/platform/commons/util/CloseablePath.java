@@ -56,7 +56,7 @@ final class CloseablePath implements Closeable {
 		if (JAR_URI_SCHEME.equals(uri.getScheme())) {
 			// Parsing: jar:<url>!/[<entry>], see java.net.JarURLConnection
 			String uriString = uri.toString();
-			int lastJarUriSeparator = uriString.lastIndexOf(JAR_URI_SEPARATOR);
+			var lastJarUriSeparator = uriString.lastIndexOf(JAR_URI_SEPARATOR);
 			String jarUri = uriString.substring(0, lastJarUriSeparator);
 			String jarEntry = uriString.substring(lastJarUriSeparator + 1);
 			return createForJarFileSystem(new URI(jarUri), fileSystem -> fileSystem.getPath(jarEntry),

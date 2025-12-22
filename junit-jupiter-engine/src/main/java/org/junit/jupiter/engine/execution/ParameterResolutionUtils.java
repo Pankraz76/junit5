@@ -107,7 +107,7 @@ public class ParameterResolutionUtils {
 
 		@Nullable
 		Object[] values = new Object[parameters.length];
-		int start = 0;
+		var start = 0;
 
 		// Ensure that the outer instance is resolved as the first parameter if
 		// the executable is a constructor for an inner class.
@@ -117,7 +117,7 @@ public class ParameterResolutionUtils {
 		}
 
 		// Resolve remaining parameters dynamically
-		for (int i = start; i < parameters.length; i++) {
+		for (var i = start; i < parameters.length; i++) {
 			ParameterContext parameterContext = new DefaultParameterContext(parameters[i], i, target);
 			values[i] = resolveParameter(parameterContext, executable, extensionContext, extensionRegistry);
 		}

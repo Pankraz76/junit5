@@ -84,7 +84,7 @@ class ExecuteTestsCommand extends BaseCommand<TestExecutionSummary> implements C
 	@Override
 	public int getExitCode() {
 		TestExecutionSummary executionResult = commandSpec.commandLine().getExecutionResult();
-		boolean failIfNoTests = getReportingOptions().map(it -> it.failIfNoTests).orElse(false);
+		var failIfNoTests = getReportingOptions().map(it -> it.failIfNoTests).orElse(false);
 		if (failIfNoTests && executionResult.getTestsFoundCount() == 0) {
 			return NO_TESTS_FOUND;
 		}

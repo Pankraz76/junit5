@@ -510,7 +510,7 @@ public abstract class ClassBasedTestDescriptor extends JupiterTestDescriptor
 
 	private void registerAfterEachMethodAdapters(ExtensionRegistrar registrar) {
 		// Make a local copy since findAfterEachMethods() returns an immutable list.
-		List<Method> afterEachMethods = new ArrayList<>(requireLifecycleMethods().afterEach);
+		var afterEachMethods = new ArrayList<Method>(requireLifecycleMethods().afterEach);
 
 		// Since the bottom-up ordering of afterEachMethods will later be reversed when the
 		// synthesized AfterEachMethodAdapters are executed within TestMethodTestDescriptor,
@@ -589,7 +589,7 @@ public abstract class ClassBasedTestDescriptor extends JupiterTestDescriptor
 
 		LifecycleMethods(ClassInfo classInfo) {
 			Class<?> testClass = classInfo.testClass;
-			boolean requireStatic = classInfo.lifecycle == Lifecycle.PER_METHOD;
+			var requireStatic = classInfo.lifecycle == Lifecycle.PER_METHOD;
 			DiscoveryIssueReporter issueReporter = DiscoveryIssueReporter.collecting(discoveryIssues);
 			this.beforeAll = findBeforeAllMethods(testClass, requireStatic, issueReporter);
 			this.afterAll = findAfterAllMethods(testClass, requireStatic, issueReporter);

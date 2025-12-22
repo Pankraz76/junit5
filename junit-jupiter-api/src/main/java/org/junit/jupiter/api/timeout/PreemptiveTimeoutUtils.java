@@ -61,7 +61,7 @@ public class PreemptiveTimeoutUtils {
 			ThrowingSupplier<T> supplier, @Nullable Supplier<@Nullable String> messageSupplier,
 			TimeoutFailureFactory<E> failureFactory) throws E {
 
-		AtomicReference<Thread> threadReference = new AtomicReference<>();
+		var threadReference = new AtomicReference<Thread>();
 		ExecutorService executorService = Executors.newSingleThreadExecutor(new TimeoutThreadFactory());
 
 		try {

@@ -18,10 +18,8 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Deque;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.function.Predicate;
 
 import org.apiguardian.api.API;
@@ -128,12 +126,12 @@ public final class ExceptionUtils {
 		Preconditions.notNull(classNames, "List of class names must not be null");
 
 		List<StackTraceElement> stackTrace = Arrays.asList(throwable.getStackTrace());
-		List<StackTraceElement> prunedStackTrace = new ArrayList<>();
-		List<StackTraceElement> junitStartStackTrace = new ArrayList<>(0);
+		var prunedStackTrace = new ArrayList<StackTraceElement>();
+		var junitStartStackTrace = new ArrayList<StackTraceElement>(0);
 
 		Collections.reverse(stackTrace);
 
-		for (int i = 0; i < stackTrace.size(); i++) {
+		for (var i = 0; i < stackTrace.size(); i++) {
 			StackTraceElement element = stackTrace.get(i);
 			String className = element.getClassName();
 
@@ -188,13 +186,13 @@ public final class ExceptionUtils {
 	public static List<Throwable> findNestedThrowables(Throwable rootThrowable) {
 		Preconditions.notNull(rootThrowable, "Throwable must not be null");
 
-		Set<Throwable> visited = new LinkedHashSet<>();
-		Deque<Throwable> toVisit = new ArrayDeque<>();
+		var visited = new LinkedHashSet<Throwable>();
+		var toVisit = new ArrayDeque<Throwable>();
 		toVisit.add(rootThrowable);
 
 		while (!toVisit.isEmpty()) {
 			Throwable current = toVisit.remove();
-			boolean isFirstVisit = visited.add(current);
+			var isFirstVisit = visited.add(current);
 			if (isFirstVisit) {
 				Throwable cause = current.getCause();
 				if (cause != null) {

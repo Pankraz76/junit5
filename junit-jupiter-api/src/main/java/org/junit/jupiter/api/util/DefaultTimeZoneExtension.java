@@ -67,8 +67,8 @@ final class DefaultTimeZoneExtension implements BeforeAllCallback, BeforeEachCal
 	}
 
 	private static void validateCorrectConfiguration(DefaultTimeZone annotation) {
-		boolean noValue = annotation.value().isEmpty();
-		boolean noProvider = annotation.timeZoneProvider() == NullTimeZoneProvider.class;
+		var noValue = annotation.value().isEmpty();
+		var noProvider = annotation.timeZoneProvider() == NullTimeZoneProvider.class;
 		if (noValue == noProvider) {
 			throw new ExtensionConfigurationException(
 				"Either a valid time zone id or a TimeZoneProvider must be provided to "

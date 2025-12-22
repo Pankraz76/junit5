@@ -20,7 +20,6 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import org.jspecify.annotations.Nullable;
@@ -163,7 +162,7 @@ class AssumptionsTests {
 
 	@Test
 	void assumingThatWithBooleanTrue() {
-		List<String> list = new ArrayList<>();
+		var list = new ArrayList<String>();
 		assumingThat(true, () -> list.add("test"));
 		assertEquals(1, list.size());
 		assertEquals("test", list.getFirst());
@@ -171,7 +170,7 @@ class AssumptionsTests {
 
 	@Test
 	void assumingThatWithBooleanSupplierTrue() {
-		List<String> list = new ArrayList<>();
+		var list = new ArrayList<String>();
 		assumingThat(() -> true, () -> list.add("test"));
 		assertEquals(1, list.size());
 		assertEquals("test", list.getFirst());
@@ -179,14 +178,14 @@ class AssumptionsTests {
 
 	@Test
 	void assumingThatWithBooleanFalse() {
-		List<String> list = new ArrayList<>();
+		var list = new ArrayList<String>();
 		assumingThat(false, () -> list.add("test"));
 		assertEquals(0, list.size());
 	}
 
 	@Test
 	void assumingThatWithBooleanSupplierFalse() {
-		List<String> list = new ArrayList<>();
+		var list = new ArrayList<String>();
 		assumingThat(() -> false, () -> list.add("test"));
 		assertEquals(0, list.size());
 	}

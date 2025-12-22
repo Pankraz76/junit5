@@ -90,11 +90,11 @@ class MethodArgumentsProvider extends AnnotationBasedArgumentsProvider<MethodSou
 		if (factoryMethodName.contains("#")) {
 			return true;
 		}
-		int indexOfFirstDot = factoryMethodName.indexOf('.');
+		var indexOfFirstDot = factoryMethodName.indexOf('.');
 		if (indexOfFirstDot == -1) {
 			return false;
 		}
-		int indexOfLastOpeningParenthesis = factoryMethodName.lastIndexOf('(');
+		var indexOfLastOpeningParenthesis = factoryMethodName.lastIndexOf('(');
 		if (indexOfLastOpeningParenthesis > 0) {
 			// Exclude simple/local method names with parameters
 			return indexOfFirstDot < indexOfLastOpeningParenthesis;
@@ -122,7 +122,7 @@ class MethodArgumentsProvider extends AnnotationBasedArgumentsProvider<MethodSou
 			return factoryMethod;
 		}
 
-		boolean explicitParameterListSpecified = //
+		var explicitParameterListSpecified = //
 			StringUtils.isNotBlank(methodParameters) || fullyQualifiedMethodName.endsWith("()");
 
 		// If we didn't find an exact match but an explicit parameter list was specified,

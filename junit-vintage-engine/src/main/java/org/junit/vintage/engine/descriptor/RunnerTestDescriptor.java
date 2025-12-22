@@ -79,7 +79,7 @@ public class RunnerTestDescriptor extends VintageTestDescriptor {
 
 	@Override
 	protected boolean tryToExcludeFromRunner(Description description) {
-		boolean excluded = tryToFilterRunner(description);
+		var excluded = tryToFilterRunner(description);
 		if (excluded) {
 			wasFiltered = true;
 		}

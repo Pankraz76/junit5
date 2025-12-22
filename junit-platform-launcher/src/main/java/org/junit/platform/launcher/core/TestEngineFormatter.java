@@ -39,7 +39,7 @@ class TestEngineFormatter {
 	}
 
 	private static List<String> computeAttributes(TestEngine engine) {
-		List<String> attributes = new ArrayList<>(4);
+		var attributes = new ArrayList<String>(4);
 		engine.getGroupId().ifPresent(groupId -> attributes.add("group ID: " + groupId));
 		engine.getArtifactId().ifPresent(artifactId -> attributes.add("artifact ID: " + artifactId));
 		engine.getVersion().ifPresent(version -> attributes.add("version: " + version));

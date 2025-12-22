@@ -278,7 +278,7 @@ class DefaultClasspathScannerTests {
 
 	private static String jarFileAndEntry(URI uri) {
 		var uriString = uri.toString();
-		int lastJarUriSeparator = uriString.lastIndexOf("!/");
+		var lastJarUriSeparator = uriString.lastIndexOf("!/");
 		var jarUri = uriString.substring(0, lastJarUriSeparator);
 		var jarEntry = uriString.substring(lastJarUriSeparator + 1);
 		var fileName = jarUri.substring(jarUri.lastIndexOf("/") + 1);

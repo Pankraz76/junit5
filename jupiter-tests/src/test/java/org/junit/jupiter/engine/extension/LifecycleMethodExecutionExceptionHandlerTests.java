@@ -230,7 +230,7 @@ class LifecycleMethodExecutionExceptionHandlerTests extends AbstractJupiterTestE
 		throwExceptionAfterEach = false;
 		throwExceptionAfterAll = false;
 
-		boolean unrecoverableExceptionThrown = executeThrowingOutOfMemoryException();
+		var unrecoverableExceptionThrown = executeThrowingOutOfMemoryException();
 		assertTrue(unrecoverableExceptionThrown, "Unrecoverable Exception should be thrown");
 		assertEquals(1, UnrecoverableExceptionHandler.callCounter.beforeAllCalls,
 			"Exception should be handled in @BeforeAll");
@@ -245,7 +245,7 @@ class LifecycleMethodExecutionExceptionHandlerTests extends AbstractJupiterTestE
 		throwExceptionAfterEach = false;
 		throwExceptionAfterAll = false;
 
-		boolean unrecoverableExceptionThrown = executeThrowingOutOfMemoryException();
+		var unrecoverableExceptionThrown = executeThrowingOutOfMemoryException();
 		assertTrue(unrecoverableExceptionThrown, "Unrecoverable Exception should be thrown");
 		assertEquals(1, UnrecoverableExceptionHandler.callCounter.beforeEachCalls,
 			"Exception should be handled in @BeforeEach");
@@ -260,7 +260,7 @@ class LifecycleMethodExecutionExceptionHandlerTests extends AbstractJupiterTestE
 		throwExceptionAfterEach = true;
 		throwExceptionAfterAll = false;
 
-		boolean unrecoverableExceptionThrown = executeThrowingOutOfMemoryException();
+		var unrecoverableExceptionThrown = executeThrowingOutOfMemoryException();
 		assertTrue(unrecoverableExceptionThrown, "Unrecoverable Exception should be thrown");
 		assertEquals(1, UnrecoverableExceptionHandler.callCounter.afterEachCalls,
 			"Exception should be handled in @AfterEach");
@@ -275,7 +275,7 @@ class LifecycleMethodExecutionExceptionHandlerTests extends AbstractJupiterTestE
 		throwExceptionAfterEach = false;
 		throwExceptionAfterAll = true;
 
-		boolean unrecoverableExceptionThrown = executeThrowingOutOfMemoryException();
+		var unrecoverableExceptionThrown = executeThrowingOutOfMemoryException();
 		assertTrue(unrecoverableExceptionThrown, "Unrecoverable Exception should be thrown");
 		assertEquals(1, UnrecoverableExceptionHandler.callCounter.afterAllCalls,
 			"Exception should be handled in @AfterAll");

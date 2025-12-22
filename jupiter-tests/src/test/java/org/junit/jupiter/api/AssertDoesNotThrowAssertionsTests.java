@@ -36,7 +36,7 @@ class AssertDoesNotThrowAssertionsTests {
 
 	@Test
 	void assertDoesNotThrowWithMethodReferenceForNonVoidReturnType() {
-		FutureTask<String> future = new FutureTask<>(() -> "foo");
+		var future = new FutureTask<String>(() -> "foo");
 		future.run();
 
 		String result;

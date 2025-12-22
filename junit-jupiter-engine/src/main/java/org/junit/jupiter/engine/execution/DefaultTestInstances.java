@@ -30,7 +30,7 @@ public class DefaultTestInstances implements TestInstances {
 	}
 
 	public static DefaultTestInstances of(TestInstances testInstances, Object instance) {
-		List<Object> allInstances = new ArrayList<>(testInstances.getAllInstances());
+		var allInstances = new ArrayList<Object>(testInstances.getAllInstances());
 		allInstances.add(instance);
 		return new DefaultTestInstances(Collections.unmodifiableList(allInstances));
 	}

@@ -183,7 +183,7 @@ public abstract class AbstractTestDescriptor implements TestDescriptor {
 		Preconditions.notNull(suggestedOrder, "orderer may not return null");
 
 		Set<? extends TestDescriptor> orderedChildren = new LinkedHashSet<>(suggestedOrder);
-		boolean unmodified = this.children.equals(orderedChildren);
+		var unmodified = this.children.equals(orderedChildren);
 		Preconditions.condition(unmodified && this.children.size() == suggestedOrder.size(),
 			"orderer may not add or remove test descriptors");
 
@@ -231,7 +231,7 @@ public abstract class AbstractTestDescriptor implements TestDescriptor {
 
 	private static String replaceControlCharacters(String text) {
 		StringBuilder builder = new StringBuilder();
-		for (int i = 0; i < text.length(); i++) {
+		for (var i = 0; i < text.length(); i++) {
 			builder.append(replaceControlCharacter(text.charAt(i)));
 		}
 		return builder.toString();

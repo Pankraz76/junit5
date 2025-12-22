@@ -50,7 +50,7 @@ abstract class TemplateExecutor<P extends Extension, C> {
 	private void executeForProvider(P provider, AtomicInteger invocationIndex,
 			Node.DynamicTestExecutor dynamicTestExecutor, ExtensionContext extensionContext) {
 
-		int initialValue = invocationIndex.get();
+		var initialValue = invocationIndex.get();
 
 		Stream<? extends C> stream = provideContexts(provider, extensionContext);
 		try {

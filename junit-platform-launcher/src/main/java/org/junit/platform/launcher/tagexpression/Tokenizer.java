@@ -31,7 +31,7 @@ class Tokenizer {
 		if (infixTagExpression == null) {
 			return List.of();
 		}
-		List<Token> parts = new ArrayList<>();
+		var parts = new ArrayList<Token>();
 		Matcher matcher = PATTERN.matcher(infixTagExpression);
 		while (matcher.find()) {
 			parts.add(new Token(matcher.start(), matcher.group()));

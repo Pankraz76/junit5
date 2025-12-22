@@ -33,7 +33,7 @@ class CustomContextClassLoaderExecutorTests {
 		var originalClassLoader = Thread.currentThread().getContextClassLoader();
 		var executor = new CustomContextClassLoaderExecutor(Optional.empty());
 
-		int result = executor.invoke(() -> {
+		var result = executor.invoke(() -> {
 			assertSame(originalClassLoader, Thread.currentThread().getContextClassLoader());
 			return 42;
 		});
@@ -48,7 +48,7 @@ class CustomContextClassLoaderExecutorTests {
 		ClassLoader customClassLoader = URLClassLoader.newInstance(new URL[0]);
 		var executor = new CustomContextClassLoaderExecutor(Optional.of(customClassLoader));
 
-		int result = executor.invoke(() -> {
+		var result = executor.invoke(() -> {
 			assertSame(customClassLoader, Thread.currentThread().getContextClassLoader());
 			return 23;
 		});
@@ -69,7 +69,7 @@ class CustomContextClassLoaderExecutorTests {
 		};
 		var executor = new CustomContextClassLoaderExecutor(Optional.of(localClassLoader));
 
-		int result = executor.invoke(() -> 4711);
+		var result = executor.invoke(() -> 4711);
 
 		assertEquals(4711, result);
 		assertTrue(closed.get());
@@ -88,7 +88,7 @@ class CustomContextClassLoaderExecutorTests {
 		var executor = new CustomContextClassLoaderExecutor(Optional.of(localClassLoader),
 			CustomClassLoaderCloseStrategy.KEEP_OPEN);
 
-		int result = executor.invoke(() -> 4711);
+		var result = executor.invoke(() -> 4711);
 
 		assertEquals(4711, result);
 		assertFalse(closed.get());

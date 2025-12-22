@@ -122,7 +122,7 @@ public final class ClasspathResourceSource implements TestSource {
 
 	private ClasspathResourceSource(String classpathResourceName, @Nullable FilePosition filePosition) {
 		Preconditions.notBlank(classpathResourceName, "Classpath resource name must not be null or blank");
-		boolean startsWithSlash = classpathResourceName.startsWith("/");
+		var startsWithSlash = classpathResourceName.startsWith("/");
 		this.classpathResourceName = (startsWithSlash ? classpathResourceName.substring(1) : classpathResourceName);
 		this.filePosition = filePosition;
 	}

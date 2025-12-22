@@ -50,7 +50,7 @@ class ListenerRegistry<T> {
 	}
 
 	static <T> ListenerRegistry<T> copyOf(ListenerRegistry<T> source) {
-		ListenerRegistry<T> registry = new ListenerRegistry<>(source.compositeListenerFactory);
+		var registry = new ListenerRegistry<T>(source.compositeListenerFactory);
 		if (!source.listeners.isEmpty()) {
 			registry.addAll(source.listeners);
 		}

@@ -38,10 +38,10 @@ class CsvArgumentsProvider extends AnnotationBasedArgumentsProvider<CsvSource> {
 
 		CsvReaderFactory.validate(csvSource);
 
-		List<Arguments> arguments = new ArrayList<>();
+		var arguments = new ArrayList<Arguments>();
 
 		try (var reader = CsvReaderFactory.createReaderFor(csvSource, getData(csvSource))) {
-			boolean useHeadersInDisplayName = csvSource.useHeadersInDisplayName();
+			var useHeadersInDisplayName = csvSource.useHeadersInDisplayName();
 			for (CsvRecord record : reader) {
 				arguments.add(processCsvRecord(record, useHeadersInDisplayName));
 			}
@@ -62,8 +62,8 @@ class CsvArgumentsProvider extends AnnotationBasedArgumentsProvider<CsvSource> {
 			return csvSource.textBlock();
 		}
 		else {
-			for (int i = 0; i < values.length; i++) {
-				int finalI = i;
+			for (var i = 0; i < values.length; i++) {
+				var finalI = i;
 				Preconditions.notBlank(values[i],
 					() -> "CSV record at index %d must not be blank".formatted(finalI + 1));
 			}
@@ -87,7 +87,7 @@ class CsvArgumentsProvider extends AnnotationBasedArgumentsProvider<CsvSource> {
 		@Nullable
 		Object[] arguments = new Object[fields.size()];
 
-		for (int i = 0; i < fields.size(); i++) {
+		for (var i = 0; i < fields.size(); i++) {
 			Object argument = resolveNullMarker(fields.get(i));
 			if (useHeadersInDisplayName) {
 				String header = resolveNullMarker(headers.get(i));

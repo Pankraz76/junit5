@@ -195,7 +195,7 @@ public final class WorkerThreadPoolHierarchicalTestExecutorService implements Hi
 		}
 		workQueue.addAll(entries);
 		// start at most (parallelism - 1) new workers as this method is called from a worker thread holding a lease
-		for (int i = 0; i < Math.min(parallelism - 1, entries.size()); i++) {
+		for (var i = 0; i < Math.min(parallelism - 1, entries.size()); i++) {
 			maybeStartWorker();
 		}
 	}
@@ -351,8 +351,8 @@ public final class WorkerThreadPoolHierarchicalTestExecutorService implements Hi
 				return;
 			}
 
-			List<TestTask> isolatedTasks = new ArrayList<>(testTasks.size());
-			List<TestTask> sameThreadTasks = new ArrayList<>(testTasks.size());
+			var isolatedTasks = new ArrayList<TestTask>(testTasks.size());
+			var sameThreadTasks = new ArrayList<TestTask>(testTasks.size());
 			var queueEntries = forkConcurrentChildren(testTasks, isolatedTasks::add, sameThreadTasks);
 			executeAll(sameThreadTasks);
 			var queueEntriesByResult = tryToStealWorkWithoutBlocking(queueEntries);
@@ -364,7 +364,7 @@ public final class WorkerThreadPoolHierarchicalTestExecutorService implements Hi
 		private List<WorkQueue.Entry> forkConcurrentChildren(List<? extends TestTask> children,
 				Consumer<TestTask> isolatedTaskCollector, List<TestTask> sameThreadTasks) {
 
-			List<WorkQueue.Entry> queueEntries = new ArrayList<>(children.size());
+			var queueEntries = new ArrayList<WorkQueue.Entry>(children.size());
 			for (TestTask child : children) {
 				if (requiresGlobalReadWriteLock(child)) {
 					isolatedTaskCollector.accept(child);
@@ -392,7 +392,7 @@ public final class WorkerThreadPoolHierarchicalTestExecutorService implements Hi
 		private Map<WorkStealResult, List<WorkQueue.Entry>> tryToStealWorkWithoutBlocking(
 				Iterable<WorkQueue.Entry> queueEntries) {
 
-			Map<WorkStealResult, List<WorkQueue.Entry>> queueEntriesByResult = new EnumMap<>(WorkStealResult.class);
+			var queueEntriesByResult = new EnumMap<WorkStealResult, List<WorkQueue.Entry>>(WorkStealResult.class);
 			tryToStealWork(queueEntries, BlockingMode.NON_BLOCKING, queueEntriesByResult);
 			return queueEntriesByResult;
 		}
@@ -796,7 +796,7 @@ public final class WorkerThreadPoolHierarchicalTestExecutorService implements Hi
 					while (aIterator.hasNext()) {
 						var aCurrent = aIterator.next();
 						var bCurrent = bIterator.next();
-						int result = compareBy(aCurrent, bCurrent);
+						var result = compareBy(aCurrent, bCurrent);
 						if (result != 0) {
 							return result;
 						}
@@ -805,7 +805,7 @@ public final class WorkerThreadPoolHierarchicalTestExecutorService implements Hi
 				}
 
 				private static int compareBy(UniqueId.Segment a, UniqueId.Segment b) {
-					int result = a.getType().compareTo(b.getType());
+					var result = a.getType().compareTo(b.getType());
 					if (result != 0) {
 						return result;
 					}
@@ -830,7 +830,7 @@ public final class WorkerThreadPoolHierarchicalTestExecutorService implements Hi
 
 		@Nullable
 		WorkerLease tryAcquire() {
-			boolean acquired = semaphore.tryAcquire();
+			var acquired = semaphore.tryAcquire();
 			if (acquired) {
 				LOGGER.trace(() -> "acquired worker lease for new worker (available: %d)".formatted(
 					semaphore.availablePermits()));
