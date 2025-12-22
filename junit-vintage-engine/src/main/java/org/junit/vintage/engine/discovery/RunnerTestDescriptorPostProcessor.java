@@ -54,7 +54,7 @@ class RunnerTestDescriptorPostProcessor {
 			String uniqueId = entry.getKey();
 			List<Description> childrenWithSameUniqueId = entry.getValue();
 			IntFunction<String> uniqueIdGenerator = determineUniqueIdGenerator(uniqueId, childrenWithSameUniqueId);
-			for (int index = 0; index < childrenWithSameUniqueId.size(); index++) {
+			for (var index = 0; index < childrenWithSameUniqueId.size(); index++) {
 				String reallyUniqueId = uniqueIdGenerator.apply(index);
 				Description description = childrenWithSameUniqueId.get(index);
 				UniqueId id = parent.getUniqueId().append(VintageTestDescriptor.SEGMENT_TYPE_TEST, reallyUniqueId);

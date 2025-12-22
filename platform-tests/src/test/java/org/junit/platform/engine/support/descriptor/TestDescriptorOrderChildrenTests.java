@@ -47,7 +47,7 @@ public interface TestDescriptorOrderChildrenTests {
 			children.sort(comparing((TestDescriptor o) -> childrenInOriginalOrder.indexOf(o)).reversed());
 			return children;
 		});
-		List<TestDescriptor> children = new ArrayList<>(testDescriptor.getChildren());
+		var children = new ArrayList<TestDescriptor>(testDescriptor.getChildren());
 		assertThat(children).isEqualTo(childrenInOriginalOrder.reversed());
 	}
 
@@ -66,7 +66,7 @@ public interface TestDescriptorOrderChildrenTests {
 			children.sort(comparing(childrenInOriginalOrder::indexOf));
 			return children;
 		});
-		List<TestDescriptor> children = new ArrayList<>(testDescriptor.getChildren());
+		var children = new ArrayList<TestDescriptor>(testDescriptor.getChildren());
 		assertThat(children).isEqualTo(childrenInOriginalOrder);
 	}
 
@@ -125,7 +125,7 @@ public interface TestDescriptorOrderChildrenTests {
 	@Test
 	default void orderChildrenProvidedChildrenAreModifiable() {
 		var testDescriptor = createTestDescriptorWithChildren();
-		AtomicReference<List<TestDescriptor>> childrenRef = new AtomicReference<>();
+		var childrenRef = new AtomicReference<List<TestDescriptor>>();
 		testDescriptor.orderChildren(children -> {
 			childrenRef.set(children);
 			return children;

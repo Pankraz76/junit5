@@ -13,7 +13,6 @@ package org.junit.jupiter.engine.descriptor;
 import static org.junit.jupiter.api.parallel.ResourceLockTarget.CHILDREN;
 
 import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.List;
 import java.util.Set;
 import java.util.function.BiFunction;
@@ -33,7 +32,7 @@ interface ResourceLockAware extends TestDescriptor {
 
 	default Stream<ExclusiveResource> determineExclusiveResources() {
 
-		Deque<ResourceLockAware> ancestors = new ArrayDeque<>();
+		var ancestors = new ArrayDeque<ResourceLockAware>();
 		TestDescriptor parent = this.getParent().orElse(null);
 		while (parent instanceof ResourceLockAware resourceLockAwareParent) {
 			ancestors.addFirst(resourceLockAwareParent);

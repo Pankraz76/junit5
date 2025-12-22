@@ -132,8 +132,8 @@ class UniqueIdFormat implements Serializable {
 
 	private String encode(String s) {
 		StringBuilder builder = new StringBuilder(s.length());
-		for (int i = 0; i < s.length(); i++) {
-			char c = s.charAt(i);
+		for (var i = 0; i < s.length(); i++) {
+			var c = s.charAt(i);
 			String value = encodedCharacterMap.get(c);
 			if (value == null) {
 				builder.append(c);

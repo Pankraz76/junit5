@@ -80,7 +80,7 @@ public class VintageExecutor {
 			return;
 		}
 
-		boolean wasInterrupted = executeInParallel(cancellationToken);
+		var wasInterrupted = executeInParallel(cancellationToken);
 		if (wasInterrupted) {
 			Thread.currentThread().interrupt();
 		}
@@ -112,7 +112,7 @@ public class VintageExecutor {
 		Optional<String> optionalPoolSize = configurationParameters.get(Constants.PARALLEL_POOL_SIZE);
 		if (optionalPoolSize.isPresent()) {
 			try {
-				int poolSize = Integer.parseInt(optionalPoolSize.get());
+				var poolSize = Integer.parseInt(optionalPoolSize.get());
 				if (poolSize > 0) {
 					return poolSize;
 				}
@@ -147,7 +147,7 @@ public class VintageExecutor {
 
 	private boolean executeClassesInParallel(List<RunnerTestDescriptor> runnerTestDescriptors,
 			RunnerExecutor runnerExecutor, ExecutorService executorService) {
-		List<CompletableFuture<Void>> futures = new ArrayList<>();
+		var futures = new ArrayList<CompletableFuture<Void>>();
 		for (RunnerTestDescriptor runnerTestDescriptor : runnerTestDescriptors) {
 			CompletableFuture<Void> future = CompletableFuture.runAsync(
 				() -> runnerExecutor.execute(runnerTestDescriptor), executorService);
@@ -155,7 +155,7 @@ public class VintageExecutor {
 		}
 
 		CompletableFuture<Void> allOf = CompletableFuture.allOf(futures.toArray(new CompletableFuture<?>[0]));
-		boolean wasInterrupted = false;
+		var wasInterrupted = false;
 		try {
 			allOf.get();
 		}

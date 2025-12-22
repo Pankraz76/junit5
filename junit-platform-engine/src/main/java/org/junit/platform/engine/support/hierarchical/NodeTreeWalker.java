@@ -74,7 +74,7 @@ class NodeTreeWalker {
 			Preconditions.notNull(globalLockDescriptor,
 				() -> "Node requiring exclusive resources must also require global read lock: " + testDescriptor);
 
-			Set<ExclusiveResource> allResources = new HashSet<>(exclusiveResources);
+			var allResources = new HashSet<ExclusiveResource>(exclusiveResources);
 			if (isReadOnly(allResources)) {
 				doForChildrenRecursively(testDescriptor, child -> allResources.addAll(getExclusiveResources(child)));
 				if (!isReadOnly(allResources)) {

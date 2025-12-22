@@ -85,7 +85,7 @@ class ApiReportGenerator {
 	// -------------------------------------------------------------------------
 
 	private static Map<Status, StreamOpener> parseArgs(String[] args) {
-		Map<Status, StreamOpener> outputByStatus = new EnumMap<>(Status.class);
+		var outputByStatus = new EnumMap<Status, StreamOpener>(Status.class);
 		if (args.length == 0) {
 			outputByStatus.put(Status.EXPERIMENTAL, () -> null);
 		}
@@ -107,7 +107,7 @@ class ApiReportGenerator {
 	}
 
 	private static ApiReport generateReport(ScanResult scanResult) {
-		Map<Status, List<Declaration>> declarations = new EnumMap<>(Status.class);
+		var declarations = new EnumMap<Status, List<Declaration>>(Status.class);
 		for (var status : Status.values()) {
 			declarations.put(status, new ArrayList<>());
 		}

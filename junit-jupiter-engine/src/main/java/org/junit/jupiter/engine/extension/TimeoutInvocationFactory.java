@@ -67,7 +67,7 @@ class TimeoutInvocationFactory {
 		@Override
 		public void close() throws Exception {
 			executor.shutdown();
-			boolean terminated = executor.awaitTermination(5, TimeUnit.SECONDS);
+			var terminated = executor.awaitTermination(5, TimeUnit.SECONDS);
 			if (!terminated) {
 				executor.shutdownNow();
 				throw new JUnitException("Scheduled executor could not be stopped in an orderly manner");

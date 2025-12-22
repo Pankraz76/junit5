@@ -11,7 +11,6 @@
 package org.junit.platform.launcher.core;
 
 import java.util.HashSet;
-import java.util.Set;
 
 import org.junit.platform.commons.JUnitException;
 import org.junit.platform.commons.logging.Logger;
@@ -28,7 +27,7 @@ class EngineIdValidator {
 	}
 
 	static Iterable<TestEngine> validate(Iterable<TestEngine> testEngines) {
-		Set<String> ids = new HashSet<>();
+		var ids = new HashSet<String>();
 		for (TestEngine testEngine : testEngines) {
 			// check usage of reserved ID prefix
 			if (!validateReservedIds(testEngine)) {

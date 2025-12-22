@@ -340,7 +340,7 @@ class FieldArgumentsProviderTests {
 		void throwsExceptionWhenNonStaticExternalFieldIsReferencedWithLifecyclePerClassSemantics() {
 			var factoryClass = NonStaticTestCase.class.getName();
 			var field = factoryClass + "#nonStaticStringStreamSupplier";
-			boolean lifecyclePerClass = true;
+			var lifecyclePerClass = true;
 			assertPreconditionViolationFor(() -> provideArguments(TestCase.class, lifecyclePerClass, field).toArray())//
 					.withMessageContainingAll("Field '", "' must be static: local @FieldSource fields must be static ",
 						"unless the PER_CLASS @TestInstance lifecycle mode is used; ",

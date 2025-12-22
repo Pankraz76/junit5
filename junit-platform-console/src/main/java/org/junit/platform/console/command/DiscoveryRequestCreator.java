@@ -91,7 +91,7 @@ class DiscoveryRequestCreator {
 		var selectedClasspathEntries = Preconditions.notNull(options.getSelectedClasspathEntries(),
 			() -> "No classpath entries selected");
 		if (selectedClasspathEntries.isEmpty()) {
-			Set<Path> rootDirs = new LinkedHashSet<>(ReflectionUtils.getAllClasspathRootDirectories());
+			var rootDirs = new LinkedHashSet<Path>(ReflectionUtils.getAllClasspathRootDirectories());
 			rootDirs.addAll(options.getAdditionalClasspathEntries());
 			return rootDirs;
 		}
@@ -99,8 +99,8 @@ class DiscoveryRequestCreator {
 	}
 
 	private static Set<Path> validateAndLogInvalidRoots(Set<Path> roots) {
-		LinkedHashSet<Path> valid = new LinkedHashSet<>();
-		HashSet<Path> seen = new HashSet<>();
+		var valid = new LinkedHashSet<Path>();
+		var seen = new HashSet<Path>();
 
 		for (Path root : roots) {
 			if (!seen.add(root)) {

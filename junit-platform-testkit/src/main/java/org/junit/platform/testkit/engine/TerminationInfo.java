@@ -66,7 +66,7 @@ public class TerminationInfo {
 
 	private TerminationInfo(boolean skipped, @Nullable String skipReason,
 			@Nullable TestExecutionResult testExecutionResult) {
-		boolean executed = (testExecutionResult != null);
+		var executed = (testExecutionResult != null);
 		Preconditions.condition((skipped ^ executed),
 			"TerminationInfo must represent either a skipped execution or a TestExecutionResult but not both");
 

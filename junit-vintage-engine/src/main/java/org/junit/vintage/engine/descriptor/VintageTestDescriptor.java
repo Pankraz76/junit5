@@ -83,7 +83,7 @@ public class VintageTestDescriptor extends AbstractTestDescriptor {
 
 	@Override
 	public Set<TestTag> getTags() {
-		Set<TestTag> tags = new LinkedHashSet<>();
+		var tags = new LinkedHashSet<TestTag>();
 		addTagsFromParent(tags);
 		addCategoriesAsTags(tags);
 		return tags;

@@ -211,11 +211,11 @@ public class NamespacedHierarchicalStoreTests {
 		@Test
 		void getWithTypeSafetyAndPrimitiveValueType() {
 			String key = "enigma";
-			int value = 42;
+			var value = 42;
 			store.put(namespace, key, value);
 
 			// The fact that we can declare this as an int/Integer suffices for testing the required type.
-			int requiredInt = store.get(namespace, key, int.class);
+			var requiredInt = store.get(namespace, key, int.class);
 			Integer requiredInteger = store.get(namespace, key, Integer.class);
 			assertEquals(value, requiredInt);
 			assertEquals(value, requiredInteger.intValue());
@@ -292,10 +292,10 @@ public class NamespacedHierarchicalStoreTests {
 		@Test
 		void getOrComputeIfAbsentWithTypeSafetyAndPrimitiveValueType() {
 			String key = "enigma";
-			int value = 42;
+			var value = 42;
 
 			// The fact that we can declare this as an int/Integer suffices for testing the required type.
-			int computedInt = store.getOrComputeIfAbsent(namespace, key, k -> value, int.class);
+			var computedInt = store.getOrComputeIfAbsent(namespace, key, k -> value, int.class);
 			Integer computedInteger = store.getOrComputeIfAbsent(namespace, key, k -> value, Integer.class);
 			assertEquals(value, computedInt);
 			assertEquals(value, computedInteger.intValue());
@@ -304,10 +304,10 @@ public class NamespacedHierarchicalStoreTests {
 		@Test
 		void computeIfAbsentWithTypeSafetyAndPrimitiveValueType() {
 			String key = "enigma";
-			int value = 42;
+			var value = 42;
 
 			// The fact that we can declare this as an int/Integer suffices for testing the required type.
-			int computedInt = store.computeIfAbsent(namespace, key, k -> value, int.class);
+			var computedInt = store.computeIfAbsent(namespace, key, k -> value, int.class);
 			Integer computedInteger = store.computeIfAbsent(namespace, key, k -> value, Integer.class);
 			assertEquals(value, computedInt);
 			assertEquals(value, computedInteger.intValue());
@@ -361,11 +361,11 @@ public class NamespacedHierarchicalStoreTests {
 		@Test
 		void removeWithTypeSafetyAndPrimitiveValueType() {
 			String key = "enigma";
-			int value = 42;
+			var value = 42;
 			store.put(namespace, key, value);
 
 			// The fact that we can declare this as an int suffices for testing the required type.
-			int requiredInt = store.remove(namespace, key, int.class);
+			var requiredInt = store.remove(namespace, key, int.class);
 			assertEquals(value, requiredInt);
 
 			store.put(namespace, key, value);
@@ -388,7 +388,7 @@ public class NamespacedHierarchicalStoreTests {
 		@SuppressWarnings("deprecation")
 		@Test
 		void simulateRaceConditionInGetOrComputeIfAbsent() throws Exception {
-			int threads = 10;
+			var threads = 10;
 			AtomicInteger counter = new AtomicInteger();
 			List<Object> values;
 
@@ -404,7 +404,7 @@ public class NamespacedHierarchicalStoreTests {
 
 		@Test
 		void simulateRaceConditionInComputeIfAbsent() throws Exception {
-			int threads = 10;
+			var threads = 10;
 			AtomicInteger counter = new AtomicInteger();
 			List<Object> values;
 

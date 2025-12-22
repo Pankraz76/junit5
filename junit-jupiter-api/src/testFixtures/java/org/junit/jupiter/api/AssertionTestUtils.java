@@ -122,7 +122,7 @@ public class AssertionTestUtils {
 		Throwable[] suppressed = multipleFailuresError.getSuppressed();
 		assertEquals(exceptionTypes.length, suppressed.length, "number of suppressed exceptions");
 
-		for (int i = 0; i < exceptionTypes.length; i++) {
+		for (var i = 0; i < exceptionTypes.length; i++) {
 			assertEquals(exceptionTypes[i], failures.get(i).getClass(), "exception type [" + i + "]");
 			assertEquals(exceptionTypes[i], suppressed[i].getClass(), "suppressed exception type [" + i + "]");
 		}

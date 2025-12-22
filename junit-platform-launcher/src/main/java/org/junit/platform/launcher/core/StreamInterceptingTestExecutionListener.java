@@ -18,7 +18,6 @@ import static org.junit.platform.launcher.LauncherConstants.STDERR_REPORT_ENTRY_
 import static org.junit.platform.launcher.LauncherConstants.STDOUT_REPORT_ENTRY_KEY;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 import java.util.function.BiConsumer;
 
@@ -41,13 +40,13 @@ class StreamInterceptingTestExecutionListener implements EagerTestExecutionListe
 	static Optional<StreamInterceptingTestExecutionListener> create(ConfigurationParameters configurationParameters,
 			BiConsumer<TestIdentifier, ReportEntry> reporter) {
 
-		boolean captureStdout = configurationParameters.getBoolean(CAPTURE_STDOUT_PROPERTY_NAME).orElse(false);
-		boolean captureStderr = configurationParameters.getBoolean(CAPTURE_STDERR_PROPERTY_NAME).orElse(false);
+		var captureStdout = configurationParameters.getBoolean(CAPTURE_STDOUT_PROPERTY_NAME).orElse(false);
+		var captureStderr = configurationParameters.getBoolean(CAPTURE_STDERR_PROPERTY_NAME).orElse(false);
 		if (!captureStdout && !captureStderr) {
 			return Optional.empty();
 		}
 
-		int maxSize = configurationParameters.get(CAPTURE_MAX_BUFFER_PROPERTY_NAME, Integer::valueOf) //
+		var maxSize = configurationParameters.get(CAPTURE_MAX_BUFFER_PROPERTY_NAME, Integer::valueOf) //
 				.orElse(CAPTURE_MAX_BUFFER_DEFAULT);
 
 		Optional<StreamInterceptor> stdoutInterceptor = captureStdout ? StreamInterceptor.registerStdout(maxSize)
@@ -83,7 +82,7 @@ class StreamInterceptingTestExecutionListener implements EagerTestExecutionListe
 
 	@Override
 	public void executionJustFinished(TestIdentifier testIdentifier, TestExecutionResult testExecutionResult) {
-		Map<String, String> map = new HashMap<>();
+		var map = new HashMap<String, String>();
 		String out = stdoutInterceptor.map(StreamInterceptor::consume).orElse("");
 		if (StringUtils.isNotBlank(out)) {
 			map.put(STDOUT_REPORT_ENTRY_KEY, out);

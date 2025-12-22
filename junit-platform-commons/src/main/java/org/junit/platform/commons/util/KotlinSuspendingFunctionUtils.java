@@ -93,8 +93,8 @@ class KotlinSuspendingFunctionUtils {
 
 	private static Map<KParameter, @Nullable Object> toArgumentMap(@Nullable Object target, @Nullable Object[] args,
 			KFunction<?> function) {
-		Map<KParameter, @Nullable Object> arguments = new HashMap<>(args.length + 1);
-		int index = 0;
+		var arguments = new HashMap<KParameter, @Nullable Object>(args.length + 1);
+		var index = 0;
 		for (KParameter parameter : function.getParameters()) {
 			switch (parameter.getKind()) {
 				case INSTANCE -> arguments.put(parameter, target);

@@ -152,7 +152,7 @@ class ClassSelectorResolver implements SelectorResolver {
 			case ClassTemplateInvocationTestDescriptor.SEGMENT_TYPE -> {
 				Optional<ClassTemplateInvocationTestDescriptor> testDescriptor = context.addToParent(
 					() -> selectUniqueId(uniqueId.removeLastSegment()), parent -> {
-						int index = Integer.parseInt(lastSegment.getValue().substring(1));
+						var index = Integer.parseInt(lastSegment.getValue().substring(1));
 						return Optional.of(newDummyClassTemplateInvocationTestDescriptor(parent, index));
 					});
 				yield toInvocationMatch(testDescriptor) //
@@ -286,7 +286,7 @@ class ClassSelectorResolver implements SelectorResolver {
 	}
 
 	private static List<Class<?>> getTestClasses(TestClassAware testDescriptor) {
-		List<Class<?>> testClasses = new ArrayList<>(testDescriptor.getEnclosingTestClasses());
+		var testClasses = new ArrayList<Class<?>>(testDescriptor.getEnclosingTestClasses());
 		testClasses.add(testDescriptor.getTestClass());
 		return testClasses;
 	}
@@ -318,7 +318,7 @@ class ClassSelectorResolver implements SelectorResolver {
 		if (classes.size() == 1) {
 			return DiscoverySelectors.selectClass(classes.get(0));
 		}
-		int lastIndex = classes.size() - 1;
+		var lastIndex = classes.size() - 1;
 		return DiscoverySelectors.selectNestedClass(classes.subList(0, lastIndex), classes.get(lastIndex));
 	}
 

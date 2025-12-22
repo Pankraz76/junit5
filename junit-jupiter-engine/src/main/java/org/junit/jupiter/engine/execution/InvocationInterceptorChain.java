@@ -42,7 +42,7 @@ public class InvocationInterceptorChain {
 	private <T> T chainAndInvoke(Invocation<T> invocation, InterceptorCall<T> call,
 			List<InvocationInterceptor> interceptors) {
 
-		ValidatingInvocation<T> validatingInvocation = new ValidatingInvocation<>(invocation, interceptors);
+		var validatingInvocation = new ValidatingInvocation<T>(invocation, interceptors);
 		Invocation<T> chainedInvocation = chainInterceptors(validatingInvocation, call, interceptors);
 		T result = proceed(chainedInvocation);
 		validatingInvocation.verifyInvokedAtLeastOnce();

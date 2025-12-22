@@ -80,7 +80,7 @@ class TestTagTests {
 		assertEquals(TestTag.create("fast"), TestTag.create("fast"));
 		assertEquals(TestTag.create("fast").hashCode(), TestTag.create("fast").hashCode());
 		assertNotEquals(null, TestTag.create("fast"));
-		assertNotEquals(TestTag.create("fast"), null);
+		assertNotEquals(null, TestTag.create("fast"));
 	}
 
 	@Test

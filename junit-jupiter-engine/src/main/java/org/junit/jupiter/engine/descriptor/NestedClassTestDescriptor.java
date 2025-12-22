@@ -74,7 +74,7 @@ public class NestedClassTestDescriptor extends ClassBasedTestDescriptor {
 	@Override
 	public final Set<TestTag> getTags() {
 		// return modifiable copy
-		Set<TestTag> allTags = new LinkedHashSet<>(this.classInfo.tags);
+		var allTags = new LinkedHashSet<TestTag>(this.classInfo.tags);
 		getParent().ifPresent(parentDescriptor -> allTags.addAll(parentDescriptor.getTags()));
 		return allTags;
 	}
@@ -89,7 +89,7 @@ public class NestedClassTestDescriptor extends ClassBasedTestDescriptor {
 	@API(status = INTERNAL, since = "5.12")
 	public static List<Class<?>> getEnclosingTestClasses(@Nullable TestDescriptor parent) {
 		if (parent instanceof TestClassAware testClassAwareParent) {
-			List<Class<?>> result = new ArrayList<>(testClassAwareParent.getEnclosingTestClasses());
+			var result = new ArrayList<Class<?>>(testClassAwareParent.getEnclosingTestClasses());
 			result.add(testClassAwareParent.getTestClass());
 			return List.copyOf(result);
 		}

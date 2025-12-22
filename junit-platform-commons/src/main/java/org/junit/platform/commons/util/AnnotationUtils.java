@@ -139,7 +139,7 @@ public final class AnnotationUtils {
 	public static <A extends Annotation> Optional<A> findAnnotation(@Nullable AnnotatedElement element,
 			Class<A> annotationType) {
 		Preconditions.notNull(annotationType, "annotationType must not be null");
-		boolean inherited = annotationType.isAnnotationPresent(Inherited.class);
+		var inherited = annotationType.isAnnotationPresent(Inherited.class);
 		return findAnnotation(element, annotationType, inherited, new HashSet<>());
 	}
 
@@ -284,7 +284,7 @@ public final class AnnotationUtils {
 		Repeatable repeatable = annotationType.getAnnotation(Repeatable.class);
 		Preconditions.notNull(repeatable, () -> annotationType.getName() + " must be @Repeatable");
 		Class<? extends Annotation> containerType = repeatable.value();
-		boolean inherited = containerType.isAnnotationPresent(Inherited.class);
+		var inherited = containerType.isAnnotationPresent(Inherited.class);
 
 		// Short circuit the search algorithm.
 		if (element == null) {

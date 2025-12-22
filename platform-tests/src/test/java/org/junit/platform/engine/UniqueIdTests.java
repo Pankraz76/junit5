@@ -166,7 +166,7 @@ class UniqueIdTests {
 
 		@Test
 		void ensureDefaultUniqueIdFormatCanHandleAllCharacters() {
-			for (char c = 0; c < Character.MAX_VALUE; c++) {
+			for (var c = 0; c < Character.MAX_VALUE; c++) {
 				var value = "foo " + c + " bar";
 				var uniqueId = UniqueId.parse(UniqueId.root("type", value).toString());
 				var segment = uniqueId.getSegments().getFirst();

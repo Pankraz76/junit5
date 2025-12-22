@@ -123,7 +123,7 @@ final class ClassSelectorResolver implements SelectorResolver {
 		List<Segment> segments = id.getSegments();
 		List<Segment> engineAndSuiteSegment = segments.subList(segments.size() - 2, segments.size());
 		List<Segment> ancestorSegments = segments.subList(0, segments.size() - 2);
-		for (int i = 0; i < ancestorSegments.size() - 1; i++) {
+		for (var i = 0; i < ancestorSegments.size() - 1; i++) {
 			List<Segment> candidate = ancestorSegments.subList(i, i + 2);
 			if (engineAndSuiteSegment.equals(candidate)) {
 				return true;

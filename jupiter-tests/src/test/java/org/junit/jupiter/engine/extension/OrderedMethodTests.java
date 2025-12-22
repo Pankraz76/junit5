@@ -188,7 +188,7 @@ record OrderedMethodTests(ParallelExecutorServiceType executorServiceType) {
 			"Failed to convert configuration parameter \\[" + Pattern.quote(Random.RANDOM_SEED_PROPERTY_NAME)
 					+ "] with value \\[" + seed + "] to a long\\. Using default seed \\[\\d+] as fallback\\.");
 
-		Set<String> uniqueSequences = new HashSet<>();
+		var uniqueSequences = new HashSet<String>();
 
 		for (var i = 0; i < 10; i++) {
 			callSequence.clear();
@@ -212,7 +212,7 @@ record OrderedMethodTests(ParallelExecutorServiceType executorServiceType) {
 
 	@Test
 	void randomWithDifferentSeedConsecutively(@TrackLogRecords LogRecordListener listener) {
-		Set<String> uniqueSequences = new HashSet<>();
+		var uniqueSequences = new HashSet<String>();
 
 		for (var i = 0; i < 10; i++) {
 			var seed = String.valueOf(i);

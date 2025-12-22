@@ -138,7 +138,7 @@ public interface TestDescriptor {
 			return Collections.emptySet();
 		}
 		TestDescriptor parent = getParent().get();
-		Set<TestDescriptor> ancestors = new LinkedHashSet<>();
+		var ancestors = new LinkedHashSet<TestDescriptor>();
 		ancestors.add(parent);
 		// Need to recurse?
 		if (parent.getParent().isPresent()) {
@@ -159,7 +159,7 @@ public interface TestDescriptor {
 	 * @see #getChildren()
 	 */
 	default Set<? extends TestDescriptor> getDescendants() {
-		Set<TestDescriptor> descendants = new LinkedHashSet<>();
+		var descendants = new LinkedHashSet<TestDescriptor>();
 		descendants.addAll(getChildren());
 		for (TestDescriptor child : getChildren()) {
 			descendants.addAll(child.getDescendants());
@@ -213,7 +213,7 @@ public interface TestDescriptor {
 		Preconditions.notNull(suggestedOrder, "orderer may not return null");
 
 		Set<? extends TestDescriptor> orderedChildren = new LinkedHashSet<>(suggestedOrder);
-		boolean unmodified = originalChildren.equals(orderedChildren);
+		var unmodified = originalChildren.equals(orderedChildren);
 		Preconditions.condition(unmodified && originalChildren.size() == suggestedOrder.size(),
 			"orderer may not add or remove test descriptors");
 

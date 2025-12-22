@@ -68,7 +68,7 @@ class DiscoverySelectorIdentifierParsers {
 		private final Map<String, DiscoverySelectorIdentifierParser> parsersByPrefix;
 
 		Singleton() {
-			Map<String, DiscoverySelectorIdentifierParser> parsersByPrefix = new HashMap<>();
+			var parsersByPrefix = new HashMap<String, DiscoverySelectorIdentifierParser>();
 			Iterable<DiscoverySelectorIdentifierParser> loadedParsers = ServiceLoader.load(
 				DiscoverySelectorIdentifierParser.class, ClassLoaderUtils.getDefaultClassLoader());
 			for (DiscoverySelectorIdentifierParser parser : loadedParsers) {

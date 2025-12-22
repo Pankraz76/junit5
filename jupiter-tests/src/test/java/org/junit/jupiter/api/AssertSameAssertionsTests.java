@@ -86,7 +86,7 @@ class AssertSameAssertionsTests {
 	@Test
 	void assertSameWithEqualPrimitivesAutoboxedToDifferentWrappers() {
 		try {
-			int i = 999;
+			var i = 999;
 			assertSame(i, i);
 			expectAssertionFailedError();
 		}

@@ -38,8 +38,8 @@ public class ConcurrencyTestingUtils {
 		ExecutorService executorService = Executors.newFixedThreadPool(threads);
 		try {
 			CountDownLatch latch = new CountDownLatch(threads);
-			List<CompletableFuture<T>> futures = new ArrayList<>();
-			for (int i = 0; i < threads; i++) {
+			var futures = new ArrayList<CompletableFuture<T>>();
+			for (var i = 0; i < threads; i++) {
 				futures.add(CompletableFuture.supplyAsync(() -> {
 					try {
 						latch.countDown();
@@ -55,7 +55,7 @@ public class ConcurrencyTestingUtils {
 					}
 				}, executorService));
 			}
-			List<T> list = new ArrayList<>();
+			var list = new ArrayList<T>();
 			for (CompletableFuture<T> future : futures) {
 				list.add(future.get(5, SECONDS));
 			}

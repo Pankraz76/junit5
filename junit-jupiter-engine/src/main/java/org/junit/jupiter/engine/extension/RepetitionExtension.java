@@ -68,7 +68,7 @@ class RepetitionExtension implements ParameterResolver, TestWatcher, ExecutionCo
 
 	@Override
 	public ConditionEvaluationResult evaluateExecutionCondition(ExtensionContext context) {
-		int failureThreshold = this.repetitionInfo.getFailureThreshold();
+		var failureThreshold = this.repetitionInfo.getFailureThreshold();
 		if (this.repetitionInfo.getFailureCount() >= failureThreshold) {
 			return disabled("Failure threshold [" + failureThreshold + "] exceeded");
 		}

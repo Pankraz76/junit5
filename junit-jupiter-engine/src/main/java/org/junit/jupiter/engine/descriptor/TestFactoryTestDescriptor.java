@@ -116,7 +116,7 @@ public class TestFactoryTestDescriptor extends TestMethodTestDescriptor implemen
 			TestSource defaultTestSource = getSource().orElseThrow(
 				() -> new JUnitException("Illegal state: TestSource must be present"));
 			try (Stream<DynamicNode> dynamicNodeStream = toDynamicNodeStream(testFactoryMethodResult)) {
-				int index = 1;
+				var index = 1;
 				Iterator<DynamicNode> iterator = dynamicNodeStream.iterator();
 				while (iterator.hasNext()) {
 					DynamicNode dynamicNode = iterator.next();

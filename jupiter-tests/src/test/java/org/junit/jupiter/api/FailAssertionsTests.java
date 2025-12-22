@@ -142,7 +142,7 @@ class FailAssertionsTests {
 	@Test
 	void failUsableAsAnExpression() {
 		// @formatter:off
-		long count = Stream.empty()
+		var count = Stream.empty()
 				.peek(element -> fail("peek should never be called"))
 				.filter(element -> fail("filter should never be called", new Throwable("cause")))
 				.map(element -> Assertions.<Throwable> fail(new Throwable("map should never be called")))

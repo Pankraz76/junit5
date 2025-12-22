@@ -15,7 +15,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.LinkedHashMap;
-import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 import org.junit.platform.engine.EngineDiscoveryRequest;
@@ -41,14 +40,11 @@ class LauncherDiscoveryResultTests {
 		var engine4 = new DemoEngine("Engine 4");
 
 		@SuppressWarnings("serial")
-		Map<TestEngine, EngineResultInfo> engineResults = new LinkedHashMap<>() {
-			{
-				put(engine1, new DemoEngineResultInfo(true));
-				put(engine2, new DemoEngineResultInfo(false));
-				put(engine3, new DemoEngineResultInfo(false));
-				put(engine4, new DemoEngineResultInfo(true));
-			}
-		};
+		var engineResults = new LinkedHashMap<TestEngine, EngineResultInfo>();
+		engineResults.put(engine1, new DemoEngineResultInfo(true));
+		engineResults.put(engine2, new DemoEngineResultInfo(false));
+		engineResults.put(engine3, new DemoEngineResultInfo(false));
+		engineResults.put(engine4, new DemoEngineResultInfo(true));
 		assertThat(engineResults.keySet()).containsExactly(engine1, engine2, engine3, engine4);
 
 		LauncherDiscoveryResult discoveryResult = new LauncherDiscoveryResult(engineResults, mock(), mock());

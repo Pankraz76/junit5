@@ -18,7 +18,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Queue;
 
 import org.junit.platform.commons.util.Preconditions;
 import org.junit.platform.engine.TestDescriptor;
@@ -52,10 +51,10 @@ class EngineDiscoveryResultValidator {
 	 */
 	private Optional<String> getCyclicGraphInfo(TestDescriptor root) {
 
-		Map<UniqueId, Optional<UniqueId>> visited = new HashMap<>();
+		var visited = new HashMap<UniqueId, Optional<UniqueId>>();
 		visited.put(root.getUniqueId(), Optional.empty());
 
-		Queue<TestDescriptor> queue = new ArrayDeque<>();
+		var queue = new ArrayDeque<TestDescriptor>();
 		queue.add(root);
 
 		while (!queue.isEmpty()) {
@@ -87,7 +86,7 @@ class EngineDiscoveryResultValidator {
 	}
 
 	private static List<UniqueId> findPath(Map<UniqueId, Optional<UniqueId>> visited, UniqueId target) {
-		List<UniqueId> path = new ArrayList<>();
+		var path = new ArrayList<UniqueId>();
 		path.add(target);
 		UniqueId current = target;
 

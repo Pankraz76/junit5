@@ -266,7 +266,7 @@ class VintageLauncherIntegrationTests {
 	}
 
 	private Map<TestIdentifier, TestExecutionResult> execute(LauncherDiscoveryRequestBuilder requestBuilder) {
-		Map<TestIdentifier, TestExecutionResult> results = new LinkedHashMap<>();
+		var results = new LinkedHashMap<TestIdentifier, TestExecutionResult>();
 		var launcher = LauncherFactory.create();
 		var listener = new TestExecutionListener() {
 			@Override

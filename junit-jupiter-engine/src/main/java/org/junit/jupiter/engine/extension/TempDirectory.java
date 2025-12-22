@@ -41,7 +41,6 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.DosFileAttributeView;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.function.Predicate;
@@ -359,7 +358,7 @@ class TempDirectory implements BeforeAllCallback, BeforeEachCallback, ParameterR
 		 * @since 5.12
 		 */
 		private static String descriptionFor(Executable executable) {
-			boolean isConstructor = executable instanceof Constructor<?>;
+			var isConstructor = executable instanceof Constructor<?>;
 			String type = isConstructor ? "constructor" : "method";
 			String name = isConstructor ? executable.getDeclaringClass().getSimpleName() : executable.getName();
 			return "%s %s(%s)".formatted(type, name,
@@ -374,8 +373,8 @@ class TempDirectory implements BeforeAllCallback, BeforeEachCallback, ParameterR
 				return Collections.emptySortedMap();
 			}
 
-			SortedMap<Path, IOException> failures = new TreeMap<>();
-			Set<Path> retriedPaths = new HashSet<>();
+			var failures = new TreeMap<Path, IOException>();
+			var retriedPaths = new HashSet<Path>();
 			Path rootRealPath = rootDir.toRealPath();
 
 			tryToResetPermissions(rootDir);
@@ -461,7 +460,7 @@ class TempDirectory implements BeforeAllCallback, BeforeEachCallback, ParameterR
 				}
 
 				private void resetPermissionsAndTryToDeleteAgain(Path path, IOException exception) {
-					boolean notYetRetried = retriedPaths.add(path);
+					var notYetRetried = retriedPaths.add(path);
 					if (notYetRetried) {
 						try {
 							tryToResetPermissions(path);

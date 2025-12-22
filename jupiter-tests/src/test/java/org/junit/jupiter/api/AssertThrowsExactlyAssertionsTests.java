@@ -81,7 +81,7 @@ class AssertThrowsExactlyAssertionsTests {
 
 	@Test
 	void assertThrowsWithMethodReferenceForNonVoidReturnType() {
-		FutureTask<String> future = new FutureTask<>(() -> {
+		var future = new FutureTask<String>(() -> {
 			throw new RuntimeException("boom");
 		});
 		future.run();

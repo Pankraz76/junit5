@@ -227,13 +227,13 @@ class ExtensionRegistrationViaParametersAndFieldsTests extends AbstractJupiterTe
 				.filter(message -> message.contains("local extension")) //
 				.map(message -> {
 					message = message.replaceAll(" from source .+", "");
-					int beginIndex = message.lastIndexOf('.') + 1;
+					var beginIndex = message.lastIndexOf('.') + 1;
 					if (message.contains("late-init")) {
 						return message.substring(beginIndex, message.indexOf("]"));
 					}
 					else {
-						int indexOfDollarSign = message.indexOf("$");
-						int indexOfAtSign = message.indexOf("@");
+						var indexOfDollarSign = message.indexOf("$");
+						var indexOfAtSign = message.indexOf("@");
 						int endIndex = (indexOfDollarSign > 1 ? indexOfDollarSign : indexOfAtSign);
 						return message.substring(beginIndex, endIndex);
 					}

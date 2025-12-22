@@ -39,7 +39,7 @@ class SuiteLauncher {
 	private final EngineDiscoveryOrchestrator discoveryOrchestrator;
 
 	static SuiteLauncher create() {
-		Set<TestEngine> engines = new LinkedHashSet<>();
+		var engines = new LinkedHashSet<TestEngine>();
 		new ServiceLoaderTestEngineRegistry().loadTestEngines().forEach(engines::add);
 		return new SuiteLauncher(engines);
 	}

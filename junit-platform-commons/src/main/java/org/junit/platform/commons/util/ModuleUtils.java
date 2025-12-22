@@ -209,7 +209,7 @@ public class ModuleUtils {
 	private static List<Class<?>> scan(Set<ModuleReference> references, ClassFilter filter, ClassLoader loader) {
 		logger.debug(() -> "Scanning " + references.size() + " module references: " + references);
 		ModuleReferenceClassScanner scanner = new ModuleReferenceClassScanner(filter, loader);
-		List<Class<?>> classes = new ArrayList<>();
+		var classes = new ArrayList<Class<?>>();
 		for (ModuleReference reference : references) {
 			classes.addAll(scanner.scan(reference));
 		}
@@ -224,7 +224,7 @@ public class ModuleUtils {
 	private static List<Resource> scan(Set<ModuleReference> references, ResourceFilter filter, ClassLoader loader) {
 		logger.debug(() -> "Scanning " + references.size() + " module references: " + references);
 		ModuleReferenceResourceScanner scanner = new ModuleReferenceResourceScanner(filter, loader);
-		List<Resource> resources = new ArrayList<>();
+		var resources = new ArrayList<Resource>();
 		for (ModuleReference reference : references) {
 			resources.addAll(scanner.scan(reference));
 		}

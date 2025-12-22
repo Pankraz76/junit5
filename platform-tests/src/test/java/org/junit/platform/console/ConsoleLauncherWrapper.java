@@ -53,7 +53,7 @@ class ConsoleLauncherWrapper {
 		var outText = out.toString();
 		var errText = err.toString();
 		if (expectedCode.isPresent()) {
-			int expectedValue = expectedCode.get();
+			var expectedValue = expectedCode.get();
 			assertEquals(expectedValue, code, "ConsoleLauncher execute code mismatch!");
 			if (expectedValue != 0 && expectedValue != 1) {
 				assertThat(errText).isNotBlank();

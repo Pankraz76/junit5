@@ -36,7 +36,7 @@ class JavaTimeArgumentConverter extends AnnotationBasedArgumentConverter<JavaTim
 
 	private static final Map<Class<?>, TemporalQuery<?>> TEMPORAL_QUERIES;
 	static {
-		Map<Class<?>, TemporalQuery<?>> queries = new LinkedHashMap<>();
+		var queries = new LinkedHashMap<Class<?>, TemporalQuery<?>>();
 		queries.put(ChronoLocalDate.class, ChronoLocalDate::from);
 		queries.put(ChronoLocalDateTime.class, ChronoLocalDateTime::from);
 		queries.put(ChronoZonedDateTime.class, ChronoZonedDateTime::from);
