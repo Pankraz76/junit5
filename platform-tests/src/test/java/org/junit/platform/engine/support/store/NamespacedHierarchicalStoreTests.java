@@ -11,6 +11,7 @@
 package org.junit.platform.engine.support.store;
 
 import static java.util.Objects.requireNonNull;
+import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -26,6 +27,8 @@ import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 
@@ -415,6 +418,110 @@ public class NamespacedHierarchicalStoreTests {
 
 			assertEquals(1, counter.get());
 			assertThat(values).hasSize(threads).containsOnly(1);
+		}
+	}
+
+	/**
+	 * Tests for a {@code defaultCreator} passed to
+	 * {@link NamespacedHierarchicalStore#computeIfAbsent(Object, Object, Function)}
+	 * that itself accesses the store.
+	 *
+	 * <p>The keys used in these tests share the same hash code. They therefore end up
+	 * in the same bin of the store's internal hash map, where a {@code defaultCreator}
+	 * that is invoked while the store holds the lock for that bin fails with an
+	 * {@link IllegalStateException} ("Recursive update"). With keys whose hash codes
+	 * differ from run to run (e.g., {@link Class} objects), that failure would only
+	 * occur sporadically.
+	 */
+	@Nested
+	class NestedComputeIfAbsentTests {
+
+		private final Object outerKey = new CollidingKey("outer");
+		private final Object innerKey = new CollidingKey("inner");
+
+		@Test
+		void defaultCreatorCanComputeValueForAnotherKey() {
+			var value = store.computeIfAbsent(namespace, outerKey,
+				__ -> "outer+" + store.computeIfAbsent(namespace, innerKey, ___ -> "inner"));
+
+			assertEquals("outer+inner", value);
+			assertEquals("outer+inner", store.get(namespace, outerKey));
+			assertEquals("inner", store.get(namespace, innerKey));
+		}
+
+		@Test
+		void defaultCreatorCanComputeValueForAnotherKeyIfValueForCollidingKeyIsAlreadyStored() {
+			store.put(namespace, new CollidingKey("existing"), "existing");
+
+			var value = store.computeIfAbsent(namespace, outerKey,
+				__ -> "outer+" + store.computeIfAbsent(namespace, innerKey, ___ -> "inner"));
+
+			assertEquals("outer+inner", value);
+			assertEquals("outer+inner", store.get(namespace, outerKey));
+			assertEquals("inner", store.get(namespace, innerKey));
+		}
+
+		@Test
+		void defaultCreatorDoesNotBlockComputationOfValueForAnotherKeyInAnotherThread() throws Exception {
+			var innerValueComputed = new CountDownLatch(1);
+			var executorService = Executors.newSingleThreadExecutor();
+			try {
+				var value = store.computeIfAbsent(namespace, outerKey, __ -> {
+					executorService.execute(() -> {
+						store.computeIfAbsent(namespace, innerKey, ___ -> "inner");
+						innerValueComputed.countDown();
+					});
+					return await(innerValueComputed) ? "outer" : "timed out waiting for inner value";
+				});
+
+				assertEquals("outer", value);
+				assertEquals("inner", store.get(namespace, innerKey));
+			}
+			finally {
+				executorService.shutdownNow();
+			}
+		}
+
+		@Test
+		void valueIsClosedBeforeValueComputedByItsDefaultCreator() throws Throwable {
+			store.computeIfAbsent(namespace, outerKey,
+				__ -> "outer+" + store.computeIfAbsent(namespace, innerKey, ___ -> "inner"));
+
+			store.close();
+
+			var inOrder = inOrder(closeAction);
+			inOrder.verify(closeAction).close(namespace, outerKey, "outer+inner");
+			inOrder.verify(closeAction).close(namespace, innerKey, "inner");
+			verifyNoMoreInteractions(closeAction);
+		}
+
+		@Test
+		void defaultCreatorCannotComputeValueForSameKey() {
+			var exception = assertThrows(NamespacedHierarchicalStoreException.class,
+				() -> store.computeIfAbsent(namespace, outerKey,
+					__ -> store.computeIfAbsent(namespace, outerKey, ___ -> "inner")));
+
+			assertThat(exception).hasMessageContaining("Recursive update");
+			assertNull(store.get(namespace, outerKey));
+			assertEquals("outer", store.computeIfAbsent(namespace, outerKey, __ -> "outer"));
+		}
+
+		private static boolean await(CountDownLatch latch) {
+			try {
+				return latch.await(10, SECONDS);
+			}
+			catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
+				return false;
+			}
+		}
+
+		private record CollidingKey(String name) {
+
+			@Override
+			public int hashCode() {
+				return 42;
+			}
 		}
 	}
 

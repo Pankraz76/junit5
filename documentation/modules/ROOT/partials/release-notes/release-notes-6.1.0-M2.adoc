@@ -16,6 +16,12 @@ repository on GitHub.
 ==== Bug Fixes
 
 * Clarify `TestDescriptor` implementation requirements.
+* `NamespacedHierarchicalStore.computeIfAbsent(...)` -- and thus
+  `ExtensionContext.Store.computeIfAbsent(...)` in JUnit Jupiter -- no longer fails
+  sporadically with an `IllegalStateException` ("Recursive update") if the supplied
+  `defaultCreator` accesses the store itself, for example, to compute another value it
+  depends on. Moreover, computing a value no longer blocks concurrent computations of
+  unrelated values.
 
 [[v6.1.0-M2-junit-platform-deprecations-and-breaking-changes]]
 ==== Deprecations and Breaking Changes

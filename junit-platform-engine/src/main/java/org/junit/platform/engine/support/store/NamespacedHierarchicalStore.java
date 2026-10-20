@@ -244,21 +244,43 @@ public final class NamespacedHierarchicalStore<N> implements AutoCloseable {
 		StoredValue storedValue = getStoredValue(compositeKey);
 		var result = StoredValue.evaluateIfNotNull(storedValue);
 		if (result == null) {
-			StoredValue newStoredValue = this.storedValues.compute(compositeKey, (__, oldStoredValue) -> {
-				if (StoredValue.evaluateIfNotNull(oldStoredValue) == null) {
-					rejectIfClosed();
-					var computedValue = Preconditions.notNull(defaultCreator.apply(key),
-						"defaultCreator must not return null");
-					return newStoredValue(() -> {
-						rejectIfClosed();
-						return computedValue;
-					});
-				}
-				return oldStoredValue;
-			});
-			return requireNonNull(newStoredValue.evaluate());
+			rejectIfClosed();
+			// The defaultCreator must not be invoked within an atomic operation on
+			// storedValues (such as ConcurrentHashMap.compute()), since it may access
+			// this store as well -- for example, to compute a value it depends on.
+			StoredValue pendingStoredValue = newStoredValue(new MemoizingSupplier(
+				() -> Preconditions.notNull(defaultCreator.apply(key), "defaultCreator must not return null")));
+			return storeIfAbsentAndEvaluate(compositeKey, pendingStoredValue);
 		}
 		return result;
+	}
+
+	private Object storeIfAbsentAndEvaluate(CompositeKey<N> compositeKey, StoredValue pendingStoredValue) {
+		StoredValue oldStoredValue;
+		while ((oldStoredValue = this.storedValues.putIfAbsent(compositeKey, pendingStoredValue)) != null) {
+			var oldValue = oldStoredValue.evaluate();
+			if (oldValue != null) {
+				return oldValue;
+			}
+			if (this.storedValues.replace(compositeKey, oldStoredValue, pendingStoredValue)) {
+				break;
+			}
+		}
+		Object computedValue;
+		try {
+			computedValue = requireNonNull(pendingStoredValue.evaluate());
+		}
+		catch (Throwable t) {
+			this.storedValues.remove(compositeKey, pendingStoredValue);
+			throw t;
+		}
+		// Store the computed value with a new insertion order so that it is closed
+		// before any values that were computed while computing it.
+		this.storedValues.replace(compositeKey, pendingStoredValue, newStoredValue(() -> {
+			rejectIfClosed();
+			return computedValue;
+		}));
+		return computedValue;
 	}
 
 	/**
@@ -478,6 +500,9 @@ public final class NamespacedHierarchicalStore<N> implements AutoCloseable {
 		@Nullable
 		private volatile Object value = NO_VALUE_SET;
 
+		// only accessed while holding this supplier's lock
+		private boolean computing = false;
+
 		private MemoizingSupplier(Supplier<@Nullable Object> delegate) {
 			this.delegate = delegate;
 		}
@@ -494,14 +519,23 @@ public final class NamespacedHierarchicalStore<N> implements AutoCloseable {
 		}
 
 		private synchronized void computeValue() {
+			if (this.value != NO_VALUE_SET) {
+				return;
+			}
+			if (this.computing) {
+				throw new NamespacedHierarchicalStoreException(
+					"Recursive update: the defaultCreator must not access the value it is computing");
+			}
+			this.computing = true;
 			try {
-				if (this.value == NO_VALUE_SET) {
-					this.value = this.delegate.get();
-				}
+				this.value = this.delegate.get();
 			}
 			catch (Throwable t) {
 				this.value = new Failure(t);
 				UnrecoverableExceptions.rethrowIfUnrecoverable(t);
+			}
+			finally {
+				this.computing = false;
 			}
 		}
 
